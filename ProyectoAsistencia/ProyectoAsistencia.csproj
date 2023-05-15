@@ -64,6 +64,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Clases2023\Alumno.cs" />
+    <Compile Include="Clases2023\ClasesPublicas.cs" />
     <Compile Include="Clases2023\Cursos.cs" />
     <Compile Include="Principal.xaml.cs">
       <DependentUpon>Principal.xaml</DependentUpon>
