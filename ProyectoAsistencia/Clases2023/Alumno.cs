@@ -8,5 +8,6 @@ namespace ProyectoAsistencia.Clases2023
 {
     internal class Alumno
     {
+        public int CodigoAlumno { get; set; }
     }
 }
