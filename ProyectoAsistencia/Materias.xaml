@@ -1,0 +1,25 @@
+﻿<Window x:Class="ProyectoAsistencia.Materias"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProyectoAsistencia"
+        mc:Ignorable="d"
+        Title="Materias" Height="450" Width="800">
+    <Grid>
+        <Label Content="ID:" HorizontalAlignment="Left" Margin="69,25,0,0" VerticalAlignment="Top"/>
+        <Label Content="Materia:" HorizontalAlignment="Left" Margin="40,64,0,0" VerticalAlignment="Top"/>
+        <Label Content="Profesor:" HorizontalAlignment="Left" Margin="38,95,0,0" VerticalAlignment="Top"/>
+        <Label Content="Curso:" HorizontalAlignment="Left" Margin="52,135,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtBoxID" HorizontalAlignment="Left" Margin="98,29,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="35"/>
+        <TextBox x:Name="txtBoxMateria" HorizontalAlignment="Left" Margin="98,68,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="191"/>
+        <ComboBox x:Name="cboBoxProfesor" HorizontalAlignment="Left" Margin="100,97,0,0" VerticalAlignment="Top" Width="206"/>
+        <ComboBox x:Name="cboBoxCurso" HorizontalAlignment="Left" Margin="100,137,0,0" VerticalAlignment="Top" Width="120"/>
+        <DataGrid x:Name="dtgMaterias" HorizontalAlignment="Center" Height="217" Margin="0,217,0,0" VerticalAlignment="Top" Width="800" d:ItemsSource="{d:SampleData ItemCount=5}" BorderBrush="White" Background="White"/>
+        <Label Content="Horas cátedra:" HorizontalAlignment="Left" Margin="10,166,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtBoxHs" HorizontalAlignment="Left" Margin="101,170,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="32"/>
+        <Label Content="hs." HorizontalAlignment="Left" Margin="133,166,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnAgregar" Content="Agregar" HorizontalAlignment="Left" Margin="349,161,0,0" VerticalAlignment="Top" Height="27" Width="69" Click="btnAgregar_Click"/>
+
+    </Grid>
+</Window>

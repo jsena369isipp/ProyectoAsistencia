@@ -55,12 +55,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="VentanaPrueba.xaml.cs">
-      <DependentUpon>VentanaPrueba.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Ventana_Alumno.xaml.cs">
-      <DependentUpon>Ventana_Alumno.xaml</DependentUpon>
-    </Compile>
     <Page Include="Principal.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -72,18 +66,11 @@
     <Compile Include="Clases2023\Alumno.cs" />
     <Compile Include="Clases2023\ClasesPublicas.cs" />
     <Compile Include="Clases2023\Cursos.cs" />
+    <Compile Include="Clases2023\Materia.cs" />
     <Compile Include="Principal.xaml.cs">
       <DependentUpon>Principal.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="VentanaPrueba.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Ventana_Alumno.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
