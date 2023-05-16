@@ -11,7 +11,7 @@
         <Label Content="Alumno" HorizontalAlignment="Left" Margin="0,15,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="White" Width="206" Height="28" FontSize="15" FontWeight="Bold"/>
         <Label Content="Codigo curso:" HorizontalAlignment="Left" Margin="0,70,0,0" VerticalAlignment="Top"/>
         <Label Content="Codigo alumno:" HorizontalAlignment="Left" Margin="0,114,0,0" VerticalAlignment="Top"/>
-        <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,319,0,0" HorizontalAlignment="Center" Width="800" Height="115" VerticalAlignment="Top"/>
+        <DataGrid x:Name="DgAlumno" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,319,0,0" HorizontalAlignment="Center" Width="800" Height="115" VerticalAlignment="Top" SelectionChanged="DgAlumno_SelectionChanged"/>
         <Label Content="DNI:" HorizontalAlignment="Left" Margin="0,155,0,0" VerticalAlignment="Top"/>
         <Label Content="Nombre y Apellido:" HorizontalAlignment="Left" Margin="0,199,0,0" VerticalAlignment="Top"/>
         <Label Content="Fecha Nacimiento:" HorizontalAlignment="Left" Margin="311,70,0,0" VerticalAlignment="Top"/>
@@ -30,8 +30,8 @@
         <TextBox x:Name="TxtCorreo" HorizontalAlignment="Left" Margin="420,203,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="185"/>
         <DatePicker x:Name="DateFechaIngreso" HorizontalAlignment="Left" Margin="420,236,0,0" VerticalAlignment="Top"/>
         <CheckBox x:Name="CheckEstado" Content="Habilitado" HorizontalAlignment="Left" Margin="121,241,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="BtnCargar" Content="Cargar" HorizontalAlignment="Left" Margin="161,277,0,0" VerticalAlignment="Top" Width="60" Height="20" Background="#FF822D4A" Foreground="White" FontWeight="Bold"/>
-        <Button x:Name="BtnQuitar" Content="Quitar" HorizontalAlignment="Left" Margin="254,277,0,0" VerticalAlignment="Top" Width="60" Height="20" Foreground="#FFFDFDFD" Background="#FF822D4A" FontWeight="Bold"/>
+        <Button x:Name="BtnCargar" Content="Cargar" HorizontalAlignment="Left" Margin="161,277,0,0" VerticalAlignment="Top" Width="60" Height="20" Background="#FF822D4A" Foreground="White" FontWeight="Bold" Click="BtnCargar_Click"/>
+        <Button x:Name="BtnQuitar" Content="Quitar" HorizontalAlignment="Left" Margin="254,277,0,0" VerticalAlignment="Top" Width="60" Height="20" Foreground="#FFFDFDFD" Background="#FF822D4A" FontWeight="Bold" Click="BtnQuitar_Click"/>
         <Button x:Name="BtnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="347,277,0,0" VerticalAlignment="Top" Width="60" Height="20" Foreground="#FFFDFDFD" Background="#FF822D4A" FontWeight="Bold"/>
         <Button x:Name="BtnLeer" Content="Leer" HorizontalAlignment="Left" Margin="440,277,0,0" VerticalAlignment="Top" Width="60" Height="20" Background="#FF822D4A" Foreground="White" FontWeight="Bold"/>
 

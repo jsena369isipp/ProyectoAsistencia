@@ -23,5 +23,10 @@ namespace ProyectoAsistencia
         {
             InitializeComponent();
         }
+
+        private void BtnCargar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
