@@ -55,6 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="VentanaPrueba.xaml.cs">
+      <DependentUpon>VentanaPrueba.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Ventana_Alumno.xaml.cs">
       <DependentUpon>Ventana_Alumno.xaml</DependentUpon>
     </Compile>
@@ -73,6 +76,10 @@
       <DependentUpon>Principal.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="VentanaPrueba.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Ventana_Alumno.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
