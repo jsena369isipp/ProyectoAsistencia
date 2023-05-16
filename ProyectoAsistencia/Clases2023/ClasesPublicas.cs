@@ -8,5 +8,6 @@ namespace ProyectoAsistencia.Clases2023
 {
     public static class ClasesPublicas
     {
+        public static List<Alumno> ListaAlumno = new List<Alumno>();
     }
 }
