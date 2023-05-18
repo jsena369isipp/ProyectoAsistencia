@@ -7,19 +7,32 @@
         mc:Ignorable="d"
         Title="VentanaAsistencia" Height="450" Width="800">
     <Grid>
-        <DatePicker x:Name="DpFecha" HorizontalAlignment="Left" Margin="123,26,0,0" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="39,26,0,0" TextWrapping="Wrap" Text="Fecha:" VerticalAlignment="Top"/>
-        <ComboBox x:Name="CmbCurso" HorizontalAlignment="Left" Margin="123,80,0,0" VerticalAlignment="Top" Width="120"/>
-        <TextBlock HorizontalAlignment="Left" Margin="39,83,0,0" TextWrapping="Wrap" Text="Curso:" VerticalAlignment="Top" RenderTransformOrigin="0.446,0.441"/>
-        <ComboBox x:Name="CmbPreceptor" HorizontalAlignment="Left" Margin="123,124,0,0" VerticalAlignment="Top" Width="120"/>
-        <TextBlock HorizontalAlignment="Left" Margin="34,127,0,0" TextWrapping="Wrap" Text="Preceptor:" VerticalAlignment="Top"/>
+        <DatePicker x:Name="DpFecha" HorizontalAlignment="Left" Margin="123,112,0,0" VerticalAlignment="Top" Height="21"/>
+        <TextBlock HorizontalAlignment="Left" Margin="34,116,0,0" TextWrapping="Wrap" Text="Fecha:" VerticalAlignment="Top" Height="14"/>
+        <ComboBox x:Name="CmbCurso" HorizontalAlignment="Left" Margin="123,151,0,0" VerticalAlignment="Top" Width="120" Height="20"/>
+        <TextBlock HorizontalAlignment="Left" Margin="34,154,0,0" TextWrapping="Wrap" Text="Curso:" VerticalAlignment="Top" RenderTransformOrigin="0.446,0.441" Height="14"/>
+        <ComboBox x:Name="CmbPreceptor" HorizontalAlignment="Left" Margin="123,190,0,0" VerticalAlignment="Top" Width="120" Height="19"/>
+        <TextBlock HorizontalAlignment="Left" Margin="34,192,0,0" TextWrapping="Wrap" Text="Preceptor:" VerticalAlignment="Top" Height="14"/>
         <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,276,0,0"/>
-        <CheckBox x:Name="ChPresente" Content="Presente" HorizontalAlignment="Left" Margin="123,0,0,0" VerticalAlignment="Center"/>
-        <TextBlock HorizontalAlignment="Left" Margin="39,180,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <Button x:Name="BtnLeer" Content="Leer" HorizontalAlignment="Left" Margin="551,26,0,0" VerticalAlignment="Top" Height="24" Width="64"/>
-        <Button x:Name="BtnActualizar" Content="Actualizar" HorizontalAlignment="Left" Margin="484,26,0,0" VerticalAlignment="Top" Height="24" Width="62" Click="BtnGuardar_Click"/>
-        <ComboBox HorizontalAlignment="Left" Margin="123,166,0,0" VerticalAlignment="Top" Width="120"/>
-        <TextBlock HorizontalAlignment="Left" Margin="39,172,0,0" TextWrapping="Wrap" Text="Materia:" VerticalAlignment="Top"/>
-        <Button x:Name="BtnGuardar_Copy" Content="Guardar" HorizontalAlignment="Left" Margin="417,26,0,0" VerticalAlignment="Top" Height="24" Width="62" Click="BtnGuardar_Click"/>
+        <CheckBox x:Name="ChPresente" Content="Presente" HorizontalAlignment="Left" Margin="123,256,0,0" VerticalAlignment="Top" Height="20"/>
+        <TextBlock HorizontalAlignment="Left" Margin="39,239,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="14"/>
+        <Button x:Name="BtnLeer" Content="Alumnos" HorizontalAlignment="Left" Margin="707,71,0,0" VerticalAlignment="Top" Height="21" Width="64" Background="#FF822D4A" Foreground="White" BorderBrush="Black"/>
+        <Button x:Name="BtnActualizar" Content="Actualizar" HorizontalAlignment="Left" Margin="484,71,0,0" VerticalAlignment="Top" Height="21" Width="62" Click="BtnGuardar_Click" Background="#FF822D4A" Foreground="White" BorderBrush="Black"/>
+        <ComboBox HorizontalAlignment="Left" Margin="123,226,0,0" VerticalAlignment="Top" Width="120" Height="20"/>
+        <TextBlock HorizontalAlignment="Left" Margin="34,229,0,0" TextWrapping="Wrap" Text="Materia:" VerticalAlignment="Top" Height="14"/>
+        <Button x:Name="BtnGuardar_Copy" Content="Guardar" HorizontalAlignment="Left" Margin="417,71,0,0" VerticalAlignment="Top" Height="21" Width="62" Click="BtnGuardar_Click" Background="#FF822D4A" Foreground="White" BorderBrush="Black"/>
+        <TextBlock HorizontalAlignment="Left" Margin="39,75,0,0" TextWrapping="Wrap" Text="ID:" VerticalAlignment="Top" Height="14"/>
+        <TextBox x:Name="TxtID" HorizontalAlignment="Left" Margin="123,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="45" Height="16"/>
+        <Rectangle HorizontalAlignment="Center" Height="55"  Stroke="Black" VerticalAlignment="Top" Width="800" Fill="#FF641C34"/>
+        <Label Content="Asistencias" HorizontalAlignment="Left" Margin="15,5,0,0" VerticalAlignment="Top" Height="45" RenderTransformOrigin="0.5,0.5" Width="206" FontSize="25" FontWeight="Bold" Foreground="White">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="0"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="0"/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
     </Grid>
 </Window>

@@ -8,10 +8,9 @@ namespace ProyectoAsistencia.Clases2023
 {
     internal class Asistencia
     {
+        public int IdAsistencia { get; set; }
         public bool Presente { get; set; }
         public DateTime Fecha { get; set; }
-        public int IdMateria { get; set; }
-        public int IdPreceptor { get; set; }
-        public int IdCurso { get; set; }
+        
     }
 }
