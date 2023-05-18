@@ -1,0 +1,25 @@
+﻿<Window x:Class="ProyectoAsistencia.VentanaAsistencia"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProyectoAsistencia"
+        mc:Ignorable="d"
+        Title="VentanaAsistencia" Height="450" Width="800">
+    <Grid>
+        <DatePicker x:Name="DpFecha" HorizontalAlignment="Left" Margin="123,26,0,0" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="39,26,0,0" TextWrapping="Wrap" Text="Fecha:" VerticalAlignment="Top"/>
+        <ComboBox x:Name="CmbCurso" HorizontalAlignment="Left" Margin="123,80,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="39,83,0,0" TextWrapping="Wrap" Text="Curso:" VerticalAlignment="Top" RenderTransformOrigin="0.446,0.441"/>
+        <ComboBox x:Name="CmbPreceptor" HorizontalAlignment="Left" Margin="123,124,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="34,127,0,0" TextWrapping="Wrap" Text="Preceptor:" VerticalAlignment="Top"/>
+        <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,276,0,0"/>
+        <CheckBox x:Name="ChPresente" Content="Presente" HorizontalAlignment="Left" Margin="123,0,0,0" VerticalAlignment="Center"/>
+        <TextBlock HorizontalAlignment="Left" Margin="39,180,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <Button x:Name="BtnLeer" Content="Leer" HorizontalAlignment="Left" Margin="551,26,0,0" VerticalAlignment="Top" Height="24" Width="64"/>
+        <Button x:Name="BtnActualizar" Content="Actualizar" HorizontalAlignment="Left" Margin="484,26,0,0" VerticalAlignment="Top" Height="24" Width="62" Click="BtnGuardar_Click"/>
+        <ComboBox HorizontalAlignment="Left" Margin="123,166,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="39,172,0,0" TextWrapping="Wrap" Text="Materia:" VerticalAlignment="Top"/>
+        <Button x:Name="BtnGuardar_Copy" Content="Guardar" HorizontalAlignment="Left" Margin="417,26,0,0" VerticalAlignment="Top" Height="24" Width="62" Click="BtnGuardar_Click"/>
+    </Grid>
+</Window>
