@@ -8,5 +8,9 @@ namespace ProyectoAsistencia.Clases2023
 {
     internal class Cursos
     {
+        public int ID { get; set; }
+        public bool Estado { get; set; }
+        public string CodigoPreceptor { get; set; }
+        public int CodigoCursos { get; set; }
     }
 }

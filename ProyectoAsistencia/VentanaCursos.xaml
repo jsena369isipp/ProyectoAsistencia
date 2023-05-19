@@ -1,0 +1,29 @@
+﻿<Window x:Class="ProyectoAsistencia.VentanaCursos"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProyectoAsistencia"
+        mc:Ignorable="d"
+        Title="Cursos" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <TextBlock HorizontalAlignment="Left" Margin="60,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14"><Run Language="es-es" Text="ID:"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="334,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14"><Run Language="es-es" Text="Estado:"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="60,112,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14" Text="Preceptor"/>
+        <TextBlock HorizontalAlignment="Left" Margin="60,74,0,0" TextWrapping="Wrap" Text="Curso:" VerticalAlignment="Top" FontSize="14"/>
+        <CheckBox x:Name="chbEstado" Content="Cheq" HorizontalAlignment="Left" Margin="400,41,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <TextBox x:Name="txtID" HorizontalAlignment="Left" Margin="142,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="14"/>
+        <TextBox x:Name="txtCurso" HorizontalAlignment="Left" Margin="142,72,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="14"/>
+        <DataGrid SelectionChanged="dtgCursos_SelectionChanged" x:Name="dtgCursos" d:ItemsSource="{d:SampleData ItemCount=5}" Height="NaN" Margin="0,160,0,0"/>
+        <Button x:Name="bttCargar" Content="Cargar" HorizontalAlignment="Left" Margin="334,78,0,0" VerticalAlignment="Top" FontSize="14" Click="Button_Click"/>
+        <Button x:Name="bttnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="400,78,0,0" VerticalAlignment="Top" FontSize="14" Click="bttnGuardar_Click"/>
+        <Button x:Name="bttnQuitar" Content="Quitar" HorizontalAlignment="Left" Margin="400,110,0,0" VerticalAlignment="Top" FontSize="14" Click="ButtonQuitar_Click" Width="54"/>
+        <Button x:Name="bttnLeer" Content="Leer" HorizontalAlignment="Left" Margin="334,110,0,0" VerticalAlignment="Top" FontSize="14" Width="45"/>
+        <ComboBox x:Name="cmbPreceptor" HorizontalAlignment="Left" Margin="142,112,0,0" VerticalAlignment="Top" Width="120">
+            <ComboBoxItem Content="Juan" FontSize="14"/>
+            <ComboBoxItem Content="Pedro" FontSize="14"/>
+            <ComboBoxItem Content="Laura" FontSize="14"/>
+        </ComboBox>
+
+    </Grid>
+</Window>
