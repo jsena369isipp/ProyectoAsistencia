@@ -11,7 +11,7 @@ namespace ProyectoAsistencia.Clases2023
     public static class ClasesPublicas
     {
 
-
+        //PRUEBA
         public static List<Materia> ListaMaterias = new List<Materia>();
         public static void LeerArchivoMateria()
         {
