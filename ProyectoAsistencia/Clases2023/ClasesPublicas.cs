@@ -13,8 +13,6 @@ namespace ProyectoAsistencia.Clases2023
         public static List<Materia> ListaMaterias = new List<Materia>();
         public static void LeerArchivoMateria()
         {
-            
-
             try
             {
                 if (File.Exists("Materias.txt"))
