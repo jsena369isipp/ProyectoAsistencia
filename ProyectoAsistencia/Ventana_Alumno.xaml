@@ -35,6 +35,7 @@
         <Button x:Name="BtnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="347,277,0,0" VerticalAlignment="Top" Width="60" Height="20" Foreground="#FFFDFDFD" Background="#FF822D4A" FontWeight="Bold" Click="BtnGuardar_Click"/>
         <Button x:Name="BtnLeer" Content="Leer" HorizontalAlignment="Left" Margin="440,277,0,0" VerticalAlignment="Top" Width="60" Height="20" Background="#FF822D4A" Foreground="White" FontWeight="Bold"/>
         <Image x:Name="ImgIsipp" HorizontalAlignment="Left" Height="55" Margin="723,0,0,0" VerticalAlignment="Top" Width="56" Source="/isipp-blanco.png"/>
+        <Image HorizontalAlignment="Left" Height="55" Margin="723,0,0,0" VerticalAlignment="Top" Width="56" Source="/Imagen/isipp-blanco.png"/>
 
     </Grid>
 </Window>
