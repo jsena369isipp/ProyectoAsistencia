@@ -70,8 +70,6 @@
     <Compile Include="Clases2023\Alumno.cs" />
     <Compile Include="Clases2023\ClasesPublicas.cs" />
     <Compile Include="Clases2023\Cursos.cs" />
-    <Compile Include="Clases2023\Menu.cs" />
-    <Compile Include="Clases2023\MenuClasePublica.cs" />
     <Compile Include="Mantenimiento.xaml.cs">
       <DependentUpon>Mantenimiento.xaml</DependentUpon>
     </Compile>

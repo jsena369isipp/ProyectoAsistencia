@@ -6,5 +6,18 @@
         xmlns:local="clr-namespace:ProyectoAsistencia"
         mc:Ignorable="d"
         Title="Mantenimiento" Height="450" Width="800">
-    <Grid/>
+    <Grid>
+        <Button x:Name="btnAlumn" Content="Alumnos" HorizontalAlignment="Center" Margin="0,116,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.098,-0.374" Width="192" Background="#FF641C34" Foreground="#FFFFF5F5" Click="btnAlumn_Click"/>
+        <Button Content="Materias" HorizontalAlignment="Center" Margin="0,155,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.098,-0.374" Width="192" Background="#FF641C34" Foreground="#FFFFF5F5" BorderBrush="#FF707070"/>
+        <Button Content="Asistencias" HorizontalAlignment="Center" Margin="0,197,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.098,-0.374" Width="192" Background="#FF641C34" Foreground="#FFFFF5F5" BorderBrush="#FF707070"/>
+        <Button Content="Cursos" HorizontalAlignment="Center" Margin="0,238,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.098,-0.374" Width="192" Background="#FF641C34" Foreground="#FFFFF5F5" BorderBrush="#FF707070"/>
+        <Button Content="Preceptores" HorizontalAlignment="Center" Margin="0,282,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.098,-0.374" Width="192" Background="#FF641C34" Foreground="#FFFFF5F5" BorderBrush="#FF707070"/>
+        <Menu Height="50px" VerticalAlignment="Top" Background="#FF641C34">
+
+            <MenuItem Header="MENU DE ASISTENCIAS" Height="50" Width="140px" Foreground="White" />
+            <MenuItem>
+                <MenuItem x:Name="mnuMant" Header="Mantenimiento" Click="mnuMant_Click"/>
+            </MenuItem>
+        </Menu>
+    </Grid>
 </Window>

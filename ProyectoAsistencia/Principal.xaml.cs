@@ -27,6 +27,13 @@ namespace ProyectoAsistencia
 
         private void mnuMant_Click(object sender, RoutedEventArgs e)
         {
+            Mantenimiento ventana = new Mantenimiento();
+            ventana.Show();
+
+        }
+
+        private void btnAlumn_Click(object sender, RoutedEventArgs e)
+        {
 
         }
     }

@@ -32,7 +32,9 @@ namespace ProyectoAsistencia
 
         }
 
+        private void btnAlumn_Click(object sender, RoutedEventArgs e)
+        {
 
-
+        }
     }
 }
