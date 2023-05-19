@@ -143,7 +143,50 @@ namespace ProyectoAsistencia.Clases2023
         public static List<Cursos> ListaCursos = new List<Cursos>();
         public static void LeerArchivoCursos()
         {
+            try
+            {
+                if (File.Exists("Cursos.txt"))
+                {
+                    Cursos objCursos;
+                    ListaCursos = new List<Cursos>();
 
+                    string textoCompleto = File.ReadAllText("Cursos.txt");
+                    char[] delims = new[] { '\r', '\n' };
+                    string[] lineas = textoCompleto.Split(delims, StringSplitOptions.RemoveEmptyEntries);
+                    foreach (string fila in lineas)
+                    {
+                        objCursos = new Cursos();
+                        string[] valores = fila.Split(';');
+                        int contador = 0;
+
+                        foreach (string valor in valores)
+                        {
+                            if (contador == 0)
+                            {
+                                objCursos.ID = Convert.ToInt32(valor);
+                            }
+                            else if (contador == 1)
+                            {
+                                objCursos.Estado = Convert.ToBoolean(valor);
+                            }
+                            else if (contador == 2)
+                            {
+                                objCursos.CodigoPreceptor = valor;
+                            }
+                            else if (contador == 3)
+                            {
+                                objCursos.CodigoCursos = Convert.ToInt32(valor);
+                            }
+                            contador++;
+                        }
+                        ClasesPublicas.ListaCursos.Add(objCursos);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al leer: " + ex.Message, "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private static List<Asistencia> listaAsistencias = new List<Asistencia>();

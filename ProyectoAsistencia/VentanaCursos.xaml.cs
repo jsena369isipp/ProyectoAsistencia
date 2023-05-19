@@ -118,5 +118,19 @@ namespace ProyectoAsistencia
                 MessageBox.Show("Error al guardar: " + ex.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+        private void bttnLeer_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                ClasesPublicas.LeerArchivoCursos();
+                dtgCursos.ItemsSource = ClasesPublicas.ListaCursos;
+                dtgCursos.Items.Refresh();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al Leer: " + ex.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
     }   
 }

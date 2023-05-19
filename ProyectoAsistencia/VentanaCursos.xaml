@@ -18,7 +18,7 @@
         <Button x:Name="bttCargar" Content="Cargar" HorizontalAlignment="Left" Margin="334,78,0,0" VerticalAlignment="Top" FontSize="14" Click="Button_Click"/>
         <Button x:Name="bttnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="400,78,0,0" VerticalAlignment="Top" FontSize="14" Click="bttnGuardar_Click"/>
         <Button x:Name="bttnQuitar" Content="Quitar" HorizontalAlignment="Left" Margin="400,110,0,0" VerticalAlignment="Top" FontSize="14" Click="ButtonQuitar_Click" Width="54"/>
-        <Button x:Name="bttnLeer" Content="Leer" HorizontalAlignment="Left" Margin="334,110,0,0" VerticalAlignment="Top" FontSize="14" Width="45"/>
+        <Button x:Name="bttnLeer" Content="Leer" HorizontalAlignment="Left" Margin="334,110,0,0" VerticalAlignment="Top" FontSize="14" Width="45" Click="bttnLeer_Click"/>
         <ComboBox x:Name="cmbPreceptor" HorizontalAlignment="Left" Margin="142,112,0,0" VerticalAlignment="Top" Width="120">
             <ComboBoxItem Content="Juan" FontSize="14"/>
             <ComboBoxItem Content="Pedro" FontSize="14"/>
