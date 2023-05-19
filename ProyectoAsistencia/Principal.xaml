@@ -7,6 +7,21 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <Menu Height="50px" VerticalAlignment="Top" Background="DarkCyan">
+
+            <MenuItem Header="MENU DE ASISTENCIAS" Height="60px" Width="140px" BorderBrush="Black">
+               
+
+            </MenuItem>
+            <MenuItem Header="Mantenimiento">
+                <MenuItem x:Name="mnuMant" Header="Mantenimiento" Click="mnuMant_Click"/>
+            </MenuItem>
+        </Menu>
+        <Button Content="Alumnos" HorizontalAlignment="Center" Margin="0,116,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.098,-0.374" Width="192"/>
+        <Button Content="Materias" HorizontalAlignment="Center" Margin="0,155,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.098,-0.374" Width="192"/>
+        <Button Content="Asistencias" HorizontalAlignment="Center" Margin="0,197,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.098,-0.374" Width="192"/>
+
+
+
     </Grid>
 </Window>
