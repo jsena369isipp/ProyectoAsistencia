@@ -21,10 +21,12 @@ namespace ProyectoAsistencia
     /// </summary>
     public partial class Materias : Window
     {
-        List<Clases2023.Materia> ListaMaterias = new List<Clases2023.Materia>();
+        List<Materia> ListaMaterias = new List<Materia>();
         public Materias()
         {
             InitializeComponent();
+            ClasesPublicas.LeerArchivoMateria();
+            dtgMaterias.ItemsSource = ClasesPublicas.ListaMaterias;
         }
 
         private void btnAgregar_Click(object sender, RoutedEventArgs e)
@@ -32,10 +34,10 @@ namespace ProyectoAsistencia
             try
             {
                 Int32 IDVariable = Convert.ToInt32(txtBoxID.Text);
-                Clases2023.Materia ObjetoMateria = ListaMaterias.Where(n => n.IdMateria == IDVariable).FirstOrDefault();
+                Materia ObjetoMateria = ListaMaterias.Where(n => n.IdMateria == IDVariable).FirstOrDefault();
                 if (ObjetoMateria == null)
                 {
-                    ObjetoMateria = new Clases2023.Materia();
+                    ObjetoMateria = new Materia();
                     ObjetoMateria.IdMateria = Convert.ToInt32(txtBoxID.Text);
                     ObjetoMateria.NombreMateria = txtBoxMateria.Text;
                     ObjetoMateria.IdProfesor = cboBoxProfesor.SelectedIndex;
