@@ -112,5 +112,10 @@ namespace ProyectoAsistencia
                 MessageBox.Show("Error: " + ex.Message, "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+        private void BtnLeer_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
