@@ -24,7 +24,7 @@ namespace ProyectoAsistencia
         public VentanaCursos()
         {
             InitializeComponent();
-            ClasesPublicas.leerArchivoCursos();
+            ClasesPublicas.LeerArchivoCursos();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -32,7 +32,7 @@ namespace ProyectoAsistencia
             try
             {
                 Int32 IDVariable = Convert.ToInt32(txtID.Text);
-                Cursos objCursos = ClasesPublicas.listaCursos.Where(n => n.ID == IDVariable).FirstOrDefault();
+                Cursos objCursos = ClasesPublicas.ListaCursos.Where(n => n.ID == IDVariable).FirstOrDefault();
                 if (objCursos == null)
                 {
                     objCursos = new Cursos();
@@ -41,7 +41,7 @@ namespace ProyectoAsistencia
                     objCursos.CodigoPreceptor = cmbPreceptor.Text;
                     objCursos.CodigoCursos = Convert.ToInt32(txtCurso.Text);
                     
-                    ClasesPublicas.listaCursos.Add(objCursos);
+                    ClasesPublicas.ListaCursos.Add(objCursos);
                 }
                 else
                 {
@@ -49,7 +49,7 @@ namespace ProyectoAsistencia
                     objCursos.CodigoPreceptor = cmbPreceptor.Text;
                     objCursos.CodigoCursos = Convert.ToInt32(txtCurso.Text);
                 }
-                dtgCursos.ItemsSource = ClasesPublicas.listaCursos;
+                dtgCursos.ItemsSource = ClasesPublicas.ListaCursos;
                 dtgCursos.Items.Refresh();
 
             }
@@ -66,8 +66,8 @@ namespace ProyectoAsistencia
                 Cursos objetoCursos = (Cursos)dtgCursos.SelectedItem;
                 if (objetoCursos != null)
                 {
-                    ClasesPublicas.listaCursos.Remove(objetoCursos);
-                    dtgCursos.ItemsSource = ClasesPublicas.listaCursos;
+                    ClasesPublicas.ListaCursos.Remove(objetoCursos);
+                    dtgCursos.ItemsSource = ClasesPublicas.ListaCursos;
                     dtgCursos.Items.Refresh();
                 }
             }
@@ -106,7 +106,7 @@ namespace ProyectoAsistencia
                     File.Delete("Cursos.txt");
                 }
                 string CursosConectando = "";
-                foreach (Cursos objetoCursos in ClasesPublicas.listaCursos)
+                foreach (Cursos objetoCursos in ClasesPublicas.ListaCursos)
                 {
                     CursosConectando = CursosConectando + "\r\n" + objetoCursos.ID + ";" + objetoCursos.Estado + ";" + objetoCursos.CodigoPreceptor + ";" + objetoCursos.CodigoCursos;
                 }

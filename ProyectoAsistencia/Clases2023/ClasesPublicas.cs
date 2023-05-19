@@ -139,5 +139,11 @@ namespace ProyectoAsistencia.Clases2023
                 MessageBox.Show("Error al Leer: " + ex.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+        public static List<Cursos> ListaCursos = new List<Cursos>();
+        public static void LeerArchivoCursos()
+        {
+
+        }
     }
 }

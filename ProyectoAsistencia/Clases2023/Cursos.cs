@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProyectoAsistencia.Clases2023
 {
-    internal class Cursos
+    public class Cursos
     {
         public int ID { get; set; }
         public bool Estado { get; set; }
