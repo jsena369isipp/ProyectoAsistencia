@@ -28,5 +28,10 @@ namespace ProyectoAsistencia
         {
 
         }
+
+        private void BtnLeer_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -56,8 +56,12 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Clases2023\Asistencia.cs" />
+    <Compile Include="Clases2023\Preceptor.cs" />
     <Compile Include="VentanaAsistencia.xaml.cs">
       <DependentUpon>VentanaAsistencia.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="VentanaPreceptor.xaml.cs">
+      <DependentUpon>VentanaPreceptor.xaml</DependentUpon>
     </Compile>
     <Compile Include="Ventana_Alumno.xaml.cs">
       <DependentUpon>Ventana_Alumno.xaml</DependentUpon>
@@ -87,6 +91,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="VentanaAsistencia.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VentanaPreceptor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

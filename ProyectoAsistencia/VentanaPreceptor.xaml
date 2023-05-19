@@ -1,0 +1,29 @@
+﻿<Window x:Class="ProyectoAsistencia.VentanaPreceptor"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProyectoAsistencia"
+        mc:Ignorable="d"
+        Title="VentanaPreceptor" Height="450" Width="800">
+    <Grid>
+        <Label Content="Codigo preceptor:" HorizontalAlignment="Left" Margin="9,43,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtCodPreceptor" HorizontalAlignment="Left" Margin="126,47,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="80" Height="22"/>
+        <Label Content="Nombre y Apellido:" HorizontalAlignment="Left" Margin="9,130,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtNombApellido" HorizontalAlignment="Left" Margin="127,132,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="159" Height="22"/>
+        <Label Content="Crusos:" HorizontalAlignment="Left" Margin="307,43,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cbCursos" HorizontalAlignment="Center" Margin="0,47,0,0" VerticalAlignment="Top" Width="80"/>
+        <Label Content="DNI:" HorizontalAlignment="Left" Margin="305,134,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtdni" HorizontalAlignment="Left" Margin="360,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="159" Height="21"/>
+        <DatePicker x:Name="dpFechaNac" HorizontalAlignment="Left" Margin="638,48,0,0" VerticalAlignment="Top" Height="21"/>
+        <Label Content="Fecha nacimiento:" HorizontalAlignment="Left" Margin="533,43,0,0" VerticalAlignment="Top"/>
+        <Label Content="Estado:" HorizontalAlignment="Left" Margin="533,134,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.562,-0.114"/>
+        <CheckBox x:Name="chbEstado" Content="Habilitado" HorizontalAlignment="Left" Margin="643,140,0,0" VerticalAlignment="Top"/>
+        <DataGrid x:Name="dg1" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,243,0,0"/>
+        <Button x:Name="btnCrear" Content="Crear" HorizontalAlignment="Left" Margin="433,188,0,0" VerticalAlignment="Top" Height="29" Width="84" Click="btncrear_Click"/>
+        <Button x:Name="btnCargar" Content="Cargar datos" HorizontalAlignment="Left" Margin="175,188,0,0" VerticalAlignment="Top" Width="82" Height="29" Click="btnCargar_Click"/>
+        <Button x:Name="btnQuitar" Content="Quitar" HorizontalAlignment="Left" Margin="298,188,0,0" VerticalAlignment="Top" Height="29" Width="82" Click="btnQuitar_Click"/>
+        <Button x:Name="btnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="557,188,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.177,-0.649" Height="29" Width="84" Click="btnGuardar_Click"/>
+
+    </Grid>
+</Window>
