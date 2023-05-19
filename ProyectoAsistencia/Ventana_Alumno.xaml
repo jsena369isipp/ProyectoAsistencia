@@ -32,7 +32,7 @@
         <CheckBox x:Name="CheckEstado" Content="Habilitado" HorizontalAlignment="Left" Margin="121,241,0,0" VerticalAlignment="Top"/>
         <Button x:Name="BtnCargar" Content="Cargar" HorizontalAlignment="Left" Margin="161,277,0,0" VerticalAlignment="Top" Width="60" Height="20" Background="#FF822D4A" Foreground="White" FontWeight="Bold" Click="BtnCargar_Click"/>
         <Button x:Name="BtnQuitar" Content="Quitar" HorizontalAlignment="Left" Margin="254,277,0,0" VerticalAlignment="Top" Width="60" Height="20" Foreground="#FFFDFDFD" Background="#FF822D4A" FontWeight="Bold" Click="BtnQuitar_Click"/>
-        <Button x:Name="BtnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="347,277,0,0" VerticalAlignment="Top" Width="60" Height="20" Foreground="#FFFDFDFD" Background="#FF822D4A" FontWeight="Bold"/>
+        <Button x:Name="BtnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="347,277,0,0" VerticalAlignment="Top" Width="60" Height="20" Foreground="#FFFDFDFD" Background="#FF822D4A" FontWeight="Bold" Click="BtnGuardar_Click"/>
         <Button x:Name="BtnLeer" Content="Leer" HorizontalAlignment="Left" Margin="440,277,0,0" VerticalAlignment="Top" Width="60" Height="20" Background="#FF822D4A" Foreground="White" FontWeight="Bold"/>
 
     </Grid>

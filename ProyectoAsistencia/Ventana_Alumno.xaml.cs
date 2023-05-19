@@ -1,6 +1,7 @@
 ﻿using ProyectoAsistencia.Clases2023;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,16 +22,15 @@ namespace ProyectoAsistencia
         public Ventana_Alumno()
         {
             InitializeComponent();
+            DateFechaIngreso.SelectedDate = DateTime.Now;
         }
-
-        List<Alumno> ListaAlumnos = new List<Alumno>();
 
         private void BtnCargar_Click(object sender, RoutedEventArgs e)
         {
             try
             {
                 Int64 VariableDni = Convert.ToInt64(TxtDNI.Text);
-                Alumno ObjAlumno = ListaAlumnos.Where(n => n.Dni == VariableDni).FirstOrDefault();
+                Alumno ObjAlumno = ClasesPublicas.ListaAlumnos.Where(n => n.Dni == VariableDni).FirstOrDefault();
                 if (ObjAlumno != null)
                 {
                     ObjAlumno = new Alumno();
@@ -45,7 +45,7 @@ namespace ProyectoAsistencia
                     ObjAlumno.CorreoElectronico = TxtCorreo.Text;
                     ObjAlumno.FechaIngreso = DateFechaIngreso.SelectedDate.Value;
 
-                    ListaAlumnos.Add(ObjAlumno);
+                    ClasesPublicas.ListaAlumnos.Add(ObjAlumno);
                 }
                 else 
                 {
@@ -60,7 +60,7 @@ namespace ProyectoAsistencia
                     ObjAlumno.CorreoElectronico = TxtCorreo.Text;
                     ObjAlumno.FechaIngreso = DateFechaIngreso.SelectedDate.Value;
                 }
-                DgAlumno.ItemsSource = ListaAlumnos;
+                DgAlumno.ItemsSource = ClasesPublicas.ListaAlumnos;
                 DgAlumno.Items.Refresh();
             }
             catch (Exception ex)
@@ -76,8 +76,8 @@ namespace ProyectoAsistencia
                 Alumno ObjAlumnoEliminar = (Alumno)DgAlumno.SelectedItem;
                 if (ObjAlumnoEliminar != null)
                 {
-                    ListaAlumnos.Remove(ObjAlumnoEliminar);
-                    DgAlumno.ItemsSource = ListaAlumnos;
+                    ClasesPublicas.ListaAlumnos.Remove(ObjAlumnoEliminar);
+                    DgAlumno.ItemsSource = ClasesPublicas.ListaAlumnos;
                     DgAlumno.Items.Refresh();
                 }
             }
@@ -115,7 +115,39 @@ namespace ProyectoAsistencia
 
         private void BtnLeer_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                ClasesPublicas.LeerArchivoAlumno();
+                DgAlumno.ItemsSource = ClasesPublicas.ListaAlumnos;
+                DgAlumno.Items.Refresh();
 
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al Leer: " + ex.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void BtnGuardar_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (File.Exists("Alumno.txt"))
+                {
+                    File.Delete("Alumno.txt");
+                }
+                string AlumnoConcatenado = "";
+                foreach (Alumno ObjAlumno in ClasesPublicas.ListaAlumnos)
+                {
+                    AlumnoConcatenado = AlumnoConcatenado + "\r\n" + ObjAlumno.CodigoCurso + ";" + ObjAlumno.CodigoAlumno + ";" + ObjAlumno.Dni + ";" + ObjAlumno.NombreApellido + ";" + ObjAlumno.FechaNacimiento + ";" + ObjAlumno.Domicilio + ";" + ObjAlumno.Tel + ";" + ObjAlumno.CorreoElectronico + ";" + ObjAlumno.Estado + ";" + ObjAlumno.FechaIngreso + ";";
+                }
+                File.WriteAllText("Alumno.txt", AlumnoConcatenado);
+                MessageBox.Show("Almacenado de forma correcta!!", "Aplicación", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al guardar: " + ex.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProyectoAsistencia.Clases2023
 {
-    internal class Alumno
+    public class Alumno
     {
         public int CodigoCurso { get; set; }
 
