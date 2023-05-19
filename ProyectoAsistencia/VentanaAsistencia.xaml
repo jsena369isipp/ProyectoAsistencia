@@ -13,14 +13,14 @@
         <TextBlock HorizontalAlignment="Left" Margin="34,154,0,0" TextWrapping="Wrap" Text="Curso:" VerticalAlignment="Top" RenderTransformOrigin="0.446,0.441" Height="14"/>
         <ComboBox x:Name="CmbPreceptor" HorizontalAlignment="Left" Margin="123,190,0,0" VerticalAlignment="Top" Width="120" Height="19"/>
         <TextBlock HorizontalAlignment="Left" Margin="34,192,0,0" TextWrapping="Wrap" Text="Preceptor:" VerticalAlignment="Top" Height="14"/>
-        <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,276,0,0"/>
+        <DataGrid x:Name="dtg" SelectionChanged="dtgAsistencia_SC" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,276,0,0"/>
         <CheckBox x:Name="ChPresente" Content="Presente" HorizontalAlignment="Left" Margin="123,256,0,0" VerticalAlignment="Top" Height="20"/>
         <TextBlock HorizontalAlignment="Left" Margin="39,239,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="14"/>
         <Button x:Name="BtnLeer" Content="Alumnos" HorizontalAlignment="Left" Margin="707,71,0,0" VerticalAlignment="Top" Height="21" Width="64" Background="#FF822D4A" Foreground="White" BorderBrush="Black"/>
         <Button x:Name="BtnActualizar" Content="Actualizar" HorizontalAlignment="Left" Margin="484,71,0,0" VerticalAlignment="Top" Height="21" Width="62" Background="#FF822D4A" Foreground="White" BorderBrush="Black"/>
-        <ComboBox HorizontalAlignment="Left" Margin="123,226,0,0" VerticalAlignment="Top" Width="120" Height="20"/>
+        <ComboBox x:Name="cmbMateria" HorizontalAlignment="Left" Margin="123,226,0,0" VerticalAlignment="Top" Width="120" Height="20"/>
         <TextBlock HorizontalAlignment="Left" Margin="34,229,0,0" TextWrapping="Wrap" Text="Materia:" VerticalAlignment="Top" Height="14"/>
-        <Button x:Name="BtnGuardar_Copy" Content="Guardar" HorizontalAlignment="Left" Margin="417,71,0,0" VerticalAlignment="Top" Height="21" Width="62" Background="#FF822D4A" Foreground="White" BorderBrush="Black"/>
+        <Button x:Name="BtnGuardar_Copy" Click="btnGrd_Click"  Content="Guardar" HorizontalAlignment="Left" Margin="417,71,0,0" VerticalAlignment="Top" Height="21" Width="62" Background="#FF822D4A" Foreground="White" BorderBrush="Black"/>
         <TextBlock HorizontalAlignment="Left" Margin="39,75,0,0" TextWrapping="Wrap" Text="ID:" VerticalAlignment="Top" Height="14"/>
         <TextBox x:Name="TxtID" HorizontalAlignment="Left" Margin="123,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="45" Height="16"/>
         <Rectangle HorizontalAlignment="Center" Height="55"  Stroke="Black" VerticalAlignment="Top" Width="800" Fill="#FF641C34"/>
