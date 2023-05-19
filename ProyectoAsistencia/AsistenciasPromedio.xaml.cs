@@ -13,7 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace ProyectoAsistencia.Properties
+namespace ProyectoAsistencia
 {
     /// <summary>
     /// Lógica de interacción para AsistenciasPromedio.xaml
@@ -27,7 +27,7 @@ namespace ProyectoAsistencia.Properties
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            
         }
     }
 }

@@ -58,7 +58,7 @@
     <Compile Include="Clases2023\Asistencia.cs" />
     <Compile Include="Clases2023\AsistenciaPromediocs.cs" />
     <Compile Include="Clases2023\Preceptor.cs" />
-    <Compile Include="Properties\AsistenciasPromedio.xaml.cs">
+    <Compile Include="AsistenciasPromedio.xaml.cs">
       <DependentUpon>AsistenciasPromedio.xaml</DependentUpon>
     </Compile>
     <Compile Include="VentanaAsistencia.xaml.cs">
@@ -94,7 +94,7 @@
       <DependentUpon>Principal.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Properties\AsistenciasPromedio.xaml">
+    <Page Include="AsistenciasPromedio.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
