@@ -19,7 +19,6 @@ namespace ProyectoAsistencia
     /// </summary>
     public partial class VentanaAsistencia : Window
     {
-        List<Clases2023.Asistencia> ListaAsistencias = new List<Clases2023.Asistencia>();
         public VentanaAsistencia()
         {
             InitializeComponent();
