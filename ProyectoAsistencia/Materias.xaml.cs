@@ -27,6 +27,8 @@ namespace ProyectoAsistencia
             InitializeComponent();
             ClasesPublicas.LeerArchivoMateria();
             dtgMaterias.ItemsSource = ClasesPublicas.ListaMaterias;
+            ClasesPublicas.LeerArchivoCursos();
+            cboBoxCurso.ItemsSource = ClasesPublicas.ListaCursos;
         }
 
         private void btnAgregar_Click(object sender, RoutedEventArgs e)
