@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProyectoAsistencia.Clases2023;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,36 @@ namespace ProyectoAsistencia
     /// </summary>
     public partial class VentanaPrueba : Window
     {
+        List<Alumno> listaAlumnoBuscar;
         public VentanaPrueba()
         {
             InitializeComponent();
+            ClasesPublicas.LeerArchivoAlumno();
+        }
+
+        private void btnBuscar_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                listaAlumnoBuscar = ClasesPublicas.ListaAlumnos;
+                if (chCodAlumno.IsChecked == true)
+                {
+                    int codDesde = Convert.ToInt32(txtCodDesde.Text);
+                    int codHasta = Convert.ToInt32(txtCodHasta.Text);
+                    listaAlumnoBuscar = listaAlumnoBuscar.Where(n => n.CodigoAlumno >= codDesde && n.CodigoAlumno <= codHasta).ToList();
+                }
+                if (chNombreAlumno.IsChecked == true)
+                {
+                    listaAlumnoBuscar = listaAlumnoBuscar.Where(n => n.NombreApellido.Contains(txtNombreBuscar.Text)).ToList();
+                }
+                dgResultado.ItemsSource = listaAlumnoBuscar;
+                dgResultado.Items.Refresh();
+                lblResultado.Content = "Registros encontrados: " + listaAlumnoBuscar.Count;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }

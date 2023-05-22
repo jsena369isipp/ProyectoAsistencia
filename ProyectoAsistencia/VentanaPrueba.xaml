@@ -7,6 +7,14 @@
         mc:Ignorable="d"
         Title="VentanaPrueba" Height="450" Width="800">
     <Grid>
-        
+        <CheckBox Name="chCodAlumno" Content="Cód. Alumno: " HorizontalAlignment="Left" Height="19" Margin="25,10,0,0" VerticalAlignment="Top" Width="110"/>
+        <TextBox Name="txtCodDesde" IsEnabled="{Binding ElementName=chCodAlumno, Path=IsChecked}" HorizontalAlignment="Left" Height="19" Margin="135,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75"/>
+        <TextBox x:Name="txtCodHasta" IsEnabled="{Binding IsChecked, ElementName=chCodAlumno}" HorizontalAlignment="Left" Height="19" Margin="215,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75"/>
+        <CheckBox x:Name="chNombreAlumno" Content="Ap.Nombre Alumno: " HorizontalAlignment="Left" Height="19" Margin="305,10,0,0" VerticalAlignment="Top" Width="155"/>
+        <TextBox x:Name="txtNombreBuscar" IsEnabled="{Binding IsChecked, ElementName=chNombreAlumno}" HorizontalAlignment="Left" Height="19" Margin="460,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="220"/>
+        <Button Name="btnBuscar" Click="btnBuscar_Click" Content="Buscar" HorizontalAlignment="Left" Height="19" Margin="685,10,0,0" VerticalAlignment="Top" Width="85"/>
+        <DataGrid Name="dgResultado" HorizontalAlignment="Center" Margin="0,34,0,35" Width="800" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+        <Label Name="lblResultado" Content="Registros encontrados: 0" HorizontalAlignment="Left" Height="30" VerticalAlignment="Bottom" Width="360"/>
+
     </Grid>
 </Window>
