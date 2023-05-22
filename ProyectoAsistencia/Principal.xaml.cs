@@ -36,5 +36,42 @@ namespace ProyectoAsistencia
         {
 
         }
+
+        private void mnuAlumnos_Click(object sender, RoutedEventArgs e)
+        {
+            Ventana_Alumno ventana_Alumno = new Ventana_Alumno();
+            ventana_Alumno.Show();
+        }
+
+        private void mnuCursos_Click(object sender, RoutedEventArgs e)
+        {
+            VentanaCursos ventanaCursos = new VentanaCursos();
+            ventanaCursos.Show();
+            
+
+        }
+
+        private void mnuMaterias_Click(object sender, RoutedEventArgs e)
+        {
+            Materias Materias = new Materias();
+            Materias.Show();
+
+        }
+
+        private void mnuAsistencias_Click(object sender, RoutedEventArgs e)
+        {
+            VentanaAsistencia VentanaAsistencia = new VentanaAsistencia();
+            VentanaAsistencia.Show();
+
+        }
+
+        private void mnuPreceptor_Click(object sender, RoutedEventArgs e)
+        {
+            VentanaPreceptor VentanaPreceptor = new VentanaPreceptor();
+            VentanaPreceptor.Show();
+
+        }
+
+       
     }
 }

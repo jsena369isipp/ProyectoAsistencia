@@ -14,7 +14,11 @@
 
             </MenuItem>
             <MenuItem Header="Mantenimiento" Foreground="White">
-                <MenuItem x:Name="mnuMant" Header="Mantenimiento" Click="mnuMant_Click"/>
+                <MenuItem Header="Alumnos" Background="Black" Name="mnuAlumnos" Click="mnuAlumnos_Click"></MenuItem>
+                <MenuItem Header="Cursos" Background="Black" Name="mnuCursos" Click="mnuCursos_Click"></MenuItem>
+                <MenuItem Header="Materias" Background="Black" Name="mnuMaterias" Click="mnuMaterias_Click"></MenuItem>
+                <MenuItem Header="Asistencias" Background="Black" Name="mnuAsistencias" Click="mnuAsistencias_Click"></MenuItem>
+                <MenuItem Header="Preceptor" Background="Black" Name="mnuPreceptor" Click="mnuPreceptor_Click"></MenuItem>
             </MenuItem>
         </Menu>
 
