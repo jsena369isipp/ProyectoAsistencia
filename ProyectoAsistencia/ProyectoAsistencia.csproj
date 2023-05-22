@@ -55,20 +55,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Materias.xaml.cs">
-      <DependentUpon>Materias.xaml</DependentUpon>
-    </Compile>
     <Compile Include="VentanaAsistencia.xaml.cs">
       <DependentUpon>VentanaAsistencia.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="VentanaCursos.xaml.cs">
-      <DependentUpon>VentanaCursos.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="VentanaPreceptor.xaml.cs">
-      <DependentUpon>VentanaPreceptor.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="VentanaPrueba.xaml.cs">
-      <DependentUpon>VentanaPrueba.xaml</DependentUpon>
     </Compile>
     <Compile Include="Ventana_Alumno.xaml.cs">
       <DependentUpon>Ventana_Alumno.xaml</DependentUpon>
@@ -76,10 +64,6 @@
     <Page Include="Mantenimiento.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Materias.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
     </Page>
     <Page Include="Principal.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -89,12 +73,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Clases2023\Alumno.cs" />
-    <Compile Include="Clases2023\Asistencia.cs" />
-    <Compile Include="Clases2023\ClasesPublicas.cs" />
-    <Compile Include="Clases2023\Cursos.cs" />
-    <Compile Include="Clases2023\Materia.cs" />
-    <Compile Include="Clases2023\Preceptor.cs" />
     <Compile Include="Mantenimiento.xaml.cs">
       <DependentUpon>Mantenimiento.xaml</DependentUpon>
     </Compile>
@@ -103,18 +81,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="VentanaAsistencia.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="VentanaCursos.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="VentanaPreceptor.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="VentanaPrueba.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -149,8 +115,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Imagen\isipp-blanco.png" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
