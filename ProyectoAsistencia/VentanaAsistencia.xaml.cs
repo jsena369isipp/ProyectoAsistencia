@@ -25,6 +25,11 @@ namespace ProyectoAsistencia
         public VentanaAsistencia()
         {
             InitializeComponent();
+            ClasesPublicas.LeerArchivoMateria();
+            cmbMateria.ItemsSource = ClasesPublicas.ListaMaterias;
+            ClasesPublicas.LeerArchivoCursos();
+            CmbCurso.ItemsSource = ClasesPublicas.ListaCursos;
+            
         }
         private void btnGrd_Click(object sender, RoutedEventArgs e)
         {
