@@ -47,7 +47,7 @@ namespace ProyectoAsistencia
                 {
                     objCursos.Estado = chbEstado.IsChecked.Value;
                     objCursos.CodigoPreceptor = cmbPreceptor.Text;
-                    objCursos.CodigoCursos = Convert.ToInt32(txtCurso.Text);
+                   // objCursos.CodigoCursos = Convert.ToInt32(txtCurso.Text);
                 }
                 dtgCursos.ItemsSource = ClasesPublicas.ListaCursos;
                 dtgCursos.Items.Refresh();
@@ -85,9 +85,9 @@ namespace ProyectoAsistencia
                 Cursos objCursos = (Cursos)dtgCursos.SelectedItem;
                 if (objCursos != null)
                 {
-                    txtID.Text = objCursos.ID.ToString();
+                   // txtID.Text = objCursos.ID.ToString();
                     txtCurso.Text = objCursos.CodigoCursos.ToString();
-                    cmbPreceptor.Text = objCursos.CodigoPreceptor;
+                    //cmbPreceptor.Text = objCursos.CodigoPreceptor;
                     chbEstado.IsChecked = objCursos.Estado;
                 }
             }
