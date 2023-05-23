@@ -73,5 +73,10 @@ namespace ProyectoAsistencia
         }
 
        
+
+        private void mnuInforme_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
