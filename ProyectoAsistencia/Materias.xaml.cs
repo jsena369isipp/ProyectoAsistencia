@@ -34,24 +34,24 @@ namespace ProyectoAsistencia
             try
             {
                 Int32 IDVariable = Convert.ToInt32(txtBoxID.Text);
-                Materia ObjetoMateria = ListaMaterias.Where(n => n.IdMateria == IDVariable).FirstOrDefault();
+                Materia ObjetoMateria = ListaMaterias.Where(n => n.CodigoMateria == IDVariable).FirstOrDefault();
                 if (ObjetoMateria == null)
                 {
                     ObjetoMateria = new Materia();
-                    ObjetoMateria.IdMateria = Convert.ToInt32(txtBoxID.Text);
+                    ObjetoMateria.CodigoMateria = Convert.ToInt32(txtBoxID.Text);
                     ObjetoMateria.NombreMateria = txtBoxMateria.Text;
-                    ObjetoMateria.IdProfesor = cboBoxProfesor.SelectedIndex;
-                    ObjetoMateria.IdCurso = cboBoxCurso.SelectedIndex;
+                    ObjetoMateria.CodigoProfesor = cboBoxProfesor.SelectedIndex;
+                    ObjetoMateria.CodigoCurso = cboBoxCurso.SelectedIndex;
                     ObjetoMateria.HsCatedra = Convert.ToInt32(txtBoxHs.Text);
 
                     ListaMaterias.Add(ObjetoMateria);
                 }
                 else
                 {
-                    ObjetoMateria.IdMateria = Convert.ToInt32(txtBoxID.Text);
+                    ObjetoMateria.CodigoMateria = Convert.ToInt32(txtBoxID.Text);
                     ObjetoMateria.NombreMateria = txtBoxMateria.Text;
-                    ObjetoMateria.IdProfesor = cboBoxProfesor.SelectedIndex;
-                    ObjetoMateria.IdCurso = cboBoxCurso.SelectedIndex;
+                    ObjetoMateria.CodigoProfesor = cboBoxProfesor.SelectedIndex;
+                    ObjetoMateria.CodigoCurso = cboBoxCurso.SelectedIndex;
                     ObjetoMateria.HsCatedra = Convert.ToInt32(txtBoxHs.Text);
                 }
                 dtgMaterias.ItemsSource = ListaMaterias;
@@ -74,8 +74,8 @@ namespace ProyectoAsistencia
                 string MateriaConcatenado = "";
                 foreach (Materia ObjetoMateria in ListaMaterias)
                 {
-                    MateriaConcatenado = MateriaConcatenado + "\n" + ObjetoMateria.IdMateria + ";" + ObjetoMateria.NombreMateria + ";" +
-                        ObjetoMateria.IdProfesor + ";" + ObjetoMateria.IdCurso + ";" + ObjetoMateria.HsCatedra;
+                    MateriaConcatenado = MateriaConcatenado + "\n" + ObjetoMateria.CodigoMateria + ";" + ObjetoMateria.NombreMateria + ";" +
+                        ObjetoMateria.CodigoProfesor + ";" + ObjetoMateria.CodigoCurso + ";" + ObjetoMateria.HsCatedra;
                 }
                 File.WriteAllText("Materias.txt", MateriaConcatenado);
                 MessageBox.Show("Almacenado exitosamente!", "Aplicación", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -111,10 +111,10 @@ namespace ProyectoAsistencia
                 Materia ObjetoMateria = (Materia)dtgMaterias.SelectedItem;
                 if (ObjetoMateria != null)
                 {
-                    txtBoxID.Text = ObjetoMateria.IdMateria.ToString();
+                    txtBoxID.Text = ObjetoMateria.CodigoMateria.ToString();
                     txtBoxMateria.Text = ObjetoMateria.NombreMateria;
-                    cboBoxProfesor.SelectedIndex = ObjetoMateria.IdProfesor;
-                    cboBoxCurso.SelectedIndex = ObjetoMateria.IdCurso;
+                    cboBoxProfesor.SelectedIndex = ObjetoMateria.CodigoProfesor;
+                    cboBoxCurso.SelectedIndex = ObjetoMateria.CodigoCurso;
                     txtBoxHs.Text = ObjetoMateria.HsCatedra.ToString();
                 }
             }

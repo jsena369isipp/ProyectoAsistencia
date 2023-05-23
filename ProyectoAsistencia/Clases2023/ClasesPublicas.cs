@@ -33,7 +33,7 @@ namespace ProyectoAsistencia.Clases2023
                         {
                             if (cont == 0)
                             {
-                                ObjetoMateria.IdMateria = Convert.ToInt32(val);
+                                ObjetoMateria.CodigoMateria = Convert.ToInt32(val);
                             }
                             else if (cont == 1)
                             {
@@ -41,11 +41,11 @@ namespace ProyectoAsistencia.Clases2023
                             }
                             else if (cont == 2)
                             {
-                                ObjetoMateria.IdProfesor = Convert.ToInt32(val);
+                                ObjetoMateria.CodigoProfesor = Convert.ToInt32(val);
                             }
                             else if (cont == 3)
                             {
-                                ObjetoMateria.IdCurso = Convert.ToInt32(val);
+                                ObjetoMateria.CodigoCurso = Convert.ToInt32(val);
                             }
                             else if (cont == 4)
                             {

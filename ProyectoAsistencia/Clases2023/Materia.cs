@@ -8,10 +8,10 @@ namespace ProyectoAsistencia.Clases2023
 {
     public class Materia
     {
-        public int IdMateria { get; set; }
+        public int CodigoMateria { get; set; }
         public string NombreMateria { get; set; }
-        public int IdProfesor { get; set; }
+        public int CodigoProfesor { get; set; }
         public int HsCatedra{ get; set; }
-        public int IdCurso { get; set; }
+        public int CodigoCurso { get; set; }
     }
 }
