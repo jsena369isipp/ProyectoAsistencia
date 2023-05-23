@@ -25,6 +25,9 @@ namespace ProyectoAsistencia
         public VentanaAsistencia()
         {
             InitializeComponent();
+
+            DpFecha.SelectedDate = DateTime.Now;
+
             ClasesPublicas.LeerArchivoMateria();
             cmbMateria.ItemsSource = ClasesPublicas.ListaMaterias;
             ClasesPublicas.LeerArchivoCursos();
