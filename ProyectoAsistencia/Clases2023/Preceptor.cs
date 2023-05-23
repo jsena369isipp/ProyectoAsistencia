@@ -8,11 +8,12 @@ namespace ProyectoAsistencia.Clases2023
 {
     internal class Preceptor
     {
-        int CodigoPreceptor { get; set; }
-        string ApellidoNombre { get; set; }
-        int CodigoCursos { get; set; }
-        int DNI { get; set; }
-        DateTime FechaNacimiento { get; set; }
+         public int CodigoPreceptor { get; set; }
+         public string ApellidoNombre { get; set; }
+         public int CodigoCursos { get; set; }
+         public long DNI { get; set; }
+         public DateTime FechaNacimiento { get; set; }
+         public bool Estado { get; set; }
 
     }
 }

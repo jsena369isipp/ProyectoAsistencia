@@ -19,7 +19,8 @@ namespace ProyectoAsistencia
     /// </summary>
     public partial class VentanaPreceptor : Window
     {
-        List<Clases2023.Preceptor> listaCliente = new List<Clases2023.Preceptor>();
+        List<Clases2023.Preceptor> ListaPreceptor = new List<Clases2023.Preceptor>();
+
         public VentanaPreceptor()
         {
             InitializeComponent();
@@ -32,6 +33,24 @@ namespace ProyectoAsistencia
 
         private void btncrear_Click(object sender, RoutedEventArgs e)
         {
+            Int64 dniVariable = Convert.ToInt64(txtdni.Text);
+            Clases2023.Preceptor preceptor = ListaPreceptor.Where(n => n.DNI == dniVariable).FirstOrDefault();
+
+
+            if (preceptor == null)
+            {
+
+                preceptor = new Clases2023.Preceptor();
+                preceptor.CodigoPreceptor = Convert.ToInt32(txtCodPreceptor.Text);
+                preceptor.DNI = Convert.ToInt64(txtdni.Text);
+                preceptor.ApellidoNombre = txtNombApellido.Text;
+                preceptor.CodigoCursos = cbCursos.SelectedIndex;
+                preceptor.Estado = Convert.ToBoolean(chbEstado.IsChecked);//<--para mostrar el estado en el DataGrid
+                preceptor.FechaNacimiento = Convert.ToDateTime(dpFechaNac.SelectedDate);
+
+                ListaPreceptor.Add(preceptor);
+
+            }
 
         }
 
