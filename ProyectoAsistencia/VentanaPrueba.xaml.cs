@@ -32,6 +32,7 @@ namespace ProyectoAsistencia
             try
             {
                 listaAlumnoBuscar = ClasesPublicas.ListaAlumnos;
+                //X
                 if (chCodAlumno.IsChecked == true)
                 {
                     int codDesde = Convert.ToInt32(txtCodDesde.Text);
