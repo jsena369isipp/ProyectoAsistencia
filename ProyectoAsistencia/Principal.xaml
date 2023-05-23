@@ -9,24 +9,27 @@
     <Grid>
         <Menu Height="50px" VerticalAlignment="Top" Background="#FF641C34">
 
-            <MenuItem Header="ASISTENCIAS" Height="50" Width="140px" Foreground="White"  >
-                <MenuItem Header=" Tomar Asistencias" Background="Black" Name="mnuAsistencias" Click="mnuAsistencias_Click"></MenuItem>
-                <MenuItem Header="Informe" Background="Black" Name="mnuInforme" Click="mnuInforme_Click"></MenuItem>
+            <MenuItem Header="ASISTENCIAS" Height="50" Width="140px" Foreground="White" BorderBrush="Black" >
+                <MenuItem Header=" Tomar Asistencias" Height="40" Background="Black" Foreground="#FF641C34" Name="mnuAsistencias" Click="mnuAsistencias_Click"></MenuItem>
+                <MenuItem Header="Informe" Height="40" Background="Black" Foreground="#FF641C34" Name="mnuInforme" Click="mnuInforme_Click"></MenuItem>
 
 
             </MenuItem>
-            <MenuItem Header="MANTENIMIENTO" Foreground="White">
-                <MenuItem Header="Alumnos" Background="Black" Name="mnuAlumnos" Click="mnuAlumnos_Click"></MenuItem>
-                <MenuItem Header="Cursos" Background="Black" Name="mnuCursos" Click="mnuCursos_Click"></MenuItem>
-                <MenuItem Header="Materias" Background="Black" Name="mnuMaterias" Click="mnuMaterias_Click"></MenuItem>
+            <MenuItem Header="MANTENIMIENTO" Foreground="White" BorderBrush="Black">
+                <MenuItem Header="Alumnos" Height="40" Background="Black" Foreground="#FF641C34" Name="mnuAlumnos" Click="mnuAlumnos_Click"></MenuItem>
+                <MenuItem Header="Cursos" Height="40" Background="Black" Foreground="#FF641C34" Name="mnuCursos" Click="mnuCursos_Click"></MenuItem>
+                <MenuItem Header="Materias" Height="40" Background="Black" Foreground="#FF641C34" Name="mnuMaterias" Click="mnuMaterias_Click"></MenuItem>
 
-                <MenuItem Header="Preceptor" Background="Black" Name="mnuPreceptor" Click="mnuPreceptor_Click"></MenuItem>
+                <MenuItem Header="Preceptor" Height="40" Background="Black" Foreground="#FF641C34" Name="mnuPreceptor" Click="mnuPreceptor_Click"></MenuItem>
             </MenuItem>
 
         </Menu>
         <Image HorizontalAlignment="Left" Height="54" Margin="831,-2,0,0" VerticalAlignment="Top" Width="63" Source="/isipp-blanco.png"/>
-        <TextBox TextWrapping="Wrap" Text="INSTITUTO SUPERIOR DE INFORMÁTICA" Width="546"  FontSize="50" FontFamily="Yu Gothic UI Semibold" FontWeight="Bold" HorizontalAlignment="Left" Margin="0,149,0,133"/>
-        <Image HorizontalAlignment="Left" Height="375" Margin="604,0,0,0" VerticalAlignment="Center" Width="254" Source="/isipp-blanco.png"/>
+        <Image HorizontalAlignment="Center" Height="1015" VerticalAlignment="Center" Width="446" Source="/isipp-blanco.png"/>
+        <TextBlock HorizontalAlignment="Left" Margin="338,129,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="52" Width="278" FontSize="36" RenderTransformOrigin="0.551,-0.153" Text="INSTITUTO" FontFamily="Arial Black"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="SUPERIOR " VerticalAlignment="Top" FontSize="36" Height="54" Width="278" Margin="338,181,0,0" FontFamily="Arial Black" Foreground="#FF641C34"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36" Height="54" Width="278" Margin="410,235,0,0" FontFamily="Arial Black" Text="DE"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="INFORMÁTICA" VerticalAlignment="Top" FontSize="36" Height="54" Width="314" Margin="302,289,0,0" FontFamily="Arial Black" Foreground="#FF641C34"/>
 
 
 
