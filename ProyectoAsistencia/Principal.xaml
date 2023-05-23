@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoAsistencia"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="896" Background="DarkGray">
     <Grid>
         <Menu Height="50px" VerticalAlignment="Top" Background="#FF641C34">
 
@@ -19,13 +19,14 @@
                 <MenuItem Header="Alumnos" Background="Black" Name="mnuAlumnos" Click="mnuAlumnos_Click"></MenuItem>
                 <MenuItem Header="Cursos" Background="Black" Name="mnuCursos" Click="mnuCursos_Click"></MenuItem>
                 <MenuItem Header="Materias" Background="Black" Name="mnuMaterias" Click="mnuMaterias_Click"></MenuItem>
-                
+
                 <MenuItem Header="Preceptor" Background="Black" Name="mnuPreceptor" Click="mnuPreceptor_Click"></MenuItem>
             </MenuItem>
 
         </Menu>
-        <Image HorizontalAlignment="Left" Height="55" Margin="735,-5,0,0" VerticalAlignment="Top" Width="63" Source="/isipp-blanco.png"/>
-        <TextBox TextWrapping="Wrap" Text="INSTITUTO SUPERIOR DE INFORMÁTICA" Width="538" Height="168"  FontSize="50" FontFamily="Yu Gothic UI Semibold" FontWeight="Bold" HorizontalAlignment="Left"/>
+        <Image HorizontalAlignment="Left" Height="54" Margin="831,-2,0,0" VerticalAlignment="Top" Width="63" Source="/isipp-blanco.png"/>
+        <TextBox TextWrapping="Wrap" Text="INSTITUTO SUPERIOR DE INFORMÁTICA" Width="546"  FontSize="50" FontFamily="Yu Gothic UI Semibold" FontWeight="Bold" HorizontalAlignment="Left" Margin="0,149,0,133"/>
+        <Image HorizontalAlignment="Left" Height="375" Margin="604,0,0,0" VerticalAlignment="Center" Width="254" Source="/isipp-blanco.png"/>
 
 
 
