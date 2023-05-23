@@ -25,10 +25,12 @@ namespace ProyectoAsistencia
         public VentanaAsistencia()
         {
             InitializeComponent();
-            ClasesPublicas.LeerArchivoMateria();
+            /*ClasesPublicas.LeerArchivoMateria();
             cmbMateria.ItemsSource = ClasesPublicas.ListaMaterias;
             ClasesPublicas.LeerArchivoCursos();
             CmbCurso.ItemsSource = ClasesPublicas.ListaCursos;
+            ClasesPublicas.LeerArchivoAlumno();
+            dtg.ItemsSource = ClasesPublicas.ListaAlumnos;*/
             
         }
         private void btnGrd_Click(object sender, RoutedEventArgs e)
@@ -43,7 +45,7 @@ namespace ProyectoAsistencia
                 string AsistenciasConcatenados = "";
                 foreach(Asistencia asistencia in ListaAsistencias)
                 {
-                    AsistenciasConcatenados = AsistenciasConcatenados + "\r\n" + asistencia.IdAsistencia + ";" + asistencia.Fecha + ";" + asistencia.Curso + ";" + asistencia.Preceptor + ";" + asistencia.Materia + ";" + asistencia.AlumnoAsistencia + ";";
+                    AsistenciasConcatenados = AsistenciasConcatenados + "\r\n" + asistencia.IdAsistencia + ";" + asistencia.Fecha + ";" + asistencia.CodigoCurso + ";" + asistencia.CodigoPreceptor + ";" + asistencia.IdMateria + ";" + asistencia.AlumnoAsistencia + ";";
                 }
 
                 File.WriteAllText("Asistencia.txt", AsistenciasConcatenados);
@@ -64,9 +66,9 @@ namespace ProyectoAsistencia
                 {
                     TxtID.Text = ObjetoAsistencia.IdAsistencia.ToString();
                     DpFecha.Text = ObjetoAsistencia.Fecha.ToString();
-                    CmbCurso.Text = ObjetoAsistencia.Curso;
-                    CmbPreceptor.Text = ObjetoAsistencia.Preceptor;
-                    cmbMateria.Text = ObjetoAsistencia.Materia;
+                    CmbCurso.Text = ObjetoAsistencia.CodigoCurso;
+                    CmbPreceptor.Text = ObjetoAsistencia.CodigoPreceptor.ToString();
+                    cmbMateria.Text = ObjetoAsistencia.IdMateria.ToString();
                     ChPresente.IsChecked = ObjetoAsistencia.AlumnoAsistencia;
                 }
             }

@@ -10,9 +10,9 @@ namespace ProyectoAsistencia.Clases2023
     {
         public int IdAsistencia { get; set; }
         public DateTime Fecha { get; set; }
-        public string Curso { get; set; }
-        public string Preceptor { get; set; }
-        public string Materia { get; set; }
+        public string CodigoCurso { get; set; }
+        public int CodigoPreceptor { get; set; }
+        public int IdMateria { get; set; }
         public bool AlumnoAsistencia { get; set; }
     }
 }
