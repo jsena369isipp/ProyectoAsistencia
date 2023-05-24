@@ -32,8 +32,6 @@ namespace ProyectoAsistencia
             cmbMateria.ItemsSource = ClasesPublicas.ListaMaterias;
             ClasesPublicas.LeerArchivoCursos();
             CmbCurso.ItemsSource = ClasesPublicas.ListaCursos;
-            ClasesPublicas.LeerArchivoAlumno();
-            dtg.ItemsSource = ClasesPublicas.ListaAlumnos;
             
         }
         private void btnGrd_Click(object sender, RoutedEventArgs e)
@@ -80,13 +78,12 @@ namespace ProyectoAsistencia
                 MessageBox.Show("Error!: " + ex.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-
         private void BtnLeer_Click(object sender, RoutedEventArgs e)
         {
             Clases2023.ClasesPublicas.LeerArchivoAlumno();
             dtg.ItemsSource = Clases2023.ClasesPublicas.ListaAlumnos;
             dtg.Items.Refresh();
-            //LblArchivos.Content = dtg.Items.Count;
+            LblArchivos.Content = dtg.Items.Count;
         }
     }
 }
