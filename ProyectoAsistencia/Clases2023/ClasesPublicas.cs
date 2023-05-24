@@ -145,5 +145,63 @@ namespace ProyectoAsistencia.Clases2023
         {
 
         }
+
+        private static List<Asistencia> listaAsistencias = new List<Asistencia>();
+        internal static List<Asistencia> ListaAsistencias { get => listaAsistencias; set => listaAsistencias = value; }
+        public static void LeerArchivoAsistencia()
+        {
+            try
+            {
+                if(File.Exists("Asistencias.txt"))
+                {
+                    Asistencia ObjetoAsistencia;
+                    ListaAsistencias = new List<Asistencia>();
+
+                    string textoCompleto = File.ReadAllText("Asistencias.txt");
+                    char[] delims = new[] { '\r', '\n' };
+                    string[] lineas = textoCompleto.Split(delims, StringSplitOptions.RemoveEmptyEntries);
+                    foreach (string fila in lineas)
+                    {
+                        ObjetoAsistencia = new Asistencia();
+                        string[] valores = fila.Split(';');
+                        int i = 0;
+
+                        foreach (string val in valores)
+                        {
+                            if(i == 0)
+                            {
+                                ObjetoAsistencia.CodigoAsistencia = Convert.ToInt32(val);
+                            }
+                            else if(i == 1)
+                            {
+                                ObjetoAsistencia.Fecha = Convert.ToDateTime(val);
+                            }
+                            else if(i == 2)
+                            {
+                                ObjetoAsistencia.CodigoCursos = Convert.ToInt32(val);
+                            }
+                            else if(i == 3)
+                            {
+                                ObjetoAsistencia.CodigoPreceptor = Convert.ToInt32(val);
+                            }
+                            else if(i == 4)
+                            {
+                                ObjetoAsistencia.CodigoMateria = Convert.ToInt32(val);
+                            }
+                            else if(i == 5)
+                            {
+                                ObjetoAsistencia.AlumnoAsistencia = Convert.ToBoolean(val);
+                            }
+                            i++;
+                        }
+                        ListaAsistencias.Add(ObjetoAsistencia);
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Error al Leer: " + ex.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
     }
 }

@@ -44,9 +44,9 @@ namespace ProyectoAsistencia
                 }
 
                 string AsistenciasConcatenados = "";
-                foreach(Asistencia asistencia in ListaAsistencias)
+                foreach(Asistencia ObjetoAsistencia in ListaAsistencias)
                 {
-                    AsistenciasConcatenados = AsistenciasConcatenados + "\r\n" + asistencia.CodigoAsistencia + ";" + asistencia.Fecha + ";" + asistencia.CodigoCursos + ";" + asistencia.CodigoPreceptor + ";" + asistencia.CodigoMateria + ";" + asistencia.AlumnoAsistencia + ";";
+                    AsistenciasConcatenados = AsistenciasConcatenados + "\r\n" + ObjetoAsistencia.CodigoAsistencia + ";" + ObjetoAsistencia.Fecha + ";" + ObjetoAsistencia.CodigoCursos + ";" + ObjetoAsistencia.CodigoPreceptor + ";" + ObjetoAsistencia.CodigoMateria + ";" + ObjetoAsistencia.AlumnoAsistencia + ";";
                 }
 
                 File.WriteAllText("Asistencia.txt", AsistenciasConcatenados);
