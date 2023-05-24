@@ -80,5 +80,13 @@ namespace ProyectoAsistencia
                 MessageBox.Show("Error!: " + ex.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+        private void BtnLeer_Click(object sender, RoutedEventArgs e)
+        {
+            Clases2023.ClasesPublicas.LeerArchivoAlumno();
+            dtg.ItemsSource = Clases2023.ClasesPublicas.ListaAlumnos;
+            dtg.Items.Refresh();
+            LblArchivos.Content = dtg.Items.Count;
+        }
     }
 }

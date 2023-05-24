@@ -16,7 +16,7 @@
         <DataGrid x:Name="dtg" SelectionChanged="dtgAsistencia_SC" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,276,0,0"/>
         <CheckBox x:Name="ChPresente" Content="Presente" HorizontalAlignment="Left" Margin="123,256,0,0" VerticalAlignment="Top" Height="20"/>
         <TextBlock HorizontalAlignment="Left" Margin="39,239,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="14"/>
-        <Button x:Name="BtnLeer" Content="Alumnos" HorizontalAlignment="Left" Margin="707,71,0,0" VerticalAlignment="Top" Height="21" Width="64" Background="#FF822D4A" Foreground="White" BorderBrush="Black"/>
+        <Button x:Name="BtnLeer" Content="Alumnos" HorizontalAlignment="Left" Margin="707,71,0,0" VerticalAlignment="Top" Height="21" Width="64" Background="#FF822D4A" Foreground="White" BorderBrush="Black" Click="BtnLeer_Click"/>
         <Button x:Name="BtnActualizar" Content="Actualizar" HorizontalAlignment="Left" Margin="484,71,0,0" VerticalAlignment="Top" Height="21" Width="62" Background="#FF822D4A" Foreground="White" BorderBrush="Black"/>
         <ComboBox x:Name="cmbMateria" DisplayMemberPath="Materia" SelectedValuePath="CodigoMateria" HorizontalAlignment="Left" Margin="123,226,0,0" VerticalAlignment="Top" Width="120" Height="20"/>
         <TextBlock HorizontalAlignment="Left" Margin="34,229,0,0" TextWrapping="Wrap" Text="Materia:" VerticalAlignment="Top" Height="14"/>
@@ -34,5 +34,9 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
+        <Image HorizontalAlignment="Left" Height="55" Margin="724,0,0,0" VerticalAlignment="Top" Width="56" Source="/Imagen/isipp-blanco.png"/>
+        <TextBlock HorizontalAlignment="Left" Margin="635,252,0,0" TextWrapping="Wrap" Text="Cantidad de Alumnos:" VerticalAlignment="Top"/>
+        <Label x:Name="LblArchivos" Content="0" HorizontalAlignment="Left" Margin="752,248,0,0" VerticalAlignment="Top" Width="40"/>
+
     </Grid>
 </Window>
