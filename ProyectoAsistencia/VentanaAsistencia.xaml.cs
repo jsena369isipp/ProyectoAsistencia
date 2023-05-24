@@ -86,7 +86,7 @@ namespace ProyectoAsistencia
             Clases2023.ClasesPublicas.LeerArchivoAlumno();
             dtg.ItemsSource = Clases2023.ClasesPublicas.ListaAlumnos;
             dtg.Items.Refresh();
-            LblArchivos.Content = dtg.Items.Count;
+            //LblArchivos.Content = dtg.Items.Count;
         }
     }
 }
