@@ -37,6 +37,5 @@
         <Image HorizontalAlignment="Left" Height="55" Margin="724,0,0,0" VerticalAlignment="Top" Width="56" Source="/Imagen/isipp-blanco.png"/>
         <TextBlock HorizontalAlignment="Left" Margin="635,252,0,0" TextWrapping="Wrap" Text="Cantidad de Alumnos:" VerticalAlignment="Top"/>
         <Label x:Name="LblArchivos" Content="0" HorizontalAlignment="Left" Margin="752,248,0,0" VerticalAlignment="Top" Width="40"/>
-
     </Grid>
 </Window>
