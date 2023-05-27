@@ -7,24 +7,51 @@
         mc:Ignorable="d"
         Title="Materias" Height="450" Width="800">
 	<Grid>
-		<Label Content="ID:" HorizontalAlignment="Left" Margin="68,62,0,0" VerticalAlignment="Top"/>
-		<Label Content="Materia:" HorizontalAlignment="Left" Margin="39,85,0,0" VerticalAlignment="Top"/>
-		<Label Content="Profesor:" HorizontalAlignment="Left" Margin="35,110,0,0" VerticalAlignment="Top"/>
-		<Label Content="Curso:" HorizontalAlignment="Left" Margin="49,139,0,0" VerticalAlignment="Top"/>
-		<TextBox x:Name="txtBoxID" HorizontalAlignment="Left" Margin="97,66,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="35"/>
-		<TextBox x:Name="txtBoxMateria" HorizontalAlignment="Left" Margin="97,89,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="191"/>
-		<ComboBox x:Name="cboBoxProfesor" HorizontalAlignment="Left" Margin="97,112,0,0" VerticalAlignment="Top" Width="206"/>
-		<ComboBox x:Name="cboBoxCurso" HorizontalAlignment="Left" Margin="97,141,0,0" VerticalAlignment="Top" Width="120"/>
-		<DataGrid x:Name="dtgMaterias" HorizontalAlignment="Center" Height="217" Margin="0,217,0,0" VerticalAlignment="Top" Width="800" d:ItemsSource="{d:SampleData ItemCount=5}" BorderBrush="White" Background="White" SelectionChanged="dtgMaterias_SelectionChanged"/>
-		<Label Content="Horas cátedra:" HorizontalAlignment="Left" Margin="7,170,0,0" VerticalAlignment="Top"/>
-		<TextBox x:Name="txtBoxHs" HorizontalAlignment="Left" Margin="98,174,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="32"/>
-		<Label Content="hs." HorizontalAlignment="Left" Margin="130,170,0,0" VerticalAlignment="Top"/>
-		<Button x:Name="btnAgregar" Content="Agregar" HorizontalAlignment="Left" Margin="349,161,0,0" VerticalAlignment="Top" Height="27" Width="69" Click="btnAgregar_Click" Background="#FF822D4A" Foreground="White" BorderBrush="Black"/>
-		<Button x:Name="btnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="462,161,0,0" VerticalAlignment="Top" Height="27" Width="69" Click="btnGuardar_Click" Background="#FF822D4A" Foreground="White" BorderBrush="Black"/>
-		<Button x:Name="btnEliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="690,161,0,0" VerticalAlignment="Top" Height="27" Width="69" Click="btnEliminar_Click" Background="#FF822D4A" Foreground="White" BorderBrush="Black"/>
-		<Rectangle HorizontalAlignment="Center" Height="55" Stroke="Black" VerticalAlignment="Top" Width="800" Fill="#FF641C34"/>
-		<Label Content="Materias" HorizontalAlignment="Left" Margin="24,6,0,0" VerticalAlignment="Top" FontSize="25" FontWeight="Bold" Foreground="White"/>
-		<Image HorizontalAlignment="Left" Height="55" Margin="724,0,0,0" VerticalAlignment="Top" Width="56" Source="/Imagen/isipp-blanco.png"/>
+
+		<TabControl>
+			<TabItem Header="Registro">
+				<Grid Background="#FFFFFF">
+					<Label Content="ID:" HorizontalAlignment="Left" Margin="68,62,0,0" VerticalAlignment="Top"/>
+					<Label Content="Materia:" HorizontalAlignment="Left" Margin="39,85,0,0" VerticalAlignment="Top"/>
+					<Label Content="Profesor:" HorizontalAlignment="Left" Margin="35,110,0,0" VerticalAlignment="Top"/>
+					<Label Content="Curso:" HorizontalAlignment="Left" Margin="49,139,0,0" VerticalAlignment="Top"/>
+					<TextBox x:Name="txtBoxID" HorizontalAlignment="Left" Margin="97,66,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="35"/>
+					<TextBox x:Name="txtBoxMateria" HorizontalAlignment="Left" Margin="97,89,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="191"/>
+					<ComboBox x:Name="cboBoxProfesor" HorizontalAlignment="Left" Margin="97,112,0,0" VerticalAlignment="Top" Width="206"/>
+					<ComboBox x:Name="cboBoxCurso"  HorizontalAlignment="Left" Margin="97,141,0,0" VerticalAlignment="Top" Width="120"/>
+					<DataGrid x:Name="dtgMaterias" HorizontalAlignment="Center" Height="179" Margin="0,217,0,0" VerticalAlignment="Top" Width="800" d:ItemsSource="{d:SampleData ItemCount=5}" BorderBrush="White" Background="White" SelectionChanged="dtgMaterias_SelectionChanged"/>
+					<Label Content="Horas cátedra:" HorizontalAlignment="Left" Margin="7,170,0,0" VerticalAlignment="Top"/>
+					<TextBox x:Name="txtBoxHs" HorizontalAlignment="Left" Margin="98,174,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="32"/>
+					<Label Content="hs." HorizontalAlignment="Left" Margin="130,170,0,0" VerticalAlignment="Top"/>
+					<Button x:Name="btnAgregar" Content="Agregar" HorizontalAlignment="Left" Margin="349,161,0,0" VerticalAlignment="Top" Height="27" Width="69" Click="btnAgregar_Click" Background="#FF822D4A" Foreground="White" BorderBrush="Black"/>
+					<Button x:Name="btnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="462,161,0,0" VerticalAlignment="Top" Height="27" Width="69" Click="btnGuardar_Click" Background="#FF822D4A" Foreground="White" BorderBrush="Black"/>
+					<Button x:Name="btnEliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="690,161,0,0" VerticalAlignment="Top" Height="27" Width="69" Click="btnEliminar_Click" Background="#FF822D4A" Foreground="White" BorderBrush="Black"/>
+					<Rectangle HorizontalAlignment="Center" Height="55" Stroke="Black" VerticalAlignment="Top" Width="800" Fill="#FF641C34"/>
+					<Label Content="Materias" HorizontalAlignment="Left" Margin="24,6,0,0" VerticalAlignment="Top" FontSize="25" FontWeight="Bold" Foreground="White"/>
+					<Image HorizontalAlignment="Left" Height="55" Margin="724,0,0,0" VerticalAlignment="Top" Width="56" Source="/Imagen/isipp-blanco.png"/>
+				</Grid>
+			</TabItem>
+			<TabItem Header="Buscador">
+				<Grid Background="#FFFFFF">
+					<Rectangle HorizontalAlignment="Center" Height="55" Stroke="Black" VerticalAlignment="Top" Width="800" Fill="#FF641C34"/>
+					<Label Content="Buscador" HorizontalAlignment="Left" Margin="24,6,0,0" VerticalAlignment="Top" FontSize="25" FontWeight="Bold" Foreground="White"/>
+					<Image HorizontalAlignment="Left" Height="55" Margin="724,0,0,0" VerticalAlignment="Top" Width="56" Source="/Imagen/isipp-blanco.png"/>
+					<CheckBox x:Name="chkCodMat" Content="Código de materia:" HorizontalAlignment="Left" Margin="39,85,0,0" VerticalAlignment="Top" Click="chkCodMat_Click"/>
+					<CheckBox x:Name="chkNombMat" Content="Nombre de materia:" HorizontalAlignment="Left" Margin="34,121,0,0" VerticalAlignment="Top"/>
+					<CheckBox x:Name="chkCodProfe" Content="Código de profesor/a:" HorizontalAlignment="Left" Margin="24,163,0,0" VerticalAlignment="Top"/>
+					<CheckBox x:Name="chkCodCurso" Content="Código de curso:" HorizontalAlignment="Left" Margin="50,203,0,0" VerticalAlignment="Top"/>
+					<TextBox x:Name="txtDesde" IsEnabled="{Binding ElementName=chkCodMat, Path=IsChecked}" HorizontalAlignment="Left" Margin="165,84,0,0" TextWrapping="Wrap" Text="Desde" VerticalAlignment="Top" Width="42" GotFocus="txtDesde_GotFocus"/>
+					<TextBox x:Name="txtHasta" IsEnabled="{Binding IsChecked, ElementName=chkCodMat}" HorizontalAlignment="Left" Margin="222,84,0,0" TextWrapping="Wrap" Text="Hasta" VerticalAlignment="Top" Width="42" GotFocus="txtHasta_GotFocus"/>
+					<TextBox x:Name="txtNombMat" IsEnabled="{Binding IsChecked, ElementName=chkNombMat}" HorizontalAlignment="Left" Margin="166,120,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="181"/>
+					<TextBox x:Name="txtCodProfe" IsEnabled="{Binding IsChecked, ElementName=chkCodProfe}" HorizontalAlignment="Left" Margin="166,163,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="41"/>
+					<TextBox x:Name="txtCodCurso" IsEnabled="{Binding IsChecked, ElementName=chkCodCurso}" HorizontalAlignment="Left" Margin="166,203,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="41"/>
+					<Label Content="/" HorizontalAlignment="Left" Margin="207,81,0,0" VerticalAlignment="Top"/>
+					<DataGrid HorizontalAlignment="Center" Height="122" Margin="0,246,0,0" VerticalAlignment="Top" Width="774" d:ItemsSource="{d:SampleData ItemCount=5}" Background="White" BorderBrush="White"/>
+					<Button x:Name="btnBuscar" Content="Buscar" HorizontalAlignment="Center" Margin="0,194,0,0" VerticalAlignment="Top" Height="27" Width="70" Click="btnBuscar_Click" Background="#FF822D4A" Foreground="White" BorderBrush="Black"/>
+					<Label x:Name="lblReg" Content="Registros encontrados: " HorizontalAlignment="Left" Margin="13,373,0,0" VerticalAlignment="Top"/>
+				</Grid>
+			</TabItem>
+		</TabControl>
 
 	</Grid>
 </Window>

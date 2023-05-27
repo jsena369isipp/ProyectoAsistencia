@@ -22,11 +22,10 @@ namespace ProyectoAsistencia
     public partial class Materias : Window
     {
         List<Materia> ListaMaterias = new List<Materia>();
+        List<Materia> listaMateriasBuscar;
         public Materias()
         {
             InitializeComponent();
-            ClasesPublicas.LeerArchivoMateria();
-            dtgMaterias.ItemsSource = ClasesPublicas.ListaMaterias;
         }
 
         private void btnAgregar_Click(object sender, RoutedEventArgs e)
@@ -117,6 +116,65 @@ namespace ProyectoAsistencia
                     cboBoxCurso.SelectedIndex = ObjetoMateria.CodigoCurso;
                     txtBoxHs.Text = ObjetoMateria.HsCatedra.ToString();
                 }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show("Error: " + err.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void btnBuscar_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                listaMateriasBuscar = ClasesPublicas.ListaMaterias;
+                if (chkCodMat.IsChecked == true)
+                {
+                    int codDesde = Convert.ToInt32(txtDesde.Text);
+                    int codHasta = Convert.ToInt32(txtHasta.Text);
+                    listaMateriasBuscar = listaMateriasBuscar.Where(n => n.CodigoMateria >= codDesde && n.CodigoMateria <= codHasta).ToList();
+                }
+                if (chkNombMat.IsChecked == true)
+                {
+                    listaMateriasBuscar = listaMateriasBuscar.Where(n => n.NombreMateria.Contains(txtNombMat.Text)).ToList();
+                }
+                if (chkCodProfe.IsChecked == true)
+                {
+                    int codProfe = Convert.ToInt32(txtCodProfe.Text);
+                    listaMateriasBuscar = listaMateriasBuscar.Where(n => n.CodigoProfesor == codProfe).ToList();
+                }
+                if (chkCodCurso.IsChecked == true)
+                {
+                    int codCurso = Convert.ToInt32(txtCodCurso.Text);
+                    listaMateriasBuscar = listaMateriasBuscar.Where(n => n.CodigoCurso == codCurso).ToList();
+                }
+                dtgMaterias.ItemsSource = listaMateriasBuscar;
+                dtgMaterias.Items.Refresh();
+                lblReg.Content = "Registros encontrados: " + listaMateriasBuscar.Count;
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show("Error: " + err.Message, "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void txtDesde_GotFocus(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                txtDesde.Text = "";
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show("Error: " + err.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void txtHasta_GotFocus(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                txtHasta.Text = "";
             }
             catch (Exception err)
             {
