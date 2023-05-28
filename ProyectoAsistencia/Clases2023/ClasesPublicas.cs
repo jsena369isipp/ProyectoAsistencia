@@ -203,5 +203,71 @@ namespace ProyectoAsistencia.Clases2023
                 MessageBox.Show("Error al Leer: " + ex.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+        public static List<Profesores> ListaProfesores = new List<Profesores>();
+        public static void LeerArchivoProfesores()
+        {
+            try
+            {
+                if (File.Exists("Profesores.txt"))
+                {
+                    Profesores objetoProfe;
+                    string textoCompleto = File.ReadAllText("Profesores.txt");
+                    char[] delims = new[] { '\r', '\n' };
+                    string[] lineas = textoCompleto.Split(delims, StringSplitOptions.RemoveEmptyEntries);
+                    foreach (string fila in lineas)
+                    {
+                        objetoProfe = new Profesores();
+                        string[] valores = fila.Split(';');
+                        int contador = 0;
+
+                        foreach (string val in valores)
+                        {
+
+                            if (contador == 0)
+                            {//PRIMER VALOR 
+                                objetoProfe.Nombre = val;
+                            }
+                            else if (contador == 1)
+                            {
+                                objetoProfe.ID = Convert.ToInt32(val);
+                            }
+                            else if (contador == 2)
+                            {
+                                objetoProfe.DNI = Convert.ToInt32(val);
+                            }
+                            else if (contador == 3)
+                            {
+                                objetoProfe.FechaDeAlta = DateTime.Parse(val);
+                            }
+                            else if (contador == 4)
+                            {
+                                objetoProfe.Tel = val;
+                            }
+                            else if (contador == 5)
+                            {
+                                objetoProfe.Correo = val;
+                            }
+                            else if (contador == 6)
+                            {
+                                objetoProfe.Domicilio = val;
+                            }
+                            else if (contador == 7)
+                            {
+                                objetoProfe.Estado = Convert.ToBoolean(val);
+                            }
+                            contador++;
+
+                        }
+                        ListaProfesores.Add(objetoProfe);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al Leer: " + ex.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
     }
 }

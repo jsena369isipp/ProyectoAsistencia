@@ -61,6 +61,7 @@
     <Compile Include="Clases2023\Cursos.cs" />
     <Compile Include="Clases2023\Materia.cs" />
     <Compile Include="Clases2023\Preceptor.cs" />
+    <Compile Include="Clases2023\Profesores.cs" />
     <Compile Include="Materias.xaml.cs">
       <DependentUpon>Materias.xaml</DependentUpon>
     </Compile>
@@ -72,6 +73,9 @@
     </Compile>
     <Compile Include="VentanaPreceptor.xaml.cs">
       <DependentUpon>VentanaPreceptor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="VentanaProfesores.xaml.cs">
+      <DependentUpon>VentanaProfesores.xaml</DependentUpon>
     </Compile>
     <Compile Include="VentanaPrueba.xaml.cs">
       <DependentUpon>VentanaPrueba.xaml</DependentUpon>
@@ -113,6 +117,10 @@
     <Page Include="VentanaPreceptor.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="VentanaProfesores.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="VentanaPrueba.xaml">
       <Generator>MSBuild:Compile</Generator>
