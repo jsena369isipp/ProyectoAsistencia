@@ -163,15 +163,19 @@ namespace ProyectoAsistencia.Clases2023
                         {
                             if (contador == 0)
                             {
-                                objCursos.Estado = Convert.ToBoolean(valor);
+                                objCursos.Descripcion = Convert.ToString(valor);
                             }
                             else if (contador == 1)
                             {
-                                objCursos.CodigoPreceptor = Convert.ToInt32(valor);
+                                objCursos.Estado = Convert.ToBoolean(valor);
                             }
                             else if (contador == 2)
                             {
-                                objCursos.CodigoCursos = Convert.ToString(valor);
+                                objCursos.CodigoPreceptor = Convert.ToInt32(valor);
+                            }
+                            else if (contador == 3)
+                            {
+                                objCursos.CodigoCursos = Convert.ToInt32(valor);
                             }
                             contador++;
                         }

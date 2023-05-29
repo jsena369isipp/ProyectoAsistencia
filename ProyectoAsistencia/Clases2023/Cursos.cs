@@ -10,6 +10,7 @@ namespace ProyectoAsistencia.Clases2023
     {
         public bool Estado { get; set; }
         public int CodigoPreceptor { get; set; }
-        public string CodigoCursos { get; set; }
+        public int CodigoCursos { get; set; }
+        public string Descripcion { get; set; }
     }
 }
