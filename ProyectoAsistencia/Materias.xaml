@@ -17,8 +17,8 @@
 					<Label Content="Curso:" HorizontalAlignment="Left" Margin="49,139,0,0" VerticalAlignment="Top"/>
 					<TextBox x:Name="txtBoxID" HorizontalAlignment="Left" Margin="97,66,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="35"/>
 					<TextBox x:Name="txtBoxMateria" HorizontalAlignment="Left" Margin="97,89,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="191"/>
-					<ComboBox x:Name="cboBoxProfesor" HorizontalAlignment="Left" Margin="97,112,0,0" VerticalAlignment="Top" Width="206"/>
-					<ComboBox x:Name="cboBoxCurso"  HorizontalAlignment="Left" Margin="97,141,0,0" VerticalAlignment="Top" Width="120"/>
+					<ComboBox x:Name="cboBoxProfesor" DisplayMemberPath="Nombre" SelectedValuePath="IDProfesor" HorizontalAlignment="Left" Margin="97,112,0,0" VerticalAlignment="Top" Width="206"/>
+					<ComboBox x:Name="cboBoxCurso" DisplayMemberPath="Descripcion" SelectedValuePath="CodigoCursos" HorizontalAlignment="Left" Margin="97,141,0,0" VerticalAlignment="Top" Width="120"/>
 					<DataGrid x:Name="dtgMaterias" HorizontalAlignment="Center" Height="179" Margin="0,217,0,0" VerticalAlignment="Top" Width="800" d:ItemsSource="{d:SampleData ItemCount=5}" BorderBrush="White" Background="White" SelectionChanged="dtgMaterias_SelectionChanged"/>
 					<Label Content="Horas cátedra:" HorizontalAlignment="Left" Margin="7,170,0,0" VerticalAlignment="Top"/>
 					<TextBox x:Name="txtBoxHs" HorizontalAlignment="Left" Margin="98,174,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="32"/>
