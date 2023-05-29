@@ -6,7 +6,15 @@ using System.Threading.Tasks;
 
 namespace ProyectoAsistencia.Clases2023
 {
-    internal class AsistenciaPromediocs
+    public class AsistenciaPromediocs
     {
+        public DateTime FechaInicial { get; set; }
+        public DateTime FechaFinal { get; set; }
+        public string Materia { get; set; }
+        public string NombreAlumno { get; set; }
+        public int DíasClases { get; set; }
+        public int DíasAsistencias { get; set; }
+        public decimal Promedio { get; set; }
+
     }
 }

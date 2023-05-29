@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProyectoAsistencia.Clases2023;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -27,7 +28,13 @@ namespace ProyectoAsistencia
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            
+            int DíasAsistencias = 0;
+            int DíasClases = 0;
+            decimal Promedio = 0m;
+
+
+
+
         }
     }
 }
