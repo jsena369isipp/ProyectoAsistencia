@@ -61,15 +61,35 @@
     <Compile Include="AsistenciasPromedio.xaml.cs">
       <DependentUpon>AsistenciasPromedio.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Clases2023\Profesores.cs" />
+    <Compile Include="Mantenimiento.xaml.cs">
+      <DependentUpon>Mantenimiento.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PromedioAsistencias.xaml.cs">
+      <DependentUpon>PromedioAsistencias.xaml</DependentUpon>
+    </Compile>
     <Compile Include="VentanaAsistencia.xaml.cs">
       <DependentUpon>VentanaAsistencia.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="VentanaCursos.xaml.cs">
+      <DependentUpon>VentanaCursos.xaml</DependentUpon>
     </Compile>
     <Compile Include="VentanaPreceptor.xaml.cs">
       <DependentUpon>VentanaPreceptor.xaml</DependentUpon>
     </Compile>
+    <Compile Include="VentanaProfesores.xaml.cs">
+      <DependentUpon>VentanaProfesores.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="VentanaPrueba.xaml.cs">
+      <DependentUpon>VentanaPrueba.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Ventana_Alumno.xaml.cs">
       <DependentUpon>Ventana_Alumno.xaml</DependentUpon>
     </Compile>
+    <Page Include="Mantenimiento.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Materias.xaml">
       <SubType>Designer</SubType>
       <Generator>XamlIntelliSenseFileGenerator</Generator>
@@ -98,13 +118,29 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PromedioAsistencias.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="VentanaAsistencia.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="VentanaCursos.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="VentanaPreceptor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VentanaProfesores.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="VentanaPrueba.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Ventana_Alumno.xaml">
       <SubType>Designer</SubType>
