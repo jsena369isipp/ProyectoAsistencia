@@ -24,7 +24,6 @@ namespace ProyectoAsistencia
         {
             InitializeComponent();
             DateFechaIngreso.SelectedDate = DateTime.Now;
-            ClasesPublicas.LeerArchivoAlumno();
         }
 
         private void BtnCargar_Click(object sender, RoutedEventArgs e)
@@ -115,21 +114,6 @@ namespace ProyectoAsistencia
             }
         }
 
-        private void BtnLeer_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                ClasesPublicas.LeerArchivoAlumno();
-                DgAlumno.ItemsSource = ClasesPublicas.ListaAlumnos;
-                DgAlumno.Items.Refresh();
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al Leer: " + ex.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-        }
-
         private void BtnGuardar_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -165,7 +149,7 @@ namespace ProyectoAsistencia
                 }
                 if (CheckDNI.IsChecked == true)
                 {
-                    int codDni = Convert.ToInt32(TxtDNI.Text);
+                    int codDni = Convert.ToInt32(TxtDNI1.Text);
                     ListaAlumnoBuscar = ListaAlumnoBuscar.Where(n => n.Dni == codDni).ToList();
                 }
                 if (CheckTelefono.IsChecked == true)
@@ -203,6 +187,30 @@ namespace ProyectoAsistencia
                 DgBuscador.ItemsSource = ListaAlumnoBuscar;
                 DgBuscador.Items.Refresh();
                 LblCant.Content = "Registros encontrados: " + ListaAlumnoBuscar.Count;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void TxtDesde_GotFocus(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                TxtDesde.Text = "";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void TxtHasta_GotFocus(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                TxtHasta.Text = "";
             }
             catch (Exception ex)
             {
