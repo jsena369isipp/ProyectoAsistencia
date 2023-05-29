@@ -1,5 +1,7 @@
-﻿using System;
+﻿using ProyectoAsistencia.Clases2023;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,38 +30,72 @@ namespace ProyectoAsistencia
 
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
-
+           
         }
 
-        private void btncrear_Click(object sender, RoutedEventArgs e)
+
+        private void btnQuitar_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+
+
+                Preceptor preceptor = (Preceptor)dg1.SelectedItem;
+                if (preceptor != null)
+                {
+                    ListaPreceptor.Remove(preceptor);
+                    dg1.ItemsSource = ListaPreceptor;
+                    dg1.Items.Refresh();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "¡Seleccionar item!", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void btnCargar_Click(object sender, RoutedEventArgs e)
         {
             Int64 dniVariable = Convert.ToInt64(txtdni.Text);
             Clases2023.Preceptor preceptor = ListaPreceptor.Where(n => n.DNI == dniVariable).FirstOrDefault();
 
-
-            if (preceptor == null)
+            try
             {
+                if (preceptor == null)
+                {
 
-                preceptor = new Clases2023.Preceptor();
-                preceptor.CodigoPreceptor = Convert.ToInt32(txtCodPreceptor.Text);
-                preceptor.DNI = Convert.ToInt64(txtdni.Text);
-                preceptor.ApellidoNombre = txtNombApellido.Text;
-                preceptor.CodigoCursos = cbCursos.SelectedIndex;
-                preceptor.Estado = Convert.ToBoolean(chbEstado.IsChecked);//<--para mostrar el estado en el DataGrid
-                preceptor.FechaNacimiento = Convert.ToDateTime(dpFechaNac.SelectedDate);
+                    preceptor = new Clases2023.Preceptor();
+                    preceptor.CodigoPreceptor = Convert.ToInt32(txtCodPreceptor.Text);
+                    preceptor.DNI = Convert.ToInt64(txtdni.Text);
+                    preceptor.ApellidoNombre = txtNombApellido.Text;
+                    preceptor.CodigoCursos = cbCursos.SelectedIndex;
+                    preceptor.Estado = Convert.ToBoolean(chbEstado.IsChecked);//<--para mostrar el estado en el DataGrid
+                    preceptor.FechaNacimiento = Convert.ToDateTime(dpFechaNac.SelectedDate);
 
-                ListaPreceptor.Add(preceptor);
+                    ListaPreceptor.Add(preceptor);
 
+                }
+                else
+                {
+                    preceptor.CodigoPreceptor = Convert.ToInt32(txtCodPreceptor.Text);
+                    preceptor.DNI = Convert.ToInt64(txtdni.Text);
+                    preceptor.ApellidoNombre = txtNombApellido.Text;
+                    preceptor.CodigoCursos = cbCursos.SelectedIndex;
+                    preceptor.Estado = Convert.ToBoolean(chbEstado.IsChecked);//<--para mostrar el estado en el DataGrid
+                    preceptor.FechaNacimiento = Convert.ToDateTime(dpFechaNac.SelectedDate);
+                }
+                dg1.ItemsSource = ListaPreceptor;
+                dg1.Items.Refresh();
             }
-
+            catch (Exception ex)
+            {
+               MessageBox.Show("Error: " + ex.Message, "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
-        private void btnQuitar_Click(object sender, RoutedEventArgs e)
-        {
 
-        }
 
-        private void btnCargar_Click(object sender, RoutedEventArgs e)
+        private void btnLeer_Click(object sender, RoutedEventArgs e)
         {
 
         }
