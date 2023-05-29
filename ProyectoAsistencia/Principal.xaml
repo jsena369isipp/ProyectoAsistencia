@@ -10,17 +10,17 @@
         <Menu Height="50px" VerticalAlignment="Top" Background="#FF641C34">
 
             <MenuItem Header="ASISTENCIAS" Height="50" Width="140px" Foreground="White" BorderBrush="Black" >
-                <MenuItem Header=" Tomar Asistencias" Height="40" Background="White" Foreground="#FF641C34" x:Name="mnuAsistencias" Click="mnuAsistencias_Click"/>
-                <MenuItem Header="Informe" Height="40" Background="White" Foreground="#FF641C34" x:Name="mnuInforme" Click="mnuInforme_Click"/>
+                <MenuItem Header=" Tomar Asistencias" Height="40" Background="White" Foreground="Black" x:Name="mnuAsistencias" Click="mnuAsistencias_Click"/>
+                <MenuItem Header="Informe" Height="40" Background="White" Foreground="Black" x:Name="mnuInforme" Click="mnuInforme_Click"/>
 
 
             </MenuItem>
             <MenuItem Header="MANTENIMIENTO" Foreground="White" BorderBrush="Black">
-                <MenuItem Header="Alumnos" Height="40" Background="White" Foreground="#FF641C34" x:Name="mnuAlumnos" Click="mnuAlumnos_Click"/>
-                <MenuItem Header="Cursos" Height="40" Background="White" Foreground="#FF641C34" x:Name="mnuCursos" Click="mnuCursos_Click"/>
-                <MenuItem Header="Materias" Height="40" Background="White" Foreground="#FF641C34" x:Name="mnuMaterias" Click="mnuMaterias_Click"/>
+                <MenuItem Header="Alumnos" Height="40" Background="White" Foreground="Black" x:Name="mnuAlumnos" Click="mnuAlumnos_Click"/>
+                <MenuItem Header="Cursos" Height="40" Background="White" Foreground="Black" x:Name="mnuCursos" Click="mnuCursos_Click"/>
+                <MenuItem Header="Materias" Height="40" Background="White" Foreground="Black" x:Name="mnuMaterias" Click="mnuMaterias_Click"/>
 
-                <MenuItem Header="Preceptor" Height="40" Background="White" Foreground="#FF641C34" x:Name="mnuPreceptor" Click="mnuPreceptor_Click"/>
+                <MenuItem Header="Preceptor" Height="40" Background="White" Foreground="Black" x:Name="mnuPreceptor" Click="mnuPreceptor_Click"/>
             </MenuItem>
 
         </Menu>
