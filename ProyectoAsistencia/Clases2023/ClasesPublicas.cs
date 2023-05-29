@@ -273,7 +273,7 @@ namespace ProyectoAsistencia.Clases2023
                             }
                             else if (contador == 1)
                             {
-                                objetoProfe.ID = Convert.ToInt32(val);
+                                objetoProfe.IDProfesor = Convert.ToInt32(val);
                             }
                             else if (contador == 2)
                             {
