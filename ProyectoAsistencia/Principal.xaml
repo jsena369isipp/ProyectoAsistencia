@@ -5,31 +5,32 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoAsistencia"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="896" Background="DarkGray">
+        Title="MainWindow" Height="450" Width="896" Background="White">
     <Grid>
         <Menu Height="50px" VerticalAlignment="Top" Background="#FF641C34">
 
             <MenuItem Header="ASISTENCIAS" Height="50" Width="140px" Foreground="White" BorderBrush="Black" >
-                <MenuItem Header=" Tomar Asistencias" Height="40" Background="Black" Foreground="#FF641C34" Name="mnuAsistencias" Click="mnuAsistencias_Click"></MenuItem>
-                <MenuItem Header="Informe" Height="40" Background="Black" Foreground="#FF641C34" Name="mnuInforme" Click="mnuInforme_Click"></MenuItem>
+                <MenuItem Header=" Tomar Asistencias" Height="40" Background="White" Foreground="#FF641C34" x:Name="mnuAsistencias" Click="mnuAsistencias_Click"/>
+                <MenuItem Header="Informe" Height="40" Background="White" Foreground="#FF641C34" x:Name="mnuInforme" Click="mnuInforme_Click"/>
 
 
             </MenuItem>
             <MenuItem Header="MANTENIMIENTO" Foreground="White" BorderBrush="Black">
-                <MenuItem Header="Alumnos" Height="40" Background="Black" Foreground="#FF641C34" Name="mnuAlumnos" Click="mnuAlumnos_Click"></MenuItem>
-                <MenuItem Header="Cursos" Height="40" Background="Black" Foreground="#FF641C34" Name="mnuCursos" Click="mnuCursos_Click"></MenuItem>
-                <MenuItem Header="Materias" Height="40" Background="Black" Foreground="#FF641C34" Name="mnuMaterias" Click="mnuMaterias_Click"></MenuItem>
+                <MenuItem Header="Alumnos" Height="40" Background="White" Foreground="#FF641C34" x:Name="mnuAlumnos" Click="mnuAlumnos_Click"/>
+                <MenuItem Header="Cursos" Height="40" Background="White" Foreground="#FF641C34" x:Name="mnuCursos" Click="mnuCursos_Click"/>
+                <MenuItem Header="Materias" Height="40" Background="White" Foreground="#FF641C34" x:Name="mnuMaterias" Click="mnuMaterias_Click"/>
 
-                <MenuItem Header="Preceptor" Height="40" Background="Black" Foreground="#FF641C34" Name="mnuPreceptor" Click="mnuPreceptor_Click"></MenuItem>
+                <MenuItem Header="Preceptor" Height="40" Background="White" Foreground="#FF641C34" x:Name="mnuPreceptor" Click="mnuPreceptor_Click"/>
             </MenuItem>
 
         </Menu>
-        <Image HorizontalAlignment="Left" Height="54" Margin="831,-2,0,0" VerticalAlignment="Top" Width="63" Source="/isipp-blanco.png"/>
-        <Image HorizontalAlignment="Center" Height="1015" VerticalAlignment="Center" Width="446" Source="/isipp-blanco.png"/>
-        <TextBlock HorizontalAlignment="Left" Margin="338,129,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="52" Width="278" FontSize="36" RenderTransformOrigin="0.551,-0.153" Text="INSTITUTO" FontFamily="Arial Black"/>
-        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="SUPERIOR " VerticalAlignment="Top" FontSize="36" Height="54" Width="278" Margin="338,181,0,0" FontFamily="Arial Black" Foreground="#FF641C34"/>
-        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36" Height="54" Width="278" Margin="410,235,0,0" FontFamily="Arial Black" Text="DE"/>
-        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="INFORMÁTICA" VerticalAlignment="Top" FontSize="36" Height="54" Width="314" Margin="302,289,0,0" FontFamily="Arial Black" Foreground="#FF641C34"/>
+
+        <Image HorizontalAlignment="Left" Height="54" Margin="832,-4,0,0" VerticalAlignment="Top" Width="63" Source="/Imagen/isipp-blanco.png"/>
+        <TextBlock HorizontalAlignment="Left" Margin="62,128,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="48" Width="270" FontSize="36" RenderTransformOrigin="0.551,-0.153" Text="INSTITUTO" FontFamily="Arial Black" />
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="SUPERIOR " VerticalAlignment="Top" FontSize="36" Height="54" Width="278" Margin="62,181,0,0" FontFamily="Arial Black" Foreground="#FF641C34"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36" Height="54" Width="278" Margin="62,240,0,0" FontFamily="Arial Black" Text="DE"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="INFORMÁTICA" VerticalAlignment="Top" FontSize="36" Height="54" Width="314" Margin="62,299,0,0" FontFamily="Arial Black" Foreground="#FF641C34"/>
+        <Image HorizontalAlignment="Left" Height="422" Margin="464,0,0,0" VerticalAlignment="Center" Width="469" Source="/Imagen/isipp-bordo.png"/>
 
 
 
