@@ -12,6 +12,6 @@ namespace ProyectoAsistencia.Clases2023
         public string NombreMateria { get; set; }
         public int CodigoProfesor { get; set; }
         public int HsCatedra{ get; set; }
-        public int CodigoCurso { get; set; }
+        public int CodigoCursos { get; set; }
     }
 }
