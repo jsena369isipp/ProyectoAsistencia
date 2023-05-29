@@ -26,11 +26,11 @@
         </Menu>
 
         <Image HorizontalAlignment="Left" Height="54" Margin="832,-4,0,0" VerticalAlignment="Top" Width="63" Source="/Imagen/isipp-blanco.png"/>
-        <TextBlock HorizontalAlignment="Left" Margin="62,128,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="48" Width="270" FontSize="36" RenderTransformOrigin="0.551,-0.153" Text="INSTITUTO" FontFamily="Arial Black" />
-        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="SUPERIOR " VerticalAlignment="Top" FontSize="36" Height="54" Width="278" Margin="62,181,0,0" FontFamily="Arial Black" Foreground="#FF641C34"/>
-        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36" Height="54" Width="278" Margin="62,240,0,0" FontFamily="Arial Black" Text="DE"/>
+        <TextBlock HorizontalAlignment="Left" Margin="62,138,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="48" Width="270" FontSize="36" RenderTransformOrigin="0.551,-0.153" Text="INSTITUTO" FontFamily="Arial Black" />
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="SUPERIOR " VerticalAlignment="Top" FontSize="36" Height="54" Width="278" Margin="62,186,0,0" FontFamily="Arial Black" Foreground="#FF641C34"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36" Height="54" Width="278" Margin="62,245,0,0" FontFamily="Arial Black" Text="DE"/>
         <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="INFORMÁTICA" VerticalAlignment="Top" FontSize="36" Height="54" Width="314" Margin="62,299,0,0" FontFamily="Arial Black" Foreground="#FF641C34"/>
-        <Image HorizontalAlignment="Left" Height="422" Margin="464,0,0,0" VerticalAlignment="Center" Width="469" Source="/Imagen/isipp-bordo.png"/>
+        <Image HorizontalAlignment="Left" Height="422" Margin="464,-4,0,0" VerticalAlignment="Top" Width="469" Source="/Imagen/isipp-bordo.png"/>
 
 
 
