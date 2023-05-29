@@ -41,7 +41,7 @@ namespace ProyectoAsistencia.Clases2023
                             }
                             else if (cont == 2)
                             {
-                                ObjetoMateria.CodigoProfesor = Convert.ToInt32(val);
+                                ObjetoMateria.IDProfesor = Convert.ToInt32(val);
                             }
                             else if (cont == 3)
                             {

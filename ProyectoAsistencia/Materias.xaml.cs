@@ -40,8 +40,8 @@ namespace ProyectoAsistencia
                     ObjetoMateria = new Materia();
                     ObjetoMateria.CodigoMateria = Convert.ToInt32(txtBoxID.Text);
                     ObjetoMateria.NombreMateria = txtBoxMateria.Text;
-                    ObjetoMateria.CodigoProfesor = cboBoxProfesor.SelectedIndex;
-                    ObjetoMateria.CodigoCurso = cboBoxCurso.SelectedIndex;
+                    ObjetoMateria.IDProfesor = cboBoxProfesor.SelectedIndex;
+                    ObjetoMateria.CodigoCursos = cboBoxCurso.SelectedIndex;
                     ObjetoMateria.HsCatedra = Convert.ToInt32(txtBoxHs.Text);
 
                     ListaMaterias.Add(ObjetoMateria);
@@ -50,8 +50,8 @@ namespace ProyectoAsistencia
                 {
                     ObjetoMateria.CodigoMateria = Convert.ToInt32(txtBoxID.Text);
                     ObjetoMateria.NombreMateria = txtBoxMateria.Text;
-                    ObjetoMateria.CodigoProfesor = cboBoxProfesor.SelectedIndex;
-                    ObjetoMateria.CodigoCurso = cboBoxCurso.SelectedIndex;
+                    ObjetoMateria.IDProfesor = cboBoxProfesor.SelectedIndex;
+                    ObjetoMateria.CodigoCursos = cboBoxCurso.SelectedIndex;
                     ObjetoMateria.HsCatedra = Convert.ToInt32(txtBoxHs.Text);
                 }
                 dtgMaterias.ItemsSource = ListaMaterias;
@@ -75,7 +75,7 @@ namespace ProyectoAsistencia
                 foreach (Materia ObjetoMateria in ListaMaterias)
                 {
                     MateriaConcatenado = MateriaConcatenado + "\n" + ObjetoMateria.CodigoMateria + ";" + ObjetoMateria.NombreMateria + ";" +
-                        ObjetoMateria.CodigoProfesor + ";" + ObjetoMateria.CodigoCurso + ";" + ObjetoMateria.HsCatedra;
+                        ObjetoMateria.IDProfesor + ";" + ObjetoMateria.CodigoCursos + ";" + ObjetoMateria.HsCatedra;
                 }
                 File.WriteAllText("Materias.txt", MateriaConcatenado);
                 MessageBox.Show("Almacenado exitosamente!", "Aplicación", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -113,8 +113,8 @@ namespace ProyectoAsistencia
                 {
                     txtBoxID.Text = ObjetoMateria.CodigoMateria.ToString();
                     txtBoxMateria.Text = ObjetoMateria.NombreMateria;
-                    cboBoxProfesor.SelectedIndex = ObjetoMateria.CodigoProfesor;
-                    cboBoxCurso.SelectedIndex = ObjetoMateria.CodigoCurso;
+                    cboBoxProfesor.SelectedIndex = ObjetoMateria.IDProfesor;
+                    cboBoxCurso.SelectedIndex = ObjetoMateria.CodigoCursos;
                     txtBoxHs.Text = ObjetoMateria.HsCatedra.ToString();
                 }
             }
@@ -142,12 +142,12 @@ namespace ProyectoAsistencia
                 if (chkCodProfe.IsChecked == true)
                 {
                     int codProfe = Convert.ToInt32(txtCodProfe.Text);
-                    listaMateriasBuscar = listaMateriasBuscar.Where(n => n.CodigoProfesor == codProfe).ToList();
+                    listaMateriasBuscar = listaMateriasBuscar.Where(n => n.IDProfesor == codProfe).ToList();
                 }
                 if (chkCodCurso.IsChecked == true)
                 {
                     int codCurso = Convert.ToInt32(txtCodCurso.Text);
-                    listaMateriasBuscar = listaMateriasBuscar.Where(n => n.CodigoCurso == codCurso).ToList();
+                    listaMateriasBuscar = listaMateriasBuscar.Where(n => n.CodigoCursos == codCurso).ToList();
                 }
                 dtgMaterias.ItemsSource = listaMateriasBuscar;
                 dtgMaterias.Items.Refresh();
