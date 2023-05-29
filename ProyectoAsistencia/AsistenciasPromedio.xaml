@@ -19,6 +19,7 @@
         <DataGrid x:Name="DgResultados" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,188,0,0" Height="246" Width="800" HorizontalAlignment="Center" VerticalAlignment="Top"/>
         <Label Content="Asistencia" HorizontalAlignment="Left" Margin="10,131,0,0" VerticalAlignment="Top"/>
         <ComboBox x:Name="ComboAsistencias" HorizontalAlignment="Left" Margin="102,131,0,0" VerticalAlignment="Top" Width="145"/>
+        <Image HorizontalAlignment="Left" Margin="705,-15,0,0" VerticalAlignment="Top" Source="/Imagen/isipp-blanco.png" Height="85"/>
 
     </Grid>
 </Window>
