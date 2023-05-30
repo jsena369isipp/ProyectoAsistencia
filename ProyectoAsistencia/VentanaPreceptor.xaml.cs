@@ -25,6 +25,7 @@ namespace ProyectoAsistencia
 
         public VentanaPreceptor()
         {
+
             InitializeComponent();
         }
 
@@ -96,6 +97,11 @@ namespace ProyectoAsistencia
 
 
         private void btnLeer_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void dg1_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }
