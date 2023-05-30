@@ -151,5 +151,29 @@ namespace ProyectoAsistencia
                 MessageBox.Show("Error: " + ex.Message, "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+        private void txtDesde_GotFocus(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                txtDesde.Text = "";
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show("Error: " + err.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void txtHasta_GotFocus(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                txtHasta.Text = "";
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show("Error: " + err.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
     }   
 }
