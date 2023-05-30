@@ -5,7 +5,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using static System.Net.WebRequestMethods;
 
 namespace ProyectoAsistencia.Clases2023
 {
@@ -42,11 +41,11 @@ namespace ProyectoAsistencia.Clases2023
                             }
                             else if (cont == 2)
                             {
-                                ObjetoMateria.CodigoProfesor = Convert.ToInt32(val);
+                                ObjetoMateria.IDProfesor = Convert.ToInt32(val);
                             }
                             else if (cont == 3)
                             {
-                                ObjetoMateria.CodigoCurso = Convert.ToInt32(val);
+                                ObjetoMateria.CodigoCursos = Convert.ToInt32(val);
                             }
                             else if (cont == 4)
                             {
@@ -64,55 +63,6 @@ namespace ProyectoAsistencia.Clases2023
                 MessageBox.Show("Error al leer: " + err.Message, "Apliación", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-        public static List<Preceptor> ListaPreceptor = new List<Preceptor>();
-        public static void LeerPreceptor()
-        {
-            if (File.Exists("Preceptor.txt"))
-            {
-                Preceptor objetoPreceptor;
-                string textoCompleto = File.ReadAllText("Preceptor.txt");
-                char[] delims = new[] { '\r', '\n' };
-                string[] lineas = textoCompleto.Split(delims, StringSplitOptions.RemoveEmptyEntries);
-                foreach (string fila in lineas)
-                {
-                    objetoPreceptor = new Preceptor();
-                    string[] valores = fila.Split(';');
-                    int contador = 0;
-
-                    foreach (string val in valores)
-                    {
-                        if (contador == 0)
-                        {//PRIMER VALOR
-                            objetoPreceptor.CodigoPreceptor = Convert.ToInt16(val);
-                        }
-                        else if (contador == 1)
-                        {
-                            objetoPreceptor.ApellidoNombre = val;
-                        }
-                        if (contador == 2)
-                        {
-                            objetoPreceptor.CodigoCursos = Convert.ToInt16(val);
-                        }
-                        else if(contador == 3)
-                        {
-                            objetoPreceptor.DNI = Convert.ToInt32(val);
-                        }
-                        if (contador == 4)
-                        {
-                            objetoPreceptor.FechaNacimiento = Convert.ToDateTime(val);
-                        }
-                        else if (contador == 5)
-                        {
-                            objetoPreceptor.Estado = Convert.ToBoolean(val);
-                        }
-                        contador = contador + 1;
-                    }
-                    ListaPreceptor.Add(objetoPreceptor);
-                }
-                
-            }
-        }
-
 
         public static List<Alumno> ListaAlumnos = new List<Alumno>();
 
@@ -194,7 +144,50 @@ namespace ProyectoAsistencia.Clases2023
         public static List<Cursos> ListaCursos = new List<Cursos>();
         public static void LeerArchivoCursos()
         {
+            try
+            {
+                if (File.Exists("Cursos.txt"))
+                {
+                    Cursos objCursos;
+                    ListaCursos = new List<Cursos>();
 
+                    string textoCompleto = File.ReadAllText("Cursos.txt");
+                    char[] delims = new[] { '\r', '\n' };
+                    string[] lineas = textoCompleto.Split(delims, StringSplitOptions.RemoveEmptyEntries);
+                    foreach (string fila in lineas)
+                    {
+                        objCursos = new Cursos();
+                        string[] valores = fila.Split(';');
+                        int contador = 0;
+
+                        foreach (string valor in valores)
+                        {
+                            if (contador == 0)
+                            {
+                                objCursos.Descripcion = Convert.ToString(valor);
+                            }
+                            else if (contador == 1)
+                            {
+                                objCursos.Estado = Convert.ToBoolean(valor);
+                            }
+                            else if (contador == 2)
+                            {
+                                objCursos.CodigoPreceptor = Convert.ToInt32(valor);
+                            }
+                            else if (contador == 3)
+                            {
+                                objCursos.CodigoCursos = Convert.ToInt32(valor);
+                            }
+                            contador++;
+                        }
+                        ClasesPublicas.ListaCursos.Add(objCursos);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al leer: " + ex.Message, "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private static List<Asistencia> listaAsistencias = new List<Asistencia>();
@@ -254,6 +247,71 @@ namespace ProyectoAsistencia.Clases2023
                 MessageBox.Show("Error al Leer: " + ex.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-        
+
+        public static List<Profesores> ListaProfesores = new List<Profesores>();
+        public static void LeerArchivoProfesores()
+        {
+            try
+            {
+                if (File.Exists("Profesores.txt"))
+                {
+                    Profesores objetoProfe;
+                    string textoCompleto = File.ReadAllText("Profesores.txt");
+                    char[] delims = new[] { '\r', '\n' };
+                    string[] lineas = textoCompleto.Split(delims, StringSplitOptions.RemoveEmptyEntries);
+                    foreach (string fila in lineas)
+                    {
+                        objetoProfe = new Profesores();
+                        string[] valores = fila.Split(';');
+                        int contador = 0;
+
+                        foreach (string val in valores)
+                        {
+
+                            if (contador == 0)
+                            {//PRIMER VALOR 
+                                objetoProfe.Nombre = val;
+                            }
+                            else if (contador == 1)
+                            {
+                                objetoProfe.IDProfesor = Convert.ToInt32(val);
+                            }
+                            else if (contador == 2)
+                            {
+                                objetoProfe.DNI = Convert.ToInt32(val);
+                            }
+                            else if (contador == 3)
+                            {
+                                objetoProfe.FechaDeAlta = DateTime.Parse(val);
+                            }
+                            else if (contador == 4)
+                            {
+                                objetoProfe.Tel = val;
+                            }
+                            else if (contador == 5)
+                            {
+                                objetoProfe.Correo = val;
+                            }
+                            else if (contador == 6)
+                            {
+                                objetoProfe.Domicilio = val;
+                            }
+                            else if (contador == 7)
+                            {
+                                objetoProfe.Estado = Convert.ToBoolean(val);
+                            }
+                            contador++;
+
+                        }
+                        ListaProfesores.Add(objetoProfe);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al Leer: " + ex.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
     }
 }
