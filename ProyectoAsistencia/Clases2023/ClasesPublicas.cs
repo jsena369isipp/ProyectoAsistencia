@@ -53,6 +53,7 @@ namespace ProyectoAsistencia.Clases2023
                             }
                             cont += 1;
                         }
+
                         ListaMaterias.Add(ObjetoMateria);
                     }
                 }
