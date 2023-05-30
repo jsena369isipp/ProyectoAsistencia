@@ -19,7 +19,7 @@
         <Label Content="Fecha nacimiento:" HorizontalAlignment="Left" Margin="438,82,0,0" VerticalAlignment="Top"/>
         <Label Content="Estado:" HorizontalAlignment="Left" Margin="438,209,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.562,-0.114"/>
         <CheckBox x:Name="chbEstado" Content="Habilitado" HorizontalAlignment="Left" Margin="495,216,0,0" VerticalAlignment="Top"/>
-        <DataGrid x:Name="dg1" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,319,0,0" HorizontalAlignment="Center" Width="800" Height="115" VerticalAlignment="Top" SelectionChanged="DgAlumno_SelectionChanged"/>
+        <DataGrid x:Name="dg1" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,319,0,0" HorizontalAlignment="Center" Width="800" Height="115" VerticalAlignment="Top" SelectionChanged="dg1_SelectionChanged"/>
         <Button x:Name="btnCargar" Content="Cargar" HorizontalAlignment="Left" Margin="161,277,0,0" VerticalAlignment="Top" Width="60" Height="20" Background="#FF822D4A" Foreground="White" FontWeight="Bold" Click="btnCargar_Click"/>
         <Button x:Name="btnLeer" Content="Leer" HorizontalAlignment="Left" Margin="440,277,0,0" VerticalAlignment="Top" Width="60" Height="20" Background="#FF822D4A" Foreground="White" FontWeight="Bold" Click="btnLeer_Click"/>
         <Button x:Name="btnQuitar" Content="Quitar" HorizontalAlignment="Left"  Margin="254,277,0,0" VerticalAlignment="Top" Width="60" Height="20" Foreground="#FFFDFDFD" Background="#FF822D4A" FontWeight="Bold" Click="btnQuitar_Click"/>

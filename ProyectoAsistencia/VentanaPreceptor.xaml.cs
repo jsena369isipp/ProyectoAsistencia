@@ -30,7 +30,25 @@ namespace ProyectoAsistencia
 
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
-           
+            try
+            {
+                if (File.Exists("Preceptor.txt"))
+                {
+                    File.Delete("Preceptor.txt");
+                }
+                string preceptorConcatenado = "";
+                foreach (Preceptor objetoPreceptor in ListaPreceptor)
+                {
+                    preceptorConcatenado = preceptorConcatenado + "\r\n" + objetoPreceptor.CodigoPreceptor + ";" + objetoPreceptor.ApellidoNombre + ";" + objetoPreceptor.CodigoCursos + ";" + objetoPreceptor.DNI + ";" + objetoPreceptor.FechaNacimiento + ";" + objetoPreceptor.Estado;
+                }
+                File.WriteAllText("Preceptor.txt", preceptorConcatenado);
+                MessageBox.Show("Almacenado de forma correcta!", "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Error al guardar", "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
 
@@ -98,6 +116,27 @@ namespace ProyectoAsistencia
         private void btnLeer_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+
+        private void dg1_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            try
+            {
+                Preceptor preceptor = (Preceptor)dg1.SelectedItem;
+                if (preceptor != null)
+                {
+                    txtCodPreceptor.Text = preceptor.CodigoPreceptor.ToString();
+                    txtdni.Text = preceptor.DNI.ToString();
+                    txtNombApellido.Text = preceptor.ApellidoNombre;
+                    dpFechaNac.SelectedDate = preceptor.FechaNacimiento;
+                    cbCursos.SelectedIndex = preceptor.CodigoCursos;
+                    chbEstado.IsChecked = preceptor.Estado;
+                }
+            }catch (Exception ex) 
+            {
+                MessageBox.Show("Error: " + ex.Message, "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }
