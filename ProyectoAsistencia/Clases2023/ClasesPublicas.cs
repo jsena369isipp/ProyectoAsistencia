@@ -312,6 +312,54 @@ namespace ProyectoAsistencia.Clases2023
                 MessageBox.Show("Error al Leer: " + ex.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+        public static List<Preceptor> ListaPreceptor = new List<Preceptor>();
+        public static void LeerPreceptor()
+        {
+            if (File.Exists("Preceptor.txt"))
+            {
+                Preceptor objetoPreceptor;
+                string textoCompleto = File.ReadAllText("Preceptor.txt");
+                char[] delims = new[] { '\r', '\n' };
+                string[] lineas = textoCompleto.Split(delims, StringSplitOptions.RemoveEmptyEntries);
+                foreach (string fila in lineas)
+                {
+                    objetoPreceptor = new Preceptor();
+                    string[] valores = fila.Split(';');
+                    int contador = 0;
+
+                    foreach (string val in valores)
+                    {
+                        if (contador == 0)
+                        {//PRIMER VALOR
+                            objetoPreceptor.CodigoPreceptor = Convert.ToInt16(val);
+                        }
+                        else if (contador == 1)
+                        {
+                            objetoPreceptor.ApellidoNombre = val;
+                        }
+                        if (contador == 2)
+                        {
+                            objetoPreceptor.CodigoCursos = Convert.ToInt16(val);
+                        }
+                        else if (contador == 3)
+                        {
+                            objetoPreceptor.DNI = Convert.ToInt32(val);
+                        }
+                        if (contador == 4)
+                        {
+                            objetoPreceptor.FechaNacimiento = Convert.ToDateTime(val);
+                        }
+                        else if (contador == 5)
+                        {
+                            objetoPreceptor.Estado = Convert.ToBoolean(val);
+                        }
+                        contador = contador + 1;
+                    }
+                    ListaPreceptor.Add(objetoPreceptor);
+                }
+
+            }
+        }
 
     }
 }
