@@ -22,6 +22,7 @@ namespace ProyectoAsistencia
     public partial class VentanaAsistencia : Window
     {
         List<Asistencia> ListaAsistencias = new List<Asistencia>();
+        List<Asistencia> ListaAsistenciaBuscar;
         public VentanaAsistencia()
         {
             InitializeComponent();
@@ -84,6 +85,30 @@ namespace ProyectoAsistencia
             dtg.ItemsSource = Clases2023.ClasesPublicas.ListaAlumnos;
             dtg.Items.Refresh();
             LblArchivos.Content = dtg.Items.Count;
+        }
+        private void btnBuscar_Click(object sender, RoutedEventArgs e)
+        {
+            /*try
+            {
+                ListaAsistenciaBuscar = ClasesPublicas.ListaAsistencias;
+
+                if(chCodAlumno.IsChecked == true)
+                {
+
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Error al Buscar: " + ex.Message,"Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
+            }*/
+        }
+        private void txtDesde_GotFocus(object sender, RoutedEventArgs e)
+        {
+            txtCodDesdeX.Text = "";
+        }
+        private void txtHasta_GotFocus(Object sender, RoutedEventArgs e)
+        {
+            txtCodHastaX.Text = "";
         }
     }
 }

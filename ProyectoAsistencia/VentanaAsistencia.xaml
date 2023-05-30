@@ -6,36 +6,68 @@
         xmlns:local="clr-namespace:ProyectoAsistencia"
         mc:Ignorable="d"
         Title="VentanaAsistencia" Height="450" Width="800">
-    <Grid>
-        <DatePicker x:Name="DpFecha" HorizontalAlignment="Left" Margin="123,112,0,0" VerticalAlignment="Top" Height="21"/>
-        <TextBlock HorizontalAlignment="Left" Margin="34,116,0,0" TextWrapping="Wrap" Text="Fecha:" VerticalAlignment="Top" Height="14"/>
-        <ComboBox x:Name="CmbCurso" DisplayMemberPath="Curso" SelectedValuePath="CodigoCursos" HorizontalAlignment="Left" Margin="123,151,0,0" VerticalAlignment="Top" Width="120" Height="20"/>
-        <TextBlock HorizontalAlignment="Left" Margin="34,154,0,0" TextWrapping="Wrap" Text="Curso:" VerticalAlignment="Top" RenderTransformOrigin="0.446,0.441" Height="14"/>
-        <ComboBox x:Name="CmbPreceptor" DisplayMemberPath="Preceptor" SelectedValuePath="CodigoPreceptor" HorizontalAlignment="Left" Margin="123,190,0,0" VerticalAlignment="Top" Width="120" Height="19"/>
-        <TextBlock HorizontalAlignment="Left" Margin="34,192,0,0" TextWrapping="Wrap" Text="Preceptor:" VerticalAlignment="Top" Height="14"/>
-        <DataGrid x:Name="dtg" SelectionChanged="dtgAsistencia_SC" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,276,0,0"/>
-        <CheckBox x:Name="ChPresente" Content="Presente" HorizontalAlignment="Left" Margin="123,256,0,0" VerticalAlignment="Top" Height="20"/>
-        <TextBlock HorizontalAlignment="Left" Margin="39,239,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="14"/>
-        <Button x:Name="BtnLeer" Content="Alumnos" HorizontalAlignment="Left" Margin="707,71,0,0" VerticalAlignment="Top" Height="21" Width="64" Background="#FF822D4A" Foreground="White" BorderBrush="Black" Click="BtnLeer_Click"/>
-        <Button x:Name="BtnActualizar" Content="Actualizar" HorizontalAlignment="Left" Margin="484,71,0,0" VerticalAlignment="Top" Height="21" Width="62" Background="#FF822D4A" Foreground="White" BorderBrush="Black"/>
-        <ComboBox x:Name="cmbMateria" DisplayMemberPath="Materia" SelectedValuePath="CodigoMateria" HorizontalAlignment="Left" Margin="123,226,0,0" VerticalAlignment="Top" Width="120" Height="20"/>
-        <TextBlock HorizontalAlignment="Left" Margin="34,229,0,0" TextWrapping="Wrap" Text="Materia:" VerticalAlignment="Top" Height="14"/>
-        <Button x:Name="BtnGuardar_Copy" Click="btnGrd_Click"  Content="Guardar" HorizontalAlignment="Left" Margin="417,71,0,0" VerticalAlignment="Top" Height="21" Width="62" Background="#FF822D4A" Foreground="White" BorderBrush="Black"/>
-        <TextBlock HorizontalAlignment="Left" Margin="39,75,0,0" TextWrapping="Wrap" Text="ID:" VerticalAlignment="Top" Height="14"/>
-        <TextBox x:Name="TxtID" HorizontalAlignment="Left" Margin="123,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="45" Height="16"/>
-        <Rectangle HorizontalAlignment="Center" Height="55"  Stroke="Black" VerticalAlignment="Top" Width="8000" Fill="#FF641C34"/>
-        <Label Content="Asistencias" HorizontalAlignment="Left" Margin="15,5,0,0" VerticalAlignment="Top" Height="45" RenderTransformOrigin="0.5,0.5" Width="206" FontSize="25" FontWeight="Bold" Foreground="White">
-            <Label.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform AngleY="0"/>
-                    <RotateTransform/>
-                    <TranslateTransform Y="0"/>
-                </TransformGroup>
-            </Label.RenderTransform>
-        </Label>
-        <Image HorizontalAlignment="Left" Height="55" Margin="724,0,0,0" VerticalAlignment="Top" Width="56" Source="/Imagen/isipp-blanco.png"/>
-        <TextBlock HorizontalAlignment="Left" Margin="635,252,0,0" TextWrapping="Wrap" Text="Cantidad de Alumnos:" VerticalAlignment="Top"/>
-        <Label x:Name="LblArchivos" Content="0" HorizontalAlignment="Left" Margin="752,248,0,0" VerticalAlignment="Top" Width="40"/>
-    </Grid>
+    <TabControl>
+        <TabItem Header="Regsitro">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="41*"/>
+                    <ColumnDefinition Width="8*"/>
+                    <ColumnDefinition Width="348*"/>
+                </Grid.ColumnDefinitions>
+                <DatePicker x:Name="DpFecha" HorizontalAlignment="Left" Margin="25,112,0,0" VerticalAlignment="Top" Height="21" Grid.Column="2"/>
+                <TextBlock HorizontalAlignment="Left" Margin="34,116,0,0" TextWrapping="Wrap" Text="Fecha:" VerticalAlignment="Top" Height="14"/>
+                <ComboBox x:Name="CmbCurso" DisplayMemberPath="Curso" SelectedValuePath="CodigoCursos" HorizontalAlignment="Left" Margin="25,151,0,0" VerticalAlignment="Top" Width="120" Height="20" Grid.Column="2"/>
+                <TextBlock HorizontalAlignment="Left" Margin="34,154,0,0" TextWrapping="Wrap" Text="Curso:" VerticalAlignment="Top" RenderTransformOrigin="0.446,0.441" Height="14"/>
+                <ComboBox x:Name="CmbPreceptor" DisplayMemberPath="Preceptor" SelectedValuePath="CodigoPreceptor" HorizontalAlignment="Left" Margin="25,190,0,0" VerticalAlignment="Top" Width="120" Height="19" Grid.Column="2"/>
+                <TextBlock HorizontalAlignment="Left" Margin="34,192,0,0" TextWrapping="Wrap" Text="Preceptor:" VerticalAlignment="Top" Height="14" Grid.ColumnSpan="2"/>
+                <DataGrid x:Name="dtg" SelectionChanged="dtgAsistencia_SC" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,276,0,0" Grid.ColumnSpan="3"/>
+                <CheckBox x:Name="ChPresente" Content="Presente" HorizontalAlignment="Left" Margin="25,256,0,0" VerticalAlignment="Top" Height="20" Grid.Column="2"/>
+                <TextBlock HorizontalAlignment="Left" Margin="39,239,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="14"/>
+                <Button x:Name="BtnLeer" Content="Alumnos" HorizontalAlignment="Left" Margin="609,71,0,0" VerticalAlignment="Top" Height="21" Width="64" Background="#FF822D4A" Foreground="White" BorderBrush="Black" Click="BtnLeer_Click" Grid.Column="2"/>
+                <ComboBox x:Name="cmbMateria" DisplayMemberPath="Materia" SelectedValuePath="CodigoMateria" HorizontalAlignment="Left" Margin="25,226,0,0" VerticalAlignment="Top" Width="120" Height="20" Grid.Column="2"/>
+                <TextBlock HorizontalAlignment="Left" Margin="34,229,0,0" TextWrapping="Wrap" Text="Materia:" VerticalAlignment="Top" Height="14"/>
+                <Button x:Name="BtnGuardar_Copy" Click="btnGrd_Click"  Content="Guardar" HorizontalAlignment="Left" Margin="319,71,0,0" VerticalAlignment="Top" Height="21" Width="62" Background="#FF822D4A" Foreground="White" BorderBrush="Black" Grid.Column="2"/>
+                <TextBlock HorizontalAlignment="Left" Margin="39,75,0,0" TextWrapping="Wrap" Text="ID:" VerticalAlignment="Top" Height="14"/>
+                <TextBox x:Name="TxtID" HorizontalAlignment="Left" Margin="25,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="45" Height="16" Grid.Column="2"/>
+                <Rectangle HorizontalAlignment="Left" Height="55"  Stroke="Black" VerticalAlignment="Top" Width="8000" Fill="#FF641C34" Grid.ColumnSpan="3" Margin="-3603,0,0,0"/>
+                <Label Content="Asistencias" HorizontalAlignment="Left" Margin="15,5,0,0" VerticalAlignment="Top" Height="45" RenderTransformOrigin="0.5,0.5" Width="206" FontSize="25" FontWeight="Bold" Foreground="White" Grid.ColumnSpan="3">
+                    <Label.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform AngleY="0"/>
+                            <RotateTransform/>
+                            <TranslateTransform Y="0"/>
+                        </TransformGroup>
+                    </Label.RenderTransform>
+                </Label>
+                <Image HorizontalAlignment="Left" Height="55" Margin="626,0,0,0" VerticalAlignment="Top" Width="56" Source="/Imagen/isipp-blanco.png" Grid.Column="2"/>
+                <TextBlock HorizontalAlignment="Left" Margin="537,252,0,0" TextWrapping="Wrap" Text="Cantidad de Alumnos:" VerticalAlignment="Top" Grid.Column="2"/>
+                <Label x:Name="LblArchivos" Content="0" HorizontalAlignment="Left" Margin="654,248,0,0" VerticalAlignment="Top" Width="40" Grid.Column="2"/>
+            </Grid>
+        </TabItem>
+        <TabItem Header="Buscador">
+            <Grid>
+                <Rectangle HorizontalAlignment="Left" Height="55"  Stroke="Black" VerticalAlignment="Top" Width="8000" Fill="#FF641C34" Grid.ColumnSpan="3" Margin="-3603,0,0,0"/>
+                <Image HorizontalAlignment="Left" Height="59" Margin="729,-5,0,0" VerticalAlignment="Top" Width="56" Source="/Imagen/isipp-blanco.png"/>
+                <Label Content="Asistencias" HorizontalAlignment="Left" Margin="15,5,0,0" VerticalAlignment="Top" Height="45" RenderTransformOrigin="0.5,0.5" Width="206" FontSize="25" FontWeight="Bold" Foreground="White" Grid.ColumnSpan="3">
+                    <Label.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform AngleY="0"/>
+                            <RotateTransform/>
+                            <TranslateTransform Y="0"/>
+                        </TransformGroup>
+                    </Label.RenderTransform>
+                </Label>
+                <CheckBox Name="chCodAlumnoX" Content="Cód. Alumno: " HorizontalAlignment="Left" Height="19" Margin="37,77,0,0" VerticalAlignment="Top" Width="110"/>
+                <TextBox Name="txtCodDesdeX" IsEnabled="{Binding ElementName=chCodAlumno, Path=IsChecked}" HorizontalAlignment="Left" Height="19" Margin="190,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75"/>
+                <TextBox x:Name="txtCodHastaX" IsEnabled="{Binding IsChecked, ElementName=chCodAlumno}" HorizontalAlignment="Left" Height="19" Margin="285,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75"/>
+                <CheckBox x:Name="chNombreAlumnoX" Content="Ap.Nombre Alumno: " HorizontalAlignment="Left" Height="19" Margin="37,134,0,0" VerticalAlignment="Top" Width="155"/>
+                <TextBox x:Name="txtNombreBuscarX" IsEnabled="{Binding IsChecked, ElementName=chNombreAlumno}" HorizontalAlignment="Left" Height="19" Margin="190,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170"/>
+                <Button Name="btnBuscarX" Click="btnBuscar_Click" Content="Buscar" HorizontalAlignment="Left" Height="19" Margin="426,77,0,0" VerticalAlignment="Top" Width="84" Background="#FF822D4A" Foreground="White" BorderBrush="Black"/>
+                <DataGrid x:Name="dgResultadoX" HorizontalAlignment="Center" Margin="0,203,0,35" Width="800" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+                <Label Name="lblResultado" Content="Registros encontrados: 0" HorizontalAlignment="Left" Height="30" VerticalAlignment="Bottom" Width="360"/>
+            </Grid>
+        </TabItem>
+    </TabControl>
 </Window>
