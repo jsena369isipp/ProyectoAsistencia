@@ -27,6 +27,7 @@ namespace ProyectoAsistencia
         {
             InitializeComponent();
             cboBoxProfesor.ItemsSource = ClasesPublicas.ListaProfesores;
+            cboBoxCurso.ItemsSource = ClasesPublicas.ListaCursos;
         }
 
         private void btnAgregar_Click(object sender, RoutedEventArgs e)
