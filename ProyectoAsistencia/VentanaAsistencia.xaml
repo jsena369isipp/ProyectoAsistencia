@@ -8,7 +8,7 @@
         Title="VentanaAsistencia" Height="450" Width="800">
     <TabControl>
         <TabItem Header="Regsitro">
-            <Grid>
+            <Grid Background="#FFFFFF">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="41*"/>
                     <ColumnDefinition Width="8*"/>
@@ -46,7 +46,7 @@
             </Grid>
         </TabItem>
         <TabItem Header="Buscador">
-            <Grid>
+            <Grid Background="#FFFFFF">
                 <Rectangle HorizontalAlignment="Left" Height="55"  Stroke="Black" VerticalAlignment="Top" Width="8000" Fill="#FF641C34" Grid.ColumnSpan="3" Margin="-3603,0,0,0"/>
                 <Image HorizontalAlignment="Left" Height="59" Margin="729,-5,0,0" VerticalAlignment="Top" Width="56" Source="/Imagen/isipp-blanco.png"/>
                 <Label Content="Asistencias" HorizontalAlignment="Left" Margin="15,5,0,0" VerticalAlignment="Top" Height="45" RenderTransformOrigin="0.5,0.5" Width="206" FontSize="25" FontWeight="Bold" Foreground="White" Grid.ColumnSpan="3">
@@ -60,13 +60,14 @@
                     </Label.RenderTransform>
                 </Label>
                 <CheckBox Name="chCodAlumnoX" Content="Cód. Alumno: " HorizontalAlignment="Left" Height="19" Margin="37,77,0,0" VerticalAlignment="Top" Width="110"/>
-                <TextBox Name="txtCodDesdeX" IsEnabled="{Binding ElementName=chCodAlumno, Path=IsChecked}" HorizontalAlignment="Left" Height="19" Margin="190,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75"/>
-                <TextBox x:Name="txtCodHastaX" IsEnabled="{Binding IsChecked, ElementName=chCodAlumno}" HorizontalAlignment="Left" Height="19" Margin="285,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75"/>
+                <TextBox Name="txtCodDesdeX" Text="Desde" IsEnabled="{Binding ElementName=chCodAlumnoX, Path=IsChecked}" HorizontalAlignment="Left" Height="19" Margin="190,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75" GotFocus="txtDesde_GotFocus"/>
+                <TextBox x:Name="txtCodHastaX" Text="Hasta" IsEnabled="{Binding IsChecked, ElementName=chCodAlumnoX}" HorizontalAlignment="Left" Height="19" Margin="285,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75" GotFocus="txtHasta_GotFocus"/>
                 <CheckBox x:Name="chNombreAlumnoX" Content="Ap.Nombre Alumno: " HorizontalAlignment="Left" Height="19" Margin="37,134,0,0" VerticalAlignment="Top" Width="155"/>
-                <TextBox x:Name="txtNombreBuscarX" IsEnabled="{Binding IsChecked, ElementName=chNombreAlumno}" HorizontalAlignment="Left" Height="19" Margin="190,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170"/>
+                <TextBox x:Name="txtNombreBuscarX" IsEnabled="{Binding IsChecked, ElementName=chNombreAlumnoX}" HorizontalAlignment="Left" Height="19" Margin="190,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170"/>
                 <Button Name="btnBuscarX" Click="btnBuscar_Click" Content="Buscar" HorizontalAlignment="Left" Height="19" Margin="426,77,0,0" VerticalAlignment="Top" Width="84" Background="#FF822D4A" Foreground="White" BorderBrush="Black"/>
                 <DataGrid x:Name="dgResultadoX" HorizontalAlignment="Center" Margin="0,203,0,35" Width="800" d:ItemsSource="{d:SampleData ItemCount=5}"/>
-                <Label Name="lblResultado" Content="Registros encontrados: 0" HorizontalAlignment="Left" Height="30" VerticalAlignment="Bottom" Width="360"/>
+                <Label Name="lblResultadoX" Content="Registros encontrados: 0" HorizontalAlignment="Left" Height="30" VerticalAlignment="Bottom" Width="360"/>
+                <Label Content="/" HorizontalAlignment="Left" Margin="268,74,0,0" VerticalAlignment="Top"/>
             </Grid>
         </TabItem>
     </TabControl>

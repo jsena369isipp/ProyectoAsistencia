@@ -88,19 +88,28 @@ namespace ProyectoAsistencia
         }
         private void btnBuscar_Click(object sender, RoutedEventArgs e)
         {
-            /*try
+            try
             {
                 ListaAsistenciaBuscar = ClasesPublicas.ListaAsistencias;
 
-                if(chCodAlumno.IsChecked == true)
+                if(chCodAlumnoX.IsChecked == true)
                 {
-
+                    //int codDesde = Convert.ToInt32(txtCodDesdeX.Text);
+                    //int codHasta = Convert.ToInt32(txtCodHastaX.Text);
+                    //ListaAsistenciaBuscar = ListaAsistenciaBuscar.Where(n => n.CodigoAsistencia >= codDesde && n.CodigoAsistencia <= codHasta).ToList();
                 }
+                if(chNombreAlumnoX.IsChecked == true)
+                {
+                    //ListaAsistenciaBuscar = ListaAsistenciaBuscar.Where(n => n..Contains(txtNombMat.Text)).ToList();
+                }
+                dgResultadoX.ItemsSource = ListaAsistenciaBuscar;
+                dgResultadoX.Items.Refresh();
+                lblResultadoX.Content = "Registros encontrados: " + ListaAsistenciaBuscar.Count;
             }
             catch(Exception ex)
             {
                 MessageBox.Show("Error al Buscar: " + ex.Message,"Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
-            }*/
+            }
         }
         private void txtDesde_GotFocus(object sender, RoutedEventArgs e)
         {
