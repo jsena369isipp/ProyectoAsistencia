@@ -82,24 +82,31 @@ namespace ProyectoAsistencia
         }
         private void BtnLeer_Click(object sender, RoutedEventArgs e)
         {
-            
-
             //cargar lista asistencia
-            int codCurso = Convert.ToInt32(CmbCurso.SelectedValue);
-            foreach (Alumno alumno in ClasesPublicas.ListaAlumnos.Where(n=>n.CodigoCurso ==codCurso))
+            try
             {
-                Asistencia asistencia = new Asistencia();
-                asistencia.CodigoAsistencia = Convert.ToInt32(TxtID.Text);
-                asistencia.CodigoAlumno = alumno.CodigoAlumno;
-                asistencia.AlumnoAsistencia = false;
-                asistencia.CodigoCursos = Convert.ToInt32(CmbCurso.SelectedValue);
-                asistencia.CodigoMateria = Convert.ToInt32(cmbMateria.SelectedValue);
-                asistencia.CodigoPreceptor = Convert.ToInt32(cmbMateria.SelectedValue);
-                ListaAsistencias.Add(asistencia);
+                int codCurso = Convert.ToInt32(CmbCurso.SelectedValue);
+                foreach (Alumno alumno in ClasesPublicas.ListaAlumnos.Where(n => n.CodigoCurso == codCurso))
+                {
+                    Asistencia asistencia = new Asistencia();
+                    asistencia.CodigoAsistencia = Convert.ToInt32(TxtID.Text);
+                    asistencia.CodigoAlumno = alumno.CodigoAlumno;
+                    asistencia.AlumnoAsistencia = false;
+                    asistencia.CodigoCursos = Convert.ToInt32(CmbCurso.SelectedValue);
+                    asistencia.CodigoMateria = Convert.ToInt32(cmbMateria.SelectedValue);
+                    asistencia.CodigoPreceptor = Convert.ToInt32(cmbMateria.SelectedValue);
+                    ListaAsistencias.Add(asistencia);
+                }
+                dtg.ItemsSource = ListaAsistencias; //Clases2023.ClasesPublicas.ListaAlumnos;
+                dtg.Items.Refresh();
+                LblArchivos.Content = dtg.Items.Count;
             }
-            dtg.ItemsSource = ListaAsistencias; //Clases2023.ClasesPublicas.ListaAlumnos;
-            dtg.Items.Refresh();
-            LblArchivos.Content = dtg.Items.Count;
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error" + ex.Message, "Error" ,MessageBoxButton.OK,MessageBoxImage.Error);
+                
+            }
+    
         }
         private void btnBuscar_Click(object sender, RoutedEventArgs e)
         {
