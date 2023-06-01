@@ -12,6 +12,7 @@
         <Button Content="Asistencias" HorizontalAlignment="Center" Margin="0,197,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.098,-0.374" Width="192" Background="#FF641C34" Foreground="#FFFFF5F5" BorderBrush="#FF707070" Click="Button_Click"/>
         <Button Content="Cursos" HorizontalAlignment="Center" Margin="0,238,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.098,-0.374" Width="192" Background="#FF641C34" Foreground="#FFFFF5F5" BorderBrush="#FF707070"/>
         <Button Content="Preceptores" HorizontalAlignment="Center" Margin="0,282,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.098,-0.374" Width="192" Background="#FF641C34" Foreground="#FFFFF5F5" BorderBrush="#FF707070"/>
+        <Button x:Name="btnProfes" Content="Profesores" HorizontalAlignment="Center" Margin="0,321,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.098,-0.374" Width="192" Background="#FF641C34" Foreground="#FFFFF5F5" BorderBrush="#FF707070" Click="btnProfesores_Click"/>
         <Menu Height="50px" VerticalAlignment="Top" Background="#FF641C34">
 
             <MenuItem Header="MENU DE ASISTENCIAS" Height="50" Width="140px" Foreground="White" />

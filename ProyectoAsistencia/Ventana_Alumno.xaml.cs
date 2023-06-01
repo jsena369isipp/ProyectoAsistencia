@@ -19,6 +19,7 @@ namespace ProyectoAsistencia
 
     public partial class Ventana_Alumno : Window
     {
+        List<Alumno> ListaAlumnoBuscar;
         public Ventana_Alumno()
         {
             InitializeComponent();
@@ -113,21 +114,6 @@ namespace ProyectoAsistencia
             }
         }
 
-        private void BtnLeer_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                ClasesPublicas.LeerArchivoAlumno();
-                DgAlumno.ItemsSource = ClasesPublicas.ListaAlumnos;
-                DgAlumno.Items.Refresh();
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al Leer: " + ex.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-        }
-
         private void BtnGuardar_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -147,6 +133,88 @@ namespace ProyectoAsistencia
             catch (Exception ex)
             {
                 MessageBox.Show("Error al guardar: " + ex.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void BtnBuscar_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                ListaAlumnoBuscar = ClasesPublicas.ListaAlumnos;
+                if (CheckCodAlumno.IsChecked == true)
+                {
+                    int codDesde = Convert.ToInt32(TxtDesde.Text);
+                    int codHasta = Convert.ToInt32(TxtHasta.Text);
+                    ListaAlumnoBuscar = ListaAlumnoBuscar.Where(n => n.CodigoAlumno >= codDesde && n.CodigoAlumno <= codHasta).ToList();
+                }
+                if (CheckDNI.IsChecked == true)
+                {
+                    int codDni = Convert.ToInt32(TxtDNI1.Text);
+                    ListaAlumnoBuscar = ListaAlumnoBuscar.Where(n => n.Dni == codDni).ToList();
+                }
+                if (CheckTelefono.IsChecked == true)
+                {
+                    int codTel = Convert.ToInt32(TxtTelefono.Text);
+                    ListaAlumnoBuscar = ListaAlumnoBuscar.Where(n => n.Tel == codTel).ToList();
+                }
+                if (CheckFechaNacimiento.IsChecked == true)
+                {
+                    DateTime codFechNac = Convert.ToDateTime(DateFechaNacimiento1);
+                    ListaAlumnoBuscar = ListaAlumnoBuscar.Where(n => n.FechaNacimiento == codFechNac).ToList();
+                }
+                if (CheckFechaIngreso.IsChecked == true)
+                {
+                    DateTime codFechIng = Convert.ToDateTime(DateFechaIngreso1);
+                    ListaAlumnoBuscar = ListaAlumnoBuscar.Where(n => n.FechaIngreso == codFechIng).ToList();
+                }
+                if (CheckNombreApellido.IsChecked == true)
+                {
+                    ListaAlumnoBuscar = ListaAlumnoBuscar.Where(n => n.NombreApellido.Contains(TxtNombreApellido1.Text)).ToList();
+                }
+                if (CheckEstado.IsChecked == true)
+                {
+                    bool codEstado = Convert.ToBoolean(CheckEstado1);
+                    ListaAlumnoBuscar = ListaAlumnoBuscar.Where(n => n.Estado == codEstado).ToList();
+                }
+                if (CheckDomicilio.IsChecked == true)
+                {
+                    ListaAlumnoBuscar = ListaAlumnoBuscar.Where(n => n.Domicilio.Contains(TxtDomicilio1.Text)).ToList();
+                }
+                if (CheckCorreoElectronico.IsChecked == true)
+                {
+                    ListaAlumnoBuscar = ListaAlumnoBuscar.Where(n => n.CorreoElectronico.Contains(TxtCorreoElectronico1.Text)).ToList();
+                }
+                DgBuscador.ItemsSource = ListaAlumnoBuscar;
+                DgBuscador.Items.Refresh();
+                LblCant.Content = "Registros encontrados: " + ListaAlumnoBuscar.Count;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void TxtDesde_GotFocus(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                TxtDesde.Text = "";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void TxtHasta_GotFocus(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                TxtHasta.Text = "";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }

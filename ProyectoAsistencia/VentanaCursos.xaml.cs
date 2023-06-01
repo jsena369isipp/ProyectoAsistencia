@@ -21,24 +21,27 @@ namespace ProyectoAsistencia
     /// </summary>
     public partial class VentanaCursos : Window
     {
+        List<Cursos> ListaCursosBuscar;
         public VentanaCursos()
         {
             InitializeComponent();
-            ClasesPublicas.LeerArchivoCursos();
+
+            ClasesPublicas.LeerPreceptor();
+            cmbPreceptor.ItemsSource = ClasesPublicas.ListaPreceptor;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                Int32 IDVariable = Convert.ToInt32(txtID.Text);
-                Cursos objCursos = ClasesPublicas.ListaCursos.Where(n => n.ID == IDVariable).FirstOrDefault();
+                String DescripcionVariable = Convert.ToString(txtDescripcion.Text);
+                Cursos objCursos = ClasesPublicas.ListaCursos.Where(n => n.Descripcion == DescripcionVariable).FirstOrDefault();
                 if (objCursos == null)
                 {
                     objCursos = new Cursos();
-                    objCursos.ID = Convert.ToInt32(txtID.Text);
+                    objCursos.Descripcion = Convert.ToString(txtDescripcion.Text);
                     objCursos.Estado = chbEstado.IsChecked.Value;
-                    objCursos.CodigoPreceptor = cmbPreceptor.Text;
+                    objCursos.CodigoPreceptor = Convert.ToInt32(cmbPreceptor.Text);
                     objCursos.CodigoCursos = Convert.ToInt32(txtCurso.Text);
                     
                     ClasesPublicas.ListaCursos.Add(objCursos);
@@ -46,7 +49,7 @@ namespace ProyectoAsistencia
                 else
                 {
                     objCursos.Estado = chbEstado.IsChecked.Value;
-                    objCursos.CodigoPreceptor = cmbPreceptor.Text;
+                    objCursos.CodigoPreceptor = Convert.ToInt32(cmbPreceptor.Text);
                     objCursos.CodigoCursos = Convert.ToInt32(txtCurso.Text);
                 }
                 dtgCursos.ItemsSource = ClasesPublicas.ListaCursos;
@@ -85,9 +88,9 @@ namespace ProyectoAsistencia
                 Cursos objCursos = (Cursos)dtgCursos.SelectedItem;
                 if (objCursos != null)
                 {
-                    txtID.Text = objCursos.ID.ToString();
+                    txtDescripcion.Text = objCursos.Descripcion.ToString();
                     txtCurso.Text = objCursos.CodigoCursos.ToString();
-                    cmbPreceptor.Text = objCursos.CodigoPreceptor;
+                    cmbPreceptor.Text = objCursos.CodigoPreceptor.ToString();
                     chbEstado.IsChecked = objCursos.Estado;
                 }
             }
@@ -108,7 +111,7 @@ namespace ProyectoAsistencia
                 string CursosConectando = "";
                 foreach (Cursos objetoCursos in ClasesPublicas.ListaCursos)
                 {
-                    CursosConectando = CursosConectando + "\r\n" + objetoCursos.ID + ";" + objetoCursos.Estado + ";" + objetoCursos.CodigoPreceptor + ";" + objetoCursos.CodigoCursos;
+                    CursosConectando = CursosConectando + "\r\n" + objetoCursos.Descripcion + ";" + objetoCursos.Estado + ";" + objetoCursos.CodigoPreceptor + ";" + objetoCursos.CodigoCursos;
                 }
                 File.WriteAllText("Cursos.txt", CursosConectando);
                 MessageBox.Show("Almacenado de forma correcta!!", "Aplicación", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -116,6 +119,62 @@ namespace ProyectoAsistencia
             catch (Exception ex)
             {
                 MessageBox.Show("Error al guardar: " + ex.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void txtBuscar_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                ListaCursosBuscar = ClasesPublicas.ListaCursos;
+                if (chkCodCursos.IsChecked == true)
+                {
+                    int codDesde = Convert.ToInt32(txtDesde.Text);
+                    int codHasta = Convert.ToInt32(txtHasta.Text);
+                    ListaCursosBuscar = ListaCursosBuscar.Where(n => n.CodigoCursos >= codDesde && n.CodigoCursos <= codHasta).ToList();
+                }
+                if (chkDescripcion.IsChecked == true)
+                {
+                    int codDescripcion = Convert.ToInt32(txtDescripcion2.Text);
+                    ListaCursosBuscar = ListaCursosBuscar.Where(n => n.Descripcion.Contains(txtDescripcion2.Text)).ToList();
+                }
+                if (chkEstado.IsChecked == true)
+                {
+                    bool codEstado = Convert.ToBoolean(chkEstado);
+                    ListaCursosBuscar = ListaCursosBuscar.Where(n => n.Estado == codEstado).ToList();
+                }
+               
+                dtgBuscador.ItemsSource = ListaCursosBuscar;
+                dtgBuscador.Items.Refresh();
+                LblCant.Content = "Registros encontrados: " + ListaCursosBuscar.Count;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void txtDesde_GotFocus(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                txtDesde.Text = "";
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show("Error: " + err.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void txtHasta_GotFocus(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                txtHasta.Text = "";
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show("Error: " + err.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }   

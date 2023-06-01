@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProyectoAsistencia.Clases2023
 {
-    internal class Preceptor
+    public class Preceptor
     {
          public int CodigoPreceptor { get; set; }
          public string ApellidoNombre { get; set; }

@@ -41,5 +41,12 @@ namespace ProyectoAsistencia
         {
            
         }
+
+        private void btnProfesores_Click(object sender, RoutedEventArgs e)
+        {
+            VentanaProfesores ventana = new VentanaProfesores();
+            this.Close();
+            ventana.Show();
+        }
     }
 }

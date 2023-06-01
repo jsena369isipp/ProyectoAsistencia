@@ -22,6 +22,7 @@ namespace ProyectoAsistencia
     public partial class VentanaAsistencia : Window
     {
         List<Asistencia> ListaAsistencias = new List<Asistencia>();
+        List<Asistencia> ListaAsistenciaBuscar;
         public VentanaAsistencia()
         {
             InitializeComponent();
@@ -84,6 +85,39 @@ namespace ProyectoAsistencia
             dtg.ItemsSource = Clases2023.ClasesPublicas.ListaAlumnos;
             dtg.Items.Refresh();
             LblArchivos.Content = dtg.Items.Count;
+        }
+        private void btnBuscar_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                ListaAsistenciaBuscar = ClasesPublicas.ListaAsistencias;
+
+                if(chCodAlumnoX.IsChecked == true)
+                {
+                    //int codDesde = Convert.ToInt32(txtCodDesdeX.Text);
+                    //int codHasta = Convert.ToInt32(txtCodHastaX.Text);
+                    //ListaAsistenciaBuscar = ListaAsistenciaBuscar.Where(n => n.CodigoAsistencia >= codDesde && n.CodigoAsistencia <= codHasta).ToList();
+                }
+                if(chNombreAlumnoX.IsChecked == true)
+                {
+                    //ListaAsistenciaBuscar = ListaAsistenciaBuscar.Where(n => n..Contains(txtNombMat.Text)).ToList();
+                }
+                dgResultadoX.ItemsSource = ListaAsistenciaBuscar;
+                dgResultadoX.Items.Refresh();
+                lblResultadoX.Content = "Registros encontrados: " + ListaAsistenciaBuscar.Count;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Error al Buscar: " + ex.Message,"Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+        private void txtDesde_GotFocus(object sender, RoutedEventArgs e)
+        {
+            txtCodDesdeX.Text = "";
+        }
+        private void txtHasta_GotFocus(Object sender, RoutedEventArgs e)
+        {
+            txtCodHastaX.Text = "";
         }
     }
 }

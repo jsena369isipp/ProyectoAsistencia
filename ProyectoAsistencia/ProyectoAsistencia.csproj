@@ -55,14 +55,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Clases2023\Alumno.cs" />
     <Compile Include="Clases2023\Asistencia.cs" />
-    <Compile Include="Clases2023\ClasesPublicas.cs" />
-    <Compile Include="Clases2023\Cursos.cs" />
-    <Compile Include="Clases2023\Materia.cs" />
+    <Compile Include="Clases2023\AsistenciaPromediocs.cs" />
     <Compile Include="Clases2023\Preceptor.cs" />
-    <Compile Include="Materias.xaml.cs">
-      <DependentUpon>Materias.xaml</DependentUpon>
+    <Compile Include="AsistenciasPromedio.xaml.cs">
+      <DependentUpon>AsistenciasPromedio.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Clases2023\Profesores.cs" />
+    <Compile Include="Mantenimiento.xaml.cs">
+      <DependentUpon>Mantenimiento.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PromedioAsistencias.xaml.cs">
+      <DependentUpon>PromedioAsistencias.xaml</DependentUpon>
     </Compile>
     <Compile Include="VentanaAsistencia.xaml.cs">
       <DependentUpon>VentanaAsistencia.xaml</DependentUpon>
@@ -72,6 +76,9 @@
     </Compile>
     <Compile Include="VentanaPreceptor.xaml.cs">
       <DependentUpon>VentanaPreceptor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="VentanaProfesores.xaml.cs">
+      <DependentUpon>VentanaProfesores.xaml</DependentUpon>
     </Compile>
     <Compile Include="VentanaPrueba.xaml.cs">
       <DependentUpon>VentanaPrueba.xaml</DependentUpon>
@@ -83,12 +90,12 @@
       <DependentUpon>Ventana_InformeAsistencia.xaml</DependentUpon>
     </Compile>
     <Page Include="Mantenimiento.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Materias.xaml">
-      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
     </Page>
     <Page Include="Principal.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -98,22 +105,39 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Mantenimiento.xaml.cs">
-      <DependentUpon>Mantenimiento.xaml</DependentUpon>
+    <Compile Include="Clases2023\Alumno.cs" />
+    <Compile Include="Clases2023\ClasesPublicas.cs" />
+    <Compile Include="Clases2023\Cursos.cs" />
+    <Compile Include="Clases2023\Materia.cs" />
+    <Compile Include="Materias.xaml.cs">
+      <DependentUpon>Materias.xaml</DependentUpon>
+      <SubType>Code</SubType>
     </Compile>
     <Compile Include="Principal.xaml.cs">
       <DependentUpon>Principal.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="VentanaAsistencia.xaml">
+    <Page Include="AsistenciasPromedio.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PromedioAsistencias.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="VentanaAsistencia.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="VentanaCursos.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
     <Page Include="VentanaPreceptor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VentanaProfesores.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -122,8 +146,8 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Ventana_Alumno.xaml">
-      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Ventana_InformeAsistencia.xaml">
       <SubType>Designer</SubType>
@@ -158,6 +182,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Imagen\isipp-blanco.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="isipp-bordo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

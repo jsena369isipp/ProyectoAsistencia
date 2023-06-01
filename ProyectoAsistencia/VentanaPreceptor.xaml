@@ -7,23 +7,26 @@
         mc:Ignorable="d"
         Title="VentanaPreceptor" Height="450" Width="800">
     <Grid>
-        <Label Content="Codigo preceptor:" HorizontalAlignment="Left" Margin="9,43,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtCodPreceptor" HorizontalAlignment="Left" Margin="126,47,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="80" Height="22"/>
-        <Label Content="Nombre y Apellido:" HorizontalAlignment="Left" Margin="9,130,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtNombApellido" HorizontalAlignment="Left" Margin="127,132,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="159" Height="22"/>
-        <Label Content="Crusos:" HorizontalAlignment="Left" Margin="307,43,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="cbCursos" HorizontalAlignment="Center" Margin="0,47,0,0" VerticalAlignment="Top" Width="80"/>
-        <Label Content="DNI:" HorizontalAlignment="Left" Margin="305,134,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtdni" HorizontalAlignment="Left" Margin="360,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="159" Height="21"/>
-        <DatePicker x:Name="dpFechaNac" HorizontalAlignment="Left" Margin="638,48,0,0" VerticalAlignment="Top" Height="21"/>
-        <Label Content="Fecha nacimiento:" HorizontalAlignment="Left" Margin="533,43,0,0" VerticalAlignment="Top"/>
-        <Label Content="Estado:" HorizontalAlignment="Left" Margin="533,134,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.562,-0.114"/>
-        <CheckBox x:Name="chbEstado" Content="Habilitado" HorizontalAlignment="Left" Margin="643,140,0,0" VerticalAlignment="Top"/>
-        <DataGrid x:Name="dg1" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,243,0,0"/>
-        <Button x:Name="btnCrear" Content="Crear" HorizontalAlignment="Left" Margin="433,188,0,0" VerticalAlignment="Top" Height="29" Width="84" Click="btncrear_Click"/>
-        <Button x:Name="btnCargar" Content="Cargar datos" HorizontalAlignment="Left" Margin="175,188,0,0" VerticalAlignment="Top" Width="82" Height="29" Click="btnCargar_Click"/>
-        <Button x:Name="btnQuitar" Content="Quitar" HorizontalAlignment="Left" Margin="298,188,0,0" VerticalAlignment="Top" Height="29" Width="82" Click="btnQuitar_Click"/>
-        <Button x:Name="btnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="557,188,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.177,-0.649" Height="29" Width="84" Click="btnGuardar_Click"/>
+        <Label Content="Codigo preceptor:" HorizontalAlignment="Left" Margin="9,87,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtCodPreceptor" HorizontalAlignment="Left" Margin="126,91,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="80" Height="22"/>
+        <Label Content="Nombre y Apellido:" HorizontalAlignment="Left" Margin="9,0,0,0" VerticalAlignment="Center"/>
+        <TextBox x:Name="txtNombApellido" HorizontalAlignment="Left" Margin="126,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="159" Height="22"/>
+        <Label Content="Crusos:" HorizontalAlignment="Left" Margin="438,147,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cbCursos" HorizontalAlignment="Left" Margin="490,151,0,0" VerticalAlignment="Top" Width="80"/>
+        <Label Content="DNI:" HorizontalAlignment="Left" Margin="10,147,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtdni" HorizontalAlignment="Left" Margin="126,148,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" Height="21"/>
+        <DatePicker x:Name="dpFechaNac" HorizontalAlignment="Left" Margin="543,87,0,0" VerticalAlignment="Top" Height="21"/>
+        <Label Content="Fecha nacimiento:" HorizontalAlignment="Left" Margin="438,82,0,0" VerticalAlignment="Top"/>
+        <Label Content="Estado:" HorizontalAlignment="Left" Margin="438,209,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.562,-0.114"/>
+        <CheckBox x:Name="chbEstado" Content="Habilitado" HorizontalAlignment="Left" Margin="495,216,0,0" VerticalAlignment="Top"/>
+        <DataGrid x:Name="dg1" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,319,0,0" HorizontalAlignment="Center" Width="800" Height="115" VerticalAlignment="Top" SelectionChanged="dg1_SelectionChanged"/>
+        <Button x:Name="btnCargar" Content="Cargar" HorizontalAlignment="Left" Margin="161,277,0,0" VerticalAlignment="Top" Width="60" Height="20" Background="#FF822D4A" Foreground="White" FontWeight="Bold" Click="btnCargar_Click"/>
+        <Button x:Name="btnLeer" Content="Leer" HorizontalAlignment="Left" Margin="440,277,0,0" VerticalAlignment="Top" Width="60" Height="20" Background="#FF822D4A" Foreground="White" FontWeight="Bold" Click="btnLeer_Click"/>
+        <Button x:Name="btnQuitar" Content="Quitar" HorizontalAlignment="Left"  Margin="254,277,0,0" VerticalAlignment="Top" Width="60" Height="20" Foreground="#FFFDFDFD" Background="#FF822D4A" FontWeight="Bold" Click="btnQuitar_Click"/>
+        <Button x:Name="btnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="347,277,0,0" VerticalAlignment="Top" Width="60" Height="20" Foreground="#FFFDFDFD" Background="#FF822D4A" FontWeight="Bold" Click="btnGuardar_Click"/>
+        <Rectangle HorizontalAlignment="Center" Height="55" Stroke="Black" VerticalAlignment="Top" Width="800" Fill="#FF641C34"/>
+        <Image HorizontalAlignment="Left" Height="55" Margin="723,0,0,0" VerticalAlignment="Top" Width="56" Source="/Imagen/isipp-blanco.png"/>
+        <Label Content="Preceptor" HorizontalAlignment="Left" Margin="0,15,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="White" Width="206" Height="28" FontSize="15" FontWeight="Bold"/>
 
     </Grid>
 </Window>

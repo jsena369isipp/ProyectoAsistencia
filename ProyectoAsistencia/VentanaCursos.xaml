@@ -6,24 +6,44 @@
         xmlns:local="clr-namespace:ProyectoAsistencia"
         mc:Ignorable="d"
         Title="Cursos" Height="450" Width="800" WindowStartupLocation="CenterScreen">
-    <Grid>
-        <TextBlock HorizontalAlignment="Left" Margin="60,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14"><Run Language="es-es" Text="ID:"/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="334,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14"><Run Language="es-es" Text="Estado:"/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="60,112,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14" Text="Preceptor"/>
-        <TextBlock HorizontalAlignment="Left" Margin="60,74,0,0" TextWrapping="Wrap" Text="Curso:" VerticalAlignment="Top" FontSize="14"/>
-        <CheckBox x:Name="chbEstado" Content="Cheq" HorizontalAlignment="Left" Margin="400,41,0,0" VerticalAlignment="Top" FontSize="14"/>
-        <TextBox x:Name="txtID" HorizontalAlignment="Left" Margin="142,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="14"/>
-        <TextBox x:Name="txtCurso" HorizontalAlignment="Left" Margin="142,72,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="14"/>
-        <DataGrid SelectionChanged="dtgCursos_SelectionChanged" x:Name="dtgCursos" d:ItemsSource="{d:SampleData ItemCount=5}" Height="NaN" Margin="0,160,0,0"/>
-        <Button x:Name="bttCargar" Content="Cargar" HorizontalAlignment="Left" Margin="334,78,0,0" VerticalAlignment="Top" FontSize="14" Click="Button_Click"/>
-        <Button x:Name="bttnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="400,78,0,0" VerticalAlignment="Top" FontSize="14" Click="bttnGuardar_Click"/>
-        <Button x:Name="bttnQuitar" Content="Quitar" HorizontalAlignment="Left" Margin="400,110,0,0" VerticalAlignment="Top" FontSize="14" Click="ButtonQuitar_Click" Width="54"/>
-        <Button x:Name="bttnLeer" Content="Leer" HorizontalAlignment="Left" Margin="334,110,0,0" VerticalAlignment="Top" FontSize="14" Width="45"/>
-        <ComboBox x:Name="cmbPreceptor" HorizontalAlignment="Left" Margin="142,112,0,0" VerticalAlignment="Top" Width="120">
-            <ComboBoxItem Content="Juan" FontSize="14"/>
-            <ComboBoxItem Content="Pedro" FontSize="14"/>
-            <ComboBoxItem Content="Laura" FontSize="14"/>
-        </ComboBox>
+    <TabControl>
+        <TabItem Header="Registro">
+            <Grid>
+                <TextBlock HorizontalAlignment="Left" Margin="18,133,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14" Text="Descripcion:"/>
+                <TextBlock HorizontalAlignment="Left" Margin="271,72,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14"><Run Language="es-es" Text="Estado:"/></TextBlock>
+                <TextBlock HorizontalAlignment="Left" Margin="18,194,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14" Text="Preceptor:"/>
+                <TextBlock HorizontalAlignment="Left" Margin="18,71,0,0" TextWrapping="Wrap" Text="Codigo Cursos:" VerticalAlignment="Top" FontSize="14"/>
+                <CheckBox x:Name="chbEstado" Content="Habilitado" HorizontalAlignment="Left" Margin="328,77,0,0" VerticalAlignment="Top" FontSize="14"/>
+                <TextBox x:Name="txtDescripcion" HorizontalAlignment="Left" Margin="121,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="14"/>
+                <TextBox x:Name="txtCurso" HorizontalAlignment="Left" Margin="121,71,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="14"/>
+                <DataGrid SelectionChanged="dtgCursos_SelectionChanged" x:Name="dtgCursos" d:ItemsSource="{d:SampleData ItemCount=5}" Height="NaN" Margin="0,259,0,0"/>
+                <Button x:Name="bttCargar" Content="Cargar" HorizontalAlignment="Left" Margin="463,73,0,0" VerticalAlignment="Top" FontSize="14" Click="Button_Click" Background="#FF822D4A" Foreground="White" BorderBrush="Black"/>
+                <Button x:Name="bttnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="522,73,0,0" VerticalAlignment="Top" FontSize="14" Click="bttnGuardar_Click" Background="#FF822D4A" Foreground="White" BorderBrush="Black"/>
+                <Button x:Name="bttnQuitar" Content="Quitar" HorizontalAlignment="Left" Margin="721,73,0,0" VerticalAlignment="Top" FontSize="14" Click="ButtonQuitar_Click" Width="54" Background="#FF822D4A" Foreground="White" BorderBrush="Black"/>
+                <ComboBox x:Name="cmbPreceptor" HorizontalAlignment="Left" Margin="121,0,0,0" VerticalAlignment="Center" Width="120">
+                </ComboBox>
+                <Rectangle HorizontalAlignment="Center" Height="55" Stroke="Black" VerticalAlignment="Top" Width="800" Fill="#FF641C34"/>
+                <Label Content="Cursos" HorizontalAlignment="Left" Margin="18,5,0,0" VerticalAlignment="Top" Height="45" Width="206" FontSize="25" FontWeight="Bold" Foreground="White"/>
+                <Image HorizontalAlignment="Left" Height="55" Margin="724,0,0,0" VerticalAlignment="Top" Width="56" Source="/Imagen/isipp-blanco.png"/>
+            </Grid>
+        </TabItem>
 
-    </Grid>
+        <TabItem Header="Buscador" Height="22" Margin="-2,0,-2,0" VerticalAlignment="Bottom">
+            <Grid>
+                <Rectangle HorizontalAlignment="Left" Height="55" Stroke="Black" VerticalAlignment="Top" Width="800" Fill="#FF641C34" Grid.ColumnSpan="2" Margin="-3,0,0,0"/>
+                <Label Content="Buscador" HorizontalAlignment="Left" Margin="18,5,0,0" VerticalAlignment="Top" Height="45" Width="206" FontSize="25" FontWeight="Bold" Foreground="White" Grid.ColumnSpan="2"/>
+                <DataGrid x:Name="dtgBuscador" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="-3,220,0,0" Grid.ColumnSpan="2"/>
+                <CheckBox x:Name="chkCodCursos" Content="Codigo Cursos" HorizontalAlignment="Left" Margin="18,133,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+                <TextBox x:Name="txtDesde" IsEnabled="{Binding ElementName=chkCodCursos, Path=IsChecked}" HorizontalAlignment="Left" Margin="121,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="72" Text="Desde" GotFocus="txtDesde_GotFocus"/>
+                <TextBox x:Name="txtHasta" IsEnabled="{Binding IsChecked, ElementName=chkCodCursos}" HorizontalAlignment="Left" Margin="211,130,0,0" TextWrapping="Wrap" Text="Hasta" VerticalAlignment="Top" Width="72" GotFocus="txtHasta_GotFocus"/>
+                <CheckBox x:Name="chkDescripcion" Content="Descripcion" HorizontalAlignment="Left" Margin="18,81,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+                <TextBox x:Name="txtDescripcion2" HorizontalAlignment="Left" Margin="121,81,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                <TextBox x:Name="txtEstado2" HorizontalAlignment="Left" Margin="121,185,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                <CheckBox x:Name="chkEstado" Content="Estado" HorizontalAlignment="Left" Margin="18,188,0,0" VerticalAlignment="Top"/>
+                <Button x:Name="txtBuscar" Content="Buscar" HorizontalAlignment="Left" Margin="291,184,0,0" VerticalAlignment="Top" Background="#FF822D4A" Foreground="White" BorderBrush="Black" Click="txtBuscar_Click"/>
+                <Label x:Name="LblCant" Content="" HorizontalAlignment="Left" Margin="529,186,0,0" VerticalAlignment="Top"/>
+                <Image HorizontalAlignment="Left" Height="55" Margin="724,0,0,0" VerticalAlignment="Top" Width="56" Source="/Imagen/isipp-blanco.png"/>
+            </Grid>
+        </TabItem>
+    </TabControl>
 </Window>
