@@ -23,6 +23,7 @@ namespace ProyectoAsistencia
     {
         List<Asistencia> ListaAsistencias = new List<Asistencia>();
         List<Asistencia> ListaAsistenciaBuscar;
+        List<Alumno> ListaALumnos;
         public VentanaAsistencia()
         {
             InitializeComponent();
@@ -68,9 +69,9 @@ namespace ProyectoAsistencia
                 {
                     TxtID.Text = ObjetoAsistencia.CodigoAsistencia.ToString();
                     DpFecha.Text = ObjetoAsistencia.Fecha.ToString();
-                    CmbCurso.Text = ObjetoAsistencia.CodigoCursos.ToString();
-                    CmbPreceptor.Text = ObjetoAsistencia.CodigoPreceptor.ToString();
-                    cmbMateria.Text = ObjetoAsistencia.CodigoMateria.ToString();
+                    CmbCurso.SelectedValue = ObjetoAsistencia.CodigoCursos.ToString();
+                    CmbPreceptor.SelectedValue = ObjetoAsistencia.CodigoPreceptor.ToString();
+                    cmbMateria.SelectedValue = ObjetoAsistencia.CodigoMateria.ToString();
                     ChPresente.IsChecked = ObjetoAsistencia.AlumnoAsistencia;
                 }
             }
@@ -81,16 +82,19 @@ namespace ProyectoAsistencia
         }
         private void BtnLeer_Click(object sender, RoutedEventArgs e)
         {
-            Clases2023.ClasesPublicas.LeerArchivoAlumno();
+            
 
             //cargar lista asistencia
             int codCurso = Convert.ToInt32(CmbCurso.SelectedValue);
-            foreach(Alumno alumno in ClasesPublicas.ListaAlumnos.Where(n=>n.CodigoCurso ==codCurso))
+            foreach (Alumno alumno in ClasesPublicas.ListaAlumnos.Where(n=>n.CodigoCurso ==codCurso))
             {
                 Asistencia asistencia = new Asistencia();
                 asistencia.CodigoAsistencia = Convert.ToInt32(TxtID.Text);
                 asistencia.CodigoAlumno = alumno.CodigoAlumno;
                 asistencia.AlumnoAsistencia = false;
+                asistencia.CodigoCursos = Convert.ToInt32(CmbCurso.SelectedValue);
+                asistencia.CodigoMateria = Convert.ToInt32(cmbMateria.SelectedValue);
+                asistencia.CodigoPreceptor = Convert.ToInt32(cmbMateria.SelectedValue);
                 ListaAsistencias.Add(asistencia);
             }
             dtg.ItemsSource = ListaAsistencias; //Clases2023.ClasesPublicas.ListaAlumnos;
