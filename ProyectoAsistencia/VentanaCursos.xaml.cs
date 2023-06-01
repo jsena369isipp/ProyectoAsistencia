@@ -25,7 +25,7 @@ namespace ProyectoAsistencia
         public VentanaCursos()
         {
             InitializeComponent();
-            ClasesPublicas.LeerArchivoCursos();
+            ClasesPublicas.LeerArchivoProfesores();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
