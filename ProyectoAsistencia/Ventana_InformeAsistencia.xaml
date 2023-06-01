@@ -24,6 +24,7 @@
                     <Label Content="Informe De Asistencia" HorizontalAlignment="Left" Margin="1,6,0,0" VerticalAlignment="Top" FontSize="25" FontWeight="Bold" Foreground="White" Height="43" Width="268"/>
                     <CheckBox x:Name="chHabilitado" Content="" HorizontalAlignment="Left" Height="18" Margin="4,68,0,0" VerticalAlignment="Top" Width="26"/>
                     <Image HorizontalAlignment="Left" Height="55" Margin="688,0,0,0" VerticalAlignment="Top" Width="56" Source="/Imagen/isipp-blanco.png"/>
+                    <Button x:Name="btnEliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="619,65,0,0" VerticalAlignment="Top" Height="27" Width="66" Background="#FF822D4A" Foreground="White" Click="btnEliminar_Click"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Buscador">

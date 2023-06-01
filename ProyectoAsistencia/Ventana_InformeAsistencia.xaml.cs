@@ -52,5 +52,24 @@ namespace ProyectoAsistencia
                 MessageBox.Show("Error: " + ex.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+        private void btnEliminar_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Asistencia objetoListaAsistencia = (Asistencia)dgResultado.SelectedItem;
+                if (objetoListaAsistencia != null)
+                {
+                    ListaInformeAsistencia.Remove(objetoListaAsistencia);
+                    dgResultado.ItemsSource = ListaInformeAsistencia;
+                    dgResultado.Items.Refresh();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
+                throw;
+            }
+        }
     }
 }
