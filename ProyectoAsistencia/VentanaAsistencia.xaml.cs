@@ -82,7 +82,18 @@ namespace ProyectoAsistencia
         private void BtnLeer_Click(object sender, RoutedEventArgs e)
         {
             Clases2023.ClasesPublicas.LeerArchivoAlumno();
-            dtg.ItemsSource = Clases2023.ClasesPublicas.ListaAlumnos;
+
+            //cargar lista asistencia
+            int codCurso = Convert.ToInt32(CmbCurso.SelectedValue);
+            foreach(Alumno alumno in ClasesPublicas.ListaAlumnos.Where(n=>n.CodigoCurso ==codCurso))
+            {
+                Asistencia asistencia = new Asistencia();
+                asistencia.CodigoAsistencia = Convert.ToInt32(TxtID.Text);
+                asistencia.CodigoAlumno = alumno.CodigoAlumno;
+                asistencia.AlumnoAsistencia = false;
+                ListaAsistencias.Add(asistencia);
+            }
+            dtg.ItemsSource = ListaAsistencias; //Clases2023.ClasesPublicas.ListaAlumnos;
             dtg.Items.Refresh();
             LblArchivos.Content = dtg.Items.Count;
         }
@@ -118,6 +129,16 @@ namespace ProyectoAsistencia
         private void txtHasta_GotFocus(Object sender, RoutedEventArgs e)
         {
             txtCodHastaX.Text = "";
+        }
+
+        private void cmbMateria_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Materia materia = (Materia)cmbMateria.SelectedValue;
+            if(materia!=null)
+            {
+                CmbCurso.SelectedValue = materia.CodigoCursos;
+            }
+            
         }
     }
 }

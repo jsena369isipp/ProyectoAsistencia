@@ -14,5 +14,8 @@ namespace ProyectoAsistencia.Clases2023
         public int CodigoPreceptor { get; set; }
         public int CodigoMateria { get; set; }
         public bool AlumnoAsistencia { get; set; }
+        public int CodigoAlumno { get; set; }
+        public string NombreApellido { get; set; }
+
     }
 }

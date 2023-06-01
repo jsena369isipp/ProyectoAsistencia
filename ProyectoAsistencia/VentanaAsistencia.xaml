@@ -24,7 +24,7 @@
                 <CheckBox x:Name="ChPresente" Content="Presente" HorizontalAlignment="Left" Margin="25,256,0,0" VerticalAlignment="Top" Height="20" Grid.Column="2"/>
                 <TextBlock HorizontalAlignment="Left" Margin="39,239,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="14"/>
                 <Button x:Name="BtnLeer" Content="Alumnos" HorizontalAlignment="Left" Margin="609,71,0,0" VerticalAlignment="Top" Height="21" Width="64" Background="#FF822D4A" Foreground="White" BorderBrush="Black" Click="BtnLeer_Click" Grid.Column="2"/>
-                <ComboBox x:Name="cmbMateria" DisplayMemberPath="Materia" SelectedValuePath="CodigoMateria" HorizontalAlignment="Left" Margin="25,226,0,0" VerticalAlignment="Top" Width="120" Height="20" Grid.Column="2"/>
+                <ComboBox x:Name="cmbMateria" DisplayMemberPath="Materia" SelectedValuePath="CodigoMateria" HorizontalAlignment="Left" Margin="25,226,0,0" VerticalAlignment="Top" Width="120" Height="20" Grid.Column="2" SelectionChanged="cmbMateria_SelectionChanged"/>
                 <TextBlock HorizontalAlignment="Left" Margin="34,229,0,0" TextWrapping="Wrap" Text="Materia:" VerticalAlignment="Top" Height="14"/>
                 <Button x:Name="BtnGuardar_Copy" Click="btnGrd_Click"  Content="Guardar" HorizontalAlignment="Left" Margin="319,71,0,0" VerticalAlignment="Top" Height="21" Width="62" Background="#FF822D4A" Foreground="White" BorderBrush="Black" Grid.Column="2"/>
                 <TextBlock HorizontalAlignment="Left" Margin="39,75,0,0" TextWrapping="Wrap" Text="ID:" VerticalAlignment="Top" Height="14"/>
