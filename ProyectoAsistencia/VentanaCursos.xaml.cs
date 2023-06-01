@@ -25,7 +25,9 @@ namespace ProyectoAsistencia
         public VentanaCursos()
         {
             InitializeComponent();
-            ClasesPublicas.LeerArchivoProfesores();
+
+            ClasesPublicas.LeerPreceptor();
+            cmbPreceptor.ItemsSource = ClasesPublicas.ListaPreceptor;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
