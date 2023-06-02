@@ -43,7 +43,7 @@ namespace ProyectoAsistencia
                     //int codHasta = Convert.ToInt32(fechaHasta.Value);
                     ListaInformeAsistencia = ListaInformeAsistencia.Where(n => n.Fecha >= fechaDesde && n.Fecha <= fechaHasta).ToList();
                 }
-                if (filtromateria >= 0)
+                if (chHabilitadoMateria.IsChecked == true && filtromateria >= 0)
                 {
                     
                     ListaInformeAsistencia = ListaInformeAsistencia.Where(n => n.CodigoMateria == filtromateria).ToList();
