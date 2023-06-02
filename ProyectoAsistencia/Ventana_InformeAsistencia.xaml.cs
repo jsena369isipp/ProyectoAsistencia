@@ -21,10 +21,12 @@ namespace ProyectoAsistencia
     public partial class Ventana_InformeAsistencia : Window
     {
         List<Asistencia> ListaInformeAsistencia;
+        List<Materia> ListaMateria;
         public Ventana_InformeAsistencia()
         {
             InitializeComponent();
             ClasesPublicas.LeerArchivoAsistencia();
+            cmbMateria.ItemsSource = ClasesPublicas.ListaMaterias;
         }
 
         private void btnBuscar_Click(object sender, RoutedEventArgs e)
@@ -32,14 +34,20 @@ namespace ProyectoAsistencia
             try
             {
                 ListaInformeAsistencia = ClasesPublicas.ListaAsistencias;
+                ListaMateria = ClasesPublicas.ListaMaterias;
                 DateTime? fechaDesde = dpFechaDesde.SelectedDate;
                 DateTime? fechaHasta = dpFechaHasta.SelectedDate;
+                int filtromateria = cmbMateria.SelectedIndex;
                 if (chHabilitado.IsChecked == true && fechaDesde.HasValue && fechaHasta.HasValue)
                 {
-                    int codDesde = Convert.ToInt32(fechaDesde.Value);
-                    int codHasta = Convert.ToInt32(fechaHasta.Value);
-                    ListaInformeAsistencia = ListaInformeAsistencia.Where(n => n.CodigoAsistencia >= codDesde && n.CodigoAsistencia <= codHasta).ToList();
-
+                    //int codDesde = Convert.ToInt32(fechaDesde.Value);
+                    //int codHasta = Convert.ToInt32(fechaHasta.Value);
+                    ListaInformeAsistencia = ListaInformeAsistencia.Where(n => n.Fecha >= fechaDesde && n.Fecha <= fechaHasta).ToList();
+                }
+                if (filtromateria >= 0)
+                {
+                    string filtromateria2 = filtromateria.ToString();
+                    ListaMateria = ListaMateria.Where(n => n.NombreMateria == filtromateria2).ToList();
                 }
                 dgResultado.ItemsSource = ListaInformeAsistencia;
                 dgResultado.Items.Refresh();
@@ -55,21 +63,12 @@ namespace ProyectoAsistencia
 
         private void btnEliminar_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                Asistencia objetoListaAsistencia = (Asistencia)dgResultado.SelectedItem;
-                if (objetoListaAsistencia != null)
-                {
-                    ListaInformeAsistencia.Remove(objetoListaAsistencia);
-                    dgResultado.ItemsSource = ListaInformeAsistencia;
-                    dgResultado.Items.Refresh();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message, "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
-                throw;
-            }
+
+        }
+
+        private void cmbMateria_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }
