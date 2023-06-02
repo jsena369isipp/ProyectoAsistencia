@@ -20,7 +20,7 @@
                 <Button x:Name="bttCargar" Content="Cargar" HorizontalAlignment="Left" Margin="463,73,0,0" VerticalAlignment="Top" FontSize="14" Click="Button_Click" Background="#FF822D4A" Foreground="White" BorderBrush="Black"/>
                 <Button x:Name="bttnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="522,73,0,0" VerticalAlignment="Top" FontSize="14" Click="bttnGuardar_Click" Background="#FF822D4A" Foreground="White" BorderBrush="Black"/>
                 <Button x:Name="bttnQuitar" Content="Quitar" HorizontalAlignment="Left" Margin="721,73,0,0" VerticalAlignment="Top" FontSize="14" Click="ButtonQuitar_Click" Width="54" Background="#FF822D4A" Foreground="White" BorderBrush="Black"/>
-                <ComboBox x:Name="cmbPreceptor" HorizontalAlignment="Left" Margin="121,0,0,0" VerticalAlignment="Center" Width="120">
+                <ComboBox x:Name="cmbPreceptor" DisplayMemberPath="ApellidoNombre" SelectedValuePath="CodigoPreceptor" HorizontalAlignment="Left" Margin="121,202,0,0" VerticalAlignment="Top" Width="120">
                 </ComboBox>
                 <Rectangle HorizontalAlignment="Center" Height="55" Stroke="Black" VerticalAlignment="Top" Width="800" Fill="#FF641C34"/>
                 <Label Content="Cursos" HorizontalAlignment="Left" Margin="18,5,0,0" VerticalAlignment="Top" Height="45" Width="206" FontSize="25" FontWeight="Bold" Foreground="White"/>
@@ -40,7 +40,7 @@
                 <TextBox x:Name="txtDescripcion2" HorizontalAlignment="Left" Margin="121,81,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
                 <TextBox x:Name="txtEstado2" HorizontalAlignment="Left" Margin="121,185,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
                 <CheckBox x:Name="chkEstado" Content="Estado" HorizontalAlignment="Left" Margin="18,188,0,0" VerticalAlignment="Top"/>
-                <Button x:Name="txtBuscar" Content="Buscar" HorizontalAlignment="Left" Margin="291,184,0,0" VerticalAlignment="Top" Background="#FF822D4A" Foreground="White" BorderBrush="Black" Click="txtBuscar_Click"/>
+                <Button x:Name="txtBuscar" Content="Buscar" HorizontalAlignment="Left" Margin="291,184,0,0" VerticalAlignment="Top" FontSize="14" Background="#FF822D4A" Foreground="White" BorderBrush="Black" Click="txtBuscar_Click"/>
                 <Label x:Name="LblCant" Content="" HorizontalAlignment="Left" Margin="529,186,0,0" VerticalAlignment="Top"/>
                 <Image HorizontalAlignment="Left" Height="55" Margin="724,0,0,0" VerticalAlignment="Top" Width="56" Source="/Imagen/isipp-blanco.png"/>
             </Grid>

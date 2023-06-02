@@ -41,7 +41,7 @@ namespace ProyectoAsistencia
                     objCursos = new Cursos();
                     objCursos.Descripcion = Convert.ToString(txtDescripcion.Text);
                     objCursos.Estado = chbEstado.IsChecked.Value;
-                    objCursos.CodigoPreceptor = Convert.ToInt32(cmbPreceptor.Text);
+                    objCursos.CodigoPreceptor = cmbPreceptor.SelectedIndex;
                     objCursos.CodigoCursos = Convert.ToInt32(txtCurso.Text);
                     
                     ClasesPublicas.ListaCursos.Add(objCursos);
