@@ -9,18 +9,18 @@
     <TabControl>
         <TabItem Header="Registro">
             <Grid>
-                <TextBlock HorizontalAlignment="Left" Margin="18,133,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14" Text="Descripcion:"/>
-                <TextBlock HorizontalAlignment="Left" Margin="271,72,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14"><Run Language="es-es" Text="Estado:"/></TextBlock>
-                <TextBlock HorizontalAlignment="Left" Margin="18,194,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14" Text="Preceptor:"/>
+                <TextBlock HorizontalAlignment="Left" Margin="18,97,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14" Text="Descripcion:"/>
+                <TextBlock HorizontalAlignment="Left" Margin="307,73,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14"><Run Language="es-es" Text="Estado:"/></TextBlock>
+                <TextBlock HorizontalAlignment="Left" Margin="18,123,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14" Text="Preceptor:"/>
                 <TextBlock HorizontalAlignment="Left" Margin="18,71,0,0" TextWrapping="Wrap" Text="Codigo Cursos:" VerticalAlignment="Top" FontSize="14"/>
-                <CheckBox x:Name="chbEstado" Content="Habilitado" HorizontalAlignment="Left" Margin="328,77,0,0" VerticalAlignment="Top" FontSize="14"/>
-                <TextBox x:Name="txtDescripcion" HorizontalAlignment="Left" Margin="121,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="14"/>
-                <TextBox x:Name="txtCurso" HorizontalAlignment="Left" Margin="121,71,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="14"/>
-                <DataGrid SelectionChanged="dtgCursos_SelectionChanged" x:Name="dtgCursos" d:ItemsSource="{d:SampleData ItemCount=5}" Height="NaN" Margin="0,259,0,0"/>
-                <Button x:Name="bttCargar" Content="Cargar" HorizontalAlignment="Left" Margin="463,73,0,0" VerticalAlignment="Top" FontSize="14" Click="Button_Click" Background="#FF822D4A" Foreground="White" BorderBrush="Black"/>
-                <Button x:Name="bttnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="522,73,0,0" VerticalAlignment="Top" FontSize="14" Click="bttnGuardar_Click" Background="#FF822D4A" Foreground="White" BorderBrush="Black"/>
+                <CheckBox x:Name="chbEstado" Content="Habilitado" HorizontalAlignment="Left" Margin="364,78,0,0" VerticalAlignment="Top" FontSize="14"/>
+                <TextBox x:Name="txtDescripcion" HorizontalAlignment="Left" Margin="121,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="172" FontSize="14"/>
+                <TextBox x:Name="txtCurso" HorizontalAlignment="Left" Margin="121,71,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="35" FontSize="14"/>
+                <DataGrid SelectionChanged="dtgCursos_SelectionChanged" x:Name="dtgCursos" d:ItemsSource="{d:SampleData ItemCount=5}" Height="NaN" Margin="0,166,0,0"/>
+                <Button x:Name="bttCargar" Content="Cargar" HorizontalAlignment="Left" Margin="471,73,0,0" VerticalAlignment="Top" FontSize="14" Click="Button_Click" Background="#FF822D4A" Foreground="White" BorderBrush="Black"/>
+                <Button x:Name="bttnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="530,73,0,0" VerticalAlignment="Top" FontSize="14" Click="bttnGuardar_Click" Background="#FF822D4A" Foreground="White" BorderBrush="Black"/>
                 <Button x:Name="bttnQuitar" Content="Quitar" HorizontalAlignment="Left" Margin="721,73,0,0" VerticalAlignment="Top" FontSize="14" Click="ButtonQuitar_Click" Width="54" Background="#FF822D4A" Foreground="White" BorderBrush="Black"/>
-                <ComboBox x:Name="cmbPreceptor" DisplayMemberPath="ApellidoNombre" SelectedValuePath="CodigoPreceptor" HorizontalAlignment="Left" Margin="121,202,0,0" VerticalAlignment="Top" Width="120">
+                <ComboBox x:Name="cmbPreceptor" DisplayMemberPath="ApellidoNombre" SelectedValuePath="CodigoPreceptor" HorizontalAlignment="Left" Margin="121,122,0,0" VerticalAlignment="Top" Width="120">
                 </ComboBox>
                 <Rectangle HorizontalAlignment="Center" Height="55" Stroke="Black" VerticalAlignment="Top" Width="800" Fill="#FF641C34"/>
                 <Label Content="Cursos" HorizontalAlignment="Left" Margin="18,5,0,0" VerticalAlignment="Top" Height="45" Width="206" FontSize="25" FontWeight="Bold" Foreground="White"/>
