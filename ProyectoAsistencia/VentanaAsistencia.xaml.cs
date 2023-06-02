@@ -23,7 +23,7 @@ namespace ProyectoAsistencia
     {
         List<Asistencia> ListaAsistencias = new List<Asistencia>();
         List<Asistencia> ListaAsistenciaBuscar;
-        List<Alumno> ListaALumnos;
+        // List<Alumno> ListaALumnos;
         public VentanaAsistencia()
         {
             InitializeComponent();
@@ -34,27 +34,29 @@ namespace ProyectoAsistencia
             cmbMateria.ItemsSource = ClasesPublicas.ListaMaterias;
             ClasesPublicas.LeerArchivoCursos();
             CmbCurso.ItemsSource = ClasesPublicas.ListaCursos;
-            
+            ClasesPublicas.LeerPreceptor();
+            CmbPreceptor.ItemsSource = ClasesPublicas.ListaPreceptor;
+
         }
         private void btnGrd_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                if(File.Exists("Asistencias.txt"))
+                if (File.Exists("Asistencias.txt"))
                 {
                     File.Delete("Asistencias.txt");
                 }
 
                 string AsistenciasConcatenados = "";
-                foreach(Asistencia ObjetoAsistencia in ListaAsistencias)
+                foreach (Asistencia ObjetoAsistencia in ListaAsistencias)
                 {
-                    AsistenciasConcatenados = AsistenciasConcatenados + "\r\n" + ObjetoAsistencia.CodigoAsistencia + ";" + ObjetoAsistencia.Fecha + ";" + ObjetoAsistencia.CodigoCursos + ";" + ObjetoAsistencia.CodigoPreceptor + ";" + ObjetoAsistencia.CodigoMateria + ";" + ObjetoAsistencia.AlumnoAsistencia + ";";
+                    AsistenciasConcatenados = AsistenciasConcatenados + "\r\n" + ObjetoAsistencia.CodigoAlumno + ";" + ObjetoAsistencia.CodigoAsistencia + ";" + ObjetoAsistencia.Fecha + ";" + ObjetoAsistencia.CodigoCursos + ";" + ObjetoAsistencia.CodigoPreceptor + ";" + ObjetoAsistencia.CodigoMateria + ";" + ObjetoAsistencia.AlumnoAsistencia + ";";
                 }
 
                 File.WriteAllText("Asistencia.txt", AsistenciasConcatenados);
                 MessageBox.Show("Alamcenado de forma correcta!", "Aplicación", MessageBoxButton.OK, MessageBoxImage.Information);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("Error al guardar: " + ex.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
             }
@@ -65,7 +67,7 @@ namespace ProyectoAsistencia
             {
                 Asistencia ObjetoAsistencia = (Asistencia)dtg.SelectedItem;
 
-                if(ObjetoAsistencia != null)
+                if (ObjetoAsistencia != null)
                 {
                     TxtID.Text = ObjetoAsistencia.CodigoAsistencia.ToString();
                     DpFecha.Text = ObjetoAsistencia.Fecha.ToString();
@@ -75,14 +77,14 @@ namespace ProyectoAsistencia
                     ChPresente.IsChecked = ObjetoAsistencia.AlumnoAsistencia;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("Error!: " + ex.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
         private void BtnLeer_Click(object sender, RoutedEventArgs e)
         {
-            //cargar lista asistencia
+            //cargar lista asistencia <<<<<<< HEAD
             try
             {
                 int codCurso = Convert.ToInt32(CmbCurso.SelectedValue);
@@ -95,18 +97,19 @@ namespace ProyectoAsistencia
                     asistencia.CodigoCursos = Convert.ToInt32(CmbCurso.SelectedValue);
                     asistencia.CodigoMateria = Convert.ToInt32(cmbMateria.SelectedValue);
                     asistencia.CodigoPreceptor = Convert.ToInt32(cmbMateria.SelectedValue);
+                    asistencia.NombreApellido = alumno.NombreApellido;
                     ListaAsistencias.Add(asistencia);
                 }
-                dtg.ItemsSource = ListaAsistencias; //Clases2023.ClasesPublicas.ListaAlumnos;
+                dtg.ItemsSource = ListaAsistencias;
                 dtg.Items.Refresh();
                 LblArchivos.Content = dtg.Items.Count;
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error" + ex.Message, "Error" ,MessageBoxButton.OK,MessageBoxImage.Error);
-                
+                MessageBox.Show("Error" + ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+
             }
-    
+
         }
         private void btnBuscar_Click(object sender, RoutedEventArgs e)
         {
@@ -114,13 +117,13 @@ namespace ProyectoAsistencia
             {
                 ListaAsistenciaBuscar = ClasesPublicas.ListaAsistencias;
 
-                if(chCodAlumnoX.IsChecked == true)
+                if (chCodAlumnoX.IsChecked == true)
                 {
                     //int codDesde = Convert.ToInt32(txtCodDesdeX.Text);
                     //int codHasta = Convert.ToInt32(txtCodHastaX.Text);
                     //ListaAsistenciaBuscar = ListaAsistenciaBuscar.Where(n => n.CodigoAsistencia >= codDesde && n.CodigoAsistencia <= codHasta).ToList();
                 }
-                if(chNombreAlumnoX.IsChecked == true)
+                if (chNombreAlumnoX.IsChecked == true)
                 {
                     //ListaAsistenciaBuscar = ListaAsistenciaBuscar.Where(n => n..Contains(txtNombMat.Text)).ToList();
                 }
@@ -128,9 +131,9 @@ namespace ProyectoAsistencia
                 dgResultadoX.Items.Refresh();
                 lblResultadoX.Content = "Registros encontrados: " + ListaAsistenciaBuscar.Count;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                MessageBox.Show("Error al Buscar: " + ex.Message,"Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Error al Buscar: " + ex.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
         private void txtDesde_GotFocus(object sender, RoutedEventArgs e)
@@ -144,12 +147,12 @@ namespace ProyectoAsistencia
 
         private void cmbMateria_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Materia materia = (Materia)cmbMateria.SelectedValue;
-            if(materia!=null)
+            Materia materia = (Materia)cmbMateria.SelectedItem;
+            if (materia != null)
             {
                 CmbCurso.SelectedValue = materia.CodigoCursos;
             }
-            
         }
     }
 }
+
