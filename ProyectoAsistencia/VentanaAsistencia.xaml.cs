@@ -34,6 +34,8 @@ namespace ProyectoAsistencia
             cmbMateria.ItemsSource = ClasesPublicas.ListaMaterias;
             ClasesPublicas.LeerArchivoCursos();
             CmbCurso.ItemsSource = ClasesPublicas.ListaCursos;
+            ClasesPublicas.LeerPreceptor();
+            CmbPreceptor.ItemsSource = ClasesPublicas.ListaPreceptor;
             
         }
         private void btnGrd_Click(object sender, RoutedEventArgs e)
@@ -82,22 +84,20 @@ namespace ProyectoAsistencia
         }
         private void BtnLeer_Click(object sender, RoutedEventArgs e)
         {
-            
-
             //cargar lista asistencia
             int codCurso = Convert.ToInt32(CmbCurso.SelectedValue);
-            foreach (Alumno alumno in ClasesPublicas.ListaAlumnos.Where(n=>n.CodigoCurso ==codCurso))
+            foreach (Alumno alumno in ClasesPublicas.ListaAlumnos.Where(n=>n.CodigoCurso == codCurso))
             {
                 Asistencia asistencia = new Asistencia();
                 asistencia.CodigoAsistencia = Convert.ToInt32(TxtID.Text);
                 asistencia.CodigoAlumno = alumno.CodigoAlumno;
                 asistencia.AlumnoAsistencia = false;
-                asistencia.CodigoCursos = Convert.ToInt32(CmbCurso.SelectedValue);
-                asistencia.CodigoMateria = Convert.ToInt32(cmbMateria.SelectedValue);
-                asistencia.CodigoPreceptor = Convert.ToInt32(cmbMateria.SelectedValue);
+                asistencia.CodigoCursos = CmbCurso.SelectedIndex;
+                asistencia.CodigoMateria = cmbMateria.SelectedIndex;
+                asistencia.CodigoPreceptor = cmbMateria.SelectedIndex;
                 ListaAsistencias.Add(asistencia);
             }
-            dtg.ItemsSource = ListaAsistencias; //Clases2023.ClasesPublicas.ListaAlumnos;
+            dtg.ItemsSource = ListaAsistencias;
             dtg.Items.Refresh();
             LblArchivos.Content = dtg.Items.Count;
         }
@@ -137,12 +137,11 @@ namespace ProyectoAsistencia
 
         private void cmbMateria_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Materia materia = (Materia)cmbMateria.SelectedValue;
+            /*Materia materia = (Materia)cmbMateria.SelectedValue;
             if(materia!=null)
             {
                 CmbCurso.SelectedValue = materia.CodigoCursos;
-            }
-            
+            }*/
         }
     }
 }
