@@ -19,6 +19,7 @@ namespace ProyectoAsistencia.Clases2023
             {
                 if (File.Exists("Materias.txt"))
                 {
+                    ListaMaterias = new List<Materia>();
                     Materia ObjetoMateria;
                     string txtCompleto = File.ReadAllText("Materias.txt");
                     char[] delims = new[] { '\n' };
@@ -148,6 +149,7 @@ namespace ProyectoAsistencia.Clases2023
             {
                 if (File.Exists("Cursos.txt"))
                 {
+                    ListaCursos = new List<Cursos>();
                     Cursos objCursos;
                     ListaCursos = new List<Cursos>();
 
@@ -255,6 +257,7 @@ namespace ProyectoAsistencia.Clases2023
             {
                 if (File.Exists("Profesores.txt"))
                 {
+                    ListaProfesores = new List<Profesores>();
                     Profesores objetoProfe;
                     string textoCompleto = File.ReadAllText("Profesores.txt");
                     char[] delims = new[] { '\r', '\n' };
@@ -317,6 +320,7 @@ namespace ProyectoAsistencia.Clases2023
         {
             if (File.Exists("Preceptor.txt"))
             {
+                ListaPreceptor = new List<Preceptor>();
                 Preceptor objetoPreceptor;
                 string textoCompleto = File.ReadAllText("Preceptor.txt");
                 char[] delims = new[] { '\r', '\n' };
