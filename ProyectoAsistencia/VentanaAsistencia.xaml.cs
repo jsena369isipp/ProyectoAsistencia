@@ -50,7 +50,7 @@ namespace ProyectoAsistencia
                 string AsistenciasConcatenados = "";
                 foreach (Asistencia ObjetoAsistencia in ListaAsistencias)
                 {
-                    AsistenciasConcatenados = AsistenciasConcatenados + "\r\n" + ObjetoAsistencia.CodigoAlumno + ";" + ObjetoAsistencia.CodigoAsistencia + ";" + ObjetoAsistencia.Fecha + ";" + ObjetoAsistencia.CodigoCursos + ";" + ObjetoAsistencia.CodigoPreceptor + ";" + ObjetoAsistencia.CodigoMateria + ";" + ObjetoAsistencia.AlumnoAsistencia + ";";
+                    AsistenciasConcatenados = AsistenciasConcatenados + "\r\n" + ObjetoAsistencia.CodigoAlumno + ";" + ObjetoAsistencia.CodigoAsistencia + ";" + ObjetoAsistencia.Fecha + ";" + ObjetoAsistencia.CodigoCursos + ";" + ObjetoAsistencia.CodigoPreceptor + ";" + ObjetoAsistencia.CodigoMateria + ";" + ObjetoAsistencia.AlumnoAsistencia + ";" + ObjetoAsistencia.Fecha;
                 }
 
                 File.WriteAllText("Asistencia.txt", AsistenciasConcatenados);
@@ -69,6 +69,7 @@ namespace ProyectoAsistencia
 
                 if (ObjetoAsistencia != null)
                 {
+
                     TxtID.Text = ObjetoAsistencia.CodigoAsistencia.ToString();
                     DpFecha.Text = ObjetoAsistencia.Fecha.ToString();
                     CmbCurso.SelectedValue = ObjetoAsistencia.CodigoCursos.ToString();
@@ -82,7 +83,7 @@ namespace ProyectoAsistencia
                 MessageBox.Show("Error!: " + ex.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-        private void BtnLeer_Click(object sender, RoutedEventArgs e)
+        private void BtnAlumnosCarga_Click(object sender, RoutedEventArgs e)
         {
             //cargar lista asistencia <<<<<<< HEAD
             try
@@ -91,13 +92,15 @@ namespace ProyectoAsistencia
                 foreach (Alumno alumno in ClasesPublicas.ListaAlumnos.Where(n => n.CodigoCurso == codCurso))
                 {
                     Asistencia asistencia = new Asistencia();
-                    asistencia.CodigoAsistencia = Convert.ToInt32(TxtID.Text);
                     asistencia.CodigoAlumno = alumno.CodigoAlumno;
+                    asistencia.CodigoAsistencia = Convert.ToInt32(TxtID.Text);
                     asistencia.AlumnoAsistencia = false;
                     asistencia.CodigoCursos = Convert.ToInt32(CmbCurso.SelectedValue);
                     asistencia.CodigoMateria = Convert.ToInt32(cmbMateria.SelectedValue);
                     asistencia.CodigoPreceptor = Convert.ToInt32(cmbMateria.SelectedValue);
                     asistencia.NombreApellido = alumno.NombreApellido;
+                    asistencia.Fecha = DateTime.Now;
+                    
                     ListaAsistencias.Add(asistencia);
                 }
                 dtg.ItemsSource = ListaAsistencias;
@@ -119,8 +122,8 @@ namespace ProyectoAsistencia
 
                 if (chCodAlumnoX.IsChecked == true)
                 {
-                    //int codDesde = Convert.ToInt32(txtCodDesdeX.Text);
-                    //int codHasta = Convert.ToInt32(txtCodHastaX.Text);
+                    int codDesde = Convert.ToInt32(txtCodDesdeX.Text);
+                    int codHasta = Convert.ToInt32(txtCodHastaX.Text);
                     //ListaAsistenciaBuscar = ListaAsistenciaBuscar.Where(n => n.CodigoAsistencia >= codDesde && n.CodigoAsistencia <= codHasta).ToList();
                 }
                 if (chNombreAlumnoX.IsChecked == true)
@@ -152,6 +155,11 @@ namespace ProyectoAsistencia
             {
                 CmbCurso.SelectedValue = materia.CodigoCursos;
             }
+        }
+
+        private void BtnAlumnos_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
