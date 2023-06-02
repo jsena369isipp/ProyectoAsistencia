@@ -50,8 +50,8 @@
                 <Image x:Name="ImgIsipp2" HorizontalAlignment="Left" Height="55" Margin="723,0,0,0" VerticalAlignment="Top" Width="56" Source="/Imagen/isipp-blanco.png"/>
                 <Image HorizontalAlignment="Left" Height="55" Margin="723,0,0,0" VerticalAlignment="Top" Width="56" Source="/Imagen/isipp-blanco.png"/>
                 <CheckBox x:Name="CheckCodAlumno" Content="Código Alumno:" HorizontalAlignment="Left" Margin="19,71,0,0" VerticalAlignment="Top" Width="110"/>
-                <TextBox x:Name="TxtDesde" HorizontalAlignment="Left" Margin="143,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75" GotFocus="TxtDesde_GotFocus"/>
-                <TextBox x:Name="TxtHasta" HorizontalAlignment="Left" Margin="223,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75" GotFocus="TxtHasta_GotFocus"/>
+                <TextBox x:Name="TxtDesde" HorizontalAlignment="Left" Margin="143,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75" GotFocus="TxtDesde_GotFocus" Text="Desde" Foreground="Black"/>
+                <TextBox x:Name="TxtHasta" HorizontalAlignment="Left" Margin="223,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75" GotFocus="TxtHasta_GotFocus" Text="Hasta" Foreground="Black"/>
                 <CheckBox x:Name="CheckNombreApellido" Content="Nombre y Apellido:" HorizontalAlignment="Left" Margin="320,71,0,0" VerticalAlignment="Top"/>
                 <TextBox x:Name="TxtNombreApellido1" HorizontalAlignment="Left" Margin="454,71,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="229"/>
                 <Button x:Name="BtnBuscar" Content="Buscar" HorizontalAlignment="Left" Height="24" Margin="275,260,0,0" VerticalAlignment="Top" Width="81" BorderBrush="#FF822D4A" Background="#FF822D4A" FontWeight="Bold" Foreground="White" Click="BtnBuscar_Click"/>
