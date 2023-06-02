@@ -26,9 +26,7 @@ namespace ProyectoAsistencia
         public Materias()
         {
             InitializeComponent();
-            ClasesPublicas.LeerArchivoProfesores();
             cboBoxProfesor.ItemsSource = ClasesPublicas.ListaProfesores;
-            ClasesPublicas.LeerArchivoCursos();
             cboBoxCurso.ItemsSource = ClasesPublicas.ListaCursos;
         }
 
@@ -43,8 +41,8 @@ namespace ProyectoAsistencia
                     ObjetoMateria = new Materia();
                     ObjetoMateria.CodigoMateria = Convert.ToInt32(txtBoxID.Text);
                     ObjetoMateria.NombreMateria = txtBoxMateria.Text;
-                    ObjetoMateria.IDProfesor = cboBoxProfesor.SelectedIndex;
-                    ObjetoMateria.CodigoCursos = cboBoxCurso.SelectedIndex;
+                    ObjetoMateria.IDProfesor = Convert.ToInt32(cboBoxProfesor.SelectedValue);
+                    ObjetoMateria.CodigoCursos = Convert.ToInt32(cboBoxCurso.SelectedValue);
                     ObjetoMateria.HsCatedra = Convert.ToInt32(txtBoxHs.Text);
 
                     ListaMaterias.Add(ObjetoMateria);
@@ -53,8 +51,8 @@ namespace ProyectoAsistencia
                 {
                     ObjetoMateria.CodigoMateria = Convert.ToInt32(txtBoxID.Text);
                     ObjetoMateria.NombreMateria = txtBoxMateria.Text;
-                    ObjetoMateria.IDProfesor = cboBoxProfesor.SelectedIndex;
-                    ObjetoMateria.CodigoCursos = cboBoxCurso.SelectedIndex;
+                    ObjetoMateria.IDProfesor = Convert.ToInt32(cboBoxProfesor.SelectedValue);
+                    ObjetoMateria.CodigoCursos = Convert.ToInt32(cboBoxCurso.SelectedValue);
                     ObjetoMateria.HsCatedra = Convert.ToInt32(txtBoxHs.Text);
                 }
                 dtgMaterias.ItemsSource = ListaMaterias;
@@ -152,8 +150,8 @@ namespace ProyectoAsistencia
                     int codCurso = Convert.ToInt32(txtCodCurso.Text);
                     listaMateriasBuscar = listaMateriasBuscar.Where(n => n.CodigoCursos == codCurso).ToList();
                 }
-                dtgMaterias.ItemsSource = listaMateriasBuscar;
-                dtgMaterias.Items.Refresh();
+                dtgBuscMat.ItemsSource = listaMateriasBuscar;
+                dtgBuscMat.Items.Refresh();
                 lblReg.Content = "Registros encontrados: " + listaMateriasBuscar.Count;
             }
             catch (Exception err)
