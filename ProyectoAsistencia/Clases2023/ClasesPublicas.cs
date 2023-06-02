@@ -20,7 +20,7 @@ namespace ProyectoAsistencia.Clases2023
                 if (File.Exists("Materias.txt"))
                 {
                     Materia ObjetoMateria;
-                    string txtCompleto = File.ReadAllText("Materia.txt");
+                    string txtCompleto = File.ReadAllText("Materias.txt");
                     char[] delims = new[] { '\n' };
                     string[] lineas = txtCompleto.Split(delims, StringSplitOptions.RemoveEmptyEntries);
                     foreach (string fila in lineas)

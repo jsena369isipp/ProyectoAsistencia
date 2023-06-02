@@ -46,8 +46,8 @@ namespace ProyectoAsistencia
                 }
                 if (filtromateria >= 0)
                 {
-                    string filtromateria2 = filtromateria.ToString();
-                    ListaMateria = ListaMateria.Where(n => n.NombreMateria == filtromateria2).ToList();
+                    string MateriaSeleccionada = filtromateria.ToString();
+                    ListaMateria = ListaMateria.Where(n => n.NombreMateria == MateriaSeleccionada).ToList();
                 }
                 dgResultado.ItemsSource = ListaInformeAsistencia;
                 dgResultado.Items.Refresh();
