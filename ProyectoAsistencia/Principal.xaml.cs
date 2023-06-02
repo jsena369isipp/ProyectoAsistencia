@@ -76,6 +76,8 @@ namespace ProyectoAsistencia
 
         private void mnuInforme_Click(object sender, RoutedEventArgs e)
         {
+            Ventana_InformeAsistencia ventana = new Ventana_InformeAsistencia();
+            ventana.Show();
 
         }
 
@@ -86,6 +88,8 @@ namespace ProyectoAsistencia
 
         }
 
-        
+      
+
+       
     }
 }

@@ -9,7 +9,7 @@
     <Grid>
         <Menu Height="50px" VerticalAlignment="Top" Background="#FF641C34">
 
-            <MenuItem Header="ASISTENCIAS" Height="50" Width="140px" Foreground="White" BorderBrush="Black" FontWeight="Bold" >
+            <MenuItem Header="ASISTENCIAS" Height="50" Width="140px" Foreground="White" BorderBrush="Black" >
                 <MenuItem Header=" Tomar Asistencias" Height="40" Background="White" Foreground="Black"   x:Name="mnuAsistencias" Click="mnuAsistencias_Click"/>
                 <MenuItem Header="Informe" Height="40" Background="White" Foreground="Black" x:Name="mnuInforme" Click="mnuInforme_Click"/>
 
