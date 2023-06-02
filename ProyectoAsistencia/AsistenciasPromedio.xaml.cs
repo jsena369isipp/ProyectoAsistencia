@@ -24,17 +24,56 @@ namespace ProyectoAsistencia
         public AsistenciasPromedio()
         {
             InitializeComponent();
+            ClasesPublicas.LeerArchivoAsistencia();
+
+            ComboMateria.ItemsSource = ClasesPublicas.ListaMaterias;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            int DíasAsistencias = 0;
-            int DíasClases = 0;
-            decimal Promedio = 0m;
+            try
+            {
+                ClasesPublicas.LeerArchivoAsistencia();
+                ClasesPublicas.LeerArchivoMateria();
+
+                List<Materia> listaBuscarMateria = ClasesPublicas.ListaMaterias;
+                List<Asistencia> listaBuscarAsistencia = ClasesPublicas.ListaAsistencias;
+
+                
+
+                if (CheckFechI.IsChecked == true)
+                {
+                    DateTime fechaIncio = Convert.ToDateTime(DateFechaInicio);
+                    DateTime fechaFin = Convert.ToDateTime(DateFechaFinal);
+                    listaBuscarAsistencia = listaBuscarAsistencia.Where(n => n.Fecha >= fechaIncio && n.Fecha >= fechaFin).ToList();
+                if  (CheckMateria.IsChecked == true)
+                    {
+                        int codNombreMateria = Convert.ToInt32(ComboMateria.SelectedValue);
+                        listaBuscarMateria = listaBuscarMateria.Where(n => n.CodigoMateria == codNombreMateria).ToList();
+                    }
+
+                }
+
+
+
+                DgResultados.ItemsSource = listaBuscarAsistencia;
+                DgResultados.Items.Refresh();
+
+                
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
+
 
 
 
 
         }
+
+     
     }
 }
