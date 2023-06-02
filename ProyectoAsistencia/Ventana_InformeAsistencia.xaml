@@ -13,9 +13,9 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <DataGrid x:Name="dgResultado" HorizontalAlignment="Center" Height="306" Margin="0,96,0,0" VerticalAlignment="Top" Width="800" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+                    <DataGrid x:Name="dgResultado" HorizontalAlignment="Center" Height="263" Margin="0,139,0,0" VerticalAlignment="Top" Width="800" d:ItemsSource="{d:SampleData ItemCount=5}"/>
                     <Button x:Name="btnBuscar" Content="Buscar" HorizontalAlignment="Left" Height="26" Margin="529,65,0,0" VerticalAlignment="Top" Width="66" Click="btnBuscar_Click" Background="#FF822D4A" Foreground="White"/>
-                    <Label Content="Fecha Desde:" HorizontalAlignment="Left" Height="26" Margin="23,63,0,0" VerticalAlignment="Top" Width="80"/>
+                    <Label Content="Fecha Desde:" HorizontalAlignment="Left" Height="26" Margin="17,63,0,0" VerticalAlignment="Top" Width="81"/>
                     <Label Content="Fecha Hasta:" HorizontalAlignment="Left" Height="26" Margin="262,64,0,0" VerticalAlignment="Top" Width="80"/>
                     <DatePicker x:Name="dpFechaDesde" HorizontalAlignment="Left" Height="24" Margin="103,65,0,0" VerticalAlignment="Top" Width="147"/>
                     <DatePicker x:Name="dpFechaHasta" HorizontalAlignment="Left" Height="24" Margin="347,64,0,0" VerticalAlignment="Top" Width="148"/>
@@ -24,7 +24,8 @@
                     <Label Content="Informe De Asistencia" HorizontalAlignment="Left" Margin="1,6,0,0" VerticalAlignment="Top" FontSize="25" FontWeight="Bold" Foreground="White" Height="43" Width="268"/>
                     <CheckBox x:Name="chHabilitado" Content="" HorizontalAlignment="Left" Height="18" Margin="4,68,0,0" VerticalAlignment="Top" Width="26"/>
                     <Image HorizontalAlignment="Left" Height="55" Margin="688,0,0,0" VerticalAlignment="Top" Width="56" Source="/Imagen/isipp-blanco.png"/>
-                    <Button x:Name="btnEliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="619,65,0,0" VerticalAlignment="Top" Height="27" Width="66" Background="#FF822D4A" Foreground="White" Click="btnEliminar_Click"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="23,104,0,0" TextWrapping="Wrap" Text="Materia:" VerticalAlignment="Top" Height="18" Width="61"/>
+                    <ComboBox x:Name="cmbMateria" DisplayMemberPath="Materia" SelectedValuePath="CodigoMateria" HorizontalAlignment="Left" Margin="103,102,0,0" VerticalAlignment="Top" Width="147" Height="20" SelectionChanged="cmbMateria_SelectionChanged"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Buscador">

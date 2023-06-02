@@ -22,16 +22,41 @@ namespace ProyectoAsistencia
     public partial class VentanaPreceptor : Window
     {
         List<Clases2023.Preceptor> ListaPreceptor = new List<Clases2023.Preceptor>();
+        
 
         public VentanaPreceptor()
         {
 
             InitializeComponent();
+            ClasesPublicas.LeerPreceptor();
+            ClasesPublicas.LeerArchivoCursos();
+            cbCursos.ItemsSource = ClasesPublicas.ListaCursos;
+            
+
         }
 
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
-           
+            try
+            {
+                if (File.Exists("Preceptor.txt"))
+                {
+                    File.Delete("Preceptor.txt");
+                }
+                string preceptorConcatenado = "";
+                foreach (Preceptor objetoPreceptor in ListaPreceptor)
+                {
+                    preceptorConcatenado = preceptorConcatenado + "\r\n" + objetoPreceptor.CodigoPreceptor + ";" + objetoPreceptor.ApellidoNombre + ";" + objetoPreceptor.CodigoCursos + ";" + objetoPreceptor.DNI + ";" + objetoPreceptor.FechaNacimiento + ";" + objetoPreceptor.Estado;
+                }
+                File.WriteAllText("Preceptor.txt", preceptorConcatenado);
+                MessageBox.Show("Almacenado de forma correcta!", "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Error al guardar", "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
         }
 
 
@@ -69,7 +94,7 @@ namespace ProyectoAsistencia
                     preceptor.CodigoPreceptor = Convert.ToInt32(txtCodPreceptor.Text);
                     preceptor.DNI = Convert.ToInt64(txtdni.Text);
                     preceptor.ApellidoNombre = txtNombApellido.Text;
-                    preceptor.CodigoCursos = cbCursos.SelectedIndex;
+                    preceptor.CodigoCursos = Convert.ToInt16 (cbCursos.SelectedValue);
                     preceptor.Estado = Convert.ToBoolean(chbEstado.IsChecked);//<--para mostrar el estado en el DataGrid
                     preceptor.FechaNacimiento = Convert.ToDateTime(dpFechaNac.SelectedDate);
 
@@ -81,7 +106,7 @@ namespace ProyectoAsistencia
                     preceptor.CodigoPreceptor = Convert.ToInt32(txtCodPreceptor.Text);
                     preceptor.DNI = Convert.ToInt64(txtdni.Text);
                     preceptor.ApellidoNombre = txtNombApellido.Text;
-                    preceptor.CodigoCursos = cbCursos.SelectedIndex;
+                    preceptor.CodigoCursos = Convert.ToInt16(cbCursos.SelectedValue);
                     preceptor.Estado = Convert.ToBoolean(chbEstado.IsChecked);//<--para mostrar el estado en el DataGrid
                     preceptor.FechaNacimiento = Convert.ToDateTime(dpFechaNac.SelectedDate);
                 }
@@ -102,6 +127,28 @@ namespace ProyectoAsistencia
         }
 
         private void dg1_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            try
+            {
+                Preceptor preceptor = (Preceptor)dg1.SelectedItem;
+                if (preceptor != null)
+                {
+                    txtCodPreceptor.Text = preceptor.CodigoPreceptor.ToString();
+                    txtdni.Text = preceptor.DNI.ToString();
+                    txtNombApellido.Text = preceptor.ApellidoNombre;
+                    dpFechaNac.SelectedDate = preceptor.FechaNacimiento;
+                    chbEstado.IsChecked = preceptor.Estado;
+                    cbCursos.SelectedIndex = preceptor.CodigoCursos;
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void btnBuscar_Click(object sender, RoutedEventArgs e)
         {
 
         }

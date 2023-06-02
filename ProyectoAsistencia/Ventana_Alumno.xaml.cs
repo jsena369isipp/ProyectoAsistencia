@@ -25,7 +25,7 @@ namespace ProyectoAsistencia
             InitializeComponent();
             DateFechaIngreso.SelectedDate = DateTime.Now;
         }
-
+        
         private void BtnCargar_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -50,7 +50,7 @@ namespace ProyectoAsistencia
                 }
                 else 
                 {
-                    ObjAlumno.Dni = Convert.ToInt64(TxtTelefono.Text);
+                    ObjAlumno.Dni = Convert.ToInt64(TxtDNI.Text);
                     ObjAlumno.CodigoCurso = Convert.ToInt32(TxtCodCurso.Text);
                     ObjAlumno.CodigoAlumno = Convert.ToInt32(TxtCodAlumno.Text);
                     ObjAlumno.NombreApellido = TxtNomApellido.Text;
