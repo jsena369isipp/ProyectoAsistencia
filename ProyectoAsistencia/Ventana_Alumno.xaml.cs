@@ -32,7 +32,7 @@ namespace ProyectoAsistencia
             {
                 Int64 VariableDni = Convert.ToInt64(TxtDNI.Text);
                 Alumno ObjAlumno = ClasesPublicas.ListaAlumnos.Where(n => n.Dni == VariableDni).FirstOrDefault();
-                if (ObjAlumno != null)
+                if (ObjAlumno == null)
                 {
                     ObjAlumno = new Alumno();
                     ObjAlumno.Dni = VariableDni;
@@ -50,6 +50,7 @@ namespace ProyectoAsistencia
                 }
                 else 
                 {
+                    ObjAlumno.Dni = Convert.ToInt64(TxtDNI.Text);
                     ObjAlumno.CodigoCurso = Convert.ToInt32(TxtCodCurso.Text);
                     ObjAlumno.CodigoAlumno = Convert.ToInt32(TxtCodAlumno.Text);
                     ObjAlumno.NombreApellido = TxtNomApellido.Text;
