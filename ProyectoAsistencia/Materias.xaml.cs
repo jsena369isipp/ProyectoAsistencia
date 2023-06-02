@@ -26,7 +26,9 @@ namespace ProyectoAsistencia
         public Materias()
         {
             InitializeComponent();
+            ClasesPublicas.LeerArchivoProfesores();
             cboBoxProfesor.ItemsSource = ClasesPublicas.ListaProfesores;
+            ClasesPublicas.LeerArchivoCursos();
             cboBoxCurso.ItemsSource = ClasesPublicas.ListaCursos;
         }
 
