@@ -90,7 +90,7 @@ namespace ProyectoAsistencia.Clases2023
 
                             if (contador == 0)
                             {
-                                ObjAlumno.CodigoCurso = Convert.ToInt32(val);
+                                ObjAlumno.CodigoCurso = Convert.ToInt32(val.Trim());
                             }
                             else if (contador == 1)
                             {
