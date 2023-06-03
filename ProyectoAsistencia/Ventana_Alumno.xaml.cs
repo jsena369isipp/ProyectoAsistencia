@@ -24,6 +24,7 @@ namespace ProyectoAsistencia
         {
             InitializeComponent();
             DateFechaIngreso.SelectedDate = DateTime.Now;
+            ComboCurso.ItemsSource = ClasesPublicas.ListaCursos;
         }
         
         private void BtnCargar_Click(object sender, RoutedEventArgs e)
@@ -36,7 +37,7 @@ namespace ProyectoAsistencia
                 {
                     ObjAlumno = new Alumno();
                     ObjAlumno.Dni = VariableDni;
-                    ObjAlumno.CodigoCurso = Convert.ToInt32(TxtCodCurso.Text);
+                    ObjAlumno.CodigoCurso = ComboCurso.SelectedIndex;
                     ObjAlumno.CodigoAlumno = Convert.ToInt32(TxtCodAlumno.Text);
                     ObjAlumno.NombreApellido = TxtNomApellido.Text;
                     ObjAlumno.Estado = CheckEstado.IsChecked.Value;
@@ -50,7 +51,7 @@ namespace ProyectoAsistencia
                 }
                 else 
                 {
-                    ObjAlumno.CodigoCurso = Convert.ToInt32(TxtCodCurso.Text);
+                    ObjAlumno.CodigoCurso = ComboCurso.SelectedIndex;
                     ObjAlumno.CodigoAlumno = Convert.ToInt32(TxtCodAlumno.Text);
                     ObjAlumno.NombreApellido = TxtNomApellido.Text;
                     ObjAlumno.Estado = CheckEstado.IsChecked.Value;
@@ -95,7 +96,7 @@ namespace ProyectoAsistencia
                 Alumno ObjAlumno = (Alumno)DgAlumno.SelectedItem;
                 if (ObjAlumno != null)
                 {
-                    TxtCodCurso.Text = ObjAlumno.CodigoCurso.ToString();
+                    ComboCurso.SelectedIndex = ObjAlumno.CodigoCurso;
                     TxtCodAlumno.Text = ObjAlumno.CodigoAlumno.ToString();
                     TxtDNI.Text = ObjAlumno.Dni.ToString();
                     TxtNomApellido.Text = ObjAlumno.NombreApellido;
