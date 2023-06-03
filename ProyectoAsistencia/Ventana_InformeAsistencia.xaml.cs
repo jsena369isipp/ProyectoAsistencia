@@ -21,7 +21,6 @@ namespace ProyectoAsistencia
     public partial class Ventana_InformeAsistencia : Window
     {
         List<Asistencia> ListaInformeAsistencia;
-        List<Materia> ListaMateria;
         public Ventana_InformeAsistencia()
         {
             InitializeComponent();
@@ -34,21 +33,22 @@ namespace ProyectoAsistencia
             try
             {
                 ListaInformeAsistencia = ClasesPublicas.ListaAsistencias;
-                ListaMateria = ClasesPublicas.ListaMaterias;
                 DateTime? fechaDesde = dpFechaDesde.SelectedDate;
                 DateTime? fechaHasta = dpFechaHasta.SelectedDate;
-                int filtromateria = cmbMateria.SelectedIndex;
+                int filtromateria = Convert.ToInt32(cmbMateria.SelectedValue);
+                
                 if (chHabilitado.IsChecked == true && fechaDesde.HasValue && fechaHasta.HasValue)
                 {
                     //int codDesde = Convert.ToInt32(fechaDesde.Value);
                     //int codHasta = Convert.ToInt32(fechaHasta.Value);
                     ListaInformeAsistencia = ListaInformeAsistencia.Where(n => n.Fecha >= fechaDesde && n.Fecha <= fechaHasta).ToList();
                 }
-                if (filtromateria >= 0)
+                if (chHabilitadoMateria.IsChecked == true && filtromateria >= 0)
                 {
-                    string MateriaSeleccionada = filtromateria.ToString();
-                    ListaMateria = ListaMateria.Where(n => n.NombreMateria == MateriaSeleccionada).ToList();
+                    
+                    ListaInformeAsistencia = ListaInformeAsistencia.Where(n => n.CodigoMateria == filtromateria).ToList();
                 }
+                
                 dgResultado.ItemsSource = ListaInformeAsistencia;
                 dgResultado.Items.Refresh();
                 lblResultado.Content = "Registros encontrados; " + ListaInformeAsistencia.Count;
