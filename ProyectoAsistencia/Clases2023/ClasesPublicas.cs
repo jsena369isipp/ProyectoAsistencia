@@ -256,6 +256,8 @@ namespace ProyectoAsistencia.Clases2023
                 if (File.Exists("Profesores.txt"))
                 {
                     Profesores objetoProfe;
+                    ListaProfesores = new List<Profesores>();
+
                     string textoCompleto = File.ReadAllText("Profesores.txt");
                     char[] delims = new[] { '\r', '\n' };
                     string[] lineas = textoCompleto.Split(delims, StringSplitOptions.RemoveEmptyEntries);
@@ -286,7 +288,7 @@ namespace ProyectoAsistencia.Clases2023
                             }
                             else if (contador == 4)
                             {
-                                objetoProfe.Tel = val;
+                                objetoProfe.Tel = Convert.ToInt64(val);
                             }
                             else if (contador == 5)
                             {

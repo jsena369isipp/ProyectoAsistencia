@@ -21,17 +21,19 @@ namespace ProyectoAsistencia
     /// </summary>
     public partial class VentanaProfesores : Window
     {
-        List<Clases2023.Profesores> ListaProfesores = new List<Clases2023.Profesores>();
+        /*List<Clases2023.Profesores> ListaProfesores = new List<Clases2023.Profesores>();*/
+        List<Profesores> ListaProfesorBuscar;
         public VentanaProfesores()
         {
             InitializeComponent();
+            dateGrid_Fecha.SelectedDate = DateTime.Now;
         }
         private void btnAgregar_Click(object sender, RoutedEventArgs e)
         {
             try
             {
                 Int64 IDProfesor = Convert.ToInt32(txt_ID.Text);
-                Clases2023.Profesores Profesor = ListaProfesores.Where(n => n.IDProfesor == IDProfesor).FirstOrDefault();
+                Clases2023.Profesores Profesor = ClasesPublicas.ListaProfesores.Where(n => n.IDProfesor == IDProfesor).FirstOrDefault();
                 if (Profesor == null)
                 {
                     Profesor = new Clases2023.Profesores();
@@ -39,11 +41,12 @@ namespace ProyectoAsistencia
                     Profesor.IDProfesor = Convert.ToInt32(txt_ID.Text);
                     Profesor.DNI = Convert.ToInt32(txtDNI.Text);
                     Profesor.FechaDeAlta = dateGrid_Fecha.SelectedDate.Value;
-                    Profesor.Tel = txtTelefono.Text;
+                    Profesor.Tel = Convert.ToInt64(txtTelefono.Text);
                     Profesor.Correo = txtCorreo.Text;
                     Profesor.Domicilio = txtDomicilio.Text;
                     Profesor.Estado = checkBx_Estado.IsChecked.Value;
-                    ListaProfesores.Add(Profesor);
+                    /*ListaProfesores.Add(Profesor);*/
+                    ClasesPublicas.ListaProfesores.Add(Profesor);
                 }
                 else
                 {
@@ -51,13 +54,13 @@ namespace ProyectoAsistencia
                     Profesor.IDProfesor = Convert.ToInt32(txt_ID.Text);
                     Profesor.DNI = Convert.ToInt32(txtDNI.Text);
                     Profesor.FechaDeAlta = dateGrid_Fecha.SelectedDate.Value;
-                    Profesor.Tel = txtTelefono.Text;
+                    Profesor.Tel = Convert.ToInt64(txtTelefono.Text);
                     Profesor.Correo = txtCorreo.Text;
                     Profesor.Domicilio = txtDomicilio.Text;
                     Profesor.Estado = checkBx_Estado.IsChecked.Value;
                 }
 
-                dataGrid_Resultado.ItemsSource = ListaProfesores;
+                dataGrid_Resultado.ItemsSource = ClasesPublicas.ListaProfesores;
                 dataGrid_Resultado.Items.Refresh();
             }
 
@@ -75,8 +78,8 @@ namespace ProyectoAsistencia
                 Profesores profesor = (Profesores)dataGrid_Resultado.SelectedItem;
                 if (profesor != null)
                 {
-                    ListaProfesores.Remove(profesor);
-                    dataGrid_Resultado.ItemsSource = ListaProfesores;
+                    ClasesPublicas.ListaProfesores.Remove(profesor);
+                    dataGrid_Resultado.ItemsSource = ClasesPublicas.ListaProfesores;
                     dataGrid_Resultado.Items.Refresh();
                 }
             }
@@ -98,7 +101,7 @@ namespace ProyectoAsistencia
                     txt_ID.Text = VentanaProfesores.IDProfesor.ToString();
                     txtDNI.Text = VentanaProfesores.DNI.ToString();
                     dateGrid_Fecha.SelectedDate = VentanaProfesores.FechaDeAlta;
-                    txtTelefono.Text = VentanaProfesores.Tel;
+                    txtTelefono.Text = VentanaProfesores.Tel.ToString();
                     txtCorreo.Text = VentanaProfesores.Correo;
                     txtDomicilio.Text = VentanaProfesores.Domicilio;
                     checkBx_Estado.IsChecked = VentanaProfesores.Estado;
@@ -119,7 +122,7 @@ namespace ProyectoAsistencia
                     File.Delete("Profesores.text");
                 }
                 string ProfeConcatenado = "";
-                foreach (Profesores objetoProfe in ListaProfesores)
+                foreach (Profesores objetoProfe in ClasesPublicas.ListaProfesores)
                 {
                     ProfeConcatenado = ProfeConcatenado + "\r\n" + objetoProfe.Nombre + ";" + objetoProfe.IDProfesor + ";" + objetoProfe.DNI + ";" + objetoProfe.FechaDeAlta + ";" + objetoProfe.Tel + ";" + objetoProfe.Correo + ";" + objetoProfe.Domicilio + ";" + objetoProfe.Estado;
                 }
@@ -144,6 +147,118 @@ namespace ProyectoAsistencia
             catch (Exception ex)
             {
                 MessageBox.Show("Error al leer: " + ex.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void btnBuscar_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                ListaProfesorBuscar = ClasesPublicas.ListaProfesores;
+                if (checkCodProfe.IsChecked == true)
+                {
+                    int codDesde, codHasta;
+                    if (int.TryParse(txtDesde.Text, out codDesde) && int.TryParse(txtHasta.Text, out codHasta))
+                    {
+                        ListaProfesorBuscar = ListaProfesorBuscar.Where(n => n.IDProfesor >= codDesde && n.IDProfesor <= codHasta).ToList();
+                    }
+                    else
+                    {
+                        // Manejar el caso en que los valores ingresados no sean numéricos
+                        MessageBox.Show("Los valores de código de profesor deben ser numéricos", "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return;
+                    }
+                }
+                if (checkNombre.IsChecked == true)
+                {
+                    ListaProfesorBuscar = ListaProfesorBuscar.Where(n => n.Nombre.Contains(txtNombre2.Text)).ToList();
+                }
+                if (checkDNI.IsChecked== true)
+                {
+                    int codDni;
+                    if (int.TryParse(txtDNI2.Text, out codDni))
+                    {
+                        ListaProfesorBuscar = ListaProfesorBuscar.Where(n => n.DNI == codDni).ToList();
+                    }
+                    else
+                    {
+                        // Manejar el caso en que el valor ingresado para DNI no sea numérico
+                        MessageBox.Show("El valor del DNI debe ser numérico", "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return;
+                    }
+                }
+                if (checkDomicilio.IsChecked == true)
+                {
+                    ListaProfesorBuscar = ListaProfesorBuscar.Where(n => n.Domicilio.Contains(txtDom2.Text)).ToList();
+                }
+                if (checkTel.IsChecked == true)
+                {
+                    int codTel;
+                    if (int.TryParse(txtTel2.Text, out codTel))
+                    {
+                        ListaProfesorBuscar = ListaProfesorBuscar.Where(n => n.Tel == codTel).ToList();
+                    }
+                    else
+                    {
+                        // Manejar el caso en que el valor ingresado para Teléfono no sea numérico
+                        MessageBox.Show("El valor del Teléfono debe ser numérico", "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return;
+                    }
+                }
+                if (checkCorreo.IsChecked == true)
+                {
+                    ListaProfesorBuscar = ListaProfesorBuscar.Where(n => n.Correo.Contains(txtCorreo2.Text)).ToList();
+                }
+                if (checkFecha.IsChecked == true)
+                {
+                    DateTime fechaAlta;
+                    if (DateTime.TryParse(dateGrid_Fecha2.SelectedDate.ToString(), out fechaAlta))
+                    {
+                        ListaProfesorBuscar = ListaProfesorBuscar.Where(n => n.FechaDeAlta.Date == fechaAlta.Date).ToList();
+                    }
+                    else
+                    {
+                        // Manejar el caso en que no se haya seleccionado una fecha válida
+                        MessageBox.Show("Seleccione una fecha válida", "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return;
+                    }
+                }
+                if (checkBx_Estado2.IsChecked == true)
+                {
+                    bool codEstado = (bool)checkBx_Estado2.IsChecked;
+                    ListaProfesorBuscar = ListaProfesorBuscar.Where(n => n.Estado == codEstado).ToList();
+                }
+                dataGrid_Resultado2.ItemsSource = ListaProfesorBuscar;
+                dataGrid_Resultado2.Items.Refresh();
+                labelCant.Content = "Registros encontrados: " + ListaProfesorBuscar.Count;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void txtDesde_GotFocus(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                txtDesde.Text = "";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void txtHasta_GotFocus(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                txtHasta.Text = "";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }

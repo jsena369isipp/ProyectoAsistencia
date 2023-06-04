@@ -10,10 +10,10 @@ namespace ProyectoAsistencia.Clases2023
     {
         public string Nombre { get; set; }
         public int IDProfesor { get; set; }
-        public long DNI { get; set; }
+        public Int64 DNI { get; set; }
         public DateTime FechaDeAlta { get; set; }
         public string Correo { get; set; }
-        public string Tel { get; set; }
+        public Int64 Tel { get; set; }
         public string Domicilio { get; set; }
         public bool Estado { get; set; }
     }
