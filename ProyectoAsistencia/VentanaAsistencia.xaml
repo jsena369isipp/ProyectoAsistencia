@@ -12,21 +12,26 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <DatePicker x:Name="DpFecha" HorizontalAlignment="Left" Margin="123,112,0,0" VerticalAlignment="Top" Height="21" IsEnabled="False"/>
-                <TextBlock HorizontalAlignment="Left" Margin="34,116,0,0" TextWrapping="Wrap" Text="Fecha:" VerticalAlignment="Top" Height="14"/>
-                <ComboBox x:Name="CmbCurso" DisplayMemberPath="Descripcion" SelectedValuePath="CodigoCursos" HorizontalAlignment="Left" Margin="359,155,0,0" VerticalAlignment="Top" Width="122" Height="26"/>
-                <TextBlock HorizontalAlignment="Left" Margin="319,157,0,0" TextWrapping="Wrap" Text="Curso:" VerticalAlignment="Top" RenderTransformOrigin="0.446,0.441" Height="14"/>
-                <ComboBox x:Name="CmbPreceptor" DisplayMemberPath="ApellidoNombre" SelectedValuePath="CodigoPreceptor" HorizontalAlignment="Left" Margin="123,204,0,0" VerticalAlignment="Top" Width="120" Height="28"/>
-                <TextBlock HorizontalAlignment="Left" Margin="36,212,0,0" TextWrapping="Wrap" Text="Preceptor:" VerticalAlignment="Top" Height="14"/>
-                <DataGrid x:Name="dtg" SelectionChanged="dtgAsistencia_SC" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,276,0,0"/>
-                <CheckBox x:Name="ChPresente" Content="Presente" HorizontalAlignment="Left" Margin="123,256,0,0" VerticalAlignment="Top" Height="20"/>
+                <DatePicker x:Name="DpFecha" HorizontalAlignment="Left" Margin="161,71,0,0" VerticalAlignment="Top" Height="21" IsEnabled="False"/>
+                <TextBlock HorizontalAlignment="Left" Margin="123,74,0,0" TextWrapping="Wrap" Text="Fecha:" VerticalAlignment="Top" Height="14"/>
+                <ComboBox x:Name="CmbCurso" DisplayMemberPath="Descripcion" SelectedValuePath="CodigoCursos" HorizontalAlignment="Center" Margin="0,158,0,0" VerticalAlignment="Top" Width="122" Height="26"/>
+                <TextBlock HorizontalAlignment="Left" Margin="285,158,0,0" TextWrapping="Wrap" Text="Curso:" VerticalAlignment="Top" RenderTransformOrigin="0.446,0.441" Height="26"/>
+                <ComboBox x:Name="CmbPreceptor" DisplayMemberPath="ApellidoNombre" SelectedValuePath="CodigoPreceptor" HorizontalAlignment="Left" Margin="593,155,0,0" VerticalAlignment="Top" Width="120" Height="28"/>
+                <TextBlock HorizontalAlignment="Left" Margin="516,158,0,0" TextWrapping="Wrap" Text="Preceptor:" VerticalAlignment="Top" Height="26"/>
+                <DataGrid x:Name="dtg" AutoGenerateColumns="False" CanUserAddRows="False" SelectionChanged="dtgAsistencia_SC" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,276,0,0">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Alumno" Binding="{Binding NombreApellido , Mode= OneWay}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Asistencia" Binding="{Binding AlumnoAsistencia , Mode= OneWay}"></DataGridTextColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <CheckBox x:Name="ChPresente" Content="Presente" HorizontalAlignment="Left" Margin="39,249,0,0" VerticalAlignment="Top" Height="20"/>
                 <TextBlock HorizontalAlignment="Left" Margin="39,239,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="14"/>
-                <Button x:Name="BtnLeer" Content="Alumnos" HorizontalAlignment="Left" Margin="707,71,0,0" VerticalAlignment="Top" Height="21" Width="64" Background="#FF822D4A" Foreground="White" BorderBrush="Black" Click="BtnLeer_Click"/>
-                <ComboBox x:Name="cmbMateria" DisplayMemberPath="NombreMateria" SelectedValuePath="CodigoMateria" HorizontalAlignment="Left" Margin="123,158,0,0" VerticalAlignment="Top" Width="120" Height="26" SelectionChanged="cmbMateria_SelectionChanged"/>
-                <TextBlock HorizontalAlignment="Left" Margin="39,165,0,0" TextWrapping="Wrap" Text="Materia:" VerticalAlignment="Top" Height="14"/>
-                <Button x:Name="BtnGuardar_Copy" Click="btnGrd_Click"  Content="Guardar" HorizontalAlignment="Left" Margin="419,73,0,0" VerticalAlignment="Top" Height="21" Width="62" Background="#FF822D4A" Foreground="White" BorderBrush="Black"/>
-                <TextBlock HorizontalAlignment="Left" Margin="39,75,0,0" TextWrapping="Wrap" Text="ID:" VerticalAlignment="Top" Height="14"/>
-                <TextBox x:Name="TxtID" HorizontalAlignment="Left" Margin="123,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="45" Height="16"/>
+                <Button x:Name="BtnAlumnosCarga" Content="Alumnos" HorizontalAlignment="Left" Margin="707,71,0,0" VerticalAlignment="Top" Height="21" Width="64" Background="#FF822D4A" Foreground="White" BorderBrush="Black" Click="BtnAlumnosCarga_Click"/>
+                <ComboBox x:Name="cmbMateria" DisplayMemberPath="NombreMateria" SelectedValuePath="CodigoMateria" HorizontalAlignment="Left" Margin="96,158,0,0" VerticalAlignment="Top" Width="120" Height="26" SelectionChanged="cmbMateria_SelectionChanged"/>
+                <TextBlock HorizontalAlignment="Left" Margin="39,158,0,0" TextWrapping="Wrap" Text="Materia:" VerticalAlignment="Top" Height="26"/>
+                <Button x:Name="BtnGuardar_Copy" Click="btnGrd_Click"  Content="Guardar" HorizontalAlignment="Left" Margin="631,71,0,0" VerticalAlignment="Top" Height="21" Width="62" Background="#FF822D4A" Foreground="White" BorderBrush="Black"/>
+                <TextBlock HorizontalAlignment="Left" Margin="39,74,0,0" TextWrapping="Wrap" Text="ID:" VerticalAlignment="Top" Height="14"/>
+                <TextBox x:Name="TxtID" HorizontalAlignment="Left" Margin="58,71,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="45" Height="21"/>
                 <Rectangle HorizontalAlignment="Center" Height="55"  Stroke="Black" VerticalAlignment="Top" Width="8000" Fill="#FF641C34"/>
                 <Label Content="Asistencias" HorizontalAlignment="Left" Margin="15,5,0,0" VerticalAlignment="Top" Height="45" RenderTransformOrigin="0.5,0.5" Width="206" FontSize="25" FontWeight="Bold" Foreground="White">
                     <Label.RenderTransform>

@@ -15,7 +15,7 @@
                 </Grid.ColumnDefinitions>
                 <Rectangle HorizontalAlignment="Left" Height="55" Stroke="Black" VerticalAlignment="Top" Width="800" Fill="#FF641C34" Grid.ColumnSpan="2" Margin="-3,0,0,0"/>
                 <Label x:Name="LblAlumno" Content="Alumno" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="White" Width="206" Height="41" FontSize="25" FontWeight="Bold" Grid.ColumnSpan="2"/>
-                <Label Content="Codigo curso:" HorizontalAlignment="Left" Margin="0,70,0,0" VerticalAlignment="Top"/>
+                <Label Content="Curso:" HorizontalAlignment="Left" Margin="0,70,0,0" VerticalAlignment="Top"/>
                 <Label Content="Codigo alumno:" HorizontalAlignment="Left" Margin="0,114,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
                 <DataGrid x:Name="DgAlumno" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="-3,319,0,0" HorizontalAlignment="Left" Width="800" Height="115" VerticalAlignment="Top" SelectionChanged="DgAlumno_SelectionChanged" Grid.ColumnSpan="2"/>
                 <Label Content="DNI:" HorizontalAlignment="Left" Margin="0,155,0,0" VerticalAlignment="Top"/>
@@ -26,7 +26,6 @@
                 <Label Content="Correo electronico:" HorizontalAlignment="Left" Margin="220,199,0,0" VerticalAlignment="Top" Grid.Column="1"/>
                 <Label Content="Estado:" HorizontalAlignment="Left" Margin="0,236,0,0" VerticalAlignment="Top"/>
                 <Label Content="Fecha ingreso:" HorizontalAlignment="Left" Margin="220,236,0,0" VerticalAlignment="Top" Grid.Column="1"/>
-                <TextBox x:Name="TxtCodCurso" HorizontalAlignment="Left" Margin="30,74,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75" Grid.Column="1"/>
                 <TextBox x:Name="TxtCodAlumno" HorizontalAlignment="Left" Margin="30,118,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75" Grid.Column="1"/>
                 <TextBox x:Name="TxtDNI" HorizontalAlignment="Left" Margin="30,159,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="185" Grid.Column="1"/>
                 <TextBox x:Name="TxtNomApellido" HorizontalAlignment="Left" Margin="30,203,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="185" Grid.Column="1"/>
@@ -41,6 +40,7 @@
                 <Button x:Name="BtnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="256,277,0,0" VerticalAlignment="Top" Width="60" Height="20" Foreground="#FFFDFDFD" Background="#FF822D4A" FontWeight="Bold" Click="BtnGuardar_Click" Grid.Column="1"/>
                 <Image x:Name="ImgIsipp" HorizontalAlignment="Left" Height="55" Margin="632,0,0,0" VerticalAlignment="Top" Width="56" Source="/Imagen/isipp-blanco.png" Grid.Column="1"/>
                 <Image HorizontalAlignment="Left" Height="55" Margin="632,0,0,0" VerticalAlignment="Top" Width="56" Source="/Imagen/isipp-blanco.png" Grid.Column="1"/>
+                <ComboBox x:Name="ComboCurso" Grid.Column="1" HorizontalAlignment="Left" Margin="30,72,0,0" VerticalAlignment="Top" Width="120"/>
             </Grid>
         </TabItem>
         <TabItem Header="Buscador">
