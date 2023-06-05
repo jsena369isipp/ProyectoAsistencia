@@ -18,7 +18,7 @@
                     <ComboBox DisplayMemberPath="Descripcion" SelectedValuePath="CodigoCursos" x:Name="cbCursos" HorizontalAlignment="Left" Margin="490,151,0,0" VerticalAlignment="Top" Width="80"/>
                     <Label Content="DNI:" HorizontalAlignment="Left" Margin="10,147,0,0" VerticalAlignment="Top"/>
                     <TextBox x:Name="txtdni" HorizontalAlignment="Left" Margin="126,148,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" Height="21"/>
-                    <DatePicker x:Name="dpFechaNac" HorizontalAlignment="Left" Margin="543,87,0,0" VerticalAlignment="Top" Height="21"/>
+                    <DatePicker x:Name="dpFechaNac" HorizontalAlignment="Left" Margin="543,87,0,0" VerticalAlignment="Top" Height="26"/>
                     <Label Content="Fecha nacimiento:" HorizontalAlignment="Left" Margin="438,82,0,0" VerticalAlignment="Top"/>
                     <Label Content="Estado:" HorizontalAlignment="Left" Margin="438,209,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.562,-0.114"/>
                     <CheckBox x:Name="chbEstado" Content="Habilitado" HorizontalAlignment="Left" Margin="495,216,0,0" VerticalAlignment="Top"/>
@@ -32,14 +32,14 @@
                 </Grid>
             </TabItem>
             <TabItem Header="Buscador">
-                <Grid Background="#FFE5E5E5">
+                <Grid Background="#FFE5E5E5" Height="339">
                     <CheckBox x:Name="chCodPreceptor" Content="Cód. Preceptor: " HorizontalAlignment="Left" Height="19" Margin="25,10,0,0" VerticalAlignment="Top" Width="110"/>
                     <TextBox x:Name="txtCodDesde" IsEnabled="{Binding IsChecked, ElementName=chCodPreceptor}" HorizontalAlignment="Left" Height="19" Margin="135,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75"/>
                     <TextBox x:Name="txtCodHasta" IsEnabled="{Binding IsChecked, ElementName=chCodPreceptor}" HorizontalAlignment="Left" Height="19" Margin="215,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75"/>
                     <CheckBox x:Name="chNombrePreceptor" Content="Ap.Nombre Preceptor: " HorizontalAlignment="Left" Height="19" Margin="305,10,0,0" VerticalAlignment="Top" Width="155"/>
                     <TextBox x:Name="txtNombreBuscar" IsEnabled="{Binding IsChecked, ElementName=chNombrePreceptor}" HorizontalAlignment="Left" Height="19" Margin="460,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="220"/>
                     <Button x:Name="btnBuscar" Click="btnBuscar_Click" Content="Buscar" HorizontalAlignment="Left" Height="19" Margin="685,10,0,0" VerticalAlignment="Top" Width="85"/>
-                    <DataGrid x:Name="dgResultado" HorizontalAlignment="Left" Margin="0,34,0,7" Width="800" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+                    <DataGrid x:Name="dgResultado" HorizontalAlignment="Left" Margin="0,34,0,0" Width="800" d:ItemsSource="{d:SampleData ItemCount=5}"/>
                     <Label x:Name="lblResultado" Content="Registros encontrados: 0" HorizontalAlignment="Left" Height="30" VerticalAlignment="Bottom" Width="360" Margin="0,0,0,-28"/>
                 </Grid>
             </TabItem>

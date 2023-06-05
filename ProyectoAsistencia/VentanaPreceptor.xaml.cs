@@ -30,8 +30,7 @@ namespace ProyectoAsistencia
             InitializeComponent();
             ClasesPublicas.LeerPreceptor();
             ClasesPublicas.LeerArchivoCursos();
-            cbCursos.ItemsSource = ClasesPublicas.ListaCursos;
-            
+            cbCursos.ItemsSource = ClasesPublicas.ListaCursos;         
 
         }
 
@@ -50,13 +49,18 @@ namespace ProyectoAsistencia
                 }
                 File.WriteAllText("Preceptor.txt", preceptorConcatenado);
                 MessageBox.Show("Almacenado de forma correcta!", "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Information);
+
             }
             catch (Exception ex)
             {
 
                 MessageBox.Show("Error al guardar", "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+            //txtCodPreceptor.Clear();
+            //txtdni.Text = "";
+            //txtNombApellido.Text = "";
 
+            //dg1.Items.Refresh();
         }
 
 
@@ -82,11 +86,11 @@ namespace ProyectoAsistencia
 
         private void btnCargar_Click(object sender, RoutedEventArgs e)
         {
-            Int64 dniVariable = Convert.ToInt64(txtdni.Text);
-            Clases2023.Preceptor preceptor = ListaPreceptor.Where(n => n.DNI == dniVariable).FirstOrDefault();
-
             try
             {
+                Int64 dniVariable = Convert.ToInt64(txtdni.Text);
+                Clases2023.Preceptor preceptor = ListaPreceptor.Where(n => n.DNI == dniVariable).FirstOrDefault();
+
                 if (preceptor == null)
                 {
 
@@ -115,7 +119,7 @@ namespace ProyectoAsistencia
             }
             catch (Exception ex)
             {
-               MessageBox.Show("Error: " + ex.Message, "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
+               MessageBox.Show(/*"Error: " + */ex.Message, "SIN REGISTROS", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -150,7 +154,28 @@ namespace ProyectoAsistencia
 
         private void btnBuscar_Click(object sender, RoutedEventArgs e)
         {
-
+            try
+            {
+                ListaPreceptor = ClasesPublicas.ListaPreceptor;
+                //X
+                if (chCodPreceptor.IsChecked == true)
+                {
+                    int codDesde = Convert.ToInt32(txtCodDesde.Text);
+                    int codHasta = Convert.ToInt32(txtCodHasta.Text);
+                    ListaPreceptor = ListaPreceptor.Where(n => n.CodigoPreceptor >= codDesde && n.CodigoPreceptor <= codHasta).ToList();
+                }
+                if (chCodPreceptor.IsChecked == true)
+                {
+                    ListaPreceptor = ListaPreceptor.Where(n => n.ApellidoNombre.Contains(txtNombreBuscar.Text)).ToList();
+                }
+                dgResultado.ItemsSource = ListaPreceptor;
+                dgResultado.Items.Refresh();
+                lblResultado.Content = "Registros encontrados: " + ListaPreceptor.Count;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }
