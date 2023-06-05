@@ -25,6 +25,7 @@ namespace ProyectoAsistencia
             InitializeComponent();
             DateFechaIngreso.SelectedDate = DateTime.Now;
             ComboCurso.ItemsSource = ClasesPublicas.ListaCursos;
+            ClasesPublicas.LeerArchivoCursos();
         }
         
         private void BtnCargar_Click(object sender, RoutedEventArgs e)
