@@ -26,7 +26,10 @@ namespace ProyectoAsistencia
         public Materias()
         {
             InitializeComponent();
+            ClasesPublicas.LeerArchivoMateria();
+            ClasesPublicas.LeerArchivoProfesores();
             cboBoxProfesor.ItemsSource = ClasesPublicas.ListaProfesores;
+            ClasesPublicas.LeerArchivoCursos();
             cboBoxCurso.ItemsSource = ClasesPublicas.ListaCursos;
         }
 
@@ -177,6 +180,26 @@ namespace ProyectoAsistencia
             try
             {
                 txtHasta.Text = "";
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show("Error: " + err.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void dtgBuscMat_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            try
+            {
+                Materia ObjetoMateria = (Materia)dtgBuscMat.SelectedItem;
+                if (ObjetoMateria != null)
+                {
+                    txtBoxID.Text = ObjetoMateria.CodigoMateria.ToString();
+                    txtBoxMateria.Text = ObjetoMateria.NombreMateria;
+                    cboBoxProfesor.SelectedIndex = ObjetoMateria.IDProfesor;
+                    cboBoxCurso.SelectedIndex = ObjetoMateria.CodigoCursos;
+                    txtBoxHs.Text = ObjetoMateria.HsCatedra.ToString();
+                }
             }
             catch (Exception err)
             {

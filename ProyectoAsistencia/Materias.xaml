@@ -19,7 +19,7 @@
 					<TextBox x:Name="txtBoxMateria" HorizontalAlignment="Left" Margin="97,89,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="191"/>
 					<ComboBox x:Name="cboBoxProfesor" DisplayMemberPath="Nombre" SelectedValuePath="IDProfesor" HorizontalAlignment="Left" Margin="97,112,0,0" VerticalAlignment="Top" Width="206"/>
 					<ComboBox x:Name="cboBoxCurso" DisplayMemberPath="Descripcion" SelectedValuePath="CodigoCursos" HorizontalAlignment="Left" Margin="97,141,0,0" VerticalAlignment="Top" Width="120"/>
-					<DataGrid x:Name="dtgMaterias" HorizontalAlignment="Center" Height="179" Margin="0,217,0,0" VerticalAlignment="Top" Width="800" d:ItemsSource="{d:SampleData ItemCount=5}" BorderBrush="White" Background="White" SelectionChanged="dtgMaterias_SelectionChanged"/>
+					<DataGrid x:Name="dtgMaterias" IsReadOnly="True" HorizontalAlignment="Center" Height="179" Margin="0,217,0,0" VerticalAlignment="Top" Width="800" d:ItemsSource="{d:SampleData ItemCount=5}" BorderBrush="White" Background="White" SelectionChanged="dtgMaterias_SelectionChanged"/>
 					<Label Content="Horas cátedra:" HorizontalAlignment="Left" Margin="7,170,0,0" VerticalAlignment="Top"/>
 					<TextBox x:Name="txtBoxHs" HorizontalAlignment="Left" Margin="98,174,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="32"/>
 					<Label Content="hs." HorizontalAlignment="Left" Margin="130,170,0,0" VerticalAlignment="Top"/>
@@ -46,7 +46,7 @@
 					<TextBox x:Name="txtCodProfe" IsEnabled="{Binding IsChecked, ElementName=chkCodProfe}" HorizontalAlignment="Left" Margin="166,163,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="41"/>
 					<TextBox x:Name="txtCodCurso" IsEnabled="{Binding IsChecked, ElementName=chkCodCurso}" HorizontalAlignment="Left" Margin="166,203,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="41"/>
 					<Label Content="/" HorizontalAlignment="Left" Margin="207,81,0,0" VerticalAlignment="Top"/>
-					<DataGrid x:Name="dtgBuscMat" HorizontalAlignment="Center" Height="122" Margin="0,246,0,0" VerticalAlignment="Top" Width="774" d:ItemsSource="{d:SampleData ItemCount=5}" Background="White" BorderBrush="White"/>
+					<DataGrid x:Name="dtgBuscMat" IsReadOnly="True" HorizontalAlignment="Center" Height="122" Margin="0,246,0,0" VerticalAlignment="Top" Width="774" d:ItemsSource="{d:SampleData ItemCount=5}" Background="White" BorderBrush="White"/>
 					<Button x:Name="btnBuscar" Content="Buscar" HorizontalAlignment="Center" Margin="0,194,0,0" VerticalAlignment="Top" Height="27" Width="70" Click="btnBuscar_Click" Background="#FF822D4A" Foreground="White" BorderBrush="Black"/>
 					<Label x:Name="lblReg" Content="Registros encontrados: " HorizontalAlignment="Left" Margin="13,373,0,0" VerticalAlignment="Top"/>
 				</Grid>

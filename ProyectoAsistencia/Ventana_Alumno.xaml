@@ -40,7 +40,7 @@
                 <Button x:Name="BtnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="256,277,0,0" VerticalAlignment="Top" Width="60" Height="20" Foreground="#FFFDFDFD" Background="#FF822D4A" FontWeight="Bold" Click="BtnGuardar_Click" Grid.Column="1"/>
                 <Image x:Name="ImgIsipp" HorizontalAlignment="Left" Height="55" Margin="632,0,0,0" VerticalAlignment="Top" Width="56" Source="/Imagen/isipp-blanco.png" Grid.Column="1"/>
                 <Image HorizontalAlignment="Left" Height="55" Margin="632,0,0,0" VerticalAlignment="Top" Width="56" Source="/Imagen/isipp-blanco.png" Grid.Column="1"/>
-                <ComboBox x:Name="ComboCurso" Grid.Column="1" HorizontalAlignment="Left" Margin="30,72,0,0" VerticalAlignment="Top" Width="120"/>
+                <ComboBox x:Name="ComboCurso" Grid.Column="1" HorizontalAlignment="Left" Margin="30,72,0,0" VerticalAlignment="Top" Width="120" DisplayMemberPath="Descripcion" SelectedValuePath="CodigoCursos"/>
             </Grid>
         </TabItem>
         <TabItem Header="Buscador">
