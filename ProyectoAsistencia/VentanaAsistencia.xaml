@@ -18,10 +18,10 @@
                 <TextBlock HorizontalAlignment="Left" Margin="285,158,0,0" TextWrapping="Wrap" Text="Curso:" VerticalAlignment="Top" RenderTransformOrigin="0.446,0.441" Height="26"/>
                 <ComboBox x:Name="CmbPreceptor" DisplayMemberPath="ApellidoNombre" SelectedValuePath="CodigoPreceptor" HorizontalAlignment="Left" Margin="593,155,0,0" VerticalAlignment="Top" Width="120" Height="28"/>
                 <TextBlock HorizontalAlignment="Left" Margin="516,158,0,0" TextWrapping="Wrap" Text="Preceptor:" VerticalAlignment="Top" Height="26"/>
-                <DataGrid x:Name="dtg" AutoGenerateColumns="False" CanUserAddRows="False" SelectionChanged="dtgAsistencia_SC" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,276,0,0">
+                <DataGrid x:Name="dtg" AutoGenerateColumns="False" CanUserAddRows="True" IsReadOnly="False" SelectionChanged="dtgAsistencia_SC" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,276,0,0">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Alumno" Binding="{Binding NombreApellido , Mode= OneWay}"></DataGridTextColumn>
-                        <DataGridTextColumn Header="Asistencia" Binding="{Binding AlumnoAsistencia , Mode= OneWay}"></DataGridTextColumn>
+                        <DataGridCheckBoxColumn Header="Asistencia" Binding="{Binding AlumnoAsistencia , Mode= OneWay}"></DataGridCheckBoxColumn>
                     </DataGrid.Columns>
                 </DataGrid>
                 <CheckBox x:Name="ChPresente" Content="Presente" HorizontalAlignment="Left" Margin="39,249,0,0" VerticalAlignment="Top" Height="20" Checked="ChPresente_Checked"/>

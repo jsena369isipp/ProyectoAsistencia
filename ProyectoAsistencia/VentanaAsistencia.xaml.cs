@@ -88,6 +88,7 @@ namespace ProyectoAsistencia
             //cargar lista asistencia <<<<<<< HEAD
             try
             {
+
                 ClasesPublicas.LeerArchivoAlumno();
                 dtg.ItemsSource = ClasesPublicas.ListaAlumnos;
                 int codCurso = Convert.ToInt32(CmbCurso.SelectedValue);
