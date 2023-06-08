@@ -343,19 +343,16 @@ namespace ProyectoAsistencia.Clases2023
                         {
                             objetoPreceptor.ApellidoNombre = val;
                         }
+
                         if (contador == 2)
-                        {
-                            objetoPreceptor.CodigoCursos = Convert.ToInt16(val);
-                        }
-                        else if (contador == 3)
                         {
                             objetoPreceptor.DNI = Convert.ToInt32(val);
                         }
-                        if (contador == 4)
+                        else if (contador == 3)
                         {
                             objetoPreceptor.FechaNacimiento = Convert.ToDateTime(val);
                         }
-                        else if (contador == 5)
+                        if (contador == 4)
                         {
                             objetoPreceptor.Estado = Convert.ToBoolean(val);
                         }

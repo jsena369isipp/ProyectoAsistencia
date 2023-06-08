@@ -8,7 +8,7 @@
         Title="VentanaPrueba" Height="450" Width="800">
     <Grid>
         <CheckBox Name="chCodAlumno" Content="Cód. Alumno: " HorizontalAlignment="Left" Height="19" Margin="25,10,0,0" VerticalAlignment="Top" Width="110"/>
-        <TextBox Name="txtCodDesde" IsEnabled="{Binding ElementName=chCodAlumno, Path=IsChecked}" HorizontalAlignment="Left" Height="19" Margin="135,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75"/>
+        <TextBox PreviewKeyDown="txtCodDesde_PreviewKeyDown"  Name="txtCodDesde" IsEnabled="{Binding ElementName=chCodAlumno, Path=IsChecked}" HorizontalAlignment="Left" Height="19" Margin="135,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75"/>
         <TextBox x:Name="txtCodHasta" IsEnabled="{Binding IsChecked, ElementName=chCodAlumno}" HorizontalAlignment="Left" Height="19" Margin="215,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75"/>
         <CheckBox x:Name="chNombreAlumno" Content="Ap.Nombre Alumno: " HorizontalAlignment="Left" Height="19" Margin="305,10,0,0" VerticalAlignment="Top" Width="155"/>
         <TextBox x:Name="txtNombreBuscar" IsEnabled="{Binding IsChecked, ElementName=chNombreAlumno}" HorizontalAlignment="Left" Height="19" Margin="460,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="220"/>
