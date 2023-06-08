@@ -21,6 +21,7 @@ namespace ProyectoAsistencia
     /// </summary>
     public partial class VentanaAsistencia : Window
     {
+       
         List<Asistencia> ListaAsistencias = new List<Asistencia>();
         List<Asistencia> ListaAsistenciaBuscar;
         // List<Alumno> ListaALumnos;
@@ -42,6 +43,8 @@ namespace ProyectoAsistencia
         {
             try
             {
+               
+                
                 if (File.Exists("Asistencias.txt"))
                 {
                     File.Delete("Asistencias.txt");
@@ -50,7 +53,13 @@ namespace ProyectoAsistencia
                 string AsistenciasConcatenados = "";
                 foreach (Asistencia ObjetoAsistencia in ListaAsistencias)
                 {
-                    AsistenciasConcatenados = AsistenciasConcatenados + "\r\n" + ObjetoAsistencia.CodigoAlumno + ";" + ObjetoAsistencia.CodigoAsistencia + ";" + ObjetoAsistencia.Fecha + ";" + ObjetoAsistencia.CodigoCursos + ";" + ObjetoAsistencia.CodigoPreceptor + ";" + ObjetoAsistencia.CodigoMateria + ";" + ObjetoAsistencia.AlumnoAsistencia + ":" +ObjetoAsistencia.NombreApellido; 
+                    int presente = 0;
+                    if (ObjetoAsistencia.AlumnoAsistencia == true)
+                    {
+                        presente = 1;
+                    }
+                   
+                    AsistenciasConcatenados = AsistenciasConcatenados + "\r\n" + ObjetoAsistencia.CodigoAlumno + ";" + ObjetoAsistencia.CodigoAsistencia + ";" + ObjetoAsistencia.Fecha + ";" + ObjetoAsistencia.CodigoCursos + ";" + ObjetoAsistencia.CodigoPreceptor + ";" + ObjetoAsistencia.CodigoMateria + ";" + presente + ":" +ObjetoAsistencia.NombreApellido; 
                 }
 
                 File.WriteAllText("Asistencia.txt", AsistenciasConcatenados);
@@ -75,7 +84,6 @@ namespace ProyectoAsistencia
                     CmbCurso.SelectedValue = ObjetoAsistencia.CodigoCursos.ToString();
                     CmbPreceptor.SelectedValue = ObjetoAsistencia.CodigoPreceptor.ToString();
                     cmbMateria.SelectedValue = ObjetoAsistencia.CodigoMateria.ToString();
-                    ChPresente.IsChecked = ObjetoAsistencia.AlumnoAsistencia;
                 }
             }
             catch (Exception ex)
@@ -85,9 +93,9 @@ namespace ProyectoAsistencia
         }
         private void BtnAlumnosCarga_Click(object sender, RoutedEventArgs e)
         {
-            //cargar lista asistencia <<<<<<< HEAD
             try
             {
+                ListaAsistencias = new List<Asistencia>();
 
                 ClasesPublicas.LeerArchivoAlumno();
                 dtg.ItemsSource = ClasesPublicas.ListaAlumnos;
@@ -122,6 +130,7 @@ namespace ProyectoAsistencia
         {
             try
             {
+                ClasesPublicas.LeerArchivoAsistencia();
                 ListaAsistenciaBuscar = ClasesPublicas.ListaAsistencias;
 
                 if (chCodAlumnoX.IsChecked == true)
@@ -130,10 +139,7 @@ namespace ProyectoAsistencia
                     int codHasta = Convert.ToInt32(txtCodHastaX.Text);
                     ListaAsistenciaBuscar = ListaAsistenciaBuscar.Where(n => n.CodigoAlumno >= codDesde && n.CodigoAlumno <= codHasta).ToList();
                 }
-                if (chNombreAlumnoX.IsChecked == true)
-                {
-                    ListaAsistenciaBuscar = ListaAsistenciaBuscar.Where(n => n.NombreApellido.Contains(txtNombreBuscarX.Text)).ToList();
-                }
+                
                 dgResultadoX.ItemsSource = ListaAsistenciaBuscar;
                 dgResultadoX.Items.Refresh();
                 lblResultadoX.Content = "Registros encontrados: " + ListaAsistenciaBuscar.Count;
