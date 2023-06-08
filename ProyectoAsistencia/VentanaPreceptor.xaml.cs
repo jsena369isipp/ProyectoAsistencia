@@ -1,4 +1,5 @@
-﻿using ProyectoAsistencia.Clases2023;
+﻿using Microsoft.SqlServer.Server;
+using ProyectoAsistencia.Clases2023;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -13,6 +14,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace ProyectoAsistencia
 {
@@ -22,7 +24,7 @@ namespace ProyectoAsistencia
     public partial class VentanaPreceptor : Window
     {
         List<Clases2023.Preceptor> ListaPreceptor = new List<Clases2023.Preceptor>();
-        
+
 
         public VentanaPreceptor()
         {
@@ -30,7 +32,7 @@ namespace ProyectoAsistencia
             InitializeComponent();
             ClasesPublicas.LeerPreceptor();
             ClasesPublicas.LeerArchivoCursos();
-            cbCursos.ItemsSource = ClasesPublicas.ListaCursos;         
+            cbCursos.ItemsSource = ClasesPublicas.ListaCursos;
 
         }
 
@@ -56,11 +58,7 @@ namespace ProyectoAsistencia
 
                 MessageBox.Show("Error al guardar", "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-            //txtCodPreceptor.Clear();
-            //txtdni.Text = "";
-            //txtNombApellido.Text = "";
 
-            //dg1.Items.Refresh();
         }
 
 
@@ -98,7 +96,7 @@ namespace ProyectoAsistencia
                     preceptor.CodigoPreceptor = Convert.ToInt32(txtCodPreceptor.Text);
                     preceptor.DNI = Convert.ToInt64(txtdni.Text);
                     preceptor.ApellidoNombre = txtNombApellido.Text;
-                    preceptor.CodigoCursos = Convert.ToInt16 (cbCursos.SelectedValue);
+                    preceptor.CodigoCursos = Convert.ToInt16(cbCursos.SelectedValue);
                     preceptor.Estado = Convert.ToBoolean(chbEstado.IsChecked);//<--para mostrar el estado en el DataGrid
                     preceptor.FechaNacimiento = Convert.ToDateTime(dpFechaNac.SelectedDate);
 
@@ -114,15 +112,24 @@ namespace ProyectoAsistencia
                     preceptor.Estado = Convert.ToBoolean(chbEstado.IsChecked);//<--para mostrar el estado en el DataGrid
                     preceptor.FechaNacimiento = Convert.ToDateTime(dpFechaNac.SelectedDate);
                 }
-                dg1.ItemsSource = ListaPreceptor;
+                dg1.ItemsSource = ListaPreceptor;                
                 dg1.Items.Refresh();
+                Limpiar();
             }
             catch (Exception ex)
             {
-               MessageBox.Show(/*"Error: " + */ex.Message, "SIN REGISTROS", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(/*"Error: " + */ex.Message, "SIN REGISTROS", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+        private void Limpiar()
+        {
+            txtCodPreceptor.Text = "";
+            txtdni.Text = "";
+            txtNombApellido.Text = "";
+            //dpFechaNac.Text = string.Empty;
 
+
+        }
 
 
         private void btnLeer_Click(object sender, RoutedEventArgs e)
