@@ -39,13 +39,10 @@ namespace ProyectoAsistencia
                 
                 if (chHabilitado.IsChecked == true && fechaDesde.HasValue && fechaHasta.HasValue)
                 {
-                    //int codDesde = Convert.ToInt32(fechaDesde.Value);
-                    //int codHasta = Convert.ToInt32(fechaHasta.Value);
                     ListaInformeAsistencia = ListaInformeAsistencia.Where(n => n.Fecha >= fechaDesde && n.Fecha <= fechaHasta).ToList();
                 }
                 if (chHabilitadoMateria.IsChecked == true && filtromateria >= 0)
                 {
-                    
                     ListaInformeAsistencia = ListaInformeAsistencia.Where(n => n.CodigoMateria == filtromateria).ToList();
                 }
                 
