@@ -14,8 +14,8 @@
                 <TextBlock HorizontalAlignment="Left" Margin="18,123,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14" Text="Preceptor:"/>
                 <TextBlock HorizontalAlignment="Left" Margin="18,71,0,0" TextWrapping="Wrap" Text="Codigo Cursos:" VerticalAlignment="Top" FontSize="14"/>
                 <CheckBox x:Name="chbEstado" Content="Habilitado" HorizontalAlignment="Left" Margin="364,78,0,0" VerticalAlignment="Top" FontSize="14"/>
-                <TextBox x:Name="txtDescripcion" HorizontalAlignment="Left" Margin="121,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="172" FontSize="14"/>
-                <TextBox x:Name="txtCurso" HorizontalAlignment="Left" Margin="121,71,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="35" FontSize="14"/>
+                <TextBox x:Name="txtDescripcion" HorizontalAlignment="Left" Margin="121,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="172" FontSize="14" PreviewKeyDown="txtDescripcion_PreviewKeyDown"/>
+                <TextBox PreviewKeyDown="txtCurso_PreviewKeyDown" x:Name="txtCurso" HorizontalAlignment="Left" Margin="121,71,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="35" FontSize="14"/>
                 <DataGrid SelectionChanged="dtgCursos_SelectionChanged" x:Name="dtgCursos" d:ItemsSource="{d:SampleData ItemCount=5}" Height="NaN" Margin="0,166,0,0"/>
                 <Button x:Name="bttCargar" Content="Cargar" HorizontalAlignment="Left" Margin="471,73,0,0" VerticalAlignment="Top" FontSize="14" Click="Button_Click" Background="#FF822D4A" Foreground="White" BorderBrush="Black" Width="54"/>
                 <Button x:Name="bttnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="530,73,0,0" VerticalAlignment="Top" FontSize="14" Click="bttnGuardar_Click" Background="#FF822D4A" Foreground="White" BorderBrush="Black"/>
