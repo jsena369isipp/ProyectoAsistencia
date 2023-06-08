@@ -35,12 +35,12 @@
                 <Label Content="Buscador" HorizontalAlignment="Left" Margin="18,5,0,0" VerticalAlignment="Top" Height="45" Width="206" FontSize="25" FontWeight="Bold" Foreground="White" Grid.ColumnSpan="2"/>
                 <DataGrid x:Name="dtgBuscador" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="-3,92,0,0"/>
                 <CheckBox x:Name="chkCodCursos" Content="Codigo Cursos" HorizontalAlignment="Left" Margin="236,66,0,0" VerticalAlignment="Top"/>
-                <TextBox x:Name="txtDesde" IsEnabled="{Binding ElementName=chkCodCursos, Path=IsChecked}" HorizontalAlignment="Left" Margin="338,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="72" Text="Desde" GotFocus="txtDesde_GotFocus"/>
-                <TextBox x:Name="txtHasta" IsEnabled="{Binding IsChecked, ElementName=chkCodCursos}" HorizontalAlignment="Left" Margin="416,66,0,0" TextWrapping="Wrap" Text="Hasta" VerticalAlignment="Top" Width="72" GotFocus="txtHasta_GotFocus"/>
+                <TextBox PreviewKeyDown="txtDesde_PreviewKeyDown" x:Name="txtDesde" IsEnabled="{Binding ElementName=chkCodCursos, Path=IsChecked}" HorizontalAlignment="Left" Margin="338,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="72" Text="Desde" GotFocus="txtDesde_GotFocus" KeyDown="txtDesde_PreviewKeyDown"/>
+                <TextBox PreviewKeyDown="txtHasta_PreviewKeyDown" x:Name="txtHasta" IsEnabled="{Binding IsChecked, ElementName=chkCodCursos}" HorizontalAlignment="Left" Margin="416,66,0,0" TextWrapping="Wrap" Text="Hasta" VerticalAlignment="Top" Width="72" GotFocus="txtHasta_GotFocus" KeyDown="txtHasta_PreviewKeyDown"/>
                 <CheckBox x:Name="chkDescripcion" Content="Descripcion" HorizontalAlignment="Left" Margin="10,66,0,0" VerticalAlignment="Top"/>
-                <TextBox x:Name="txtDescripcion2" HorizontalAlignment="Left" Margin="97,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-                <TextBox x:Name="txtEstado2" HorizontalAlignment="Left" Margin="586,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-                <CheckBox x:Name="chkEstado" Content="Habilitado" HorizontalAlignment="Left" Margin="506,66,0,0" VerticalAlignment="Top"/>
+                <TextBox PreviewKeyDown="txtDescripcion2_PreviewKeyDown" x:Name="txtDescripcion2" HorizontalAlignment="Left" Margin="97,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" KeyDown="txtDescripcion2_PreviewKeyDown"/>
+                <TextBox  x:Name="txtEstado2" HorizontalAlignment="Left" Margin="566,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                <CheckBox x:Name="chkEstado" Content="Estado" HorizontalAlignment="Left" Margin="506,66,0,0" VerticalAlignment="Top"/>
                 <Button x:Name="txtBuscar" Content="Buscar" HorizontalAlignment="Left" Margin="724,64,0,0" VerticalAlignment="Top" FontSize="14" Background="#FF822D4A" Foreground="White" BorderBrush="Black" Click="txtBuscar_Click" Width="55"/>
                 <Label x:Name="LblCant" Content="" HorizontalAlignment="Left" Margin="529,186,0,0" VerticalAlignment="Top"/>
                 <Image HorizontalAlignment="Left" Height="55" Margin="724,0,0,0" VerticalAlignment="Top" Width="56" Source="/Imagen/isipp-blanco.png"/>
