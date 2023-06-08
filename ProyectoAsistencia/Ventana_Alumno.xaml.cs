@@ -19,6 +19,7 @@ namespace ProyectoAsistencia
 
     public partial class Ventana_Alumno : Window
     {
+        List<Materia> ListaAlumnos = new List<Materia>();
         List<Alumno> ListaAlumnoBuscar;
         public Ventana_Alumno()
         {
@@ -26,6 +27,7 @@ namespace ProyectoAsistencia
             DateFechaIngreso.SelectedDate = DateTime.Now;
             ComboCurso.ItemsSource = ClasesPublicas.ListaCursos;
             ClasesPublicas.LeerArchivoCursos();
+            ClasesPublicas.LeerArchivoAlumno();
         }
         
         private void BtnCargar_Click(object sender, RoutedEventArgs e)
@@ -33,13 +35,14 @@ namespace ProyectoAsistencia
             try
             {
                 Int64 VariableDni = Convert.ToInt64(TxtDNI.Text);
-                Alumno ObjAlumno = ClasesPublicas.ListaAlumnos.Where(n => n.Dni == VariableDni).FirstOrDefault();
+                int VariableCodAlumno = Convert.ToInt32(TxtCodAlumno.Text);
+                Alumno ObjAlumno = ClasesPublicas.ListaAlumnos.Where(n => n.Dni == VariableDni || n.CodigoAlumno == VariableCodAlumno).FirstOrDefault();
                 if (ObjAlumno == null)
                 {
                     ObjAlumno = new Alumno();
                     ObjAlumno.Dni = VariableDni;
-                    ObjAlumno.CodigoCurso = ComboCurso.SelectedIndex;
-                    ObjAlumno.CodigoAlumno = Convert.ToInt32(TxtCodAlumno.Text);
+                    ObjAlumno.CodigoCurso = Convert.ToInt32(ComboCurso.SelectedValue);
+                    ObjAlumno.CodigoAlumno = VariableCodAlumno;
                     ObjAlumno.NombreApellido = TxtNomApellido.Text;
                     ObjAlumno.Estado = CheckEstado.IsChecked.Value;
                     ObjAlumno.FechaNacimiento = DateFechaNac.SelectedDate.Value;
@@ -52,8 +55,7 @@ namespace ProyectoAsistencia
                 }
                 else 
                 {
-                    ObjAlumno.CodigoCurso = ComboCurso.SelectedIndex;
-                    ObjAlumno.CodigoAlumno = Convert.ToInt32(TxtCodAlumno.Text);
+                    ObjAlumno.CodigoCurso = Convert.ToInt32(ComboCurso.SelectedValue);
                     ObjAlumno.NombreApellido = TxtNomApellido.Text;
                     ObjAlumno.Estado = CheckEstado.IsChecked.Value;
                     ObjAlumno.FechaNacimiento = DateFechaNac.SelectedDate.Value;
@@ -216,6 +218,20 @@ namespace ProyectoAsistencia
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message, "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void BtnLeer_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                ClasesPublicas.LeerArchivoAlumno();
+                DgAlumno.ItemsSource = ClasesPublicas.ListaAlumnos;
+                DgAlumno.Items.Refresh();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al leer: " + ex.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }

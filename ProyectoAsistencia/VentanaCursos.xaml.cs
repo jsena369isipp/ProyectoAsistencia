@@ -177,5 +177,19 @@ namespace ProyectoAsistencia
                 MessageBox.Show("Error: " + err.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+        private void bttnLeer_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                ClasesPublicas.LeerArchivoCursos();
+                dtgCursos.ItemsSource = ClasesPublicas.ListaCursos;
+                dtgCursos.Items.Refresh();
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show("Error: " + err.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
     }   
 }

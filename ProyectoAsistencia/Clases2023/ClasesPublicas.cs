@@ -275,7 +275,7 @@ namespace ProyectoAsistencia.Clases2023
 
                             if (contador == 0)
                             {//PRIMER VALOR 
-                                objetoProfe.Nombre = val;
+                                objetoProfe.NombreProfe = val;
                             }
                             else if (contador == 1)
                             {

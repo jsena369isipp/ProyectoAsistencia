@@ -8,7 +8,7 @@ namespace ProyectoAsistencia.Clases2023
 {
     public class Profesores
     {
-        public string Nombre { get; set; }
+        public string NombreProfe { get; set; }
         public int IDProfesor { get; set; }
         public Int64 DNI { get; set; }
         public DateTime FechaDeAlta { get; set; }

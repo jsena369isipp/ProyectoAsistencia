@@ -29,7 +29,7 @@ namespace ProyectoAsistencia
             InitializeComponent();
 
             DpFecha.SelectedDate = DateTime.Now;
-
+            
             ClasesPublicas.LeerArchivoMateria();
             cmbMateria.ItemsSource = ClasesPublicas.ListaMaterias;
             ClasesPublicas.LeerArchivoCursos();
@@ -50,7 +50,7 @@ namespace ProyectoAsistencia
                 string AsistenciasConcatenados = "";
                 foreach (Asistencia ObjetoAsistencia in ListaAsistencias)
                 {
-                    AsistenciasConcatenados = AsistenciasConcatenados + "\r\n" + ObjetoAsistencia.CodigoAlumno + ";" + ObjetoAsistencia.CodigoAsistencia + ";" + ObjetoAsistencia.Fecha + ";" + ObjetoAsistencia.CodigoCursos + ";" + ObjetoAsistencia.CodigoPreceptor + ";" + ObjetoAsistencia.CodigoMateria + ";" + ObjetoAsistencia.AlumnoAsistencia + ";" + ObjetoAsistencia.Fecha;
+                    AsistenciasConcatenados = AsistenciasConcatenados + "\r\n" + ObjetoAsistencia.CodigoAlumno + ";" + ObjetoAsistencia.CodigoAsistencia + ";" + ObjetoAsistencia.Fecha + ";" + ObjetoAsistencia.CodigoCursos + ";" + ObjetoAsistencia.CodigoPreceptor + ";" + ObjetoAsistencia.CodigoMateria + ";" + ObjetoAsistencia.AlumnoAsistencia + ":" +ObjetoAsistencia.NombreApellido; 
                 }
 
                 File.WriteAllText("Asistencia.txt", AsistenciasConcatenados);
@@ -88,19 +88,23 @@ namespace ProyectoAsistencia
             //cargar lista asistencia <<<<<<< HEAD
             try
             {
+
+                ClasesPublicas.LeerArchivoAlumno();
+                dtg.ItemsSource = ClasesPublicas.ListaAlumnos;
                 int codCurso = Convert.ToInt32(CmbCurso.SelectedValue);
                 foreach (Alumno alumno in ClasesPublicas.ListaAlumnos.Where(n => n.CodigoCurso == codCurso))
                 {
                     Asistencia asistencia = new Asistencia();
                     asistencia.CodigoAlumno = alumno.CodigoAlumno;
                     asistencia.CodigoAsistencia = Convert.ToInt32(TxtID.Text);
-                    asistencia.AlumnoAsistencia = false;
+                    asistencia.Fecha = DateTime.Now;             
                     asistencia.CodigoCursos = Convert.ToInt32(CmbCurso.SelectedValue);
-                    asistencia.CodigoMateria = Convert.ToInt32(cmbMateria.SelectedValue);
                     asistencia.CodigoPreceptor = Convert.ToInt32(cmbMateria.SelectedValue);
+                    asistencia.CodigoMateria = Convert.ToInt32(cmbMateria.SelectedValue);
+                    asistencia.AlumnoAsistencia = false;
                     asistencia.NombreApellido = alumno.NombreApellido;
-                    asistencia.Fecha = DateTime.Now;
                     
+
                     ListaAsistencias.Add(asistencia);
                 }
                 dtg.ItemsSource = ListaAsistencias;
@@ -124,11 +128,11 @@ namespace ProyectoAsistencia
                 {
                     int codDesde = Convert.ToInt32(txtCodDesdeX.Text);
                     int codHasta = Convert.ToInt32(txtCodHastaX.Text);
-                    //ListaAsistenciaBuscar = ListaAsistenciaBuscar.Where(n => n.CodigoAsistencia >= codDesde && n.CodigoAsistencia <= codHasta).ToList();
+                    ListaAsistenciaBuscar = ListaAsistenciaBuscar.Where(n => n.CodigoAlumno >= codDesde && n.CodigoAlumno <= codHasta).ToList();
                 }
                 if (chNombreAlumnoX.IsChecked == true)
                 {
-                    //ListaAsistenciaBuscar = ListaAsistenciaBuscar.Where(n => n..Contains(txtNombMat.Text)).ToList();
+                    ListaAsistenciaBuscar = ListaAsistenciaBuscar.Where(n => n.NombreApellido.Contains(txtNombreBuscarX.Text)).ToList();
                 }
                 dgResultadoX.ItemsSource = ListaAsistenciaBuscar;
                 dgResultadoX.Items.Refresh();
@@ -157,7 +161,7 @@ namespace ProyectoAsistencia
             }
         }
 
-        private void BtnAlumnos_Click(object sender, RoutedEventArgs e)
+        private void ChPresente_Checked(object sender, RoutedEventArgs e)
         {
 
         }
