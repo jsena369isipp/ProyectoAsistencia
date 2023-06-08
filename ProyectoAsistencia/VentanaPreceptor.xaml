@@ -14,14 +14,12 @@
                     <TextBox x:Name="txtCodPreceptor" HorizontalAlignment="Left" Margin="126,91,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="80" Height="22"/>
                     <Label Content="Nombre y Apellido:" HorizontalAlignment="Left" Margin="9,204,0,0" VerticalAlignment="Top"/>
                     <TextBox x:Name="txtNombApellido" HorizontalAlignment="Left" Margin="126,206,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="159" Height="22"/>
-                    <Label Content="Curso:" HorizontalAlignment="Left" Margin="438,147,0,0" VerticalAlignment="Top"/>
-                    <ComboBox DisplayMemberPath="Descripcion" SelectedValuePath="CodigoCursos" x:Name="cbCursos" HorizontalAlignment="Left" Margin="490,151,0,0" VerticalAlignment="Top" Width="80"/>
                     <Label Content="DNI:" HorizontalAlignment="Left" Margin="10,147,0,0" VerticalAlignment="Top"/>
                     <TextBox x:Name="txtdni" HorizontalAlignment="Left" Margin="126,148,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" Height="21"/>
                     <DatePicker x:Name="dpFechaNac" HorizontalAlignment="Left" Margin="543,87,0,0" VerticalAlignment="Top" Height="26"/>
                     <Label Content="Fecha nacimiento:" HorizontalAlignment="Left" Margin="438,82,0,0" VerticalAlignment="Top"/>
-                    <Label Content="Estado:" HorizontalAlignment="Left" Margin="438,209,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.562,-0.114"/>
-                    <CheckBox x:Name="chbEstado" Content="Habilitado" HorizontalAlignment="Left" Margin="495,216,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Estado:" HorizontalAlignment="Left" Margin="438,155,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.562,-0.114"/>
+                    <CheckBox x:Name="chbEstado" Content="Habilitado" HorizontalAlignment="Left" Margin="495,162,0,0" VerticalAlignment="Top"/>
                     <DataGrid x:Name="dg1" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,319,0,0" HorizontalAlignment="Left" Width="800" Height="115" VerticalAlignment="Top" SelectionChanged="dg1_SelectionChanged"/>
                     <Button x:Name="btnCargar" Content="Cargar" HorizontalAlignment="Left" Margin="251,277,0,0" VerticalAlignment="Top" Width="60" Height="20" Background="#FF822D4A" Foreground="White" FontWeight="Bold" Click="btnCargar_Click"/>
                     <Button x:Name="btnQuitar" Content="Quitar" HorizontalAlignment="Left"  Margin="344,277,0,0" VerticalAlignment="Top" Width="60" Height="20" Foreground="#FFFDFDFD" Background="#FF822D4A" FontWeight="Bold" Click="btnQuitar_Click"/>

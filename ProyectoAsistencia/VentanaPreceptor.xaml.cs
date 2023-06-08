@@ -31,8 +31,8 @@ namespace ProyectoAsistencia
 
             InitializeComponent();
             ClasesPublicas.LeerPreceptor();
-            ClasesPublicas.LeerArchivoCursos();
-            cbCursos.ItemsSource = ClasesPublicas.ListaCursos;
+            //ClasesPublicas.LeerArchivoCursos();
+            //cbCursos.ItemsSource = ClasesPublicas.ListaCursos;
 
         }
 
@@ -47,7 +47,7 @@ namespace ProyectoAsistencia
                 string preceptorConcatenado = "";
                 foreach (Preceptor objetoPreceptor in ListaPreceptor)
                 {
-                    preceptorConcatenado = preceptorConcatenado + "\r\n" + objetoPreceptor.CodigoPreceptor + ";" + objetoPreceptor.ApellidoNombre + ";" + objetoPreceptor.CodigoCursos + ";" + objetoPreceptor.DNI + ";" + objetoPreceptor.FechaNacimiento + ";" + objetoPreceptor.Estado;
+                    preceptorConcatenado = preceptorConcatenado + "\r\n" + objetoPreceptor.CodigoPreceptor + ";" + objetoPreceptor.ApellidoNombre + ";" + objetoPreceptor.DNI + ";" + objetoPreceptor.FechaNacimiento + ";" + objetoPreceptor.Estado;
                 }
                 File.WriteAllText("Preceptor.txt", preceptorConcatenado);
                 MessageBox.Show("Almacenado de forma correcta!", "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -96,7 +96,7 @@ namespace ProyectoAsistencia
                     preceptor.CodigoPreceptor = Convert.ToInt32(txtCodPreceptor.Text);
                     preceptor.DNI = Convert.ToInt64(txtdni.Text);
                     preceptor.ApellidoNombre = txtNombApellido.Text;
-                    preceptor.CodigoCursos = Convert.ToInt16(cbCursos.SelectedValue);
+                    //preceptor.CodigoCursos = Convert.ToInt16(cbCursos.SelectedValue);
                     preceptor.Estado = Convert.ToBoolean(chbEstado.IsChecked);//<--para mostrar el estado en el DataGrid
                     preceptor.FechaNacimiento = Convert.ToDateTime(dpFechaNac.SelectedDate);
 
@@ -108,7 +108,7 @@ namespace ProyectoAsistencia
                     preceptor.CodigoPreceptor = Convert.ToInt32(txtCodPreceptor.Text);
                     preceptor.DNI = Convert.ToInt64(txtdni.Text);
                     preceptor.ApellidoNombre = txtNombApellido.Text;
-                    preceptor.CodigoCursos = Convert.ToInt16(cbCursos.SelectedValue);
+                    //preceptor.CodigoCursos = Convert.ToInt16(cbCursos.SelectedValue);
                     preceptor.Estado = Convert.ToBoolean(chbEstado.IsChecked);//<--para mostrar el estado en el DataGrid
                     preceptor.FechaNacimiento = Convert.ToDateTime(dpFechaNac.SelectedDate);
                 }
@@ -149,7 +149,7 @@ namespace ProyectoAsistencia
                     txtNombApellido.Text = preceptor.ApellidoNombre;
                     dpFechaNac.SelectedDate = preceptor.FechaNacimiento;
                     chbEstado.IsChecked = preceptor.Estado;
-                    cbCursos.SelectedIndex = preceptor.CodigoCursos;
+                    //cbCursos.SelectedIndex = preceptor.CodigoCursos;
 
                 }
             }
