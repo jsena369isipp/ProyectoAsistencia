@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoAsistencia"
         mc:Ignorable="d"
-        Title="Ventana_Alumno" Height="450" Width="800">
+        Title="Ventana_Alumno" Height="496" Width="815">
     <TabControl>
         <TabItem Header="Registro">
             <Grid>
@@ -41,6 +41,7 @@
                 <Image x:Name="ImgIsipp" HorizontalAlignment="Left" Height="55" Margin="632,0,0,0" VerticalAlignment="Top" Width="56" Source="/Imagen/isipp-blanco.png" Grid.Column="1"/>
                 <Image HorizontalAlignment="Left" Height="55" Margin="632,0,0,0" VerticalAlignment="Top" Width="56" Source="/Imagen/isipp-blanco.png" Grid.Column="1"/>
                 <ComboBox x:Name="ComboCurso" Grid.Column="1" HorizontalAlignment="Left" Margin="30,72,0,0" VerticalAlignment="Top" Width="120" DisplayMemberPath="Descripcion" SelectedValuePath="CodigoCursos"/>
+                <Button x:Name="BtnLeer" Grid.Column="1" Content="Leer" HorizontalAlignment="Left" Height="20" Margin="351,277,0,0" VerticalAlignment="Top" Width="60" Background="#FF822D4A" FontWeight="Bold" Foreground="White" Click="BtnLeer_Click"/>
             </Grid>
         </TabItem>
         <TabItem Header="Buscador">

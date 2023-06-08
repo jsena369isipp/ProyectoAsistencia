@@ -37,7 +37,7 @@ namespace ProyectoAsistencia
                 if (Profesor == null)
                 {
                     Profesor = new Clases2023.Profesores();
-                    Profesor.Nombre = txt_Nombre.Text;
+                    Profesor.NombreProfe = txt_Nombre.Text;
                     Profesor.IDProfesor = Convert.ToInt32(txt_ID.Text);
                     Profesor.DNI = Convert.ToInt32(txtDNI.Text);
                     Profesor.FechaDeAlta = dateGrid_Fecha.SelectedDate.Value;
@@ -50,7 +50,7 @@ namespace ProyectoAsistencia
                 }
                 else
                 {
-                    Profesor.Nombre = txt_Nombre.Text;
+                    Profesor.NombreProfe = txt_Nombre.Text;
                     Profesor.IDProfesor = Convert.ToInt32(txt_ID.Text);
                     Profesor.DNI = Convert.ToInt32(txtDNI.Text);
                     Profesor.FechaDeAlta = dateGrid_Fecha.SelectedDate.Value;
@@ -97,7 +97,7 @@ namespace ProyectoAsistencia
                 if (VentanaProfesores != null)
                 {
 
-                    txt_Nombre.Text = VentanaProfesores.Nombre.ToString();
+                    txt_Nombre.Text = VentanaProfesores.NombreProfe.ToString();
                     txt_ID.Text = VentanaProfesores.IDProfesor.ToString();
                     txtDNI.Text = VentanaProfesores.DNI.ToString();
                     dateGrid_Fecha.SelectedDate = VentanaProfesores.FechaDeAlta;
@@ -124,7 +124,7 @@ namespace ProyectoAsistencia
                 string ProfeConcatenado = "";
                 foreach (Profesores objetoProfe in ClasesPublicas.ListaProfesores)
                 {
-                    ProfeConcatenado = ProfeConcatenado + "\r\n" + objetoProfe.Nombre + ";" + objetoProfe.IDProfesor + ";" + objetoProfe.DNI + ";" + objetoProfe.FechaDeAlta + ";" + objetoProfe.Tel + ";" + objetoProfe.Correo + ";" + objetoProfe.Domicilio + ";" + objetoProfe.Estado;
+                    ProfeConcatenado = ProfeConcatenado + "\r\n" + objetoProfe.NombreProfe + ";" + objetoProfe.IDProfesor + ";" + objetoProfe.DNI + ";" + objetoProfe.FechaDeAlta + ";" + objetoProfe.Tel + ";" + objetoProfe.Correo + ";" + objetoProfe.Domicilio + ";" + objetoProfe.Estado;
                 }
                 File.WriteAllText("Profesores.txt", ProfeConcatenado);
                 MessageBox.Show("Almacenado de forma correcta!!", "Aplicación", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -171,7 +171,7 @@ namespace ProyectoAsistencia
                 }
                 if (checkNombre.IsChecked == true)
                 {
-                    ListaProfesorBuscar = ListaProfesorBuscar.Where(n => n.Nombre.Contains(txtNombre2.Text)).ToList();
+                    ListaProfesorBuscar = ListaProfesorBuscar.Where(n => n.NombreProfe.Contains(txtNombre2.Text)).ToList();
                 }
                 if (checkDNI.IsChecked== true)
                 {
