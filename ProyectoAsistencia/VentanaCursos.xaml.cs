@@ -191,7 +191,7 @@ namespace ProyectoAsistencia
             }
         }
 
-        private void txtCurso_PreviewKeyDown(object sender, KeyEventArgs e)
+        private void txtCurso_KeyDown(object sender, KeyEventArgs e)
         {
             try
             {
@@ -206,58 +206,13 @@ namespace ProyectoAsistencia
             }
         }
 
-        private void txtDescripcion_PreviewKeyDown(object sender, KeyEventArgs e)
+        private void txtDescripcion_KeyDown(object sender, KeyEventArgs e)
         {
             try
             {
                 if (e.Key == Key.Enter)
                 {
                     txtDescripcion.Focus();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message, "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-        }
-
-        private void txtDescripcion2_PreviewKeyDown(object sender, KeyEventArgs e)
-        {
-            try
-            {
-                if (e.Key == Key.Enter)
-                {
-                    txtDescripcion2.Focus();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message, "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-        }
-
-        private void txtDesde_PreviewKeyDown(object sender, KeyEventArgs e)
-        {
-            try
-            {
-                if (e.Key == Key.Enter)
-                {
-                    txtDesde.Focus();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message, "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-        }
-
-        private void txtHasta_PreviewKeyDown(object sender, KeyEventArgs e)
-        {
-            try
-            {
-                if (e.Key == Key.Enter)
-                {
-                    txtHasta.Focus();
                 }
             }
             catch (Exception ex)
@@ -274,6 +229,51 @@ namespace ProyectoAsistencia
                 {
                     cmbPreceptor.IsDropDownOpen = true;
                     e.Handled = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void txtDescripcion2_KeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (e.Key == Key.Enter)
+                {
+                    txtDescripcion2.Focus();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void txtDesde_KeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (e.Key == Key.Enter)
+                {
+                    txtDesde.Focus();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void txtHasta_KeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (e.Key == Key.Enter)
+                {
+                    txtHasta.Focus();
                 }
             }
             catch (Exception ex)
