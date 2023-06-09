@@ -266,7 +266,7 @@ namespace ProyectoAsistencia
             }
         }
 
-        private void cmbPreceptor_KeyDown(object sender, KeyEventArgs e)
+        private void cmbPreceptor_PreviewKeyDown(object sender, KeyEventArgs e)
         {
             try
             {
@@ -281,6 +281,5 @@ namespace ProyectoAsistencia
                 MessageBox.Show("Error: " + ex.Message, "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-
     }   
 }
