@@ -67,5 +67,62 @@ namespace ProyectoAsistencia
         {
 
         }
+
+        private void dpFechaHasta_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (e.Key == Key.Enter)
+                {
+                    cmbMateria.Focus();
+                    
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void dpFechaDesde_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (e.Key == Key.Enter)
+                {
+                    dpFechaHasta.Focus();
+                    
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
+        }
+
+        private void cmbMateria_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (e.Key == Key.Enter)
+                {
+                    btnBuscar.Focus();
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void cmbMateria_PreviewKeyDown_1(object sender, KeyEventArgs e)
+        {
+
+        }
     }
 }
