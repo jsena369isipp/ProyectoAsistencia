@@ -193,92 +193,51 @@ namespace ProyectoAsistencia
 
         private void txtCurso_KeyDown(object sender, KeyEventArgs e)
         {
-            try
+            if (e.Key == Key.Enter)
             {
-                if (e.Key == Key.Enter)
-                {
-                    txtCurso.Focus();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message, "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
+                txtCurso.Focus();
             }
         }
 
         private void txtDescripcion_KeyDown(object sender, KeyEventArgs e)
         {
-            try
+            if (e.Key == Key.Enter)
             {
-                if (e.Key == Key.Enter)
-                {
-                    txtDescripcion.Focus();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message, "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
+                txtDescripcion.Focus();
             }
         }
 
         private void cmbPreceptor_PreviewKeyDown(object sender, KeyEventArgs e)
         {
-            try
+            if (e.Key == Key.Enter)
             {
-                if (e.Key == Key.Enter)
-                {
-                    cmbPreceptor.IsDropDownOpen = true;
-                    e.Handled = true;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message, "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
+                cmbPreceptor.IsDropDownOpen = true;
+                e.Handled = true;
             }
         }
 
+
         private void txtDescripcion2_KeyDown(object sender, KeyEventArgs e)
         {
-            try
+            if (e.Key == Key.Enter)
             {
-                if (e.Key == Key.Enter)
-                {
-                    txtDescripcion2.Focus();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message, "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
+                txtDescripcion2.Focus();
             }
         }
 
         private void txtDesde_KeyDown(object sender, KeyEventArgs e)
         {
-            try
+            if (e.Key == Key.Enter)
             {
-                if (e.Key == Key.Enter)
-                {
-                    txtDesde.Focus();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message, "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
+                txtDesde.Focus();
             }
         }
 
         private void txtHasta_KeyDown(object sender, KeyEventArgs e)
         {
-            try
+            if (e.Key == Key.Enter)
             {
-                if (e.Key == Key.Enter)
-                {
-                    txtHasta.Focus();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message, "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
+                txtHasta.Focus();
             }
         }
     }   
