@@ -216,27 +216,35 @@ namespace ProyectoAsistencia.Clases2023
                         {
                             if(i == 0)
                             {
-                                ObjetoAsistencia.CodigoAsistencia = Convert.ToInt32(val);
+                                ObjetoAsistencia.CodigoAlumno = Convert.ToInt32(val);
                             }
-                            else if(i == 1)
+                            if(i == 1)
                             {
-                                ObjetoAsistencia.Fecha = Convert.ToDateTime(val);
+                                ObjetoAsistencia.CodigoAsistencia = Convert.ToInt32(val);
                             }
                             else if(i == 2)
                             {
-                                ObjetoAsistencia.CodigoCursos = Convert.ToInt32(val);
+                                ObjetoAsistencia.Fecha = Convert.ToDateTime(val);
                             }
                             else if(i == 3)
                             {
-                                ObjetoAsistencia.CodigoPreceptor = Convert.ToInt32(val);
+                                ObjetoAsistencia.CodigoCursos = Convert.ToInt32(val);
                             }
                             else if(i == 4)
                             {
-                                ObjetoAsistencia.CodigoMateria = Convert.ToInt32(val);
+                                ObjetoAsistencia.CodigoPreceptor = Convert.ToInt32(val);
                             }
                             else if(i == 5)
                             {
+                                ObjetoAsistencia.CodigoMateria = Convert.ToInt32(val);
+                            }
+                            else if(i == 6)
+                            {
                                 ObjetoAsistencia.AlumnoAsistencia = Convert.ToBoolean(val);
+                            }
+                            else if(i == 7)
+                            {
+                                ObjetoAsistencia.NombreApellido = val;
                             }
                             i++;
                         }

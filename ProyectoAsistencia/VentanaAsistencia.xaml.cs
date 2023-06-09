@@ -37,6 +37,7 @@ namespace ProyectoAsistencia
             CmbCurso.ItemsSource = ClasesPublicas.ListaCursos;
             ClasesPublicas.LeerPreceptor();
             CmbPreceptor.ItemsSource = ClasesPublicas.ListaPreceptor;
+            ClasesPublicas.LeerArchivoAsistencia();
 
         }
         private void btnGrd_Click(object sender, RoutedEventArgs e)
@@ -62,7 +63,7 @@ namespace ProyectoAsistencia
                     AsistenciasConcatenados = AsistenciasConcatenados + "\r\n" + ObjetoAsistencia.CodigoAlumno + ";" + ObjetoAsistencia.CodigoAsistencia + ";" + ObjetoAsistencia.Fecha + ";" + ObjetoAsistencia.CodigoCursos + ";" + ObjetoAsistencia.CodigoPreceptor + ";" + ObjetoAsistencia.CodigoMateria + ";" + presente + ":" +ObjetoAsistencia.NombreApellido; 
                 }
 
-                File.WriteAllText("Asistencia.txt", AsistenciasConcatenados);
+                File.WriteAllText("Asistencias.txt", AsistenciasConcatenados);
                 MessageBox.Show("Alamcenado de forma correcta!", "Aplicación", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             catch (Exception ex)
@@ -139,7 +140,6 @@ namespace ProyectoAsistencia
         {
             try
             {
-                ClasesPublicas.LeerArchivoAsistencia();
                 ListaAsistenciaBuscar = ClasesPublicas.ListaAsistencias;
 
                 if (chCodAlumnoX.IsChecked == true)
@@ -149,8 +149,8 @@ namespace ProyectoAsistencia
                     ListaAsistenciaBuscar = ListaAsistenciaBuscar.Where(n => n.CodigoAlumno >= codDesde && n.CodigoAlumno <= codHasta).ToList();
                 }
                 
-                dgResultadoX.ItemsSource = ListaAsistenciaBuscar;
-                dgResultadoX.Items.Refresh();
+                dtg2.ItemsSource = ListaAsistenciaBuscar;
+                dtg2.Items.Refresh();
                 lblResultadoX.Content = "Registros encontrados: " + ListaAsistenciaBuscar.Count;
             }
             catch (Exception ex)
