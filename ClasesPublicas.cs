@@ -218,7 +218,7 @@ namespace ProyectoAsistencia.Clases2023
                             {
                                 ObjetoAsistencia.CodigoAlumno = Convert.ToInt32(val);
                             }
-                            if(i == 1)
+                            else if(i == 1)
                             {
                                 ObjetoAsistencia.CodigoAsistencia = Convert.ToInt32(val);
                             }

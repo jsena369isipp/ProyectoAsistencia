@@ -38,9 +38,9 @@ namespace ProyectoAsistencia
             ClasesPublicas.LeerPreceptor();
             CmbPreceptor.ItemsSource = ClasesPublicas.ListaPreceptor;
             ClasesPublicas.LeerArchivoAsistencia();
+
             CmbMateriaX.ItemsSource = ClasesPublicas.ListaMaterias;
             CmbCursoX.ItemsSource = ClasesPublicas.ListaCursos;
-
         }
         private void btnGrd_Click(object sender, RoutedEventArgs e)
         {
@@ -143,7 +143,6 @@ namespace ProyectoAsistencia
         {
             try
             {
-
                 ListaAsistenciaBuscar = ClasesPublicas.ListaAsistencias;
 
                 if (ChIDRegistro.IsChecked == true)
@@ -162,9 +161,12 @@ namespace ProyectoAsistencia
                     int codmateriaX = Convert.ToInt32(CmbMateriaX.SelectedValue);
                     ListaAsistenciaBuscar = ListaAsistenciaBuscar.Where(n => n.CodigoMateria == codmateriaX).ToList();
                 }
-                
+               
                 dgResultadoX.ItemsSource = ListaAsistenciaBuscar.OrderBy(n=>n.NombreApellido).ToList();
                 dgResultadoX.Items.Refresh();
+
+                dtg2.ItemsSource = ListaAsistenciaBuscar;
+                dtg2.Items.Refresh();
                 lblResultadoX.Content = "Registros encontrados: " + ListaAsistenciaBuscar.Count;
             }
             catch (Exception ex)

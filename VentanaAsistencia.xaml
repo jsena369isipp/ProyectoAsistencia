@@ -64,7 +64,11 @@
                 <CheckBox x:Name="ChIDRegistro" Content="ID.registro" HorizontalAlignment="Left" Height="19" Margin="37,77,0,0" VerticalAlignment="Top" Width="110"/>
                 <TextBox Name="txtCodDesdeX" IsEnabled="{Binding ElementName=ChIDRegistro, Path=IsChecked}" HorizontalAlignment="Left" Height="19" Margin="190,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75" GotFocus="txtDesde_GotFocus"/>
                 <Button Name="btnBuscarX" Click="btnBuscar_Click" Content="Buscar" HorizontalAlignment="Left" Height="19" Margin="426,77,0,0" VerticalAlignment="Top" Width="84" Background="#FF822D4A" Foreground="White" BorderBrush="Black"/>
+
                 <DataGrid x:Name="dgResultadoX" AutoGenerateColumns="True" CanUserAddRows="False" HorizontalAlignment="Center" Margin="0,203,0,35" Width="800" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+
+                <DataGrid x:Name="dtg2" AutoGenerateColumns="True" CanUserAddRows="True" HorizontalAlignment="Center" Margin="0,203,0,35" Width="800" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+
                 <Label Name="lblResultadoX" Content="Registros encontrados: 0" HorizontalAlignment="Left" Height="30" VerticalAlignment="Bottom" Width="360"/>
                 <CheckBox x:Name="ChCursoX" Content="Cód.Curso:" HorizontalAlignment="Left" Margin="37,119,0,0" VerticalAlignment="Top"/>
                 <CheckBox x:Name="ChMateriaX" Content="Cód.Materia:" HorizontalAlignment="Left" Margin="37,157,0,0" VerticalAlignment="Top"/>
