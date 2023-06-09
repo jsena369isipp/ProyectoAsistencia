@@ -25,6 +25,7 @@ namespace ProyectoAsistencia
         {
             InitializeComponent();
             ClasesPublicas.LeerArchivoAsistencia();
+            ClasesPublicas.LeerArchivoMateria();
             cmbMateria.ItemsSource = ClasesPublicas.ListaMaterias;
         }
 
