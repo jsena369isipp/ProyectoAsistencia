@@ -190,5 +190,56 @@ namespace ProyectoAsistencia
                 MessageBox.Show("Error: " + err.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+        private void txtCurso_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                txtCurso.Focus();
+            }
+        }
+
+        private void txtDescripcion_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                txtDescripcion.Focus();
+            }
+        }
+
+        private void cmbPreceptor_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                cmbPreceptor.IsDropDownOpen = true;
+                e.Handled = true;
+            }
+        }
+
+
+        private void txtDescripcion2_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                txtDescripcion2.Focus();
+            }
+        }
+
+        private void txtDesde_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                txtDesde.Focus();
+            }
+        }
+
+        private void txtHasta_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                txtHasta.Focus();
+            }
+        }
+
     }   
 }

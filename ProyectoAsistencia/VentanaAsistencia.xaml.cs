@@ -95,25 +95,34 @@ namespace ProyectoAsistencia
         {
             try
             {
-                ListaAsistencias = new List<Asistencia>();
-
-                ClasesPublicas.LeerArchivoAlumno();
-                dtg.ItemsSource = ClasesPublicas.ListaAlumnos;
-                int codCurso = Convert.ToInt32(CmbCurso.SelectedValue);
-                foreach (Alumno alumno in ClasesPublicas.ListaAlumnos.Where(n => n.CodigoCurso == codCurso))
+                if (TxtID.Text.Trim() == "")
                 {
-                    Asistencia asistencia = new Asistencia();
-                    asistencia.CodigoAlumno = alumno.CodigoAlumno;
-                    asistencia.CodigoAsistencia = Convert.ToInt32(TxtID.Text);
-                    asistencia.Fecha = DateTime.Now;             
-                    asistencia.CodigoCursos = Convert.ToInt32(CmbCurso.SelectedValue);
-                    asistencia.CodigoPreceptor = Convert.ToInt32(cmbMateria.SelectedValue);
-                    asistencia.CodigoMateria = Convert.ToInt32(cmbMateria.SelectedValue);
-                    asistencia.AlumnoAsistencia = false;
-                    asistencia.NombreApellido = alumno.NombreApellido;
-                    
+                    MessageBox.Show("Ingrese el ID","Error",MessageBoxButton.OK,MessageBoxImage.Error);
 
-                    ListaAsistencias.Add(asistencia);
+                }
+                else
+                {
+                    ListaAsistencias = new List<Asistencia>();
+
+                    ClasesPublicas.LeerArchivoAlumno();
+                    dtg.ItemsSource = ClasesPublicas.ListaAlumnos;
+                    int codCurso = Convert.ToInt32(CmbCurso.SelectedValue);
+                    foreach (Alumno alumno in ClasesPublicas.ListaAlumnos.Where(n => n.CodigoCurso == codCurso))
+                    {
+                        Asistencia asistencia = new Asistencia();
+                        asistencia.CodigoAlumno = alumno.CodigoAlumno;
+                        asistencia.CodigoAsistencia = Convert.ToInt32(TxtID.Text);
+                        asistencia.Fecha = DateTime.Now;
+                        asistencia.CodigoCursos = Convert.ToInt32(CmbCurso.SelectedValue);
+                        asistencia.CodigoPreceptor = Convert.ToInt32(cmbMateria.SelectedValue);
+                        asistencia.CodigoMateria = Convert.ToInt32(cmbMateria.SelectedValue);
+                        asistencia.AlumnoAsistencia = false;
+                        asistencia.NombreApellido = alumno.NombreApellido;
+
+
+                        ListaAsistencias.Add(asistencia);
+                    }
+                
                 }
                 dtg.ItemsSource = ListaAsistencias;
                 dtg.Items.Refresh();

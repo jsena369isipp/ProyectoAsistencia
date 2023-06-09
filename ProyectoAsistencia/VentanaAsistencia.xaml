@@ -18,7 +18,7 @@
                 <TextBlock HorizontalAlignment="Left" Margin="285,158,0,0" TextWrapping="Wrap" Text="Curso:" VerticalAlignment="Top" RenderTransformOrigin="0.446,0.441" Height="26"/>
                 <ComboBox x:Name="CmbPreceptor" DisplayMemberPath="ApellidoNombre" SelectedValuePath="CodigoPreceptor" HorizontalAlignment="Left" Margin="593,155,0,0" VerticalAlignment="Top" Width="120" Height="28"/>
                 <TextBlock HorizontalAlignment="Left" Margin="516,158,0,0" TextWrapping="Wrap" Text="Preceptor:" VerticalAlignment="Top" Height="26"/>
-                <DataGrid x:Name="dtg" AutoGenerateColumns="False" CanUserAddRows="True" IsReadOnly="False" SelectionChanged="dtgAsistencia_SC" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,219,0,0">
+                <DataGrid x:Name="dtg" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="False" SelectionChanged="dtgAsistencia_SC" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,219,0,0">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Alumno" Binding="{Binding NombreApellido , Mode= OneWay}"></DataGridTextColumn>
                         <DataGridCheckBoxColumn Header="Asistencia" Binding="{Binding AlumnoAsistencia }"></DataGridCheckBoxColumn>
@@ -65,7 +65,7 @@
                 <TextBox Name="txtCodDesdeX" Text="Desde" IsEnabled="{Binding ElementName=chCodAlumnoX, Path=IsChecked}" HorizontalAlignment="Left" Height="19" Margin="190,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75" GotFocus="txtDesde_GotFocus"/>
                 <TextBox x:Name="txtCodHastaX" Text="Hasta" IsEnabled="{Binding IsChecked, ElementName=chCodAlumnoX}" HorizontalAlignment="Left" Height="19" Margin="285,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75" GotFocus="txtHasta_GotFocus"/>
                 <Button Name="btnBuscarX" Click="btnBuscar_Click" Content="Buscar" HorizontalAlignment="Left" Height="19" Margin="426,77,0,0" VerticalAlignment="Top" Width="84" Background="#FF822D4A" Foreground="White" BorderBrush="Black"/>
-                <DataGrid x:Name="dgResultadoX" AutoGenerateColumns="True" CanUserAddRows="False" HorizontalAlignment="Center" Margin="0,203,0,35" Width="800" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+                <DataGrid x:Name="dgResultadoX" AutoGenerateColumns="True" CanUserAddRows="True" HorizontalAlignment="Center" Margin="0,203,0,35" Width="800" d:ItemsSource="{d:SampleData ItemCount=5}"/>
                 <Label Name="lblResultadoX" Content="Registros encontrados: 0" HorizontalAlignment="Left" Height="30" VerticalAlignment="Bottom" Width="360"/>
                 <Label Content="/" HorizontalAlignment="Left" Margin="268,74,0,0" VerticalAlignment="Top"/>
             </Grid>
