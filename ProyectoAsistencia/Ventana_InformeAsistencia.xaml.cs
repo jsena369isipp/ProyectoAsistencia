@@ -20,9 +20,11 @@ namespace ProyectoAsistencia
     /// </summary>
     public partial class Ventana_InformeAsistencia : Window
     {
+        List<Asistencia> ListaAsistencias = new List<Asistencia>();
         List<Asistencia> ListaInformeAsistencia;
         public Ventana_InformeAsistencia()
         {
+            
             InitializeComponent();
             ClasesPublicas.LeerArchivoAsistencia();
             ClasesPublicas.LeerArchivoMateria();
