@@ -39,13 +39,10 @@ namespace ProyectoAsistencia
                 
                 if (chHabilitado.IsChecked == true && fechaDesde.HasValue && fechaHasta.HasValue)
                 {
-                    //int codDesde = Convert.ToInt32(fechaDesde.Value);
-                    //int codHasta = Convert.ToInt32(fechaHasta.Value);
                     ListaInformeAsistencia = ListaInformeAsistencia.Where(n => n.Fecha >= fechaDesde && n.Fecha <= fechaHasta).ToList();
                 }
                 if (chHabilitadoMateria.IsChecked == true && filtromateria >= 0)
                 {
-                    
                     ListaInformeAsistencia = ListaInformeAsistencia.Where(n => n.CodigoMateria == filtromateria).ToList();
                 }
                 
@@ -67,6 +64,63 @@ namespace ProyectoAsistencia
         }
 
         private void cmbMateria_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void dpFechaHasta_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (e.Key == Key.Enter)
+                {
+                    cmbMateria.Focus();
+                    
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void dpFechaDesde_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (e.Key == Key.Enter)
+                {
+                    dpFechaHasta.Focus();
+                    
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
+        }
+
+        private void cmbMateria_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (e.Key == Key.Enter)
+                {
+                    btnBuscar.Focus();
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void cmbMateria_PreviewKeyDown_1(object sender, KeyEventArgs e)
         {
 
         }
