@@ -227,7 +227,7 @@ namespace ProyectoAsistencia
             {
                 if (e.Key == Key.Enter)
                 {
-                    txtDescripcion.Focus();
+                    txtDescripcion2.Focus();
                 }
             }
             catch (Exception ex)
@@ -242,7 +242,7 @@ namespace ProyectoAsistencia
             {
                 if (e.Key == Key.Enter)
                 {
-                    txtDescripcion.Focus();
+                    txtDesde.Focus();
                 }
             }
             catch (Exception ex)
@@ -257,7 +257,7 @@ namespace ProyectoAsistencia
             {
                 if (e.Key == Key.Enter)
                 {
-                    txtDescripcion.Focus();
+                    txtHasta.Focus();
                 }
             }
             catch (Exception ex)
