@@ -240,5 +240,6 @@ namespace ProyectoAsistencia
                 txtHasta.Focus();
             }
         }
+
     }   
 }
