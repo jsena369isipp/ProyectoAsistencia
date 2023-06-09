@@ -25,7 +25,7 @@ namespace ProyectoAsistencia
         public VentanaCursos()
         {
             InitializeComponent();
-
+            txtCurso.Focus();
             ClasesPublicas.LeerPreceptor();
             cmbPreceptor.ItemsSource = ClasesPublicas.ListaPreceptor;
         }
@@ -191,7 +191,7 @@ namespace ProyectoAsistencia
             }
         }
 
-        private void txtCurso_KeyDown(object sender, KeyEventArgs e)
+        private void txtCurso_PreviewKeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
             {
@@ -199,7 +199,7 @@ namespace ProyectoAsistencia
             }
         }
 
-        private void txtDescripcion_KeyDown(object sender, KeyEventArgs e)
+        private void txtDescripcion_PreviewKeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
             {
@@ -207,7 +207,7 @@ namespace ProyectoAsistencia
             }
         }
 
-        private void cmbPreceptor_PreviewKeyDown(object sender, KeyEventArgs e)
+        private void cmbPreceptor_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
             {
@@ -216,30 +216,12 @@ namespace ProyectoAsistencia
             }
         }
 
-
-        private void txtDescripcion2_KeyDown(object sender, KeyEventArgs e)
+        private void cmbPreceptor_PreviewKeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
             {
-                txtDescripcion2.Focus();
+                cmbPreceptor.Focus();
             }
         }
-
-        private void txtDesde_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Enter)
-            {
-                txtDesde.Focus();
-            }
-        }
-
-        private void txtHasta_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Enter)
-            {
-                txtHasta.Focus();
-            }
-        }
-
     }   
 }
