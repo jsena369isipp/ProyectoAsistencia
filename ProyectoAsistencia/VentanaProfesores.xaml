@@ -38,6 +38,7 @@
                 <Label Content="CorreoElectrónico:" Margin="368,102,0,0" VerticalAlignment="Top" FontWeight="Bold" HorizontalAlignment="Left" Width="118"/>
                 <TextBox x:Name="txtCorreo" Margin="491,102,0,283" TextWrapping="Wrap" PreviewKeyDown="txtCorrreo_PreviewKeyDown" HorizontalAlignment="Left" Width="185"/>
                 <Image Height="49" Margin="0,-6,17,0" VerticalAlignment="Top" Source="/Imagen/isipp-blanco.png" HorizontalAlignment="Right" Width="55"/>
+                <Label x:Name="labelCant1" Content="" HorizontalAlignment="Left" Margin="473,259,0,0" VerticalAlignment="Top" Width="170"/>
             </Grid>
         </TabItem>
         <TabItem Header="Buscador">

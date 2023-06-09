@@ -22,6 +22,7 @@ namespace ProyectoAsistencia
     public partial class VentanaProfesores : Window
     {
         /*List<Clases2023.Profesores> ListaProfesores = new List<Clases2023.Profesores>();*/
+       /* List<Profesores> ListaProfesores = new List<Profesores>();*/
         List<Profesores> ListaProfesorBuscar;
         public VentanaProfesores()
         {
@@ -144,7 +145,7 @@ namespace ProyectoAsistencia
                 ClasesPublicas.LeerArchivoProfesores();
                 dataGrid_Resultado.ItemsSource = ClasesPublicas.ListaProfesores;
                 dataGrid_Resultado.Items.Refresh();
-
+                labelCant1.Content = "Cantidad de Profesores: " + ClasesPublicas.ListaProfesores.Count;
             }
             catch (Exception ex)
             {
