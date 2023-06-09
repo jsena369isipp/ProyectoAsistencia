@@ -37,6 +37,9 @@ namespace ProyectoAsistencia
             CmbCurso.ItemsSource = ClasesPublicas.ListaCursos;
             ClasesPublicas.LeerPreceptor();
             CmbPreceptor.ItemsSource = ClasesPublicas.ListaPreceptor;
+            ClasesPublicas.LeerArchivoAsistencia();
+            CmbMateriaX.ItemsSource = ClasesPublicas.ListaMaterias;
+            CmbCursoX.ItemsSource = ClasesPublicas.ListaCursos;
 
         }
         private void btnGrd_Click(object sender, RoutedEventArgs e)
@@ -59,10 +62,10 @@ namespace ProyectoAsistencia
                         presente = 1;
                     }
                    
-                    AsistenciasConcatenados = AsistenciasConcatenados + "\r\n" + ObjetoAsistencia.CodigoAlumno + ";" + ObjetoAsistencia.CodigoAsistencia + ";" + ObjetoAsistencia.Fecha + ";" + ObjetoAsistencia.CodigoCursos + ";" + ObjetoAsistencia.CodigoPreceptor + ";" + ObjetoAsistencia.CodigoMateria + ";" + presente + ":" +ObjetoAsistencia.NombreApellido; 
+                    AsistenciasConcatenados = AsistenciasConcatenados + "\r\n" + ObjetoAsistencia.CodigoAlumno + ";" + ObjetoAsistencia.CodigoAsistencia + ";" + ObjetoAsistencia.Fecha + ";" + ObjetoAsistencia.CodigoCursos + ";" + ObjetoAsistencia.CodigoPreceptor + ";" + ObjetoAsistencia.CodigoMateria + ";" + presente + ":" + ObjetoAsistencia.NombreApellido; 
                 }
 
-                File.WriteAllText("Asistencia.txt", AsistenciasConcatenados);
+                File.WriteAllText("Asistencias.txt", AsistenciasConcatenados);
                 MessageBox.Show("Alamcenado de forma correcta!", "Aplicación", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             catch (Exception ex)
@@ -98,7 +101,7 @@ namespace ProyectoAsistencia
                 if (TxtID.Text.Trim() == "")
                 {
                     MessageBox.Show("Ingrese el ID","Error",MessageBoxButton.OK,MessageBoxImage.Error);
-
+                    TxtID.Focus();
                 }
                 else
                 {
@@ -122,9 +125,10 @@ namespace ProyectoAsistencia
 
                         ListaAsistencias.Add(asistencia);
                     }
+
                 
                 }
-                dtg.ItemsSource = ListaAsistencias;
+                dtg.ItemsSource = ListaAsistencias.OrderBy(n => n.NombreApellido).ToList(); ;
                 dtg.Items.Refresh();
                 LblArchivos.Content = dtg.Items.Count;
             }
@@ -139,17 +143,27 @@ namespace ProyectoAsistencia
         {
             try
             {
-                ClasesPublicas.LeerArchivoAsistencia();
+
                 ListaAsistenciaBuscar = ClasesPublicas.ListaAsistencias;
 
-                if (chCodAlumnoX.IsChecked == true)
+                if (ChIDRegistro.IsChecked == true)
                 {
-                    int codDesde = Convert.ToInt32(txtCodDesdeX.Text);
-                    int codHasta = Convert.ToInt32(txtCodHastaX.Text);
-                    ListaAsistenciaBuscar = ListaAsistenciaBuscar.Where(n => n.CodigoAlumno >= codDesde && n.CodigoAlumno <= codHasta).ToList();
+                    int IdRegsitro = Convert.ToInt32(txtCodDesdeX.Text);
+
+                    ListaAsistenciaBuscar = ListaAsistenciaBuscar.Where(n => n.CodigoAsistencia == IdRegsitro).ToList();
+                }
+                if (ChCursoX.IsChecked == true)
+                {
+                    int codCursoX = Convert.ToInt32(CmbCursoX.SelectedValue);
+                    ListaAsistenciaBuscar = ListaAsistenciaBuscar.Where(n => n.CodigoCursos == codCursoX).ToList();
+                }
+                if(ChMateriaX.IsChecked == true)
+                {
+                    int codmateriaX = Convert.ToInt32(CmbMateriaX.SelectedValue);
+                    ListaAsistenciaBuscar = ListaAsistenciaBuscar.Where(n => n.CodigoMateria == codmateriaX).ToList();
                 }
                 
-                dgResultadoX.ItemsSource = ListaAsistenciaBuscar;
+                dgResultadoX.ItemsSource = ListaAsistenciaBuscar.OrderBy(n=>n.NombreApellido).ToList();
                 dgResultadoX.Items.Refresh();
                 lblResultadoX.Content = "Registros encontrados: " + ListaAsistenciaBuscar.Count;
             }
@@ -162,10 +176,10 @@ namespace ProyectoAsistencia
         {
             txtCodDesdeX.Text = "";
         }
-        private void txtHasta_GotFocus(Object sender, RoutedEventArgs e)
+        /*private void txtHasta_GotFocus(Object sender, RoutedEventArgs e)
         {
             txtCodHastaX.Text = "";
-        }
+        }*/
 
         private void cmbMateria_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

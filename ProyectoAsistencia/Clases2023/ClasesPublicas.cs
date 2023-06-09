@@ -214,27 +214,31 @@ namespace ProyectoAsistencia.Clases2023
 
                         foreach (string val in valores)
                         {
-                            if(i == 0)
+                            if (i == 0)
+                            {
+                                ObjetoAsistencia.CodigoAlumno = Convert.ToInt32(val);
+                            }
+                            if(i == 1)
                             {
                                 ObjetoAsistencia.CodigoAsistencia = Convert.ToInt32(val);
                             }
-                            else if(i == 1)
+                            else if(i == 2)
                             {
                                 ObjetoAsistencia.Fecha = Convert.ToDateTime(val);
                             }
-                            else if(i == 2)
+                            else if(i == 3)
                             {
                                 ObjetoAsistencia.CodigoCursos = Convert.ToInt32(val);
                             }
-                            else if(i == 3)
+                            else if(i == 4)
                             {
                                 ObjetoAsistencia.CodigoPreceptor = Convert.ToInt32(val);
                             }
-                            else if(i == 4)
+                            else if(i == 5)
                             {
                                 ObjetoAsistencia.CodigoMateria = Convert.ToInt32(val);
                             }
-                            else if(i == 5)
+                            else if(i == 6)
                             {
                                 ObjetoAsistencia.AlumnoAsistencia = Convert.ToBoolean(val);
                             }
