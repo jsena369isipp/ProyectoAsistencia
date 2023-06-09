@@ -26,6 +26,7 @@ namespace ProyectoAsistencia
         public Materias()
         {
             InitializeComponent();
+            txtBoxID.Focus();
             ClasesPublicas.LeerArchivoMateria();
             ClasesPublicas.LeerArchivoProfesores();
             cboBoxProfesor.ItemsSource = ClasesPublicas.ListaProfesores;
@@ -204,6 +205,64 @@ namespace ProyectoAsistencia
             catch (Exception err)
             {
                 MessageBox.Show("Error: " + err.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void txtBoxID_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                txtBoxMateria.Focus();
+            }
+        }
+
+        private void txtBoxMateria_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                cboBoxProfesor.Focus();
+            }
+        }
+
+        private void cboBoxProfesor_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                cboBoxProfesor.IsDropDownOpen = true;
+                e.Handled = true;
+            }
+        }
+
+        private void cboBoxProfesor_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Right)
+            {
+                cboBoxCurso.Focus();
+            }
+        }
+
+        private void cboBoxCurso_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                cboBoxCurso.IsDropDownOpen = true;
+                e.Handled = true;
+            }
+        }
+
+        private void cboBoxCurso_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Right)
+            {
+                txtBoxHs.Focus();
+            }
+        }
+
+        private void txtBoxHs_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                btnAgregar.Focus();
             }
         }
     }
