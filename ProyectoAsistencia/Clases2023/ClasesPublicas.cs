@@ -240,7 +240,11 @@ namespace ProyectoAsistencia.Clases2023
                             }
                             else if(i == 6)
                             {
-                                ObjetoAsistencia.AlumnoAsistencia = Convert.ToBoolean(val);
+                                ObjetoAsistencia.AlumnoAsistencia = Convert.ToBoolean(val=="1"?true:false);
+                            }
+                            else if(i == 7)
+                            {
+                                ObjetoAsistencia.NombreApellido = val;
                             }
                             i++;
                         }
