@@ -92,7 +92,7 @@ namespace ProyectoAsistencia
                     }
 
                     decimal total = 0.0m;
-                    total = ObjAlumno.DíasClases * ObjAlumno.DíasAsistencias;
+                    total = ObjAlumno.DíasClases * ObjAlumno.DíasAsistencias / total;
                 }
                 DgResultados.ItemsSource = listaAsisPromedio;
                 DgResultados.Items.Refresh();
