@@ -174,7 +174,7 @@ namespace ProyectoAsistencia.Clases2023
                             }
                             else if (contador == 2)
                             {
-                                objCursos.CodigoPreceptor = Convert.ToInt32(valor);
+                                objCursos.CodigoPreceptor = Convert.ToInt16(valor);
                             }
                             else if (contador == 3)
                             {

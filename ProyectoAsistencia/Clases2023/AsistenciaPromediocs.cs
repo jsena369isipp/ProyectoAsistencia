@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProyectoAsistencia.Clases2023
 {
-    public class AsistenciaPromediocs
+    public class AsistenciaPromedio
     {
         public DateTime FechaInicial { get; set; }
         public DateTime FechaFinal { get; set; }
@@ -15,6 +15,6 @@ namespace ProyectoAsistencia.Clases2023
         public int DíasClases { get; set; }
         public int DíasAsistencias { get; set; }
         public decimal Promedio { get; set; }
-
+        public int CodigoAlumno { get; set; }
     }
 }

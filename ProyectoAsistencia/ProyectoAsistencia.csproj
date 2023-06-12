@@ -57,6 +57,7 @@
     </ApplicationDefinition>
     <Compile Include="Clases2023\Asistencia.cs" />
     <Compile Include="Clases2023\AsistenciaPromediocs.cs" />
+    <Compile Include="Clases2023\DNIEntidad.cs" />
     <Compile Include="Clases2023\Preceptor.cs" />
     <Compile Include="AsistenciasPromedio.xaml.cs">
       <DependentUpon>AsistenciasPromedio.xaml</DependentUpon>
