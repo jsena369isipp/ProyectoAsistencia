@@ -25,7 +25,7 @@ namespace ProyectoAsistencia
         public VentanaCursos()
         {
             InitializeComponent();
-
+            txtCurso.Focus();
             ClasesPublicas.LeerPreceptor();
             cmbPreceptor.ItemsSource = ClasesPublicas.ListaPreceptor;
         }
@@ -169,6 +169,8 @@ namespace ProyectoAsistencia
                 MessageBox.Show("Error: " + err.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+
 
         private void txtCurso_PreviewKeyDown(object sender, KeyEventArgs e)
         {
