@@ -29,7 +29,7 @@
                     <CheckBox x:Name="chHabilitado" Content="" Height="18" Margin="17,69,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="26"/>
                     <Image HorizontalAlignment="Right" Height="55" Margin="0,0,-4,0" VerticalAlignment="Top" Width="56" Source="/Imagen/isipp-blanco.png"/>
                     <TextBlock Margin="64,103,0,0" TextWrapping="Wrap" Text="Materia:" VerticalAlignment="Top" Height="18" Grid.RowSpan="2" HorizontalAlignment="Left" Width="60"/>
-                    <ComboBox PreviewKeyDown="cmbMateria_PreviewKeyDown" x:Name="cmbMateria" IsEnabled="{Binding ElementName=chHabilitadoMateria, Path=IsChecked}" DisplayMemberPath="Materia" SelectedValuePath="CodigoMateria" Margin="154,103,0,0" VerticalAlignment="Top" Height="20" SelectionChanged="cmbMateria_SelectionChanged" Grid.RowSpan="2" HorizontalAlignment="Left" Width="147"/>
+                    <ComboBox PreviewKeyDown="cmbMateria_PreviewKeyDown" x:Name="cmbMateria" IsEnabled="{Binding ElementName=chHabilitadoMateria, Path=IsChecked}" DisplayMemberPath="NombreMateria" SelectedValuePath="CodigoMateria" Margin="154,103,0,0" VerticalAlignment="Top" Height="20" SelectionChanged="cmbMateria_SelectionChanged" Grid.RowSpan="2" HorizontalAlignment="Left" Width="147"/>
                     <CheckBox x:Name="chHabilitadoMateria" Content="" Height="18" Margin="17,103,0,0" VerticalAlignment="Top" Grid.RowSpan="2" HorizontalAlignment="Left" Width="26"/>
                 </Grid>
             </TabItem>
