@@ -23,6 +23,7 @@ namespace ProyectoAsistencia
         public MainWindow()
         {
             InitializeComponent();
+            menuItemAsis.Focus();
         }
 
         private void mnuMant_Click(object sender, RoutedEventArgs e)
@@ -87,9 +88,5 @@ namespace ProyectoAsistencia
             ventanaProfesores.Show();
 
         }
-
-      
-
-       
     }
 }
