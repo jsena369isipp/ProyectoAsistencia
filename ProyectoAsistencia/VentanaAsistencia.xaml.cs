@@ -30,7 +30,7 @@ namespace ProyectoAsistencia
             InitializeComponent();
 
             DpFecha.SelectedDate = DateTime.Now;
-            
+
             ClasesPublicas.LeerArchivoMateria();
             cmbMateria.ItemsSource = ClasesPublicas.ListaMaterias;
             ClasesPublicas.LeerArchivoCursos();
@@ -39,7 +39,6 @@ namespace ProyectoAsistencia
             CmbPreceptor.ItemsSource = ClasesPublicas.ListaPreceptor;
             ClasesPublicas.LeerArchivoAsistencia();
             CmbMateriaX.ItemsSource = ClasesPublicas.ListaMaterias;
-            CmbCursoX.ItemsSource = ClasesPublicas.ListaCursos;
 
         }
         private void btnGrd_Click(object sender, RoutedEventArgs e)
@@ -151,11 +150,6 @@ namespace ProyectoAsistencia
                     int IdRegsitro = Convert.ToInt32(txtCodDesdeX.Text);
 
                     ListaAsistenciaBuscar = ListaAsistenciaBuscar.Where(n => n.CodigoAsistencia == IdRegsitro).ToList();
-                }
-                if (ChCursoX.IsChecked == true)
-                {
-                    int codCursoX = Convert.ToInt32(CmbCursoX.SelectedValue);
-                    ListaAsistenciaBuscar = ListaAsistenciaBuscar.Where(n => n.CodigoCursos == codCursoX).ToList();
                 }
                 if(ChMateriaX.IsChecked == true)
                 {

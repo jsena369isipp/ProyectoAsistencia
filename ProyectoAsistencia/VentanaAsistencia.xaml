@@ -66,10 +66,8 @@
                 <Button Name="btnBuscarX" Click="btnBuscar_Click" Content="Buscar" HorizontalAlignment="Left" Height="19" Margin="426,77,0,0" VerticalAlignment="Top" Width="84" Background="#FF822D4A" Foreground="White" BorderBrush="Black"/>
                 <DataGrid x:Name="dgResultadoX" AutoGenerateColumns="True" CanUserAddRows="False" HorizontalAlignment="Center" Margin="0,203,0,35" Width="800" d:ItemsSource="{d:SampleData ItemCount=5}"/>
                 <Label Name="lblResultadoX" Content="Registros encontrados: 0" HorizontalAlignment="Left" Height="30" VerticalAlignment="Bottom" Width="360"/>
-                <CheckBox x:Name="ChCursoX" Content="Cód.Curso:" HorizontalAlignment="Left" Margin="37,119,0,0" VerticalAlignment="Top"/>
-                <CheckBox x:Name="ChMateriaX" Content="Cód.Materia:" HorizontalAlignment="Left" Margin="37,157,0,0" VerticalAlignment="Top"/>
-                <ComboBox x:Name="CmbMateriaX" IsEnabled="{Binding ElementName=ChMateriaX, Path=IsChecked}" DisplayMemberPath="NombreMateria" SelectedValuePath="CodigoMateria" HorizontalAlignment="Left" Margin="190,156,0,0" VerticalAlignment="Top" Width="120"/>
-                <ComboBox x:Name="CmbCursoX"   IsEnabled="{Binding ElementName=ChCursoX, Path=IsChecked}" DisplayMemberPath="Descripcion" SelectedValuePath="CodigoCursos" HorizontalAlignment="Left" Margin="190,116,0,0" VerticalAlignment="Top" Width="120"/>
+                <CheckBox x:Name="ChMateriaX" Content="Materia:" HorizontalAlignment="Left" Margin="37,139,0,0" VerticalAlignment="Top"/>
+                <ComboBox x:Name="CmbMateriaX" IsEnabled="{Binding ElementName=ChMateriaX, Path=IsChecked}" DisplayMemberPath="NombreMateria" SelectedValuePath="CodigoMateria" HorizontalAlignment="Left" Margin="190,139,0,0" VerticalAlignment="Top" Width="120"/>
             </Grid>
         </TabItem>
     </TabControl>
