@@ -80,7 +80,7 @@ namespace ProyectoAsistencia
                 foreach (Materia ObjetoMateria in ListaMaterias)
                 {
                     MateriaConcatenado = MateriaConcatenado + "\n" + ObjetoMateria.CodigoMateria + ";" + ObjetoMateria.NombreMateria + ";" +
-                        ObjetoMateria.IDProfesor + ";" + ObjetoMateria.CodigoCursos + ";" + ObjetoMateria.HsCatedra;
+                    ObjetoMateria.IDProfesor + ";" + ObjetoMateria.CodigoCursos + ";" + ObjetoMateria.HsCatedra;
                 }
                 File.WriteAllText("Materias.txt", MateriaConcatenado);
                 MessageBox.Show("Almacenado exitosamente!", "Aplicación", MessageBoxButton.OK, MessageBoxImage.Information);
