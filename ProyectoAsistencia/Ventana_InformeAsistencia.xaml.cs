@@ -1,6 +1,7 @@
 ﻿using ProyectoAsistencia.Clases2023;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,11 +21,14 @@ namespace ProyectoAsistencia
     /// </summary>
     public partial class Ventana_InformeAsistencia : Window
     {
+        List<Asistencia> ListaAsistencias = new List<Asistencia>();
         List<Asistencia> ListaInformeAsistencia;
         public Ventana_InformeAsistencia()
         {
+            
             InitializeComponent();
             ClasesPublicas.LeerArchivoAsistencia();
+            ClasesPublicas.LeerArchivoMateria();
             cmbMateria.ItemsSource = ClasesPublicas.ListaMaterias;
         }
 
@@ -33,17 +37,17 @@ namespace ProyectoAsistencia
             try
             {
                 ListaInformeAsistencia = ClasesPublicas.ListaAsistencias;
-                DateTime? fechaDesde = dpFechaDesde.SelectedDate;
-                DateTime? fechaHasta = dpFechaHasta.SelectedDate;
-                int filtromateria = Convert.ToInt32(cmbMateria.SelectedValue);
                 
-                if (chHabilitado.IsChecked == true && fechaDesde.HasValue && fechaHasta.HasValue)
+                if (chHabilitado.IsChecked == true)
                 {
+                    DateTime? fechaDesde = dpFechaDesde.SelectedDate;
+                    DateTime? fechaHasta = dpFechaHasta.SelectedDate;
                     ListaInformeAsistencia = ListaInformeAsistencia.Where(n => n.Fecha >= fechaDesde && n.Fecha <= fechaHasta).ToList();
                 }
-                if (chHabilitadoMateria.IsChecked == true && filtromateria >= 0)
+                if (chHabilitadoMateria.IsChecked == true)
                 {
-                    ListaInformeAsistencia = ListaInformeAsistencia.Where(n => n.CodigoMateria == filtromateria).ToList();
+                    int comboMateria = Convert.ToInt32(cmbMateria.SelectedValue);
+                    ListaInformeAsistencia = ListaInformeAsistencia.Where(n => n.CodigoMateria == comboMateria).ToList();
                 }
                 
                 dgResultado.ItemsSource = ListaInformeAsistencia;
@@ -57,15 +61,24 @@ namespace ProyectoAsistencia
                 MessageBox.Show("Error: " + ex.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-
-        private void btnEliminar_Click(object sender, RoutedEventArgs e)
+        private void dgResultado_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            try
+            {
+                Asistencia ObjAsistencia = (Asistencia)dgResultado.SelectedItem;
 
-        }
+                if (ObjAsistencia != null)
+                {
+                    dpFechaDesde.Text = ObjAsistencia.Fecha.ToString();
+                    dpFechaHasta.Text = ObjAsistencia.Fecha.ToString();
+                    cmbMateria.SelectedValue = ObjAsistencia.CodigoMateria.ToString();
 
-        private void cmbMateria_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error!: " + ex.Message, "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void dpFechaHasta_PreviewKeyDown(object sender, KeyEventArgs e)
@@ -75,9 +88,7 @@ namespace ProyectoAsistencia
                 if (e.Key == Key.Enter)
                 {
                     cmbMateria.Focus();
-                    
                 }
-
             }
             catch (Exception ex)
             {
@@ -121,6 +132,16 @@ namespace ProyectoAsistencia
         }
 
         private void cmbMateria_PreviewKeyDown_1(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void btnEliminar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void cmbMateria_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }
