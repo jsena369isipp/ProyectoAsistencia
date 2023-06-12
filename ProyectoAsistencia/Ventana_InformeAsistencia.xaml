@@ -17,7 +17,7 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <DataGrid x:Name="dgResultado" HorizontalAlignment="Center" Width="800" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.Row="1" Margin="0,16,0,0"/>
+                    <DataGrid x:Name="dgResultado" HorizontalAlignment="Center" Width="800" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.Row="1" Margin="0,16,0,0" SelectionChanged="dgResultado_SelectionChanged"/>
                     <Button x:Name="btnBuscar" Content="Buscar" Height="26" Margin="579,63,0,0" VerticalAlignment="Top" Click="btnBuscar_Click" Background="#FF822D4A" Foreground="White" HorizontalAlignment="Left" Width="66"/>
                     <Label Content="Fecha Desde:" Height="26" Margin="54,64,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="80"/>
                     <Label Content="Fecha Hasta:" Height="26" Margin="317,64,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="80"/>
