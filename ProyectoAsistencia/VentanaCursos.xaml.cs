@@ -25,7 +25,7 @@ namespace ProyectoAsistencia
         public VentanaCursos()
         {
             InitializeComponent();
-
+            txtCurso.Focus();
             ClasesPublicas.LeerPreceptor();
             cmbPreceptor.ItemsSource = ClasesPublicas.ListaPreceptor;
         }
@@ -43,17 +43,18 @@ namespace ProyectoAsistencia
                     objCursos.Estado = chbEstado.IsChecked.Value;
                     objCursos.CodigoPreceptor = cmbPreceptor.SelectedIndex;
                     objCursos.CodigoCursos = Convert.ToInt32(txtCurso.Text);
-                    
+
                     ClasesPublicas.ListaCursos.Add(objCursos);
                 }
                 else
                 {
                     objCursos.Estado = chbEstado.IsChecked.Value;
-                    objCursos.CodigoPreceptor = Convert.ToInt32(cmbPreceptor.Text);
+                    objCursos.CodigoPreceptor = Convert.ToInt16(cmbPreceptor.Text);
                     objCursos.CodigoCursos = Convert.ToInt32(txtCurso.Text);
                 }
                 dtgCursos.ItemsSource = ClasesPublicas.ListaCursos;
                 dtgCursos.Items.Refresh();
+                Guardar();
 
             }
             catch (Exception ex)
@@ -99,28 +100,6 @@ namespace ProyectoAsistencia
             }
         }
 
-        private void bttnGuardar_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                if (File.Exists("Cursos.txt"))
-                {
-                    File.Delete("Cursos.txt");
-                }
-                string CursosConectando = "";
-                foreach (Cursos objetoCursos in ClasesPublicas.ListaCursos)
-                {
-                    CursosConectando = CursosConectando + "\r\n" + objetoCursos.Descripcion + ";" + objetoCursos.Estado + ";" + objetoCursos.CodigoPreceptor + ";" + objetoCursos.CodigoCursos;
-                }
-                File.WriteAllText("Cursos.txt", CursosConectando);
-                MessageBox.Show("Almacenado de forma correcta!!", "Aplicación", MessageBoxButton.OK, MessageBoxImage.Information);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al guardar: " + ex.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-        }
-
         private void txtBuscar_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -142,7 +121,7 @@ namespace ProyectoAsistencia
                     bool codEstado = Convert.ToBoolean(chkEstado);
                     ListaCursosBuscar = ListaCursosBuscar.Where(n => n.Estado == codEstado).ToList();
                 }
-               
+
                 dtgBuscador.ItemsSource = ListaCursosBuscar;
                 dtgBuscador.Items.Refresh();
                 LblCant.Content = "Registros encontrados: " + ListaCursosBuscar.Count;
@@ -191,55 +170,149 @@ namespace ProyectoAsistencia
             }
         }
 
-        private void txtCurso_KeyDown(object sender, KeyEventArgs e)
+
+
+        private void txtCurso_PreviewKeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Enter)
+            try
             {
-                txtCurso.Focus();
+                if (e.Key == Key.Enter)
+                {
+                    txtDescripcion.Focus();
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show("Error: " + err.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
-        private void txtDescripcion_KeyDown(object sender, KeyEventArgs e)
+        private void txtDescripcion_PreviewKeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Enter)
+            try
             {
-                txtDescripcion.Focus();
+                if (e.Key == Key.Enter)
+                {
+                    cmbPreceptor.Focus();
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show("Error: " + err.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void cmbPreceptor_KeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (e.Key == Key.Enter)
+                {
+                    cmbPreceptor.IsDropDownOpen = true;
+                    e.Handled = true;
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show("Error: " + err.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
         private void cmbPreceptor_PreviewKeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Enter)
+            try
             {
-                cmbPreceptor.IsDropDownOpen = true;
-                e.Handled = true;
+                if (e.Key == Key.Enter)
+                {
+                    chbEstado.Focus();
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show("Error: " + err.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
-
-        private void txtDescripcion2_KeyDown(object sender, KeyEventArgs e)
+        private void txtDescripcion2_PreviewKeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Enter)
+            try
             {
-                txtDescripcion2.Focus();
+                if (e.Key == Key.Enter)
+                {
+                    chkCodCursos.Focus();
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show("Error: " + err.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
-        private void txtDesde_KeyDown(object sender, KeyEventArgs e)
+        private void chkCodCursos_PreviewKeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Enter)
+            try
             {
-                txtDesde.Focus();
+                if (e.Key == Key.Enter)
+                {
+                    txtDesde.Focus();
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show("Error: " + err.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
-        private void txtHasta_KeyDown(object sender, KeyEventArgs e)
+        private void txtDesde_PreviewKeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Enter)
+            try
             {
-                txtHasta.Focus();
+                if (e.Key == Key.Enter)
+                {
+                    txtHasta.Focus();
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show("Error: " + err.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
-    }   
+        private void txtHasta_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (e.Key == Key.Enter)
+                {
+                    chkEstado.Focus();
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show("Error: " + err.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        void Guardar()
+        {
+            try
+            {
+                if (File.Exists("Cursos.txt"))
+                {
+                    File.Delete("Cursos.txt");
+                }
+                string CursosConectando = "";
+                foreach (Cursos objetoCursos in ClasesPublicas.ListaCursos)
+                {
+                    CursosConectando = CursosConectando + "\r\n" + objetoCursos.Descripcion + ";" + objetoCursos.Estado + ";" + objetoCursos.CodigoPreceptor + ";" + objetoCursos.CodigoCursos;
+                }
+                File.WriteAllText("Cursos.txt", CursosConectando);
+                MessageBox.Show("Almacenado de forma correcta!!", "Aplicación", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al guardar: " + ex.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+    }
 }

@@ -22,7 +22,6 @@ namespace ProyectoAsistencia
     public partial class VentanaProfesores : Window
     {
         /*List<Clases2023.Profesores> ListaProfesores = new List<Clases2023.Profesores>();*/
-       /* List<Profesores> ListaProfesores = new List<Profesores>();*/
         List<Profesores> ListaProfesorBuscar;
         public VentanaProfesores()
         {
@@ -64,14 +63,12 @@ namespace ProyectoAsistencia
                 dataGrid_Resultado.ItemsSource = ClasesPublicas.ListaProfesores;
                 dataGrid_Resultado.Items.Refresh();
             }
+
             catch (Exception ex)
             {
-                MessageBox.Show("Error:" + ex.Message, "Datos Cargador/Guardados Correctamente", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Error:" + ex.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
 
             }
-            btnGuardar_Click(sender, e);
-
-            /*MessageBox.Show("Datos cargados correctamente.", "Aplicación", MessageBoxButton.OK, MessageBoxImage.Information);*/
         }
 
         private void btnQuitar_Click(object sender, RoutedEventArgs e)
@@ -131,7 +128,6 @@ namespace ProyectoAsistencia
                 }
                 File.WriteAllText("Profesores.txt", ProfeConcatenado);
                 MessageBox.Show("Almacenado de forma correcta!!", "Aplicación", MessageBoxButton.OK, MessageBoxImage.Information);
-                labelCant1.Content = "Cantidad de Profesores: " + ClasesPublicas.ListaProfesores.Count;
             }
             catch (Exception ex)
             {
@@ -146,7 +142,7 @@ namespace ProyectoAsistencia
                 ClasesPublicas.LeerArchivoProfesores();
                 dataGrid_Resultado.ItemsSource = ClasesPublicas.ListaProfesores;
                 dataGrid_Resultado.Items.Refresh();
-                
+
             }
             catch (Exception ex)
             {
@@ -215,15 +211,15 @@ namespace ProyectoAsistencia
                 }
                 if (checkFecha.IsChecked == true)
                 {
-                    DateTime fechaDesde, fechaHasta;
-                    if (DateTime.TryParse(dateGrid_FechaDesde.SelectedDate.ToString(), out fechaDesde) && DateTime.TryParse(dateGrid_FechaHasta.SelectedDate.ToString(), out fechaHasta))
+                    DateTime fechaAlta;
+                    if (DateTime.TryParse(dateGrid_Fecha2.SelectedDate.ToString(), out fechaAlta))
                     {
-                        ListaProfesorBuscar = ListaProfesorBuscar.Where(n => n.FechaDeAlta.Date >= fechaDesde.Date && n.FechaDeAlta.Date <= fechaHasta.Date).ToList();
+                        ListaProfesorBuscar = ListaProfesorBuscar.Where(n => n.FechaDeAlta.Date == fechaAlta.Date).ToList();
                     }
                     else
                     {
-                        // Manejar el caso en que no se hayan seleccionado fechas válidas
-                        MessageBox.Show("Seleccione fechas válidas de inicio y fin", "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
+                        // Manejar el caso en que no se haya seleccionado una fecha válida
+                        MessageBox.Show("Seleccione una fecha válida", "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
                         return;
                     }
                 }
@@ -263,215 +259,6 @@ namespace ProyectoAsistencia
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-        }
-        /*Saltar cajas con Enter*/
-        private void txtID_PreviewKeyDown(object sender, KeyEventArgs e)
-        {
-            try
-            {
-                if (e.Key == Key.Enter)
-                {
-                    txt_Nombre.Focus();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message, "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-        }
-        private void txtNombre_PreviewKeyDown(object sender, KeyEventArgs e)
-        {
-            try
-            {
-                if (e.Key == Key.Enter)
-                {
-                    txtDNI.Focus();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message, "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-        }
-
-        private void txtDNI_PreviewKeyDown(object sender, KeyEventArgs e)
-        {
-            try
-            {
-                if (e.Key == Key.Enter)
-                {
-                    txtDomicilio.Focus();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message, "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-        }
-
-        private void txtDomicilio_PreviewKeyDown(object sender, KeyEventArgs e)
-        {
-            try
-            {
-                if (e.Key == Key.Enter)
-                {
-                    txtTelefono.Focus();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message, "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-        }
-
-        private void txtTelefono_PreviewKeyDown(object sender, KeyEventArgs e)
-        {
-            try
-            {
-                if (e.Key == Key.Enter)
-                {
-                    txtCorreo.Focus();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message, "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-        }
-
-        private void txtCorrreo_PreviewKeyDown(object sender, KeyEventArgs e)
-        {
-            try
-            {
-                if (e.Key == Key.Enter)
-                {
-                    dateGrid_Fecha.Focus();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message, "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-        }
-        /*Saltar cajas con enter buscador*/
-
-        private void txtDesde_PreviewKeyDown(object sender, KeyEventArgs e)
-        {
-            try
-            {
-                if (e.Key == Key.Enter)
-                {
-                    txtHasta.Focus();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message, "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-        }
-
-        private void txtHasta_PreviewKeyDown(object sender, KeyEventArgs e)
-        {
-            try
-            {
-                if (e.Key == Key.Enter)
-                {
-                    txtNombre2.Focus();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message, "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-        }
-
-        private void txtNombre2_PreviewKeyDown(object sender, KeyEventArgs e)
-        {
-            try
-            {
-                if (e.Key == Key.Enter)
-                {
-                    txtDNI2.Focus();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message, "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-        }
-
-        private void txtDNI2_PreviewKeyDown(object sender, KeyEventArgs e)
-        {
-            try
-            {
-                if (e.Key == Key.Enter)
-                {
-                    txtDom2.Focus();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message, "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-        }
-
-        private void txtDom2_PreviewKeyDown(object sender, KeyEventArgs e)
-        {
-            try
-            {
-                if (e.Key == Key.Enter)
-                {
-                    txtTel2.Focus();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message, "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-        }
-
-        private void txtTel2_PreviewKeyDown(object sender, KeyEventArgs e)
-        {
-            try
-            {
-                if (e.Key == Key.Enter)
-                {
-                    txtCorreo2.Focus();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message, "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-        }
-
-        private void txtCorreo2_PreviewKeyDown(object sender, KeyEventArgs e)
-        {
-            try
-            {
-                if (e.Key == Key.Enter)
-                {
-                    dateGrid_FechaDesde.Focus();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message, "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-        }
-        private void FechaDesde_PreviewKeyDown(object sender, KeyEventArgs e)
-        {
-            try
-            {
-                if (e.Key == Key.Enter)
-                {
-                    dateGrid_FechaHasta.Focus();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message, "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }
