@@ -5,40 +5,48 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoAsistencia"
         mc:Ignorable="d"
-        Title="VentanaPreceptor" Height="450" Width="800">
+        Title="VentanaPreceptor" Height="506" Width="800">
     <Grid>
-        <TabControl>
+        <TabControl SelectionChanged="TabControl_SelectionChanged">
             <TabItem Header="Registro">
                 <Grid Background="#FFE5E5E5">
-                    <Label Content="Codigo preceptor:" HorizontalAlignment="Left" Margin="9,87,0,0" VerticalAlignment="Top"/>
-                    <TextBox x:Name="txtCodPreceptor" HorizontalAlignment="Left" Margin="126,91,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="80" Height="22"/>
-                    <Label Content="Nombre y Apellido:" HorizontalAlignment="Left" Margin="9,204,0,0" VerticalAlignment="Top"/>
-                    <TextBox x:Name="txtNombApellido" HorizontalAlignment="Left" Margin="126,206,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="159" Height="22"/>
-                    <Label Content="DNI:" HorizontalAlignment="Left" Margin="10,147,0,0" VerticalAlignment="Top"/>
-                    <TextBox x:Name="txtdni" HorizontalAlignment="Left" Margin="126,148,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" Height="21"/>
-                    <DatePicker x:Name="dpFechaNac" HorizontalAlignment="Left" Margin="543,87,0,0" VerticalAlignment="Top" Height="26"/>
-                    <Label Content="Fecha nacimiento:" HorizontalAlignment="Left" Margin="438,82,0,0" VerticalAlignment="Top"/>
-                    <Label Content="Estado:" HorizontalAlignment="Left" Margin="438,155,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.562,-0.114"/>
-                    <CheckBox x:Name="chbEstado" Content="Habilitado" HorizontalAlignment="Left" Margin="541,161,0,0" VerticalAlignment="Top"/>
-                    <DataGrid x:Name="dg1" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,319,0,0" HorizontalAlignment="Left" Width="800" Height="115" VerticalAlignment="Top" SelectionChanged="dg1_SelectionChanged"/>
-                    <Button x:Name="btnCargar" Content="Cargar" HorizontalAlignment="Left" Margin="251,277,0,0" VerticalAlignment="Top" Width="60" Height="20" Background="#FF822D4A" Foreground="White" FontWeight="Bold" Click="btnCargar_Click"/>
-                    <Button x:Name="btnQuitar" Content="Quitar" HorizontalAlignment="Left"  Margin="344,277,0,0" VerticalAlignment="Top" Width="60" Height="20" Foreground="#FFFDFDFD" Background="#FF822D4A" FontWeight="Bold" Click="btnQuitar_Click"/>
-                    <Button x:Name="btnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="437,277,0,0" VerticalAlignment="Top" Width="60" Height="20" Foreground="#FFFDFDFD" Background="#FF822D4A" FontWeight="Bold" Click="btnGuardar_Click"/>
-                    <Rectangle Height="55" Stroke="Black" VerticalAlignment="Top" Fill="#FF641C34" Margin="0,0,-6,0"/>
-                    <Image Height="55" Margin="723,0,15,0" VerticalAlignment="Top" Source="/Imagen/isipp-blanco.png"/>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="249*"/>
+                        <ColumnDefinition Width="148*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Codigo preceptor:" HorizontalAlignment="Left" Margin="9,87,0,0" VerticalAlignment="Top" Height="26" Width="106"/>
+                    <TextBox x:Name="txtCodPreceptor" HorizontalAlignment="Left" Margin="126,91,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="80" Height="22" PreviewKeyDown="txtCodPreceptor_PreviewKeyDown"/>
+                    <Label Content="Nombre y Apellido:" HorizontalAlignment="Left" Margin="9,204,0,0" VerticalAlignment="Top" Height="26" Width="113"/>
+                    <TextBox x:Name="txtNombApellido" HorizontalAlignment="Left" Margin="126,206,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="159" Height="22" PreviewKeyDown="txtNombApellido_PreviewKeyDown"/>
+                    <Label Content="DNI:" HorizontalAlignment="Left" Margin="10,147,0,0" VerticalAlignment="Top" Height="26" Width="33"/>
+                    <TextBox x:Name="txtdni" HorizontalAlignment="Left" Margin="126,148,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" Height="21" PreviewKeyDown="txtdni_PreviewKeyDown"/>
+                    <DatePicker x:Name="dpFechaNac" Margin="114,87,0,0" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="145" Grid.Column="1"/>
+                    <Label Content="Fecha nacimiento:" Margin="9,82,0,0" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="105" Grid.Column="1"/>
+                    <Label Content="Estado:" Margin="15,155,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.562,-0.114" Height="26" HorizontalAlignment="Left" Width="48" Grid.Column="1"/>
+                    <CheckBox x:Name="chbEstado" Content="Habilitado" Margin="112,161,97,0" VerticalAlignment="Top" Height="15" Grid.Column="1"/>
+                    <DataGrid x:Name="dg1" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,319,-6,44" SelectionChanged="dg1_SelectionChanged" Grid.ColumnSpan="2"/>
+                    <Button x:Name="btnCargar" Content="Cargar" HorizontalAlignment="Left" Margin="230,277,0,0" VerticalAlignment="Top" Width="60" Height="20" Background="#FF822D4A" Foreground="White" FontWeight="Bold" Click="btnCargar_Click"/>
+                    <Button x:Name="btnQuitar" Content="Quitar" HorizontalAlignment="Left"  Margin="323,277,0,0" VerticalAlignment="Top" Width="60" Height="20" Foreground="#FFFDFDFD" Background="#FF822D4A" FontWeight="Bold" Click="btnQuitar_Click"/>
+                    <Button x:Name="btnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="417,277,0,0" VerticalAlignment="Top" Width="60" Height="20" Foreground="#FFFDFDFD" Background="#FF822D4A" FontWeight="Bold" Click="btnGuardar_Click"/>
+                    <Rectangle Height="55" Stroke="Black" VerticalAlignment="Top" Fill="#FF641C34" Margin="0,0,-6,0" Grid.ColumnSpan="2"/>
+                    <Image Height="55" Margin="229,0,-1,0" VerticalAlignment="Top" Source="/Imagen/isipp-blanco.png" Grid.Column="1"/>
                     <Label Content="Preceptor" HorizontalAlignment="Left" Margin="0,15,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="White" Width="206" Height="28" FontSize="15" FontWeight="Bold"/>
+                    <Button x:Name="btnLeer" Content="Leer" Margin="0,277,224,0" VerticalAlignment="Top" Height="20" Foreground="#FFFDFDFD" Background="#FF822D4A" FontWeight="Bold" Click="btnLeer_Click" Grid.Column="1" HorizontalAlignment="Right" Width="60"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="Buscador">
-                <Grid Background="#FFE5E5E5" Height="339">
-                    <CheckBox x:Name="chCodPreceptor" Content="Cód. Preceptor: " HorizontalAlignment="Left" Height="19" Margin="25,10,0,0" VerticalAlignment="Top" Width="110"/>
-                    <TextBox x:Name="txtCodDesde" IsEnabled="{Binding IsChecked, ElementName=chCodPreceptor}" HorizontalAlignment="Left" Height="19" Margin="135,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75" PreviewKeyDown="txtCodDesde_PreviewKeyDown"/>
-                    <TextBox x:Name="txtCodHasta" IsEnabled="{Binding IsChecked, ElementName=chCodPreceptor}" HorizontalAlignment="Left" Height="19" Margin="215,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75"/>
-                    <CheckBox x:Name="chNombrePreceptor" Content="Ap.Nombre Preceptor: " HorizontalAlignment="Left" Height="19" Margin="305,10,0,0" VerticalAlignment="Top" Width="155"/>
-                    <TextBox x:Name="txtNombreBuscar" IsEnabled="{Binding IsChecked, ElementName=chNombrePreceptor}" HorizontalAlignment="Left" Height="19" Margin="460,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="220"/>
-                    <Button x:Name="btnBuscar" Click="btnBuscar_Click" Content="Buscar" HorizontalAlignment="Left" Height="19" Margin="685,10,0,0" VerticalAlignment="Top" Width="85"/>
-                    <DataGrid x:Name="dgResultado" HorizontalAlignment="Left" Margin="0,34,0,0" Width="800" d:ItemsSource="{d:SampleData ItemCount=5}"/>
-                    <Label x:Name="lblResultado" Content="Registros encontrados: 0" HorizontalAlignment="Left" Height="30" VerticalAlignment="Bottom" Width="360" Margin="0,0,0,-28"/>
+            <TabItem Header="Buscador" Height="20" VerticalAlignment="Top">
+                <Grid Background="#FFE5E5E5" Height="473" >
+                    <CheckBox x:Name="chCodPreceptor" Content="Cód. Preceptor: " HorizontalAlignment="Left" Height="19" Margin="10,67,0,0" VerticalAlignment="Top" Width="110"/>
+                    <TextBox x:Name="txtCodDesde" IsEnabled="{Binding IsChecked, ElementName=chCodPreceptor}" HorizontalAlignment="Left" Height="19" Margin="123,67,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75" PreviewKeyDown="txtCodDesde_PreviewKeyDown"/>
+                    <TextBox x:Name="txtCodHasta" IsEnabled="{Binding IsChecked, ElementName=chCodPreceptor}" HorizontalAlignment="Left" Height="19" Margin="203,67,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75"/>
+                    <CheckBox x:Name="chNombrePreceptor" Content="Ap.Nombre Preceptor: " HorizontalAlignment="Left" Height="19" Margin="293,67,0,0" VerticalAlignment="Top" Width="155"/>
+                    <TextBox x:Name="txtNombreBuscar" IsEnabled="{Binding IsChecked, ElementName=chNombrePreceptor}" HorizontalAlignment="Left" Height="19" Margin="448,67,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="220"/>
+                    <Button x:Name="btnBuscar" Click="btnBuscar_Click" Content="Buscar" HorizontalAlignment="Left" Height="19" Margin="673,67,0,0" VerticalAlignment="Top" Width="85"/>
+                    <DataGrid x:Name="dgResultado" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,91,-6,0" Height="339" VerticalAlignment="Top"/>
+                    <Label x:Name="lblResultado" Content="Registros encontrados: 0" HorizontalAlignment="Left" Height="30" VerticalAlignment="Bottom" Width="360" Margin="0,0,0,8"/>
+                    <Rectangle Height="55" Stroke="Black" VerticalAlignment="Top" Fill="#FF641C34" Margin="0,0,-6,0"/>
+                    <Image Height="55" Margin="739,0,-1,0" VerticalAlignment="Top" Source="/Imagen/isipp-blanco.png"/>
+                    <Label Content="Buscador" HorizontalAlignment="Left" Margin="0,15,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="White" Width="206" Height="28" FontSize="15" FontWeight="Bold"/>
                 </Grid>
             </TabItem>
         </TabControl>

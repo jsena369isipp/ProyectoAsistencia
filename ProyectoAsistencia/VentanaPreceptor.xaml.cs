@@ -66,8 +66,6 @@ namespace ProyectoAsistencia
         {
             try
             {
-
-
                 Preceptor preceptor = (Preceptor)dg1.SelectedItem;
                 if (preceptor != null)
                 {
@@ -114,12 +112,15 @@ namespace ProyectoAsistencia
                 }
                 dg1.ItemsSource = ListaPreceptor;                
                 dg1.Items.Refresh();
+
                 Limpiar();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(/*"Error: " + */ex.Message, "SIN REGISTROS", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+            //lblCantReg.Content = "Cantidad registros: " + ListaPreceptor.Count;
+            
         }
         private void Limpiar()
         {
@@ -134,7 +135,16 @@ namespace ProyectoAsistencia
 
         private void btnLeer_Click(object sender, RoutedEventArgs e)
         {
-
+            try
+            {
+                ClasesPublicas.LeerPreceptor();
+                dg1.ItemsSource = ClasesPublicas.ListaPreceptor;
+                dg1.Items.Refresh();
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show("Error: " + err.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void dg1_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -198,6 +208,55 @@ namespace ProyectoAsistencia
             {
                 MessageBox.Show("Error: " + ex.Message, "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+
+        private void txtCodPreceptor_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (e.Key == Key.Enter)
+                {
+                    txtdni.Focus();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+        private void txtdni_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (e.Key == Key.Enter)
+                {
+                    txtNombApellido.Focus();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void txtNombApellido_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (e.Key == Key.Enter)
+                {
+                    dpFechaNac.Focus();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }
