@@ -38,13 +38,13 @@ namespace ProyectoAsistencia
             {
                 ListaInformeAsistencia = ClasesPublicas.ListaAsistencias;
                 
-                if (chHabilitado.IsChecked == true )
+                if (chHabilitado.IsChecked == true)
                 {
                     DateTime? fechaDesde = dpFechaDesde.SelectedDate;
                     DateTime? fechaHasta = dpFechaHasta.SelectedDate;
                     ListaInformeAsistencia = ListaInformeAsistencia.Where(n => n.Fecha >= fechaDesde && n.Fecha <= fechaHasta).ToList();
                 }
-                if (chHabilitadoMateria.IsChecked == true )
+                if (chHabilitadoMateria.IsChecked == true)
                 {
                     int comboMateria = Convert.ToInt32(cmbMateria.SelectedValue);
                     ListaInformeAsistencia = ListaInformeAsistencia.Where(n => n.CodigoMateria == comboMateria).ToList();
