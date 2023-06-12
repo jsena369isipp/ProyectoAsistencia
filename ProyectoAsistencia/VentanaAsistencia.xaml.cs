@@ -44,13 +44,7 @@ namespace ProyectoAsistencia
         private void btnGrd_Click(object sender, RoutedEventArgs e)
         {
             try
-            {
-               
-                
-                if (File.Exists("Asistencias.txt"))
-                {
-                    File.Delete("Asistencias.txt");
-                }
+            {    
 
                 string AsistenciasConcatenados = "";
                 foreach (Asistencia ObjetoAsistencia in ListaAsistencias)
@@ -62,6 +56,10 @@ namespace ProyectoAsistencia
                     }
                    
                     AsistenciasConcatenados = AsistenciasConcatenados + "\r\n" + ObjetoAsistencia.CodigoAlumno + ";" + ObjetoAsistencia.CodigoAsistencia + ";" + ObjetoAsistencia.Fecha + ";" + ObjetoAsistencia.CodigoCursos + ";" + ObjetoAsistencia.CodigoPreceptor + ";" + ObjetoAsistencia.CodigoMateria + ";" + presente + ";" + ObjetoAsistencia.NombreApellido; 
+                }
+                if (File.Exists("Asistencias.txt"))
+                {
+                    File.Delete("Asistencias.txt");
                 }
 
                 File.WriteAllText("Asistencias.txt", AsistenciasConcatenados);
