@@ -105,5 +105,6 @@ namespace ProyectoAsistencia
                 MessageBox.Show("Error: " + ex.Message, "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
     }
 }

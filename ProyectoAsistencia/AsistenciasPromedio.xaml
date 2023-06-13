@@ -10,16 +10,16 @@
         <Rectangle HorizontalAlignment="Right" Height="55" Stroke="Black" VerticalAlignment="Top" Width="800" Fill="#FF641C34"/>
         <Label Content="Promedio Asistencias" HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top" Width="263" Height="45" FontWeight="Bold" FontSize="25" Foreground="#FFFDF5F5"/>
         <Label Content="" HorizontalAlignment="Left" Margin="10,248,0,0" VerticalAlignment="Top" Width="56"/>
-        <DatePicker x:Name="DateFechaFinal" HorizontalAlignment="Left" Margin="255,71,0,0" VerticalAlignment="Top"/>
-        <DatePicker x:Name="DateFechaInicio" HorizontalAlignment="Left" Margin="102,71,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="ComboMateria" HorizontalAlignment="Left" Margin="102,100,0,0" VerticalAlignment="Top" Width="145" DisplayMemberPath="NombreMateria" SelectedValuePath="CodigoMateria"/>
-        <Button x:Name="BtnBuscar" Content="Buscar" HorizontalAlignment="Left" Margin="424,103,0,0" VerticalAlignment="Top" Width="71" FontWeight="Bold" Foreground="#FFF9F2F5" Background="#FF822D4A" Click="Button_Click"/>
-        <DataGrid x:Name="DgResultados" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,217,0,0" Height="246" Width="800" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <DatePicker x:Name="DateFechaFinal" HorizontalAlignment="Center" Margin="0,66,0,0" VerticalAlignment="Top"/>
+        <DatePicker x:Name="DateFechaInicio" HorizontalAlignment="Left" Margin="132,66,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="ComboMateria" HorizontalAlignment="Left" Margin="132,102,0,0" VerticalAlignment="Top" Width="144" DisplayMemberPath="NombreMateria" SelectedValuePath="CodigoMateria"/>
+        <Button x:Name="BtnBuscar" Content="Buscar" HorizontalAlignment="Left" Margin="465,103,0,0" VerticalAlignment="Top" Width="71" FontWeight="Bold" Foreground="#FFF9F2F5" Background="#FF822D4A" Click="Button_Click"/>
+        <DataGrid x:Name="DgResultados" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,199,0,0" Height="246" Width="800" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Image HorizontalAlignment="Left" Margin="705,-15,0,0" VerticalAlignment="Top" Source="/Imagen/isipp-blanco.png" Height="85"/>
-        <CheckBox x:Name="CheckFechI" Content="Fecha Inicio" HorizontalAlignment="Left" Margin="12,75,0,0" VerticalAlignment="Top"/>
-        <CheckBox x:Name="CheckMateria" Content="Materia" HorizontalAlignment="Left" Margin="12,108,0,0" VerticalAlignment="Top"/>
-        <CheckBox x:Name="ChAlumno" Content="Alumno" HorizontalAlignment="Left" Margin="10,144,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="ComboAlumno" HorizontalAlignment="Left" Margin="102,136,0,0" VerticalAlignment="Top" Width="138" DisplayMemberPath="NombreApellido" SelectedValuePath="CodigoAlumno"/>
+        <CheckBox x:Name="CheckFechI" Content="Fecha Inicio" HorizontalAlignment="Left" Margin="28,70,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="CheckMateria" Content="Materia" HorizontalAlignment="Left" Margin="28,103,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="ChAlumno" Content="Alumno" HorizontalAlignment="Left" Margin="27,140,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="ComboAlumno" HorizontalAlignment="Left" Margin="132,136,0,0" VerticalAlignment="Top" Width="138" DisplayMemberPath="NombreApellido" SelectedValuePath="CodigoAlumno" SelectionChanged="ComboAlumno_SelectionChanged"/>
 
     </Grid>
 </Window>
