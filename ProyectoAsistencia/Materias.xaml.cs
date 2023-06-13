@@ -89,8 +89,6 @@ namespace ProyectoAsistencia
 
         void GuardarMateria()
         {
-            List<Materia> ListaMaterias = new List<Materia>();
-
             try
             {
                 if (File.Exists("Materias.txt"))
@@ -198,7 +196,7 @@ namespace ProyectoAsistencia
                 Materia ObjetoMateria = (Materia)dtgBuscMat.SelectedItem;
                 if (ObjetoMateria != null)
                 {
-                    txtBoxID.Text = ObjetoMateria.CodigoMateria.ToString();
+                    txtBoxID.Text = ObjetoMateria.CodigoMateria.ToString(); 
                     txtBoxMateria.Text = ObjetoMateria.NombreMateria;
                     cboBoxProfesor.SelectedIndex = ObjetoMateria.IDProfesor;
                     cboBoxCurso.SelectedIndex = ObjetoMateria.CodigoCursos;
