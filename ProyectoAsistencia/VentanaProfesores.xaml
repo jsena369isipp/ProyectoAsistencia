@@ -11,6 +11,19 @@
             <Grid Background="#FFFBF9F9">
                 <Rectangle HorizontalAlignment="Center" Height="49" Stroke="Black" VerticalAlignment="Top" Width="800" Fill="#FF641C34" Margin="0,-3,0,0"/>
                 <Label Content="Profesor:" HorizontalAlignment="Left" Height="36" Margin="10,100,0,0" VerticalAlignment="Top" Width="94" FontWeight="Bold"/>
+<!--<<<<<<< HEAD
+                <TextBox x:Name="txt_Nombre" HorizontalAlignment="Left" Margin="141,102,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="185" Height="19" PreviewKeyDown="txtNombre_PreviewKeyDown"/>
+                <TextBox x:Name="txt_ID" HorizontalAlignment="Left" Margin="141,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75" Height="26" PreviewKeyDown="txtID_PreviewKeyDown"/>
+                <Label Content="Código De Profesor:" HorizontalAlignment="Left" Height="36" Margin="10,60,0,0" VerticalAlignment="Top" Width="126" FontWeight="Bold"/>
+                <Button x:Name="btnAñadir" Content="Cargar" Margin="174,262,0,0" VerticalAlignment="Top" Height="20"  Background="#FF822D4A" Foreground="White" FontWeight="Bold"  Click="btnAgregar_Click" HorizontalAlignment="Left" Width="60"/>
+                <Button x:Name="btnEliminar" Content="Quitar" Margin="256,262,0,0" VerticalAlignment="Top" Height="20" Background="#FF822D4A" Foreground="White" FontWeight="Bold" Click="btnQuitar_Click" HorizontalAlignment="Left" Width="60"/>
+                <Button x:Name="btnCargar" Content="Leer" Margin="341,262,0,0" VerticalAlignment="Top" Height="20" Background="#FF822D4A" Foreground="White" FontWeight="Bold" Click="btnCargar_Click" HorizontalAlignment="Left" Width="60"/>
+                <DataGrid x:Name="dataGrid_Resultado" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionChanged="dataGrid_Resultado_SelectionChanged" Margin="0,295,0,0" Height="111" VerticalAlignment="Top"/>
+                <TextBox x:Name="txtDNI" HorizontalAlignment="Left" Margin="141,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="185" Height="21" PreviewKeyDown="txtDNI_PreviewKeyDown"/>
+                <DatePicker x:Name="dateGrid_Fecha" Margin="491,134,0,0" VerticalAlignment="Top" Height="29" HorizontalAlignment="Left" Width="140"/>
+                <Label Content="DNI:" HorizontalAlignment="Left" Margin="10,132,0,0" VerticalAlignment="Top" Width="80" FontWeight="Bold"/>
+                <Label Content="Fecha De Alta:" Margin="367,132,0,0" VerticalAlignment="Top" FontWeight="Bold" HorizontalAlignment="Left" Width="108"/>
+=======-->
                 <TextBox x:Name="txt_Nombre" HorizontalAlignment="Left" Margin="141,102,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="185" Height="19"/>
                 <TextBox x:Name="txt_ID" HorizontalAlignment="Left" Margin="141,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75" Height="26"/>
                 <Label Content="CódigoDeProfesor:" HorizontalAlignment="Left" Height="36" Margin="10,60,0,0" VerticalAlignment="Top" Width="120" FontWeight="Bold"/>
@@ -23,16 +36,25 @@
                 <DatePicker x:Name="dateGrid_Fecha" HorizontalAlignment="Left" Margin="487,134,0,0" VerticalAlignment="Top" Width="140" Height="29"/>
                 <Label Content="DNI:" HorizontalAlignment="Left" Margin="10,132,0,0" VerticalAlignment="Top" Width="80" FontWeight="Bold"/>
                 <Label Content="FechaDeAlta:" HorizontalAlignment="Left" Margin="352,132,0,0" VerticalAlignment="Top" Width="104" FontWeight="Bold"/>
+
                 <Label Content="Profesores" HorizontalAlignment="Left" Margin="2,0,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="White" Width="206" Height="43" FontSize="24" FontWeight="Bold"/>
                 <Label Content="Teléfono:" HorizontalAlignment="Left" Margin="352,61,0,0" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
                 <Label Content="Estado:" HorizontalAlignment="Left" Margin="352,165,0,0" VerticalAlignment="Top" Width="68" FontWeight="Bold"/>
                 <TextBox x:Name="txtTelefono" HorizontalAlignment="Left" Margin="487,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="134" Height="26"/>
                 <CheckBox x:Name="checkBx_Estado" Content="Habilitado" HorizontalAlignment="Left" Margin="487,176,0,0" VerticalAlignment="Top"/>
                 <Label Content="Domicilio:" HorizontalAlignment="Left" Margin="10,163,0,0" VerticalAlignment="Top" Width="80" FontWeight="Bold"/>
+
+                <TextBox x:Name="txtDomicilio" HorizontalAlignment="Left" Margin="141,166,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="206" Height="37" PreviewKeyDown="txtDomicilio_PreviewKeyDown"/>
+                <Label Content="Correo Electrónico:" Margin="368,102,0,0" VerticalAlignment="Top" FontWeight="Bold" HorizontalAlignment="Left" Width="118"/>
+                <TextBox x:Name="txtCorreo" Margin="491,102,0,283" TextWrapping="Wrap" PreviewKeyDown="txtCorrreo_PreviewKeyDown" HorizontalAlignment="Left" Width="185"/>
+                <Image Height="49" Margin="0,-6,17,0" VerticalAlignment="Top" Source="/Imagen/isipp-blanco.png" HorizontalAlignment="Right" Width="55"/>
+                <Label x:Name="labelCant1" Content="" HorizontalAlignment="Left" Margin="498,259,0,0" VerticalAlignment="Top" Width="170"/>
+<!--=======
                 <TextBox x:Name="txtDomicilio" HorizontalAlignment="Left" Margin="141,166,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="185" Height="20"/>
                 <Label Content="CorreoElectrónico:" HorizontalAlignment="Left" Margin="352,102,0,0" VerticalAlignment="Top" Width="118" FontWeight="Bold"/>
                 <TextBox x:Name="txtCorreo" HorizontalAlignment="Left" Margin="487,102,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="185" Height="21"/>
                 <Image HorizontalAlignment="Left" Height="49" Margin="726,-6,0,0" VerticalAlignment="Top" Width="51" Source="/Imagen/isipp-blanco.png"/>
+>>>>>>> 84045d4f163a955bc1c688a852c8158d8ea0f1f8-->
             </Grid>
         </TabItem>
         <TabItem Header="Buscador">
@@ -46,6 +68,33 @@
                 <CheckBox x:Name="checkFecha" Content="Fecha De Alta:" HorizontalAlignment="Left" Margin="373,147,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                 <CheckBox x:Name="checkTel" Content="Teléfono:" HorizontalAlignment="Left" Margin="373,73,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                 <CheckBox x:Name="checkDomicilio" Content="Domicilio:" HorizontalAlignment="Left" Margin="15,190,0,0" VerticalAlignment="Top" Width="84" FontWeight="Bold"/>
+<!--<<<<<<< HEAD-->
+                <CheckBox x:Name="checkBx_Estado2" Content="Estado" HorizontalAlignment="Left" Margin="372,213,0,0" VerticalAlignment="Top" FontWeight="Bold" Width="64"/>
+                <CheckBox x:Name="checkCorreo" Content="Correo Electrónico:" Margin="373,112,0,0" VerticalAlignment="Top" FontWeight="Bold" HorizontalAlignment="Left" Width="127"/>
+                <TextBox x:Name="txtDesde" HorizontalAlignment="Left" Margin="143,70,0,0" TextWrapping="Wrap" Text="Desde:" VerticalAlignment="Top" Width="75" Height="18" GotFocus="txtDesde_GotFocus" PreviewKeyDown="txtDesde_PreviewKeyDown"/>
+                <TextBox x:Name="txtHasta" HorizontalAlignment="Left" Margin="252,70,0,0" TextWrapping="Wrap" Text="Hasta:" VerticalAlignment="Top" Width="74" Height="18" GotFocus="txtHasta_GotFocus" PreviewKeyDown="txtHasta_PreviewKeyDown"/>
+                <TextBox x:Name="txtNombre2" HorizontalAlignment="Left" Margin="143,109,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="185" Height="19" PreviewKeyDown="txtNombre2_PreviewKeyDown"/>
+                <TextBox x:Name="txtDNI2" HorizontalAlignment="Left" Margin="143,147,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="185" Height="21" PreviewKeyDown="txtDNI2_PreviewKeyDown"/>
+                <TextBox x:Name="txtTel2" Margin="554,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="26" PreviewKeyDown="txtTel2_PreviewKeyDown" HorizontalAlignment="Left" Width="172"/>
+                <DatePicker x:Name="dateGrid_FechaDesde" HorizontalAlignment="Left" Margin="584,139,0,0" VerticalAlignment="Top" Height="36" PreviewKeyDown="FechaDesde_PreviewKeyDown" RenderTransformOrigin="0.5,0.5">
+                    <DatePicker.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform AngleX="-2.709"/>
+                            <RotateTransform/>
+                            <TranslateTransform X="-0.639"/>
+                        </TransformGroup>
+                    </DatePicker.RenderTransform>
+                </DatePicker>
+                <TextBox x:Name="txtDom2" HorizontalAlignment="Left" Margin="143,189,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="185" PreviewKeyDown="txtDom2_PreviewKeyDown" Height="39"/>
+                <TextBox x:Name="txtCorreo2" Margin="541,107,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="21" PreviewKeyDown="txtCorreo2_PreviewKeyDown" HorizontalAlignment="Left" Width="185"/>
+                <Button x:Name="BtnBuscar" Content="Buscar" Height="24" Margin="286,255,0,0" VerticalAlignment="Top" BorderBrush="#FF822D4A" Background="#FF822D4A" FontWeight="Bold" Foreground="White" Click="btnBuscar_Click" HorizontalAlignment="Left" Width="81"/>
+                <DataGrid x:Name="dataGrid_Resultado2" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,284,0,0" Height="123" VerticalAlignment="Top"/>
+                <Label x:Name="labelCant" Content="" HorizontalAlignment="Left" Margin="423,253,0,0" VerticalAlignment="Top" Width="308" FontWeight="Bold"/>
+                <DatePicker x:Name="dateGrid_FechaHasta" HorizontalAlignment="Left" Margin="584,182,0,0" VerticalAlignment="Top" Height="31"/>
+                <Label Content="Hasta:" HorizontalAlignment="Left" Margin="517,182,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                <Label Content="Desde:" HorizontalAlignment="Left" Margin="517,144,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+<!--=======
                 <CheckBox x:Name="checkBx_Estado2" Content="Estado" HorizontalAlignment="Left" Margin="373,184,0,0" VerticalAlignment="Top" FontWeight="Bold" Width="64"/>
                 <CheckBox x:Name="checkCorreo" Content="Correo Electrónico:" HorizontalAlignment="Left" Margin="373,112,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                 <TextBox x:Name="txtDesde" HorizontalAlignment="Left" Margin="143,70,0,0" TextWrapping="Wrap" Text="Desde:" VerticalAlignment="Top" Width="75" Height="18" GotFocus="txtDesde_GotFocus"/>
@@ -59,6 +108,7 @@
                 <Button x:Name="BtnBuscar" Content="Buscar" HorizontalAlignment="Left" Height="24" Margin="286,255,0,0" VerticalAlignment="Top" Width="81" BorderBrush="#FF822D4A" Background="#FF822D4A" FontWeight="Bold" Foreground="White" Click="btnBuscar_Click"/>
                 <DataGrid x:Name="dataGrid_Resultado2" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,284,0,0"/>
                 <Label x:Name="labelCant" Content="" HorizontalAlignment="Left" Margin="374,207,0,0" VerticalAlignment="Top" Width="376" FontWeight="Bold"/>
+>>>>>>> 84045d4f163a955bc1c688a852c8158d8ea0f1f8-->
             </Grid>
         </TabItem>
     </TabControl>
