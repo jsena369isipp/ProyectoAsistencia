@@ -61,33 +61,11 @@ namespace ProyectoAsistencia
                 }
                 dtgMaterias.ItemsSource = ListaMaterias;
                 dtgMaterias.Items.Refresh();
+                GuardarMateria();
             }
             catch (Exception err)
             {
                 MessageBox.Show("Error: " + err.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-        }
-
-        private void btnGuardar_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                if (File.Exists("Materias.txt"))
-                {
-                    File.Delete("Materias.txt");
-                }
-                string MateriaConcatenado = "";
-                foreach (Materia ObjetoMateria in ListaMaterias)
-                {
-                    MateriaConcatenado = MateriaConcatenado + "\n" + ObjetoMateria.CodigoMateria + ";" + ObjetoMateria.NombreMateria + ";" +
-                    ObjetoMateria.IDProfesor + ";" + ObjetoMateria.CodigoCursos + ";" + ObjetoMateria.HsCatedra;
-                }
-                File.WriteAllText("Materias.txt", MateriaConcatenado);
-                MessageBox.Show("Almacenado exitosamente!", "Aplicación", MessageBoxButton.OK, MessageBoxImage.Information);
-            }
-            catch (Exception err)
-            {
-                MessageBox.Show("Error al guardar: " + err.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -106,6 +84,31 @@ namespace ProyectoAsistencia
             catch (Exception err)
             {
                 MessageBox.Show("Error: " + err.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        void GuardarMateria()
+        {
+            List<Materia> ListaMaterias = new List<Materia>();
+
+            try
+            {
+                if (File.Exists("Materias.txt"))
+                {
+                    File.Delete("Materias.txt");
+                }
+                string MateriaConcatenado = "";
+                foreach (Materia ObjetoMateria in ListaMaterias)
+                {
+                    MateriaConcatenado = MateriaConcatenado + "\n" + ObjetoMateria.CodigoMateria + ";" + ObjetoMateria.NombreMateria + ";" +
+                    ObjetoMateria.IDProfesor + ";" + ObjetoMateria.CodigoCursos + ";" + ObjetoMateria.HsCatedra;
+                }
+                File.WriteAllText("Materias.txt", MateriaConcatenado);
+                MessageBox.Show("Almacenado exitosamente!", "Aplicación", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show("Error al guardar: " + err.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -264,6 +267,13 @@ namespace ProyectoAsistencia
             {
                 btnAgregar.Focus();
             }
+        }
+
+        private void btnRecuperar_Click(object sender, RoutedEventArgs e)
+        {
+            ClasesPublicas.LeerArchivoMateria();
+            dtgMaterias.ItemsSource = ClasesPublicas.ListaMaterias;
+            dtgMaterias.Items.Refresh();
         }
     }
 }
