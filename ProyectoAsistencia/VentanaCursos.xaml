@@ -39,7 +39,7 @@
                 <TextBox x:Name="txtDescripcion2" HorizontalAlignment="Left" Margin="97,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" PreviewKeyDown="txtDescripcion2_PreviewKeyDown"/>
                 <TextBox x:Name="txtEstado2" HorizontalAlignment="Left" Margin="586,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
                 <CheckBox x:Name="chkEstado" Content="Habilitado" HorizontalAlignment="Left" Margin="506,66,0,0" VerticalAlignment="Top"/>
-                <Button x:Name="txtBuscar" Content="Buscar" HorizontalAlignment="Left" Margin="724,64,0,0" VerticalAlignment="Top" FontSize="14" Background="#FF822D4A" Foreground="White" BorderBrush="Black" Click="txtBuscar_Click" Width="55"/>
+                <Button x:Name="bttnBuscar" Content="Buscar" HorizontalAlignment="Left" Margin="724,64,0,0" VerticalAlignment="Top" FontSize="14" Background="#FF822D4A" Foreground="White" BorderBrush="Black" Click="bttnBuscar_Click" Width="55"/>
                 <Label x:Name="LblCant" Content="" HorizontalAlignment="Left" Margin="529,186,0,0" VerticalAlignment="Top"/>
                 <Image HorizontalAlignment="Left" Height="55" Margin="724,0,0,0" VerticalAlignment="Top" Width="56" Source="/Imagen/isipp-blanco.png"/>
             </Grid>

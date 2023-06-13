@@ -25,23 +25,25 @@ namespace ProyectoAsistencia
         public VentanaCursos()
         {
             InitializeComponent();
+
             txtCurso.Focus();
             ClasesPublicas.LeerPreceptor();
             cmbPreceptor.ItemsSource = ClasesPublicas.ListaPreceptor;
+            ClasesPublicas.LeerArchivoCursos();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                String DescripcionVariable = Convert.ToString(txtDescripcion.Text);
-                Cursos objCursos = ClasesPublicas.ListaCursos.Where(n => n.Descripcion == DescripcionVariable).FirstOrDefault();
+                Int32 DescripcionVariable = Convert.ToInt32(txtCurso.Text);
+                Cursos objCursos = ClasesPublicas.ListaCursos.Where(n => n.CodigoCursos == DescripcionVariable).FirstOrDefault();
                 if (objCursos == null)
                 {
                     objCursos = new Cursos();
                     objCursos.Descripcion = Convert.ToString(txtDescripcion.Text);
                     objCursos.Estado = chbEstado.IsChecked.Value;
-                    objCursos.CodigoPreceptor = cmbPreceptor.SelectedIndex;
+                    objCursos.CodigoPreceptor = Convert.ToInt16(cmbPreceptor.SelectedValue);
                     objCursos.CodigoCursos = Convert.ToInt32(txtCurso.Text);
 
                     ClasesPublicas.ListaCursos.Add(objCursos);
@@ -100,7 +102,7 @@ namespace ProyectoAsistencia
             }
         }
 
-        private void txtBuscar_Click(object sender, RoutedEventArgs e)
+        private void bttnBuscar_Click(object sender, RoutedEventArgs e)
         {
             try
             {
