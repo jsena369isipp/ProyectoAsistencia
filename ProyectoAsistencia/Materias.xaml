@@ -46,7 +46,7 @@
 					<TextBox x:Name="txtCodProfe" IsEnabled="{Binding IsChecked, ElementName=chkCodProfe}" HorizontalAlignment="Left" Margin="166,163,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="41"/>
 					<TextBox x:Name="txtCodCurso" IsEnabled="{Binding IsChecked, ElementName=chkCodCurso}" HorizontalAlignment="Left" Margin="166,203,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="41"/>
 					<Label Content="/" HorizontalAlignment="Left" Margin="207,81,0,0" VerticalAlignment="Top"/>
-					<DataGrid x:Name="dtgBuscMat" IsReadOnly="True" HorizontalAlignment="Center" Height="122" Margin="0,246,0,0" VerticalAlignment="Top" Width="774" d:ItemsSource="{d:SampleData ItemCount=5}" Background="White" BorderBrush="White"/>
+					<DataGrid x:Name="dtgBuscMat" IsReadOnly="True" HorizontalAlignment="Center" Height="122" Margin="0,246,0,0" VerticalAlignment="Top" Width="774" d:ItemsSource="{d:SampleData ItemCount=5}" Background="White" BorderBrush="White" SelectionChanged="dtgBuscMat_SelectionChanged"/>
 					<Button x:Name="btnBuscar" Content="Buscar" HorizontalAlignment="Center" Margin="0,194,0,0" VerticalAlignment="Top" Height="27" Width="70" Click="btnBuscar_Click" Background="#FF822D4A" Foreground="White" BorderBrush="Black"/>
 					<Label x:Name="lblReg" Content="Registros encontrados: " HorizontalAlignment="Left" Margin="593,193,0,0" VerticalAlignment="Top"/>
 				</Grid>
