@@ -189,25 +189,6 @@ namespace ProyectoAsistencia
             }
         }
 
-        private void dtgBuscMat_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            try
-            {
-                Materia ObjetoMateria = (Materia)dtgBuscMat.SelectedItem;
-                if (ObjetoMateria != null)
-                {
-                    txtBoxID.Text = ObjetoMateria.CodigoMateria.ToString(); 
-                    txtBoxMateria.Text = ObjetoMateria.NombreMateria;
-                    cboBoxProfesor.SelectedIndex = ObjetoMateria.IDProfesor;
-                    cboBoxCurso.SelectedIndex = ObjetoMateria.CodigoCursos;
-                    txtBoxHs.Text = ObjetoMateria.HsCatedra.ToString();
-                }
-            }
-            catch (Exception err)
-            {
-                MessageBox.Show("Error: " + err.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-        }
 
         private void txtBoxID_KeyDown(object sender, KeyEventArgs e)
         {
@@ -272,6 +253,26 @@ namespace ProyectoAsistencia
             ClasesPublicas.LeerArchivoMateria();
             dtgMaterias.ItemsSource = ClasesPublicas.ListaMaterias;
             dtgMaterias.Items.Refresh();
+        }
+
+        private void dtgBuscMat_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            try
+            {
+                Materia ObjetoMateria = (Materia)dtgBuscMat.SelectedItem;
+                if (ObjetoMateria != null)
+                {
+                    txtBoxID.Text = ObjetoMateria.CodigoMateria.ToString();
+                    txtBoxMateria.Text = ObjetoMateria.NombreMateria;
+                    cboBoxProfesor.SelectedIndex = ObjetoMateria.IDProfesor;
+                    cboBoxCurso.SelectedIndex = ObjetoMateria.CodigoCursos;
+                    txtBoxHs.Text = ObjetoMateria.HsCatedra.ToString();
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show("Error: " + err.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }
