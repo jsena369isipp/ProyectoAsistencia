@@ -65,13 +65,13 @@ namespace ProyectoAsistencia
         {
             try
             {
-                Asistencia ObjAsistencia = (Asistencia)dgResultado.SelectedItem;
+                Asistencia ObjetoAsistencia = (Asistencia)dgResultado.SelectedItem;
 
-                if (ObjAsistencia != null)
+                if (ObjetoAsistencia != null)
                 {
-                    dpFechaDesde.Text = ObjAsistencia.Fecha.ToString();
-                    dpFechaHasta.Text = ObjAsistencia.Fecha.ToString();
-                    cmbMateria.SelectedValue = ObjAsistencia.CodigoMateria.ToString();
+                    dpFechaDesde.Text = ObjetoAsistencia.Fecha.ToString();
+                    dpFechaHasta.Text = ObjetoAsistencia.Fecha.ToString();
+                    cmbMateria.SelectedValue = ObjetoAsistencia.CodigoMateria.ToString();
 
                 }
             }
