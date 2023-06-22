@@ -22,10 +22,10 @@
                     <TextBox x:Name="txtNombApellido" HorizontalAlignment="Left" Margin="126,206,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="239" Height="22" PreviewKeyDown="txtNombApellido_PreviewKeyDown"/>
                     <Label Content="DNI:" HorizontalAlignment="Left" Margin="10,147,0,0" VerticalAlignment="Top" Height="26" Width="33"/>
                     <TextBox x:Name="txtdni" HorizontalAlignment="Left" Margin="126,148,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" Height="21" PreviewKeyDown="txtdni_PreviewKeyDown"/>
-                    <DatePicker x:Name="dpFechaNac" Margin="612,87,0,0" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="145"/>
+                    <DatePicker x:Name="dpFechaNac" Margin="612,87,0,0" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="145" PreviewKeyDown="dpFechaNac_PreviewKeyDown"/>
                     <Label Content="Fecha nacimiento:" Margin="506,82,0,0" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="105"/>
                     <Label Content="Estado:" Margin="512,155,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.562,-0.114" Height="26" HorizontalAlignment="Left" Width="48"/>
-                    <CheckBox x:Name="chbEstado" Content="Habilitado" Margin="610,161,97,0" VerticalAlignment="Top" Height="15"/>
+                    <CheckBox x:Name="chbEstado" Content="Habilitado" Margin="610,161,0,0" VerticalAlignment="Top" Height="15" HorizontalAlignment="Left" Width="87"/>
                     <DataGrid x:Name="dg1" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,319,-6,44" SelectionChanged="dg1_SelectionChanged"/>
                     <Button x:Name="btnCargar" Content="Cargar" HorizontalAlignment="Left" Margin="230,277,0,0" VerticalAlignment="Top" Width="60" Height="20" Background="#FF822D4A" Foreground="White" FontWeight="Bold" Click="btnCargar_Click"/>
                     <Button x:Name="btnQuitar" Content="Quitar" HorizontalAlignment="Left"  Margin="323,277,0,0" VerticalAlignment="Top" Width="60" Height="20" Foreground="#FFFDFDFD" Background="#FF822D4A" FontWeight="Bold" Click="btnQuitar_Click"/>
@@ -43,7 +43,7 @@
                     <TextBox x:Name="txtCodHasta" IsEnabled="{Binding IsChecked, ElementName=chCodPreceptor}" HorizontalAlignment="Left" Height="19" Margin="203,67,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75"/>
                     <CheckBox x:Name="chNombrePreceptor" Content="Ap.Nombre Preceptor: " HorizontalAlignment="Left" Height="19" Margin="293,67,0,0" VerticalAlignment="Top" Width="155"/>
                     <TextBox x:Name="txtNombreBuscar" IsEnabled="{Binding IsChecked, ElementName=chNombrePreceptor}" HorizontalAlignment="Left" Height="19" Margin="448,67,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="220"/>
-                    <Button x:Name="btnBuscar" Click="btnBuscar_Click" Content="Buscar" HorizontalAlignment="Left" Height="19" Margin="673,67,0,0" VerticalAlignment="Top" Width="85"/>
+                    <Button x:Name="btnBuscar" Click="btnBuscar_Click" Content="Buscar" Height="19" Margin="673,67,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="85"/>
                     <DataGrid x:Name="dgResultado" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,91,-6,43"/>
                     <Label x:Name="lblResultado" Content="Registros encontrados: 0" HorizontalAlignment="Left" Height="30" VerticalAlignment="Bottom" Width="360" Margin="0,0,0,-3"/>
                     <Rectangle Height="55" Stroke="Black" VerticalAlignment="Top" Fill="#FF641C34" Margin="0,0,-6,0"/>

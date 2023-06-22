@@ -94,7 +94,6 @@ namespace ProyectoAsistencia
                     preceptor.CodigoPreceptor = Convert.ToInt32(txtCodPreceptor.Text);
                     preceptor.DNI = Convert.ToInt64(txtdni.Text);
                     preceptor.ApellidoNombre = txtNombApellido.Text;
-                    //preceptor.CodigoCursos = Convert.ToInt16(cbCursos.SelectedValue);
                     preceptor.Estado = Convert.ToBoolean(chbEstado.IsChecked);//<--para mostrar el estado en el DataGrid
                     preceptor.FechaNacimiento = Convert.ToDateTime(dpFechaNac.SelectedDate);
 
@@ -106,11 +105,10 @@ namespace ProyectoAsistencia
                     preceptor.CodigoPreceptor = Convert.ToInt32(txtCodPreceptor.Text);
                     preceptor.DNI = Convert.ToInt64(txtdni.Text);
                     preceptor.ApellidoNombre = txtNombApellido.Text;
-                    //preceptor.CodigoCursos = Convert.ToInt16(cbCursos.SelectedValue);
                     preceptor.Estado = Convert.ToBoolean(chbEstado.IsChecked);//<--para mostrar el estado en el DataGrid
                     preceptor.FechaNacimiento = Convert.ToDateTime(dpFechaNac.SelectedDate);
                 }
-                dg1.ItemsSource = ListaPreceptor;                
+                dg1.ItemsSource = ListaPreceptor;
                 dg1.Items.Refresh();
                 Guardar();
                 Limpiar();
@@ -120,18 +118,17 @@ namespace ProyectoAsistencia
             {
                 MessageBox.Show(/*"Error: " + */ex.Message, "SIN REGISTROS", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-            //lblCantReg.Content = "Cantidad registros: " + ListaPreceptor.Count;
-            
         }
+
         private void Limpiar()
         {
             txtCodPreceptor.Text = "";
             txtdni.Text = "";
             txtNombApellido.Text = "";
-            //dpFechaNac.Text = string.Empty;
-
-
+            dpFechaNac.Text = string.Empty;
         }
+
+
         private void Guardar()
         {
             try
@@ -154,9 +151,7 @@ namespace ProyectoAsistencia
 
                 MessageBox.Show("Error al guardar", "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-
         }
-
 
         private void btnLeer_Click(object sender, RoutedEventArgs e)
         {
@@ -165,7 +160,6 @@ namespace ProyectoAsistencia
                 ClasesPublicas.LeerPreceptor();
                 dg1.ItemsSource = ClasesPublicas.ListaPreceptor;
                 dg1.Items.Refresh();
-
             }
             catch (Exception err)
             {
@@ -186,8 +180,6 @@ namespace ProyectoAsistencia
                     txtNombApellido.Text = preceptor.ApellidoNombre;
                     dpFechaNac.SelectedDate = preceptor.FechaNacimiento;
                     chbEstado.IsChecked = preceptor.Estado;
-                    //cbCursos.SelectedIndex = preceptor.CodigoCursos;
-
                 }
             }
             catch (Exception ex)
@@ -284,6 +276,21 @@ namespace ProyectoAsistencia
         private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void dpFechaNac_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (e.Key == Key.Enter)
+                {
+                    chbEstado.Focus();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }
