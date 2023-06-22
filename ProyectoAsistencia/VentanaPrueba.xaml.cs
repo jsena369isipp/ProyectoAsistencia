@@ -31,6 +31,10 @@ namespace ProyectoAsistencia
         {
             try
             {
+                //DNIEntidad dNIEntidad = new DNIEntidad();
+                //dNIEntidad.DatosDNI("00636119460@SENA@JUAN ESTEBAN@M@30633343@B@10/03/1984@10/08/2020@208");
+                //MessageBox.Show(dNIEntidad.ApellidoYNombre);
+
                 listaAlumnoBuscar = ClasesPublicas.ListaAlumnos;
                 //X
                 if (chCodAlumno.IsChecked == true)
