@@ -62,6 +62,8 @@ namespace ProyectoAsistencia
 
                 dataGrid_Resultado.ItemsSource = ClasesPublicas.ListaProfesores;
                 dataGrid_Resultado.Items.Refresh();
+                btnGuardar_Click(sender, e);
+                MessageBox.Show("Datos cargados correctamente.", "Aplicación", MessageBoxButton.OK, MessageBoxImage.Information);
             }
 
             catch (Exception ex)
@@ -128,7 +130,7 @@ namespace ProyectoAsistencia
                 }
                 File.WriteAllText("Profesores.txt", ProfeConcatenado);
                 MessageBox.Show("Almacenado de forma correcta!!", "Aplicación", MessageBoxButton.OK, MessageBoxImage.Information);
-                labelCant1.Content = "Cantidad de Profesores: " + ClasesPublicas.ListaProfesores.Count;
+                labelCant2.Content = "Cantidad de Profesores: " + ClasesPublicas.ListaProfesores.Count;
             }
             catch (Exception ex)
             {
