@@ -29,7 +29,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>Codigo Alumno</Value>
-                              <Style />
+                              <Style>
+                                <Color>Blue</Color>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -232,7 +234,7 @@
         <DataSetName>DS</DataSetName>
         <Top>1.41139cm</Top>
         <Height>1.2cm</Height>
-        <Width>11.68042cm</Width>
+        <Width>11.68041cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
