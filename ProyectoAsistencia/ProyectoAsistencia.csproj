@@ -208,6 +208,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="rdlc\Microsoft.RdlcDesigner.vsix" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
