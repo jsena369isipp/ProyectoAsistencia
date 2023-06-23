@@ -25,8 +25,8 @@ namespace ProyectoAsistencia
         {
             InitializeComponent();
             DateFechaIngreso.SelectedDate = DateTime.Now;
-            ComboCurso.ItemsSource = ClasesPublicas.ListaCursos;
             ClasesPublicas.LeerArchivoCursos();
+            ComboCurso.ItemsSource = ClasesPublicas.ListaCursos;
             ClasesPublicas.LeerArchivoAlumno();
         }
         
@@ -66,6 +66,7 @@ namespace ProyectoAsistencia
                 }
                 DgAlumno.ItemsSource = ClasesPublicas.ListaAlumnos;
                 DgAlumno.Items.Refresh();
+                LblCantAlumnos.Content = ClasesPublicas.ListaAlumnos.Count;
             }
             catch (Exception ex)
             {
@@ -83,6 +84,7 @@ namespace ProyectoAsistencia
                     ClasesPublicas.ListaAlumnos.Remove(ObjAlumnoEliminar);
                     DgAlumno.ItemsSource = ClasesPublicas.ListaAlumnos;
                     DgAlumno.Items.Refresh();
+                    LblCantAlumnos.Content = ClasesPublicas.ListaAlumnos.Count + 2 - 2;
                 }
             }
             catch (Exception ex)
@@ -121,6 +123,7 @@ namespace ProyectoAsistencia
         {
             try
             {
+                BtnCargar_Click(sender, e);
                 if (File.Exists("Alumno.txt"))
                 {
                     File.Delete("Alumno.txt");
@@ -162,13 +165,14 @@ namespace ProyectoAsistencia
                 }
                 if (CheckFechaNacimiento.IsChecked == true)
                 {
-                    DateTime codFechNac = Convert.ToDateTime(DateFechaNacimiento1);
+                    DateTime codFechNac = Convert.ToDateTime(DateFechaNacimiento1.SelectedDate);
                     ListaAlumnoBuscar = ListaAlumnoBuscar.Where(n => n.FechaNacimiento == codFechNac).ToList();
                 }
                 if (CheckFechaIngreso.IsChecked == true)
                 {
-                    DateTime codFechIng = Convert.ToDateTime(DateFechaIngreso1);
-                    ListaAlumnoBuscar = ListaAlumnoBuscar.Where(n => n.FechaIngreso == codFechIng).ToList();
+                    DateTime codFechIngDesde = Convert.ToDateTime(DateFechaIngresoDesde.SelectedDate);
+                    DateTime codFechIngHasta = Convert.ToDateTime(DateFechaIngresoHasta.SelectedDate);
+                    ListaAlumnoBuscar = ListaAlumnoBuscar.Where(n => n.FechaIngreso >= codFechIngDesde && n.FechaIngreso <= codFechIngHasta).ToList();
                 }
                 if (CheckNombreApellido.IsChecked == true)
                 {
@@ -189,7 +193,7 @@ namespace ProyectoAsistencia
                 }
                 DgBuscador.ItemsSource = ListaAlumnoBuscar;
                 DgBuscador.Items.Refresh();
-                LblCant.Content = "Registros encontrados: " + ListaAlumnoBuscar.Count;
+                LblCant.Content = ListaAlumnoBuscar.Count;
             }
             catch (Exception ex)
             {
@@ -228,6 +232,317 @@ namespace ProyectoAsistencia
                 ClasesPublicas.LeerArchivoAlumno();
                 DgAlumno.ItemsSource = ClasesPublicas.ListaAlumnos;
                 DgAlumno.Items.Refresh();
+                LblCantAlumnos.Content = ClasesPublicas.ListaAlumnos.Count;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al leer: " + ex.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void TxtCodAlumno_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (e.Key == Key.Enter)
+                {
+                    TxtDNI.Focus();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al leer: " + ex.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
+        }
+
+        private void TxtDNI_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (e.Key == Key.Enter)
+                {
+                    TxtNomApellido.Focus();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al leer: " + ex.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void TxtNomApellido_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (e.Key == Key.Enter)
+                {
+                    CheckEstado.Focus();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al leer: " + ex.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void CheckEstado_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (e.Key == Key.Enter)
+                {
+                    DateFechaNac.Focus();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al leer: " + ex.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void DateFechaNac_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (e.Key == Key.Enter)
+                {
+                    TxtDomicilio.Focus();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al leer: " + ex.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void TxtDomicilio_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (e.Key == Key.Enter)
+                {
+                    TxtTelefono.Focus();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al leer: " + ex.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void TxtTelefono_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (e.Key == Key.Enter)
+                {
+                    TxtCorreo.Focus();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al leer: " + ex.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void TxtCorreo_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (e.Key == Key.Enter)
+                {
+                    DateFechaIngreso.Focus();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al leer: " + ex.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void ComboCurso_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (e.Key == Key.Enter)
+                {
+                    TxtCodAlumno.Focus();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al leer: " + ex.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void TxtDesde_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (e.Key == Key.Enter)
+                {
+                    TxtHasta.Focus();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al leer: " + ex.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void TxtHasta_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (e.Key == Key.Enter)
+                {
+                    TxtDNI1.Focus();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al leer: " + ex.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void TxtDNI1_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (e.Key == Key.Enter)
+                {
+                    TxtTelefono1.Focus();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al leer: " + ex.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void TxtTelefono1_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (e.Key == Key.Enter)
+                {
+                    DateFechaNacimiento1.Focus();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al leer: " + ex.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void DateFechaNacimiento1_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (e.Key == Key.Enter)
+                {
+                    DateFechaIngresoDesde.Focus();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al leer: " + ex.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+        private void DateFechaIngresoDesde_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (e.Key == Key.Enter)
+                {
+                    DateFechaIngresoHasta.Focus();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al leer: " + ex.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void DateFechaIngresoHasta_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (e.Key == Key.Enter)
+                {
+                    TxtNombreApellido1.Focus();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al leer: " + ex.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void TxtNombreApellido1_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (e.Key == Key.Enter)
+                {
+                    CheckEstado1.Focus();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al leer: " + ex.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void CheckEstado1_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (e.Key == Key.Enter)
+                {
+                    TxtDomicilio1.Focus();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al leer: " + ex.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void TxtDomicilio1_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (e.Key == Key.Enter)
+                {
+                    TxtCorreoElectronico1.Focus();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al leer: " + ex.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void TxtDNIEntidad_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                DNIEntidad dniEntidad = new DNIEntidad();
+                dniEntidad.DatosDNI(TxtDNIEntidad.Text);
+
+                if (e.Key == Key.Enter)
+                {
+                    if (dniEntidad != null)
+                    {
+                        TxtNomApellido.Text = dniEntidad.ApellidoYNombre;
+                        DateFechaNac.SelectedDate = dniEntidad.FechaDeNacimiento;
+                        TxtDNI.Text = dniEntidad.DNI.ToString();
+                    }
+
+                    ComboCurso.Focus();
+                }
             }
             catch (Exception ex)
             {
