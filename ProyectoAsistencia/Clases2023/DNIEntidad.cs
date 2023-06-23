@@ -24,17 +24,17 @@ namespace ProyectoAsistencia.Clases2023
 
             foreach (string val in valores)
             {
-                if (cont == 0)
+                if (cont == 1 || cont == 2)
                 {
-                    this.ApellidoYNombre = val;
+                    this.ApellidoYNombre += " " + val;
                 }
-                else if (cont == 1)
-                {
-                    this.FechaDeNacimiento = Convert.ToDateTime(val);
-                }
-                else if (cont == 2)
+                else if (cont == 4)
                 {
                     this.DNI = Convert.ToInt64(val);
+                }
+                else if (cont == 6)
+                {
+                    this.FechaDeNacimiento = Convert.ToDateTime(val);
                 }
                 cont += 1;
             }

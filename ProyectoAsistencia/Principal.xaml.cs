@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProyectoAsistencia.Clases2023;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,7 @@ namespace ProyectoAsistencia
         public MainWindow()
         {
             InitializeComponent();
+            
         }
 
         private void mnuMant_Click(object sender, RoutedEventArgs e)
@@ -32,10 +34,7 @@ namespace ProyectoAsistencia
 
         }
 
-        private void btnAlumn_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+       
 
         private void mnuAlumnos_Click(object sender, RoutedEventArgs e)
         {
@@ -58,10 +57,10 @@ namespace ProyectoAsistencia
 
         }
 
-        private void mnuAsistencias_Click(object sender, RoutedEventArgs e)
+        private void menuAsistencias_Click(object sender, RoutedEventArgs e)
         {
-            VentanaAsistencia VentanaAsistencia = new VentanaAsistencia();
-            VentanaAsistencia.Show();
+            VentanaAsistencia ventana = new VentanaAsistencia();
+            ventana.Show();
 
         }
 
@@ -88,8 +87,15 @@ namespace ProyectoAsistencia
 
         }
 
-      
+        private void menuItemProm_Click(object sender, RoutedEventArgs e)
+        {
+            AsistenciasPromedio ventana = new AsistenciasPromedio();
+            ventana.Show();
+        }
 
-       
+        private void menuAsis_C_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

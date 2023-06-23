@@ -1,6 +1,8 @@
-﻿using ProyectoAsistencia.Clases2023;
+﻿using Microsoft.Reporting.WinForms;
+using ProyectoAsistencia.Clases2023;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,6 +33,10 @@ namespace ProyectoAsistencia
         {
             try
             {
+                //DNIEntidad dNIEntidad = new DNIEntidad();
+                //dNIEntidad.DatosDNI("00636119460@SENA@JUAN ESTEBAN@M@30633343@B@10/03/1984@10/08/2020@208");
+                //MessageBox.Show(dNIEntidad.ApellidoYNombre);
+
                 listaAlumnoBuscar = ClasesPublicas.ListaAlumnos;
                 //X
                 if (chCodAlumno.IsChecked == true)
@@ -60,6 +66,31 @@ namespace ProyectoAsistencia
                 if (e.Key == Key.Enter)
                 {
                     txtCodHasta.Focus();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void btnImprimir_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var stream = GetType().Assembly.GetManifestResourceStream("ProyectoAsistencia.Reportes.ListaAlumnos.rdlc");
+                if (stream != null)
+                {
+                    
+                    ReportViewer reporViewer = new ReportViewer();
+                    reporViewer.LocalReport.DataSources.Add(new ReportDataSource("DS", listaAlumnoBuscar));
+                    reporViewer.LocalReport.LoadReportDefinition(stream);
+
+                    reporViewer.Visible = true;
+                    reporViewer.RefreshReport();
+
+                    VentanaReportes ventanaReportes = new VentanaReportes(reporViewer);
+                    ventanaReportes.ShowDialog();
                 }
             }
             catch (Exception ex)

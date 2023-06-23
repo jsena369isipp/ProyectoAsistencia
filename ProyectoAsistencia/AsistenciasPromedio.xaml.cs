@@ -13,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Xml.Schema;
 
 namespace ProyectoAsistencia
 {
@@ -92,7 +93,9 @@ namespace ProyectoAsistencia
                     }
 
                     decimal total = 0.0m;
-                    total = ObjAlumno.DíasClases * ObjAlumno.DíasAsistencias / total;
+                    total = (ObjAlumno.DíasAsistencias * 100) / ObjAlumno.DíasClases;
+                    ObjAlumno.Promedio = total;
+                    
                 }
                 DgResultados.ItemsSource = listaAsisPromedio;
                 DgResultados.Items.Refresh();
@@ -102,5 +105,6 @@ namespace ProyectoAsistencia
                 MessageBox.Show("Error: " + ex.Message, "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
     }
 }

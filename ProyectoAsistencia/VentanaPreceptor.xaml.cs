@@ -36,38 +36,36 @@ namespace ProyectoAsistencia
 
         }
 
-        private void btnGuardar_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                if (File.Exists("Preceptor.txt"))
-                {
-                    File.Delete("Preceptor.txt");
-                }
-                string preceptorConcatenado = "";
-                foreach (Preceptor objetoPreceptor in ListaPreceptor)
-                {
-                    preceptorConcatenado = preceptorConcatenado + "\r\n" + objetoPreceptor.CodigoPreceptor + ";" + objetoPreceptor.ApellidoNombre + ";" + objetoPreceptor.DNI + ";" + objetoPreceptor.FechaNacimiento + ";" + objetoPreceptor.Estado;
-                }
-                File.WriteAllText("Preceptor.txt", preceptorConcatenado);
-                MessageBox.Show("Almacenado de forma correcta!", "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Information);
+        //private void btnGuardar_Click(object sender, RoutedEventArgs e)
+        //{
+        //    try
+        //    {
+        //        if (File.Exists("Preceptor.txt"))
+        //        {
+        //            File.Delete("Preceptor.txt");
+        //        }
+        //        string preceptorConcatenado = "";
+        //        foreach (Preceptor objetoPreceptor in ListaPreceptor)
+        //        {
+        //            preceptorConcatenado = preceptorConcatenado + "\r\n" + objetoPreceptor.CodigoPreceptor + ";" + objetoPreceptor.ApellidoNombre + ";" + objetoPreceptor.DNI + ";" + objetoPreceptor.FechaNacimiento + ";" + objetoPreceptor.Estado;
+        //        }
+        //        File.WriteAllText("Preceptor.txt", preceptorConcatenado);
+        //        MessageBox.Show("Almacenado de forma correcta!", "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Information);
 
-            }
-            catch (Exception ex)
-            {
+        //    }
+        //    catch (Exception ex)
+        //    {
 
-                MessageBox.Show("Error al guardar", "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
+        //        MessageBox.Show("Error al guardar", "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
+        //    }
 
-        }
+        //}
 
 
         private void btnQuitar_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-
-
                 Preceptor preceptor = (Preceptor)dg1.SelectedItem;
                 if (preceptor != null)
                 {
@@ -114,12 +112,16 @@ namespace ProyectoAsistencia
                 }
                 dg1.ItemsSource = ListaPreceptor;                
                 dg1.Items.Refresh();
+                Guardar();
                 Limpiar();
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show(/*"Error: " + */ex.Message, "SIN REGISTROS", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+            //lblCantReg.Content = "Cantidad registros: " + ListaPreceptor.Count;
+            
         }
         private void Limpiar()
         {
@@ -130,11 +132,46 @@ namespace ProyectoAsistencia
 
 
         }
+        private void Guardar()
+        {
+            try
+            {
+                if (File.Exists("Preceptor.txt"))
+                {
+                    File.Delete("Preceptor.txt");
+                }
+                string preceptorConcatenado = "";
+                foreach (Preceptor objetoPreceptor in ListaPreceptor)
+                {
+                    preceptorConcatenado = preceptorConcatenado + "\r\n" + objetoPreceptor.CodigoPreceptor + ";" + objetoPreceptor.ApellidoNombre + ";" + objetoPreceptor.DNI + ";" + objetoPreceptor.FechaNacimiento + ";" + objetoPreceptor.Estado;
+                }
+                File.WriteAllText("Preceptor.txt", preceptorConcatenado);
+                MessageBox.Show("Almacenado de forma correcta!", "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Information);
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Error al guardar", "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
+        }
 
 
         private void btnLeer_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                ClasesPublicas.LeerPreceptor();
+                dg1.ItemsSource = ClasesPublicas.ListaPreceptor;
+                dg1.Items.Refresh();
 
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show("Error: " + err.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            lblCantReg.Content = "Cantidad registros: " + ListaPreceptor.Count;
         }
 
         private void dg1_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -171,7 +208,7 @@ namespace ProyectoAsistencia
                     int codHasta = Convert.ToInt32(txtCodHasta.Text);
                     ListaPreceptor = ListaPreceptor.Where(n => n.CodigoPreceptor >= codDesde && n.CodigoPreceptor <= codHasta).ToList();
                 }
-                if (chCodPreceptor.IsChecked == true)
+                if (chNombrePreceptor.IsChecked == true)
                 {
                     ListaPreceptor = ListaPreceptor.Where(n => n.ApellidoNombre.Contains(txtNombreBuscar.Text)).ToList();
                 }
@@ -198,6 +235,55 @@ namespace ProyectoAsistencia
             {
                 MessageBox.Show("Error: " + ex.Message, "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+
+        private void txtCodPreceptor_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (e.Key == Key.Enter)
+                {
+                    txtdni.Focus();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+        private void txtdni_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (e.Key == Key.Enter)
+                {
+                    txtNombApellido.Focus();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void txtNombApellido_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (e.Key == Key.Enter)
+                {
+                    dpFechaNac.Focus();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

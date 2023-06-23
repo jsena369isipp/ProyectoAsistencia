@@ -9,18 +9,21 @@
     <Grid>
         <Menu Height="50px" VerticalAlignment="Top" Background="#FF641C34">
 
-            <MenuItem Header="ASISTENCIAS" Height="50" Width="140px" Foreground="White" BorderBrush="Black" >
-                <MenuItem Header=" Tomar Asistencias" Height="40" Background="White" Foreground="Black"   x:Name="mnuAsistencias" Click="mnuAsistencias_Click"/>
+            <MenuItem x:Name="menuAsis_C" Header="ASISTENCIAS" Height="50" Width="140px" Foreground="White" BorderBrush="Black" Click="menuAsis_C_Click" FontWeight="Bold" >
+                
                 <MenuItem Header="Informe" Height="40" Background="White" Foreground="Black" x:Name="mnuInforme" Click="mnuInforme_Click"/>
+                <MenuItem Header="Asistencias" Height="40" Background="white" Foreground="Black" x:Name="mnuAsis" Click="menuAsistencias_Click"></MenuItem>
+                <MenuItem Header="Promedio de Asistencias" Height="40" Background="White" Foreground="Black" x:Name="menuProm" Click="menuItemProm_Click" ></MenuItem>
 
 
             </MenuItem>
-            <MenuItem Header="MANTENIMIENTO" Foreground="White" BorderBrush="Black" FontWeight="Bold" >
+            <MenuItem x:Name="menuItemMant" Header="MANTENIMIENTO" Foreground="White" BorderBrush="Black" FontWeight="Bold" >
                 <MenuItem Header="Alumnos" Height="40" Background="White" Foreground="Black" x:Name="mnuAlumnos" Click="mnuAlumnos_Click"/>
                 <MenuItem Header="Cursos" Height="40" Background="White" Foreground="Black" x:Name="mnuCursos" Click="mnuCursos_Click"/>
                 <MenuItem Header="Materias" Height="40" Background="White" Foreground="Black" x:Name="mnuMaterias" Click="mnuMaterias_Click"/>
                 <MenuItem Header="Profesores" Height="40" Background="White" Foreground="Black" x:Name="mnuProfes" Click="mnuProfes_Click"></MenuItem>
                 <MenuItem Header="Preceptor" Height="40" Background="White" Foreground="Black" x:Name="mnuPreceptor" Click="mnuPreceptor_Click"/>
+                
             </MenuItem>
 
         </Menu>
