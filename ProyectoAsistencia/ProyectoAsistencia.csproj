@@ -203,6 +203,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\ListaAlumnos.rdlc" />
     <EmbeddedResource Include="Reportes\ListaAsistencias.rdlc" />
+    <EmbeddedResource Include="Reportes\ListaMaterias.rdlc" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\ProyectoAsistencia.Clases2023.Alumno.datasource" />
     <None Include="Properties\DataSources\ProyectoAsistencia.Clases2023.Asistencia.datasource" />
