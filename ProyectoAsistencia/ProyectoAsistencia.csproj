@@ -202,6 +202,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\ListaAlumnos.rdlc" />
+    <EmbeddedResource Include="Reportes\ListaAlumnos2.rdlc" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\ProyectoAsistencia.Clases2023.Alumno.datasource" />
     <None Include="Properties\Settings.settings">
