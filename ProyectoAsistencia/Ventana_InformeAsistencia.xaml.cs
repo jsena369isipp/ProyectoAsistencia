@@ -40,14 +40,14 @@ namespace ProyectoAsistencia
                 
                 if (chHabilitado.IsChecked == true)
                 {
-                    DateTime? fechaDesde = dpFechaDesde.SelectedDate;
-                    DateTime? fechaHasta = dpFechaHasta.SelectedDate;
+                    DateTime fechaDesde = Convert.ToDateTime(dpFechaDesde.SelectedDate);
+                    DateTime fechaHasta = Convert.ToDateTime(dpFechaHasta.SelectedDate);
                     ListaInformeAsistencia = ListaInformeAsistencia.Where(n => n.Fecha >= fechaDesde && n.Fecha <= fechaHasta).ToList();
                 }
                 if (chHabilitadoMateria.IsChecked == true)
                 {
-                    int comboMateria = Convert.ToInt32(cmbMateria.SelectedValue);
-                    ListaInformeAsistencia = ListaInformeAsistencia.Where(n => n.CodigoMateria == comboMateria).ToList();
+                    int filtroMateria = Convert.ToInt32(cmbMateria.SelectedValue);
+                    ListaInformeAsistencia = ListaInformeAsistencia.Where(n => n.CodigoMateria == filtroMateria).ToList();
                 }
                 
                 dgResultado.ItemsSource = ListaInformeAsistencia;
