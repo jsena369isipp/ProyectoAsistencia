@@ -10,9 +10,9 @@
         <Menu Height="50px" VerticalAlignment="Top" Background="#FF641C34">
 
             <MenuItem x:Name="menuAsis_C" Header="ASISTENCIAS" Height="50" Width="140px" Foreground="White" BorderBrush="Black" Click="menuAsis_C_Click" FontWeight="Bold" >
-                
-                <MenuItem Header="Informe" Height="40" Background="White" Foreground="Black" x:Name="mnuInforme" Click="mnuInforme_Click"/>
                 <MenuItem Header="Asistencias" Height="40" Background="white" Foreground="Black" x:Name="mnuAsis" Click="menuAsistencias_Click"></MenuItem>
+                <MenuItem Header="Informe" Height="40" Background="White" Foreground="Black" x:Name="mnuInforme" Click="mnuInforme_Click"/>
+               
                 <MenuItem Header="Promedio de Asistencias" Height="40" Background="White" Foreground="Black" x:Name="menuProm" Click="menuItemProm_Click" ></MenuItem>
 
 
