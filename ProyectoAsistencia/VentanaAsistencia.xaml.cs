@@ -1,4 +1,5 @@
-﻿using ProyectoAsistencia.Clases2023;
+﻿using Microsoft.Reporting.WinForms;
+using ProyectoAsistencia.Clases2023;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -164,14 +165,6 @@ namespace ProyectoAsistencia
                 MessageBox.Show("Error al Buscar: " + ex.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-        private void txtDesde_GotFocus(object sender, RoutedEventArgs e)
-        {
-            txtCodDesdeX.Text = "";
-        }
-        /*private void txtHasta_GotFocus(Object sender, RoutedEventArgs e)
-        {
-            txtCodHastaX.Text = "";
-        }*/
 
         private void cmbMateria_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -182,9 +175,29 @@ namespace ProyectoAsistencia
             }
         }
 
-        private void ChPresente_Checked(object sender, RoutedEventArgs e)
+        private void BtnImprimir_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                var stream = GetType().Assembly.GetManifestResourceStream("ProyectoAsistencia.Reportes.ListaAsistencias.rdlc");
+                if (stream != null)
+                {
 
+                    ReportViewer reporViewer = new ReportViewer();
+                    reporViewer.LocalReport.DataSources.Add(new ReportDataSource("DSasistencia", ListaAsistenciaBuscar));
+                    reporViewer.LocalReport.LoadReportDefinition(stream);
+
+                    reporViewer.Visible = true;
+                    reporViewer.RefreshReport();
+
+                    VentanaReportes ventanaReportes = new VentanaReportes(reporViewer);
+                    ventanaReportes.ShowDialog();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }
