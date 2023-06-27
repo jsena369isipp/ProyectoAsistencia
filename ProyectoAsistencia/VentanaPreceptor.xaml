@@ -22,7 +22,7 @@
                     <TextBox x:Name="txtNombApellido" HorizontalAlignment="Left" Margin="126,136,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="213" Height="22" PreviewKeyDown="txtNombApellido_PreviewKeyDown"/>
                     <Label Content="DNI:" HorizontalAlignment="Left" Margin="88,103,0,0" VerticalAlignment="Top" Height="26" Width="33"/>
                     <TextBox x:Name="txtdni" HorizontalAlignment="Left" Margin="126,103,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="95" Height="21" PreviewKeyDown="txtdni_PreviewKeyDown"/>
-                    <DatePicker x:Name="dpFechaNac" Margin="126,169,0,0" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="145" PreviewKeyDown="dpFechaNac_PreviewKeyDown"/>
+                    <DatePicker x:Name="dpFechaNac" Margin="126,169,0,0" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="180" PreviewKeyDown="dpFechaNac_PreviewKeyDown"/>
                     <Label Content="Fecha nacimiento:" Margin="16,168,0,0" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="105"/>
                     <Label Content="Estado:" Margin="73,199,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.562,-0.114" Height="26" HorizontalAlignment="Left" Width="48"/>
                     <CheckBox x:Name="chbEstado" Content="Habilitado" Margin="124,205,0,0" VerticalAlignment="Top" Height="15" HorizontalAlignment="Left" Width="86"/>
