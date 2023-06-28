@@ -36,12 +36,13 @@
             <TabItem Header="Buscador">
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="18*"/>
-                        <ColumnDefinition Width="379*"/>
+                        <ColumnDefinition Width="0*"/>
+                        <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
                     <Rectangle Height="55" Stroke="Black" VerticalAlignment="Top" Fill="#FF641C34" Margin="-3,0,-3,0" Grid.ColumnSpan="2"/>
-                    <Label Content="Buscador" HorizontalAlignment="Left" Margin="0,6,0,0" VerticalAlignment="Top" FontSize="25" FontWeight="Bold" Foreground="White" Grid.ColumnSpan="2"/>
-                    <Image HorizontalAlignment="Left" Height="55" Margin="703,0,0,0" VerticalAlignment="Top" Width="56" Source="/Imagen/isipp-blanco.png" Grid.Column="1"/>
+                    <Label Content="Buscador" HorizontalAlignment="Left" Margin="0,6,0,0" VerticalAlignment="Top" FontSize="25" FontWeight="Bold" Foreground="White" Grid.ColumnSpan="2" Height="43" Width="118"/>
+                    <Image HorizontalAlignment="Left" Height="55" Margin="739,0,0,0" VerticalAlignment="Top" Width="56" Source="/Imagen/isipp-blanco.png" Grid.Column="1"/>
+                    <Button x:Name="btnImprimir" Click="btnImprimir_Click" Content="Imprimir" HorizontalAlignment="Right" Height="19" Margin="0,0,692,298" VerticalAlignment="Bottom" Width="86" Grid.Column="1"/>
                 </Grid>
             </TabItem>
         </TabControl>
