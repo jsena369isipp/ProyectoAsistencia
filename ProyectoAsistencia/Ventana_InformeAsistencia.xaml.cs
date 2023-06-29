@@ -1,4 +1,5 @@
 ﻿using ProyectoAsistencia.Clases2023;
+using Microsoft.Reporting.WinForms;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -81,7 +82,6 @@ namespace ProyectoAsistencia
             }
         }
 
-<<<<<<< HEAD
         private void btnImprimir__Click(object sender, RoutedEventArgs e)
         {
             try
@@ -106,8 +106,6 @@ namespace ProyectoAsistencia
             }
         }
 
-=======
->>>>>>> e506ab3c0469a2c3d47e85461ef0391cd95a3a13
         private void dpFechaHasta_PreviewKeyDown(object sender, KeyEventArgs e)
         {
             try
