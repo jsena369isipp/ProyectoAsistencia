@@ -86,7 +86,7 @@ namespace ProyectoAsistencia
         {
             try
             {
-                var stream = GetType().Assembly.GetManifestResourceStream("ProyectoAsistencia.Reportes.ListaInfoAsistencia.rdlc");
+                var stream = GetType().Assembly.GetManifestResourceStream("ProyectoAsistencia.Reportes.ListainfoAsistencia.rdlc");
                 if (stream != null)
                 {
                     ReportViewer reporViewer = new ReportViewer();
