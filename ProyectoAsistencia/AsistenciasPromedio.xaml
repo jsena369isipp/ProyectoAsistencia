@@ -20,6 +20,7 @@
         <CheckBox x:Name="CheckMateria" Content="Materia" HorizontalAlignment="Left" Margin="28,103,0,0" VerticalAlignment="Top"/>
         <CheckBox x:Name="ChAlumno" Content="Alumno" HorizontalAlignment="Left" Margin="27,140,0,0" VerticalAlignment="Top"/>
         <ComboBox x:Name="ComboAlumno" HorizontalAlignment="Left" Margin="132,136,0,0" VerticalAlignment="Top" Width="138" DisplayMemberPath="NombreApellido" SelectedValuePath="CodigoAlumno"/>
+        <Button x:Name="BtnImprimir" Content="Imprimir" HorizontalAlignment="Left" Margin="465,140,0,0" VerticalAlignment="Top" Width="71" FontWeight="Bold" Background="#FF641C34" Foreground="#FFDDDDDD" Click="BtnImprimir_Click"/>
 
     </Grid>
 </Window>

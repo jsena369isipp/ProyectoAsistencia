@@ -204,6 +204,7 @@
     <EmbeddedResource Include="Reportes\ListaAsistencias.rdlc" />
     <EmbeddedResource Include="Reportes\ListaCursos.rdlc" />
     <EmbeddedResource Include="Reportes\ListaMaterias.rdlc" />
+    <EmbeddedResource Include="Reportes\ReportPromedioAsistencias.rdlc" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\ProyectoAsistencia.Clases2023.Alumno.datasource" />
     <None Include="Properties\Settings.settings">
