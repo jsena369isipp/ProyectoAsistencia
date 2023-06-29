@@ -81,6 +81,7 @@
                 <TextBlock HorizontalAlignment="Left" Margin="633,265,0,0" TextWrapping="Wrap" Text="Cantidad de alumnos:" VerticalAlignment="Top" Width="118"/>
                 <DatePicker x:Name="DateFechaIngresoHasta" HorizontalAlignment="Left" Margin="320,222,0,0" VerticalAlignment="Top" PreviewKeyDown="DateFechaIngresoHasta_PreviewKeyDown"/>
                 <Label Content="/" HorizontalAlignment="Left" Height="24" Margin="297,222,0,0" VerticalAlignment="Top" Width="23"/>
+                <Button x:Name="BtnImprimir" Content="Imprimir" HorizontalAlignment="Left" Height="24" Margin="417,261,0,0" VerticalAlignment="Top" Width="81" Background="#FF822D4A" Foreground="White" FontWeight="Bold" Click="BtnImprimir_Click"/>
 
 
             </Grid>

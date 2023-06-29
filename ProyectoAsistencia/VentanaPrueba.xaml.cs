@@ -78,12 +78,12 @@ namespace ProyectoAsistencia
         {
             try
             {
-                var stream = GetType().Assembly.GetManifestResourceStream("ProyectoAsistencia.Reportes.ListaAlumnos.rdlc");
+                var stream = GetType().Assembly.GetManifestResourceStream("ProyectoAsistencia.Reportes.ListaAlumnos2.rdlc");
                 if (stream != null)
                 {
                     
                     ReportViewer reporViewer = new ReportViewer();
-                    reporViewer.LocalReport.DataSources.Add(new ReportDataSource("DS", listaAlumnoBuscar));
+                    reporViewer.LocalReport.DataSources.Add(new ReportDataSource("DSAlumnos", listaAlumnoBuscar));
                     reporViewer.LocalReport.LoadReportDefinition(stream);
 
                     reporViewer.Visible = true;

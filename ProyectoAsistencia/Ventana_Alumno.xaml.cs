@@ -1,4 +1,5 @@
-﻿using ProyectoAsistencia.Clases2023;
+﻿using Microsoft.Reporting.WinForms;
+using ProyectoAsistencia.Clases2023;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -547,6 +548,31 @@ namespace ProyectoAsistencia
             catch (Exception ex)
             {
                 MessageBox.Show("Error al leer: " + ex.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void BtnImprimir_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var stream = GetType().Assembly.GetManifestResourceStream("ProyectoAsistencia.Reportes.ListaAlumnos3.rdlc");
+                if (stream != null)
+                {
+
+                    ReportViewer reporViewer = new ReportViewer();
+                    reporViewer.LocalReport.DataSources.Add(new ReportDataSource("DSAlumnos", ListaAlumnoBuscar));
+                    reporViewer.LocalReport.LoadReportDefinition(stream);
+
+                    reporViewer.Visible = true;
+                    reporViewer.RefreshReport();
+
+                    VentanaReportes ventanaReportes = new VentanaReportes(reporViewer);
+                    ventanaReportes.ShowDialog();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }
