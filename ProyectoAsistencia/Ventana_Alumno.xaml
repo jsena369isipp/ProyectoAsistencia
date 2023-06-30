@@ -37,7 +37,7 @@
                 <ComboBox x:Name="ComboCurso" HorizontalAlignment="Left" Margin="124,135,0,0" VerticalAlignment="Top" Width="120" DisplayMemberPath="Descripcion" SelectedValuePath="CodigoCursos" PreviewKeyDown="ComboCurso_PreviewKeyDown"/>
                 <Button x:Name="BtnLeer" Content="Leer" HorizontalAlignment="Left" Height="20" Margin="565,277,0,0" VerticalAlignment="Top" Width="60" Background="#FF822D4A" FontWeight="Bold" Foreground="White" Click="BtnLeer_Click"/>
                 <Label x:Name="LblCantAlumnos" Content="" HorizontalAlignment="Left" Margin="749,274,0,0" VerticalAlignment="Top" Width="50"/>
-                <TextBlock HorizontalAlignment="Left" Margin="630,279,0,0" TextWrapping="Wrap" Text="Cantidad de alumnos:" VerticalAlignment="Top" Width="119"/>
+                <TextBlock Margin="630,279,0,0" TextWrapping="Wrap" Text="Cantidad de alumnos:" VerticalAlignment="Top" HorizontalAlignment="Left" Width="119"/>
                 <Label Content="DNI Entidad:" HorizontalAlignment="Left" Margin="-3,71,0,0" VerticalAlignment="Top" Width="110"/>
                 <TextBox x:Name="TxtDNIEntidad" HorizontalAlignment="Left" Margin="124,74,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="185" PreviewKeyDown="TxtDNIEntidad_PreviewKeyDown" Height="53" RenderTransformOrigin="0.5,0.5">
                     <TextBox.RenderTransform>
@@ -81,6 +81,7 @@
                 <TextBlock HorizontalAlignment="Left" Margin="633,265,0,0" TextWrapping="Wrap" Text="Cantidad de alumnos:" VerticalAlignment="Top" Width="118"/>
                 <DatePicker x:Name="DateFechaIngresoHasta" IsEnabled="{Binding ElementName=CheckFechaIngreso, Path=IsChecked}" HorizontalAlignment="Left" Margin="320,222,0,0" VerticalAlignment="Top" PreviewKeyDown="DateFechaIngresoHasta_PreviewKeyDown"/>
                 <Label Content="/" HorizontalAlignment="Left" Height="24" Margin="297,222,0,0" VerticalAlignment="Top" Width="23"/>
+                <Button x:Name="BtnImprimir" Content="Imprimir" HorizontalAlignment="Left" Height="24" Margin="421,261,0,0" VerticalAlignment="Top" Width="81" BorderBrush="#FF822D4A" Background="#FF822D4A" FontWeight="Bold" Foreground="White" Click="BtnImprimir_Click"/>
 
 
             </Grid>
