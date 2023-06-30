@@ -53,18 +53,20 @@
                 <CheckBox x:Name="checkDomicilio" Content="Domicilio:" HorizontalAlignment="Left" Margin="15,190,0,0" VerticalAlignment="Top" Width="84" FontWeight="Bold" Height="15"/>
                 <CheckBox x:Name="checkBx_Estado2" Content="Estado" HorizontalAlignment="Left" Margin="372,178,0,0" VerticalAlignment="Top" FontWeight="Bold" Width="64" Height="15"/>
                 <CheckBox x:Name="checkCorreo" Content="Correo Electrónico:" Margin="373,112,0,0" VerticalAlignment="Top" FontWeight="Bold" HorizontalAlignment="Left" Width="127" Height="15"/>
-                <TextBox x:Name="txtDesde" HorizontalAlignment="Left" Margin="143,70,0,0" TextWrapping="Wrap" Text="Desde:" VerticalAlignment="Top" Width="75" Height="18" GotFocus="txtDesde_GotFocus" PreviewKeyDown="txtDesde_PreviewKeyDown"/>
-                <TextBox x:Name="txtHasta" HorizontalAlignment="Left" Margin="252,70,0,0" TextWrapping="Wrap" Text="Hasta:" VerticalAlignment="Top" Width="74" Height="18" GotFocus="txtHasta_GotFocus" PreviewKeyDown="txtHasta_PreviewKeyDown"/>
-                <TextBox x:Name="txtNombre2" HorizontalAlignment="Left" Margin="143,109,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="185" Height="19" PreviewKeyDown="txtNombre2_PreviewKeyDown"/>
-                <TextBox x:Name="txtDNI2" HorizontalAlignment="Left" Margin="143,147,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="185" Height="21" PreviewKeyDown="txtDNI2_PreviewKeyDown"/>
-                <TextBox x:Name="txtTel2" Margin="521,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="26" PreviewKeyDown="txtTel2_PreviewKeyDown" HorizontalAlignment="Left" Width="172"/>
-                <DatePicker x:Name="dateGrid_FechaDesde" HorizontalAlignment="Left" Margin="521,142,0,0" VerticalAlignment="Top" Height="35" PreviewKeyDown="FechaDesde_PreviewKeyDown" RenderTransformOrigin="0.5,0.5" Width="118"/>
-                <TextBox x:Name="txtDom2" HorizontalAlignment="Left" Margin="143,189,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="185" PreviewKeyDown="txtDom2_PreviewKeyDown" Height="39"/>
-                <TextBox x:Name="txtCorreo2" Margin="521,108,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="20" PreviewKeyDown="txtCorreo2_PreviewKeyDown" HorizontalAlignment="Left" Width="184"/>
+                <TextBox IsEnabled="{Binding ElementName=checkCodProfe, Path=IsChecked}"  x:Name="txtDesde" HorizontalAlignment="Left" Margin="143,70,0,0" TextWrapping="Wrap" Text="Desde:" VerticalAlignment="Top" Width="75" Height="18" GotFocus="txtDesde_GotFocus" PreviewKeyDown="txtDesde_PreviewKeyDown"/>
+                <TextBox IsEnabled="{Binding ElementName=checkCodProfe, Path=IsChecked}" x:Name="txtHasta" HorizontalAlignment="Left" Margin="252,70,0,0" TextWrapping="Wrap" Text="Hasta:" VerticalAlignment="Top" Width="74" Height="18" GotFocus="txtHasta_GotFocus" PreviewKeyDown="txtHasta_PreviewKeyDown"/>
+                <TextBox IsEnabled="{Binding ElementName=checkNombre, Path=IsChecked}" x:Name="txtNombre2" HorizontalAlignment="Left" Margin="143,109,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="185" Height="19" PreviewKeyDown="txtNombre2_PreviewKeyDown"/>
+                <TextBox IsEnabled="{Binding ElementName=checkDNI, Path=IsChecked}" x:Name="txtDNI2" HorizontalAlignment="Left" Margin="143,147,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="185" Height="21" PreviewKeyDown="txtDNI2_PreviewKeyDown"/>
+                <TextBox IsEnabled="{Binding ElementName=checkTel, Path=IsChecked}" x:Name="txtTel2" Margin="521,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="26" PreviewKeyDown="txtTel2_PreviewKeyDown" HorizontalAlignment="Left" Width="172"/>
+                <DatePicker IsEnabled="{Binding ElementName=checkFecha, Path= IsChecked}" x:Name="dateGrid_FechaDesde" HorizontalAlignment="Left" Margin="521,142,0,0" VerticalAlignment="Top" Height="35" PreviewKeyDown="FechaDesde_PreviewKeyDown" RenderTransformOrigin="0.5,0.5" Width="118"/>
+                <DatePicker IsEnabled="{Binding ElementName=checkFecha, Path=IsChecked}" x:Name="dateGrid_FechaHasta" HorizontalAlignment="Left" Margin="656,142,0,0" VerticalAlignment="Top" Height="36" Width="121"/>
+                <TextBox IsEnabled="{Binding ElementName=checkDomicilio, Path=IsChecked}" x:Name="txtDom2" HorizontalAlignment="Left" Margin="143,189,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="185" PreviewKeyDown="txtDom2_PreviewKeyDown" Height="39"/>
+                <TextBox IsEnabled="{Binding ElementName=checkCorreo, Path=IsChecked}" x:Name="txtCorreo2" Margin="521,108,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="20" PreviewKeyDown="txtCorreo2_PreviewKeyDown" HorizontalAlignment="Left" Width="184"/>
                 <Button x:Name="BtnBuscar" Content="Buscar" Height="24" Margin="286,255,0,0" VerticalAlignment="Top" BorderBrush="#FF822D4A" Background="#FF822D4A" FontWeight="Bold" Foreground="White" Click="btnBuscar_Click" HorizontalAlignment="Left" Width="81"/>
-                <DataGrid x:Name="dataGrid_Resultado2" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,284,0,0" Height="123" VerticalAlignment="Top"/>
-                <Label x:Name="labelCant" Content="" HorizontalAlignment="Right" Margin="0,255,84,0" VerticalAlignment="Top" Width="308" FontWeight="Bold" Height="26"/>
-                <DatePicker x:Name="dateGrid_FechaHasta" HorizontalAlignment="Left" Margin="656,142,0,0" VerticalAlignment="Top" Height="36" Width="121"/>
+                <DataGrid x:Name="dataGrid_Resultado2" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,284,0,0"/>
+                <Label x:Name="labelCant" Content="" HorizontalAlignment="Right" Margin="0,255,84,0" VerticalAlignment="Top" Width="214" FontWeight="Bold" Height="26"/>
+                <Button x:Name="btnImprimir" Content="Imprimir" Height="24" Margin="383,255,0,0" VerticalAlignment="Top" BorderBrush="#FF822D4A" Background="#FF822D4A" FontWeight="Bold" Foreground="White" Click="btnImprimir_Click" HorizontalAlignment="Left" Width="81"/>
+                
             </Grid>
         </TabItem>
     </TabControl>
