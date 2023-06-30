@@ -530,11 +530,11 @@ namespace ProyectoAsistencia
         {
             try
             {
-                DNIEntidad dniEntidad = new DNIEntidad();
-                dniEntidad.DatosDNI(TxtDNIEntidad.Text);
 
                 if (e.Key == Key.Enter)
                 {
+                    DNIEntidad dniEntidad = new DNIEntidad();
+                    dniEntidad.DatosDNI(TxtDNIEntidad.Text);
                     if (dniEntidad != null)
                     {
                         TxtNomApellido.Text = dniEntidad.ApellidoYNombre;
