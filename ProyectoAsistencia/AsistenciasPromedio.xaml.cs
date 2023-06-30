@@ -1,4 +1,5 @@
-﻿using ProyectoAsistencia.Clases2023;
+﻿using Microsoft.Reporting.WinForms;
+using ProyectoAsistencia.Clases2023;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -44,8 +45,8 @@ namespace ProyectoAsistencia
             {
                 if (CheckFechI.IsChecked == true)
                 {
-                    DateTime fechaIncio = Convert.ToDateTime(DateFechaInicio);
-                    DateTime fechaFin = Convert.ToDateTime(DateFechaFinal);
+                    DateTime fechaIncio = Convert.ToDateTime(DateFechaInicio.SelectedDate);
+                    DateTime fechaFin = Convert.ToDateTime(DateFechaFinal.SelectedDate);
                     listaBuscarAsistencia = listaBuscarAsistencia.Where(n => n.Fecha >= fechaIncio && n.Fecha >= fechaFin).ToList();
                 }
                 if  (CheckMateria.IsChecked == true)
@@ -106,5 +107,30 @@ namespace ProyectoAsistencia
             }
         }
 
+        private void BtnImprimir_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var stream = GetType().Assembly.GetManifestResourceStream("ProyectoAsistencia.Reportes.ReportPromedioAsistencias.rdlc");
+                if (stream != null)
+                {
+
+                    ReportViewer reporViewer = new ReportViewer();
+                    reporViewer.LocalReport.DataSources.Add(new ReportDataSource("DsPromedioAsistencia", listaAsisPromedio));
+                    reporViewer.LocalReport.LoadReportDefinition(stream);
+
+                    reporViewer.Visible = true;
+                    reporViewer.RefreshReport();
+
+                    VentanaReportes ventanaReportes = new VentanaReportes(reporViewer);
+                    ventanaReportes.ShowDialog();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
     }
 }
+  
