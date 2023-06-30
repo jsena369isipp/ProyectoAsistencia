@@ -81,8 +81,7 @@ namespace ProyectoAsistencia
                 MessageBox.Show("Error!: " + ex.Message, "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-
-        private void btnImprimir__Click(object sender, RoutedEventArgs e)
+        private void btnImprimir_Click(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -170,10 +169,11 @@ namespace ProyectoAsistencia
         {
 
         }
-
-        private void btnImprimir_Click(object sender, RoutedEventArgs e)
+        private void btnImprimir__Click(object sender, RoutedEventArgs e)
         {
 
         }
+
+        
     }
 }
