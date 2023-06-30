@@ -1,5 +1,4 @@
 ﻿using ProyectoAsistencia.Clases2023;
-using Microsoft.Reporting.WinForms;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -41,14 +40,14 @@ namespace ProyectoAsistencia
                 
                 if (chHabilitado.IsChecked == true)
                 {
-                    DateTime fechaDesde = Convert.ToDateTime(dpFechaDesde.SelectedDate);
-                    DateTime fechaHasta = Convert.ToDateTime(dpFechaHasta.SelectedDate);
+                    DateTime? fechaDesde = dpFechaDesde.SelectedDate;
+                    DateTime? fechaHasta = dpFechaHasta.SelectedDate;
                     ListaInformeAsistencia = ListaInformeAsistencia.Where(n => n.Fecha >= fechaDesde && n.Fecha <= fechaHasta).ToList();
                 }
                 if (chHabilitadoMateria.IsChecked == true)
                 {
-                    int filtroMateria = Convert.ToInt32(cmbMateria.SelectedValue);
-                    ListaInformeAsistencia = ListaInformeAsistencia.Where(n => n.CodigoMateria == filtroMateria).ToList();
+                    int comboMateria = Convert.ToInt32(cmbMateria.SelectedValue);
+                    ListaInformeAsistencia = ListaInformeAsistencia.Where(n => n.CodigoMateria == comboMateria).ToList();
                 }
                 
                 dgResultado.ItemsSource = ListaInformeAsistencia;
@@ -79,29 +78,6 @@ namespace ProyectoAsistencia
             catch (Exception ex)
             {
                 MessageBox.Show("Error!: " + ex.Message, "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-        }
-        private void btnImprimir_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                var stream = GetType().Assembly.GetManifestResourceStream("ProyectoAsistencia.Reportes.ListainfoAsistencia.rdlc");
-                if (stream != null)
-                {
-                    ReportViewer reporViewer = new ReportViewer();
-                    reporViewer.LocalReport.DataSources.Add(new ReportDataSource("DSinformeasistencia", ListaInformeAsistencia));
-                    reporViewer.LocalReport.LoadReportDefinition(stream);
-
-                    reporViewer.Visible = true;
-                    reporViewer.RefreshReport();
-
-                    VentanaReportes ventanaReportes = new VentanaReportes(reporViewer);
-                    ventanaReportes.ShowDialog();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message, "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -169,11 +145,5 @@ namespace ProyectoAsistencia
         {
 
         }
-        private void btnImprimir__Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        
     }
 }
