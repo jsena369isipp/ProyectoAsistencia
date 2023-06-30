@@ -1,4 +1,5 @@
 ﻿using ProyectoAsistencia.Clases2023;
+using Microsoft.Reporting.WinForms;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -80,6 +81,29 @@ namespace ProyectoAsistencia
                 MessageBox.Show("Error!: " + ex.Message, "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+        private void btnImprimir_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var stream = GetType().Assembly.GetManifestResourceStream("ProyectoAsistencia.Reportes.ListainfoAsistencia.rdlc");
+                if (stream != null)
+                {
+                    ReportViewer reporViewer = new ReportViewer();
+                    reporViewer.LocalReport.DataSources.Add(new ReportDataSource("DSinformeasistencia", ListaInformeAsistencia));
+                    reporViewer.LocalReport.LoadReportDefinition(stream);
+
+                    reporViewer.Visible = true;
+                    reporViewer.RefreshReport();
+
+                    VentanaReportes ventanaReportes = new VentanaReportes(reporViewer);
+                    ventanaReportes.ShowDialog();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
 
         private void dpFechaHasta_PreviewKeyDown(object sender, KeyEventArgs e)
         {
@@ -145,5 +169,11 @@ namespace ProyectoAsistencia
         {
 
         }
+        private void btnImprimir__Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        
     }
 }
