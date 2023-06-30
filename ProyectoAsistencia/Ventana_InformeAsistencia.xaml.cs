@@ -170,5 +170,10 @@ namespace ProyectoAsistencia
         {
 
         }
+
+        private void btnImprimir_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
