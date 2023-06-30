@@ -23,7 +23,7 @@ namespace ProyectoAsistencia
     public partial class VentanaAsistencia : Window
     {
        
-        List<Asistencia> ListaAsistencias = new List<Asistencia>();
+        //List<Asistencia> ListaAsistencias = new List<Asistencia>();
         List<Asistencia> ListaAsistenciaBuscar;
         // List<Alumno> ListaALumnos;
         public VentanaAsistencia()
@@ -41,29 +41,30 @@ namespace ProyectoAsistencia
             ClasesPublicas.LeerArchivoAsistencia();
             CmbMateriaX.ItemsSource = ClasesPublicas.ListaMaterias;
 
+
         }
         private void btnGrd_Click(object sender, RoutedEventArgs e)
         {
             try
-            {    
+            {
 
                 string AsistenciasConcatenados = "";
-                foreach (Asistencia ObjetoAsistencia in ListaAsistencias)
+                foreach (Asistencia ObjetoAsistencia in ClasesPublicas.ListaAsistencias)
                 {
                     int presente = 0;
                     if (ObjetoAsistencia.AlumnoAsistencia == true)
                     {
                         presente = 1;
                     }
-                   
-                    AsistenciasConcatenados = AsistenciasConcatenados + "\r\n" + ObjetoAsistencia.CodigoAlumno + ";" + ObjetoAsistencia.CodigoAsistencia + ";" + ObjetoAsistencia.Fecha + ";" + ObjetoAsistencia.CodigoCursos + ";" + ObjetoAsistencia.CodigoPreceptor + ";" + ObjetoAsistencia.CodigoMateria + ";" + presente + ";" + ObjetoAsistencia.NombreApellido; 
+
+                    AsistenciasConcatenados = AsistenciasConcatenados + "\r\n" + ObjetoAsistencia.CodigoAlumno + ";" + ObjetoAsistencia.CodigoAsistencia + ";" + ObjetoAsistencia.Fecha + ";" + ObjetoAsistencia.CodigoCursos + ";" + ObjetoAsistencia.CodigoPreceptor + ";" + ObjetoAsistencia.CodigoMateria + ";" + presente + ";" + ObjetoAsistencia.NombreApellido;
                 }
-                if (File.Exists("Asistencias.txt"))
+                /*if (File.Exists("Asistencias.txt"))
                 {
                     File.Delete("Asistencias.txt");
-                }
-
-                File.WriteAllText("Asistencias.txt", AsistenciasConcatenados);
+                }*/
+                //string text1 = File.ReadAllText("Asistencias.txt");
+                File.WriteAllText("Asistencias.txt",AsistenciasConcatenados);
                 MessageBox.Show("Alamcenado de forma correcta!", "Aplicación", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             catch (Exception ex)
@@ -103,32 +104,42 @@ namespace ProyectoAsistencia
                 }
                 else
                 {
-                    ListaAsistencias = new List<Asistencia>();
-
-                    ClasesPublicas.LeerArchivoAlumno();
-                    dtg.ItemsSource = ClasesPublicas.ListaAlumnos;
-                    int codCurso = Convert.ToInt32(CmbCurso.SelectedValue);
-                    foreach (Alumno alumno in ClasesPublicas.ListaAlumnos.Where(n => n.CodigoCurso == codCurso))
+                    //ListaAsistencias = new List<Asistencia>();
+                    int CodAs = Convert.ToInt32(TxtID.Text);
+                    Asistencia asistencia1 = ClasesPublicas.ListaAsistencias.Where(n => n.CodigoAsistencia == CodAs).FirstOrDefault();
+                    if (asistencia1 == null)
                     {
-                        Asistencia asistencia = new Asistencia();
-                        asistencia.CodigoAlumno = alumno.CodigoAlumno;
-                        asistencia.CodigoAsistencia = Convert.ToInt32(TxtID.Text);
-                        asistencia.Fecha = DateTime.Now;
-                        asistencia.CodigoCursos = Convert.ToInt32(CmbCurso.SelectedValue);
-                        asistencia.CodigoPreceptor = Convert.ToInt32(cmbMateria.SelectedValue);
-                        asistencia.CodigoMateria = Convert.ToInt32(cmbMateria.SelectedValue);
-                        asistencia.AlumnoAsistencia = false;
-                        asistencia.NombreApellido = alumno.NombreApellido;
+                        ClasesPublicas.LeerArchivoAlumno();
+                        dtg.ItemsSource = ClasesPublicas.ListaAlumnos;
+                        int codCurso = Convert.ToInt32(CmbCurso.SelectedValue);
+                        foreach (Alumno alumno in ClasesPublicas.ListaAlumnos.Where(n => n.CodigoCurso == codCurso))
+                        {
+                            Asistencia asistencia = new Asistencia();
+                            asistencia.CodigoAlumno = alumno.CodigoAlumno;
+                            asistencia.CodigoAsistencia = Convert.ToInt32(TxtID.Text);
+                            //if (DpFecha.SelectedDate.Value == null)
+                           
+                            asistencia.Fecha = DpFecha.SelectedDate.Value;
+                                                     
+                            asistencia.CodigoCursos = Convert.ToInt32(CmbCurso.SelectedValue);
+                            asistencia.CodigoPreceptor = Convert.ToInt32(cmbMateria.SelectedValue);
+                            asistencia.CodigoMateria = Convert.ToInt32(cmbMateria.SelectedValue);
+                            asistencia.AlumnoAsistencia = false;
+                            asistencia.NombreApellido = alumno.NombreApellido;
 
 
-                        ListaAsistencias.Add(asistencia);
+                            ClasesPublicas.ListaAsistencias.Add(asistencia);
+                        }
+                        
                     }
 
-                
+                    dtg.ItemsSource = ClasesPublicas.ListaAsistencias.Where(n => n.CodigoAsistencia == CodAs).OrderBy(n => n.NombreApellido).ToList(); ;
+                    dtg.Items.Refresh();
+                    LblArchivos.Content = dtg.Items.Count;
+
+
                 }
-                dtg.ItemsSource = ListaAsistencias.OrderBy(n => n.NombreApellido).ToList(); ;
-                dtg.Items.Refresh();
-                LblArchivos.Content = dtg.Items.Count;
+                
             }
             catch (Exception ex)
             {
@@ -141,7 +152,7 @@ namespace ProyectoAsistencia
         {
             try
             {
-
+                ClasesPublicas.LeerArchivoAsistencia();
                 ListaAsistenciaBuscar = ClasesPublicas.ListaAsistencias;
 
                 if (ChIDRegistro.IsChecked == true)
