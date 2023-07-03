@@ -202,7 +202,14 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\ListaAlumnos.rdlc" />
+    <EmbeddedResource Include="Reportes\ListaAlumnos3.rdlc" />
+    <EmbeddedResource Include="Reportes\ListaAsistencias.rdlc" />
+    <EmbeddedResource Include="Reportes\ListaCursos.rdlc" />
+    <EmbeddedResource Include="Reportes\ListainfoAsistencia.rdlc" />
+    <EmbeddedResource Include="Reportes\ListaMaterias.rdlc" />
+    <EmbeddedResource Include="Reportes\ListaPreceptor.rdlc" />
     <EmbeddedResource Include="Reportes\ReporteProfesores.rdlc" />
+    <EmbeddedResource Include="Reportes\ReportPromedioAsistencias.rdlc" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\ProyectoAsistencia.Clases2023.Alumno.datasource" />
     <None Include="Properties\DataSources\ProyectoAsistencia.Clases2023.Profesores.datasource" />
