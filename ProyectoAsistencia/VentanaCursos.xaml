@@ -42,6 +42,7 @@
                 <Button x:Name="bttnBuscar" Content="Buscar" HorizontalAlignment="Left" Margin="724,64,0,0" VerticalAlignment="Top" FontSize="14" Background="#FF822D4A" Foreground="White" BorderBrush="Black" Click="bttnBuscar_Click" Width="55"/>
                 <Label x:Name="LblCant" Content="" HorizontalAlignment="Left" Margin="529,186,0,0" VerticalAlignment="Top"/>
                 <Image HorizontalAlignment="Left" Height="55" Margin="724,0,0,0" VerticalAlignment="Top" Width="56" Source="/Imagen/isipp-blanco.png"/>
+                <Button x:Name="bttnBuscar_Copy" Content="Buscar" HorizontalAlignment="Left" Margin="664,64,0,0" VerticalAlignment="Top" FontSize="14" Background="#FF822D4A" Foreground="White" BorderBrush="Black" Click="bttnBuscar_Click" Width="55"/>
             </Grid>
         </TabItem>
     </TabControl>
