@@ -230,7 +230,7 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DSasistencia</DataSetName>
-        <Top>2.16641cm</Top>
+        <Top>2.66912cm</Top>
         <Left>1.37266cm</Left>
         <Height>1.2cm</Height>
         <Width>8.31109cm</Width>
@@ -287,6 +287,36 @@
           </Border>
         </Style>
       </Line>
+      <Textbox Name="Textbox2">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!Fecha.Value, "DSasistencia")</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox2</rd:DefaultName>
+        <Top>1.85801cm</Top>
+        <Left>1.37266cm</Left>
+        <Height>0.6cm</Height>
+        <Width>4.92442cm</Width>
+        <ZIndex>3</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
     </ReportItems>
     <Height>2.85417in</Height>
     <Style />

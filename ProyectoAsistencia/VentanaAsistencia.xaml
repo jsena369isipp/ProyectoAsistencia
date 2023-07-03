@@ -12,9 +12,9 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <DatePicker x:Name="DpFecha" HorizontalAlignment="Left" Margin="161,71,0,0" VerticalAlignment="Top" Height="21" IsEnabled="False"/>
+                <DatePicker x:Name="DpFecha" HorizontalAlignment="Left" Margin="161,71,0,0" VerticalAlignment="Top" Height="21" IsEnabled="True"/>
                 <TextBlock HorizontalAlignment="Left" Margin="123,74,0,0" TextWrapping="Wrap" Text="Fecha:" VerticalAlignment="Top" Height="14"/>
-                <ComboBox x:Name="CmbCurso" DisplayMemberPath="Descripcion" SelectedValuePath="CodigoCursos" HorizontalAlignment="Center" Margin="0,158,0,0" VerticalAlignment="Top" Width="122" Height="26"/>
+                <ComboBox x:Name="CmbCurso" DisplayMemberPath="Descripcion" SelectedValuePath="CodigoCursos" Margin="336,158,0,0" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="122"/>
                 <TextBlock HorizontalAlignment="Left" Margin="285,158,0,0" TextWrapping="Wrap" Text="Curso:" VerticalAlignment="Top" RenderTransformOrigin="0.446,0.441" Height="26"/>
                 <ComboBox x:Name="CmbPreceptor" DisplayMemberPath="ApellidoNombre" SelectedValuePath="CodigoPreceptor" HorizontalAlignment="Left" Margin="593,155,0,0" VerticalAlignment="Top" Width="120" Height="28"/>
                 <TextBlock HorizontalAlignment="Left" Margin="516,158,0,0" TextWrapping="Wrap" Text="Preceptor:" VerticalAlignment="Top" Height="26"/>
@@ -31,7 +31,7 @@
                 <Button x:Name="BtnGuardar_Copy" Click="btnGrd_Click"  Content="Guardar" HorizontalAlignment="Left" Margin="631,71,0,0" VerticalAlignment="Top" Height="21" Width="62" Background="#FF822D4A" Foreground="White" BorderBrush="Black"/>
                 <TextBlock HorizontalAlignment="Left" Margin="39,74,0,0" TextWrapping="Wrap" Text="ID:" VerticalAlignment="Top" Height="14"/>
                 <TextBox x:Name="TxtID" HorizontalAlignment="Left" Margin="58,71,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="45" Height="21"/>
-                <Rectangle HorizontalAlignment="Center" Height="55"  Stroke="Black" VerticalAlignment="Top" Width="8000" Fill="#FF641C34"/>
+                <Rectangle Height="55"  Stroke="Black" VerticalAlignment="Top" Fill="#FF641C34" Margin="-3603,0,-3603,0"/>
                 <Label Content="Asistencias" HorizontalAlignment="Left" Margin="15,5,0,0" VerticalAlignment="Top" Height="45" RenderTransformOrigin="0.5,0.5" Width="206" FontSize="25" FontWeight="Bold" Foreground="White">
                     <Label.RenderTransform>
                         <TransformGroup>
@@ -42,7 +42,7 @@
                         </TransformGroup>
                     </Label.RenderTransform>
                 </Label>
-                <Image HorizontalAlignment="Left" Height="55" Margin="724,0,0,0" VerticalAlignment="Top" Width="56" Source="/Imagen/isipp-blanco.png"/>
+                <Image Height="55" Margin="0,0,14,0" VerticalAlignment="Top" Source="/Imagen/isipp-blanco.png" HorizontalAlignment="Right" Width="56"/>
                 <TextBlock HorizontalAlignment="Left" Margin="631,226,0,0" TextWrapping="Wrap" Text="Cantidad de Alumnos:" VerticalAlignment="Top"/>
                 <Label x:Name="LblArchivos" Content="0" HorizontalAlignment="Left" Margin="746,221,0,0" VerticalAlignment="Top" Width="40"/>
             </Grid>
@@ -62,13 +62,12 @@
                     </Label.RenderTransform>
                 </Label>
                 <CheckBox x:Name="ChIDRegistro" Content="ID.registro" HorizontalAlignment="Left" Height="19" Margin="37,77,0,0" VerticalAlignment="Top" Width="110"/>
-                <TextBox Name="txtCodDesdeX" IsEnabled="{Binding ElementName=ChIDRegistro, Path=IsChecked}" HorizontalAlignment="Left" Height="19" Margin="190,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75"/>
-                <Button Name="btnBuscarX" Click="btnBuscar_Click" Content="Buscar" HorizontalAlignment="Left" Height="19" Margin="553,77,0,0" VerticalAlignment="Top" Width="84" Background="#FF822D4A" Foreground="White" BorderBrush="Black"/>
+                <TextBox Name="txtCodDesdeX" IsEnabled="{Binding ElementName=ChIDRegistro, Path=IsChecked}" HorizontalAlignment="Left" Height="19" Margin="190,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75" GotFocus="txtDesde_GotFocus"/>
+                <Button Name="btnBuscarX" Click="btnBuscar_Click" Content="Buscar" HorizontalAlignment="Left" Height="19" Margin="426,77,0,0" VerticalAlignment="Top" Width="84" Background="#FF822D4A" Foreground="White" BorderBrush="Black"/>
                 <DataGrid x:Name="dgResultadoX" AutoGenerateColumns="True" CanUserAddRows="False" HorizontalAlignment="Center" Margin="0,203,0,35" Width="800" d:ItemsSource="{d:SampleData ItemCount=5}"/>
                 <Label Name="lblResultadoX" Content="Registros encontrados: 0" HorizontalAlignment="Left" Height="30" VerticalAlignment="Bottom" Width="360"/>
                 <CheckBox x:Name="ChMateriaX" Content="Materia:" HorizontalAlignment="Left" Margin="37,139,0,0" VerticalAlignment="Top"/>
                 <ComboBox x:Name="CmbMateriaX" IsEnabled="{Binding ElementName=ChMateriaX, Path=IsChecked}" DisplayMemberPath="NombreMateria" SelectedValuePath="CodigoMateria" HorizontalAlignment="Left" Margin="190,139,0,0" VerticalAlignment="Top" Width="120"/>
-                <Button x:Name="BtnImprimir" Content="Imprimir" HorizontalAlignment="Left" Height="19" Margin="644,77,0,0" VerticalAlignment="Top" Width="84" Background="#FF822D4A" Foreground="White" BorderBrush="Black" Click="BtnImprimir_Click"/>
             </Grid>
         </TabItem>
     </TabControl>
