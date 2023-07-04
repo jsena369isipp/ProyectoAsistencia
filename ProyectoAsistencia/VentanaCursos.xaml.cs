@@ -316,5 +316,10 @@ namespace ProyectoAsistencia
                 MessageBox.Show("Error al guardar: " + ex.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+        private void bttnImprimir_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
