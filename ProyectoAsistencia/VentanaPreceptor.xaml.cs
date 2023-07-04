@@ -1,4 +1,5 @@
-﻿using Microsoft.SqlServer.Server;
+﻿using Microsoft.Reporting.WinForms;
+using Microsoft.SqlServer.Server;
 using ProyectoAsistencia.Clases2023;
 using System;
 using System.Collections.Generic;
@@ -23,7 +24,8 @@ namespace ProyectoAsistencia
     /// </summary>
     public partial class VentanaPreceptor : Window
     {
-        List<Clases2023.Preceptor> ListaPreceptor = new List<Clases2023.Preceptor>();
+        //List<Clases2023.Preceptor> ListaPreceptor = new List<Clases2023.Preceptor>();
+        List<Preceptor> ListaPreceptorBuscar;
 
 
         public VentanaPreceptor()
@@ -31,8 +33,7 @@ namespace ProyectoAsistencia
 
             InitializeComponent();
             ClasesPublicas.LeerPreceptor();
-            //ClasesPublicas.LeerArchivoCursos();
-            //cbCursos.ItemsSource = ClasesPublicas.ListaCursos;
+            dg1.ItemsSource = ClasesPublicas.ListaPreceptor;
 
         }
 
@@ -69,8 +70,8 @@ namespace ProyectoAsistencia
                 Preceptor preceptor = (Preceptor)dg1.SelectedItem;
                 if (preceptor != null)
                 {
-                    ListaPreceptor.Remove(preceptor);
-                    dg1.ItemsSource = ListaPreceptor;
+                    ClasesPublicas.ListaPreceptor.Remove(preceptor);
+                    dg1.ItemsSource = ClasesPublicas.ListaPreceptor;
                     dg1.Items.Refresh();
                 }
             }
@@ -85,7 +86,7 @@ namespace ProyectoAsistencia
             try
             {
                 Int64 dniVariable = Convert.ToInt64(txtdni.Text);
-                Clases2023.Preceptor preceptor = ListaPreceptor.Where(n => n.DNI == dniVariable).FirstOrDefault();
+                Clases2023.Preceptor preceptor = ClasesPublicas.ListaPreceptor.Where(n => n.DNI == dniVariable).FirstOrDefault();
 
                 if (preceptor == null)
                 {
@@ -94,11 +95,10 @@ namespace ProyectoAsistencia
                     preceptor.CodigoPreceptor = Convert.ToInt32(txtCodPreceptor.Text);
                     preceptor.DNI = Convert.ToInt64(txtdni.Text);
                     preceptor.ApellidoNombre = txtNombApellido.Text;
-                    //preceptor.CodigoCursos = Convert.ToInt16(cbCursos.SelectedValue);
                     preceptor.Estado = Convert.ToBoolean(chbEstado.IsChecked);//<--para mostrar el estado en el DataGrid
                     preceptor.FechaNacimiento = Convert.ToDateTime(dpFechaNac.SelectedDate);
 
-                    ListaPreceptor.Add(preceptor);
+                    ClasesPublicas.ListaPreceptor.Add(preceptor);
 
                 }
                 else
@@ -106,11 +106,10 @@ namespace ProyectoAsistencia
                     preceptor.CodigoPreceptor = Convert.ToInt32(txtCodPreceptor.Text);
                     preceptor.DNI = Convert.ToInt64(txtdni.Text);
                     preceptor.ApellidoNombre = txtNombApellido.Text;
-                    //preceptor.CodigoCursos = Convert.ToInt16(cbCursos.SelectedValue);
                     preceptor.Estado = Convert.ToBoolean(chbEstado.IsChecked);//<--para mostrar el estado en el DataGrid
                     preceptor.FechaNacimiento = Convert.ToDateTime(dpFechaNac.SelectedDate);
                 }
-                dg1.ItemsSource = ListaPreceptor;                
+                dg1.ItemsSource = ClasesPublicas.ListaPreceptor;
                 dg1.Items.Refresh();
                 Guardar();
                 Limpiar();
@@ -120,18 +119,17 @@ namespace ProyectoAsistencia
             {
                 MessageBox.Show(/*"Error: " + */ex.Message, "SIN REGISTROS", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-            //lblCantReg.Content = "Cantidad registros: " + ListaPreceptor.Count;
-            
         }
+
         private void Limpiar()
         {
             txtCodPreceptor.Text = "";
             txtdni.Text = "";
             txtNombApellido.Text = "";
-            //dpFechaNac.Text = string.Empty;
-
-
+            dpFechaNac.Text = string.Empty;
         }
+
+
         private void Guardar()
         {
             try
@@ -141,7 +139,7 @@ namespace ProyectoAsistencia
                     File.Delete("Preceptor.txt");
                 }
                 string preceptorConcatenado = "";
-                foreach (Preceptor objetoPreceptor in ListaPreceptor)
+                foreach (Preceptor objetoPreceptor in ClasesPublicas.ListaPreceptor)
                 {
                     preceptorConcatenado = preceptorConcatenado + "\r\n" + objetoPreceptor.CodigoPreceptor + ";" + objetoPreceptor.ApellidoNombre + ";" + objetoPreceptor.DNI + ";" + objetoPreceptor.FechaNacimiento + ";" + objetoPreceptor.Estado;
                 }
@@ -154,9 +152,7 @@ namespace ProyectoAsistencia
 
                 MessageBox.Show("Error al guardar", "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-
         }
-
 
         private void btnLeer_Click(object sender, RoutedEventArgs e)
         {
@@ -165,13 +161,12 @@ namespace ProyectoAsistencia
                 ClasesPublicas.LeerPreceptor();
                 dg1.ItemsSource = ClasesPublicas.ListaPreceptor;
                 dg1.Items.Refresh();
-
             }
             catch (Exception err)
             {
                 MessageBox.Show("Error: " + err.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-            lblCantReg.Content = "Cantidad registros: " + ListaPreceptor.Count;
+            lblCantReg.Content = "Cantidad registros: " + ClasesPublicas.ListaPreceptor.Count;
         }
 
         private void dg1_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -186,8 +181,6 @@ namespace ProyectoAsistencia
                     txtNombApellido.Text = preceptor.ApellidoNombre;
                     dpFechaNac.SelectedDate = preceptor.FechaNacimiento;
                     chbEstado.IsChecked = preceptor.Estado;
-                    //cbCursos.SelectedIndex = preceptor.CodigoCursos;
-
                 }
             }
             catch (Exception ex)
@@ -198,23 +191,24 @@ namespace ProyectoAsistencia
 
         private void btnBuscar_Click(object sender, RoutedEventArgs e)
         {
+
             try
             {
-                ListaPreceptor = ClasesPublicas.ListaPreceptor;
+                ListaPreceptorBuscar = ClasesPublicas.ListaPreceptor;
                 //X
                 if (chCodPreceptor.IsChecked == true)
                 {
                     int codDesde = Convert.ToInt32(txtCodDesde.Text);
                     int codHasta = Convert.ToInt32(txtCodHasta.Text);
-                    ListaPreceptor = ListaPreceptor.Where(n => n.CodigoPreceptor >= codDesde && n.CodigoPreceptor <= codHasta).ToList();
+                    ListaPreceptorBuscar = ListaPreceptorBuscar.Where(n => n.CodigoPreceptor >= codDesde && n.CodigoPreceptor <= codHasta).ToList();
                 }
                 if (chNombrePreceptor.IsChecked == true)
                 {
-                    ListaPreceptor = ListaPreceptor.Where(n => n.ApellidoNombre.Contains(txtNombreBuscar.Text)).ToList();
+                    ListaPreceptorBuscar = ListaPreceptorBuscar.Where(n => n.ApellidoNombre.Contains(txtNombreBuscar.Text)).ToList();
                 }
-                dgResultado.ItemsSource = ListaPreceptor;
+                dgResultado.ItemsSource = ListaPreceptorBuscar;
                 dgResultado.Items.Refresh();
-                lblResultado.Content = "Registros encontrados: " + ListaPreceptor.Count;
+                lblResultado.Content = "Registros encontrados: " + ListaPreceptorBuscar.Count;
             }
             catch (Exception ex)
             {
@@ -284,6 +278,70 @@ namespace ProyectoAsistencia
         private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void dpFechaNac_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (e.Key == Key.Enter)
+                {
+                    chbEstado.Focus();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void txtCodDesde_GotFocus(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                txtCodDesde.Text = "";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void txtCodHasta_GotFocus(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                txtCodHasta.Text = "";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void btnImprimir_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var stream = GetType().Assembly.GetManifestResourceStream("ProyectoAsistencia.Reportes.ListaPreceptor.rdlc");
+                if (stream != null)
+                {
+
+                    ReportViewer reporViewer = new ReportViewer();
+                    reporViewer.LocalReport.DataSources.Add(new ReportDataSource("DS", ListaPreceptorBuscar));
+                    reporViewer.LocalReport.LoadReportDefinition(stream);
+
+                    reporViewer.Visible = true;
+                    reporViewer.RefreshReport();
+
+                    VentanaReportes ventanaReportes = new VentanaReportes(reporViewer);
+                    ventanaReportes.ShowDialog();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }
