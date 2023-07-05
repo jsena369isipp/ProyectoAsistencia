@@ -68,6 +68,7 @@
                 <Label Name="lblResultadoX" Content="Registros encontrados: 0" HorizontalAlignment="Left" Height="30" VerticalAlignment="Bottom" Width="360"/>
                 <CheckBox x:Name="ChMateriaX" Content="Materia:" HorizontalAlignment="Left" Margin="37,139,0,0" VerticalAlignment="Top"/>
                 <ComboBox x:Name="CmbMateriaX" IsEnabled="{Binding ElementName=ChMateriaX, Path=IsChecked}" DisplayMemberPath="NombreMateria" SelectedValuePath="CodigoMateria" HorizontalAlignment="Left" Margin="190,139,0,0" VerticalAlignment="Top" Width="120"/>
+                <Button x:Name="BtnImprimir" Click="BtnImprimir_Click" Content="Imprimir" HorizontalAlignment="Left" Height="19" Margin="514,77,0,0" VerticalAlignment="Top" Width="84" Background="#FF822D4A" Foreground="White" BorderBrush="Black"/>
             </Grid>
         </TabItem>
     </TabControl>
