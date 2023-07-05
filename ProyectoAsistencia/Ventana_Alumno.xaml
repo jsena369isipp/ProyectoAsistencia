@@ -65,7 +65,7 @@
                 <DataGrid x:Name="DgBuscador" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,303,0,0"/>
                 <CheckBox x:Name="CheckDNI" Content="DNI:" HorizontalAlignment="Left" Margin="19,106,0,0" VerticalAlignment="Top"/>
                 <TextBox x:Name="TxtDNI1" IsEnabled="{Binding ElementName=CheckDNI, Path=IsChecked}" HorizontalAlignment="Left" Margin="143,103,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="155" PreviewKeyDown="TxtDNI1_PreviewKeyDown"/>
-                <CheckBox x:Name="CheckEstado1" Content="Habilitado" HorizontalAlignment="Left" Margin="454,106,0,0" VerticalAlignment="Top" PreviewKeyDown="CheckEstado1_PreviewKeyDown"/>
+                <CheckBox x:Name="CheckEstado1" IsEnabled="{Binding ElementName=CheckEstado2, Path=IsChecked}" Content="Habilitado" HorizontalAlignment="Left" Margin="454,106,0,0" VerticalAlignment="Top" PreviewKeyDown="CheckEstado1_PreviewKeyDown"/>
                 <TextBox x:Name="TxtCorreoElectronico1" IsEnabled="{Binding ElementName=CheckCorreoElectronico, Path=IsChecked}" HorizontalAlignment="Left" Margin="454,182,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="229"/>
                 <CheckBox x:Name="CheckTelefono" Content="Telefono:" HorizontalAlignment="Left" Margin="19,142,0,0" VerticalAlignment="Top"/>
                 <TextBox x:Name="TxtTelefono1" IsEnabled="{Binding ElementName=CheckTelefono, Path=IsChecked}" HorizontalAlignment="Left" Margin="143,141,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="155" PreviewKeyDown="TxtTelefono1_PreviewKeyDown"/>
@@ -74,7 +74,6 @@
                 <CheckBox x:Name="CheckFechaNacimiento" Content="Fecha nacimiento:" HorizontalAlignment="Left" Margin="19,183,0,0" VerticalAlignment="Top"/>
                 <CheckBox x:Name="CheckCorreoElectronico" Content="Correo electronico:" HorizontalAlignment="Left" Margin="320,183,0,0" VerticalAlignment="Top"/>
                 <CheckBox x:Name="CheckFechaIngreso" Content="Fecha Ingreso:" HorizontalAlignment="Left" Margin="19,226,0,0" VerticalAlignment="Top"/>
-                <Label Content="Estado:" HorizontalAlignment="Left" Margin="320,103,0,0" VerticalAlignment="Top"/>
                 <DatePicker x:Name="DateFechaIngresoDesde" IsEnabled="{Binding ElementName=CheckFechaIngreso, Path=IsChecked}" HorizontalAlignment="Left" Margin="143,222,0,0" VerticalAlignment="Top" PreviewKeyDown="DateFechaIngresoDesde_PreviewKeyDown"/>
                 <DatePicker x:Name="DateFechaNacimiento1" IsEnabled="{Binding ElementName=CheckFechaNacimiento, Path=IsChecked}" HorizontalAlignment="Left" Margin="143,177,0,0" VerticalAlignment="Top" PreviewKeyDown="DateFechaNacimiento1_PreviewKeyDown"/>
                 <Label x:Name="LblCant" Content="" HorizontalAlignment="Left" Margin="751,260,0,0" VerticalAlignment="Top" Width="48"/>
@@ -82,6 +81,7 @@
                 <DatePicker x:Name="DateFechaIngresoHasta" IsEnabled="{Binding ElementName=CheckFechaIngreso, Path=IsChecked}" HorizontalAlignment="Left" Margin="320,222,0,0" VerticalAlignment="Top" PreviewKeyDown="DateFechaIngresoHasta_PreviewKeyDown"/>
                 <Label Content="/" HorizontalAlignment="Left" Height="24" Margin="297,222,0,0" VerticalAlignment="Top" Width="23"/>
                 <Button x:Name="BtnImprimir" Content="Imprimir" HorizontalAlignment="Left" Height="24" Margin="421,261,0,0" VerticalAlignment="Top" Width="81" BorderBrush="#FF822D4A" Background="#FF822D4A" FontWeight="Bold" Foreground="White" Click="BtnImprimir_Click"/>
+                <CheckBox x:Name="CheckEstado2" Content="Estado" HorizontalAlignment="Left" Margin="320,106,0,0" VerticalAlignment="Top" PreviewKeyDown="CheckEstado1_PreviewKeyDown"/>
 
 
             </Grid>
