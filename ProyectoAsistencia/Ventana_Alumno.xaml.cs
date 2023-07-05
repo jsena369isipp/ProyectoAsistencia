@@ -179,7 +179,7 @@ namespace ProyectoAsistencia
                 {
                     ListaAlumnoBuscar = ListaAlumnoBuscar.Where(n => n.NombreApellido.Contains(TxtNombreApellido1.Text)).ToList();
                 }
-                if (CheckEstado.IsChecked == true)
+                if (CheckEstado1.IsChecked == true)
                 {
                     bool codEstado = Convert.ToBoolean(CheckEstado1);
                     ListaAlumnoBuscar = ListaAlumnoBuscar.Where(n => n.Estado == codEstado).ToList();
