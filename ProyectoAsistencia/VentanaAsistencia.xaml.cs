@@ -231,9 +231,9 @@ namespace ProyectoAsistencia
                 var stream = GetType().Assembly.GetManifestResourceStream("ProyectoAsistencia.Reportes.ListaAlumnoAsistencia.rdlc");
                 if (stream != null)
                 {
-
+                    int IDas = Convert.ToInt32(TxtID.Text);
                     ReportViewer reporViewer = new ReportViewer();
-                    reporViewer.LocalReport.DataSources.Add(new ReportDataSource("DSAlumnoAsistencia", ClasesPublicas.ListaAsistencias));
+                    reporViewer.LocalReport.DataSources.Add(new ReportDataSource("DSAlumnoAsistencia", ClasesPublicas.ListaAsistencias.Where(n => n.CodigoAsistencia == IDas)));
                     reporViewer.LocalReport.LoadReportDefinition(stream);
 
                     reporViewer.Visible = true;
