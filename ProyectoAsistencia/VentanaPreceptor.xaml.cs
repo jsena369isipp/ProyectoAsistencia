@@ -30,37 +30,13 @@ namespace ProyectoAsistencia
 
         public VentanaPreceptor()
         {
-
             InitializeComponent();
             ClasesPublicas.LeerPreceptor();
-            dg1.ItemsSource = ClasesPublicas.ListaPreceptor;
-
-        }
-
-        //private void btnGuardar_Click(object sender, RoutedEventArgs e)
-        //{
-        //    try
-        //    {
-        //        if (File.Exists("Preceptor.txt"))
-        //        {
-        //            File.Delete("Preceptor.txt");
-        //        }
-        //        string preceptorConcatenado = "";
-        //        foreach (Preceptor objetoPreceptor in ListaPreceptor)
-        //        {
-        //            preceptorConcatenado = preceptorConcatenado + "\r\n" + objetoPreceptor.CodigoPreceptor + ";" + objetoPreceptor.ApellidoNombre + ";" + objetoPreceptor.DNI + ";" + objetoPreceptor.FechaNacimiento + ";" + objetoPreceptor.Estado;
-        //        }
-        //        File.WriteAllText("Preceptor.txt", preceptorConcatenado);
-        //        MessageBox.Show("Almacenado de forma correcta!", "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Information);
-
-        //    }
-        //    catch (Exception ex)
-        //    {
-
-        //        MessageBox.Show("Error al guardar", "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
-        //    }
-
-        //}
+            txtCodPreceptor.Focus();
+            //dg1.ItemsSource = ClasesPublicas.ListaPreceptor;
+            //dg1.CanUserAddRows = false;
+            DatosDataGrid();
+        }        
 
 
         private void btnQuitar_Click(object sender, RoutedEventArgs e)
@@ -117,7 +93,7 @@ namespace ProyectoAsistencia
             }
             catch (Exception ex)
             {
-                MessageBox.Show(/*"Error: " + */ex.Message, "SIN REGISTROS", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Error: " + ex.Message, "SIN REGISTROS", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -129,6 +105,12 @@ namespace ProyectoAsistencia
             dpFechaNac.Text = string.Empty;
         }
 
+        private void DatosDataGrid()
+        {
+            dg1.ItemsSource = ClasesPublicas.ListaPreceptor;
+            dg1.CanUserAddRows = false;
+            lblCantReg.Content = "Cantidad registros: " + ClasesPublicas.ListaPreceptor.Count;
+        }
 
         private void Guardar()
         {
@@ -166,7 +148,7 @@ namespace ProyectoAsistencia
             {
                 MessageBox.Show("Error: " + err.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-            lblCantReg.Content = "Cantidad registros: " + ClasesPublicas.ListaPreceptor.Count;
+            //lblCantReg.Content = "Cantidad registros: " + ClasesPublicas.ListaPreceptor.Count;
         }
 
         private void dg1_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -209,6 +191,7 @@ namespace ProyectoAsistencia
                 dgResultado.ItemsSource = ListaPreceptorBuscar;
                 dgResultado.Items.Refresh();
                 lblResultado.Content = "Registros encontrados: " + ListaPreceptorBuscar.Count;
+                dgResultado.CanUserAddRows = false;
             }
             catch (Exception ex)
             {
