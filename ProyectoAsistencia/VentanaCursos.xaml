@@ -21,7 +21,7 @@
                 <Button x:Name="bttnQuitar" Content="Quitar" HorizontalAlignment="Left" Margin="721,73,0,0" VerticalAlignment="Top" FontSize="14" Click="ButtonQuitar_Click" Width="54" Background="#FF822D4A" Foreground="White" BorderBrush="Black"/>
                 <ComboBox x:Name="cmbPreceptor" DisplayMemberPath="ApellidoNombre" SelectedValuePath="CodigoPreceptor" HorizontalAlignment="Left" Margin="121,122,0,0" VerticalAlignment="Top" Width="120" KeyDown="cmbPreceptor_KeyDown" PreviewKeyDown="cmbPreceptor_PreviewKeyDown"/>
                 <Rectangle Height="55" Stroke="Black" VerticalAlignment="Top" Fill="#FF641C34" Margin="-3,0,-3,0"/>
-                <Label Content="Cursos" HorizontalAlignment="Left" Margin="18,5,0,0" VerticalAlignment="Top" Height="45" Width="206" FontSize="25" FontWeight="Bold" Foreground="White"/>
+                <Label Content="Cursos" Margin="18,5,570,0" VerticalAlignment="Top" Height="45" FontSize="25" FontWeight="Bold" Foreground="White"/>
                 <Image Height="55" Margin="724,0,14,0" VerticalAlignment="Top" Source="/Imagen/isipp-blanco.png"/>
                 <Button x:Name="btnLeer" Content="Leer" HorizontalAlignment="Left" Margin="662,73,0,0" VerticalAlignment="Top" FontSize="14" Click="bttnLeer_Click" Background="#FF822D4A" Foreground="White" BorderBrush="Black" Width="54"/>
             </Grid>
@@ -31,7 +31,7 @@
             <Grid>
                 <Rectangle Height="55" Stroke="Black" VerticalAlignment="Top" Fill="#FF641C34" Margin="-3,0,-3,0"/>
                 <Label Content="Buscador" HorizontalAlignment="Left" Margin="18,5,0,0" VerticalAlignment="Top" Height="45" Width="206" FontSize="25" FontWeight="Bold" Foreground="White" Grid.ColumnSpan="2"/>
-                <DataGrid x:Name="dtgBuscador" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="-3,112,0,0"/>
+                <DataGrid x:Name="dtgBuscador" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="-3,112,0,0" />
                 <CheckBox x:Name="chkCodCursos" Content="Codigo Cursos" HorizontalAlignment="Left" Margin="236,66,0,0" VerticalAlignment="Top" PreviewKeyDown="chkCodCursos_PreviewKeyDown"/>
                 <TextBox x:Name="txtDesde" IsEnabled="{Binding ElementName=chkCodCursos, Path=IsChecked}" HorizontalAlignment="Left" Margin="338,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="72" Text="Desde" GotFocus="txtDesde_GotFocus" PreviewKeyDown="txtDesde_PreviewKeyDown"/>
                 <TextBox x:Name="txtHasta" IsEnabled="{Binding IsChecked, ElementName=chkCodCursos}" HorizontalAlignment="Left" Margin="416,66,0,0" TextWrapping="Wrap" Text="Hasta" VerticalAlignment="Top" Width="72" GotFocus="txtHasta_GotFocus" PreviewKeyDown="txtHasta_PreviewKeyDown"/>
