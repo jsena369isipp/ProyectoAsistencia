@@ -52,7 +52,7 @@ namespace ProyectoAsistencia
                 else
                 {
                     objCursos.Estado = chbEstado.IsChecked.Value;
-                    objCursos.CodigoPreceptor = Convert.ToInt16(cmbPreceptor.Text);
+                    objCursos.CodigoPreceptor = Convert.ToInt16(cmbPreceptor.SelectedValue);
                     objCursos.CodigoCursos = Convert.ToInt32(txtCurso.Text);
                 }
                 dtgCursos.ItemsSource = ClasesPublicas.ListaCursos;
@@ -116,12 +116,12 @@ namespace ProyectoAsistencia
                 }
                 if (chkDescripcion.IsChecked == true)
                 {
-                    int codDescripcion = Convert.ToInt32(txtDescripcion2.Text);
+                    string codDescripcion = Convert.ToString(txtDescripcion2.Text);
                     ListaCursosBuscar = ListaCursosBuscar.Where(n => n.Descripcion.Contains(txtDescripcion2.Text)).ToList();
                 }
                 if (chkEstado.IsChecked == true)
                 {
-                    bool codEstado = Convert.ToBoolean(chkEstado);
+                    bool codEstado = Convert.ToBoolean(chkHabilitado.IsChecked);
                     ListaCursosBuscar = ListaCursosBuscar.Where(n => n.Estado == codEstado).ToList();
                 }
 
