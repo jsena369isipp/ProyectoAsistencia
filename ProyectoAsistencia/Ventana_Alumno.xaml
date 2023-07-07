@@ -13,7 +13,7 @@
                 <Label x:Name="LblAlumno" Content="Alumno" Margin="10,0,593,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="White" Height="41" FontSize="25" FontWeight="Bold"/>
                 <Label Content="Curso:" HorizontalAlignment="Left" Margin="0,133,0,0" VerticalAlignment="Top"/>
                 <Label Content="Codigo alumno:" HorizontalAlignment="Left" Margin="0,164,0,0" VerticalAlignment="Top"/>
-                <DataGrid x:Name="DgAlumno" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="-3,314,0,0" SelectionChanged="DgAlumno_SelectionChanged"/>
+                <DataGrid x:Name="DgAlumno" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="-3,314,0,0" SelectionChanged="DgAlumno_SelectionChanged" IsReadOnly="True"/>
                 <Label Content="DNI:" HorizontalAlignment="Left" Margin="0,200,0,0" VerticalAlignment="Top"/>
                 <Label Content="Nombre y Apellido:" HorizontalAlignment="Left" Margin="0,236,0,0" VerticalAlignment="Top"/>
                 <Label Content="Fecha Nacimiento:" HorizontalAlignment="Left" Margin="314,70,0,0" VerticalAlignment="Top"/>
@@ -62,7 +62,7 @@
                 <CheckBox x:Name="CheckNombreApellido" Content="Nombre y Apellido:" HorizontalAlignment="Left" Margin="320,71,0,0" VerticalAlignment="Top"/>
                 <TextBox x:Name="TxtNombreApellido1" IsEnabled="{Binding ElementName=CheckNombreApellido, Path=IsChecked }" HorizontalAlignment="Left" Margin="454,71,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="229" PreviewKeyDown="TxtNombreApellido1_PreviewKeyDown"/>
                 <Button x:Name="BtnBuscar" Content="Buscar" HorizontalAlignment="Left" Height="24" Margin="320,261,0,0" VerticalAlignment="Top" Width="81" BorderBrush="#FF822D4A" Background="#FF822D4A" FontWeight="Bold" Foreground="White" Click="BtnBuscar_Click"/>
-                <DataGrid x:Name="DgBuscador" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,303,0,0"/>
+                <DataGrid x:Name="DgBuscador" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,303,0,0" IsReadOnly="True"/>
                 <CheckBox x:Name="CheckDNI" Content="DNI:" HorizontalAlignment="Left" Margin="19,106,0,0" VerticalAlignment="Top"/>
                 <TextBox x:Name="TxtDNI1" IsEnabled="{Binding ElementName=CheckDNI, Path=IsChecked}" HorizontalAlignment="Left" Margin="143,103,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="155" PreviewKeyDown="TxtDNI1_PreviewKeyDown"/>
                 <CheckBox x:Name="CheckEstado1" IsEnabled="{Binding ElementName=CheckEstado2, Path=IsChecked}" Content="Habilitado" HorizontalAlignment="Left" Margin="454,106,0,0" VerticalAlignment="Top" PreviewKeyDown="CheckEstado1_PreviewKeyDown"/>
