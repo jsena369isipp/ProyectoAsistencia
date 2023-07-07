@@ -8,7 +8,7 @@
         Title="VentanaAsistencia" Height="450" Width="800">
     <TabControl>
         <TabItem Header="Regsitro">
-            <Grid Background="#FFFFFF">
+            <Grid Background="#FFFFFF" Margin="-1,0,1,0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
@@ -25,10 +25,10 @@
                     </DataGrid.Columns>
                 </DataGrid>
                 <TextBlock HorizontalAlignment="Left" Margin="39,239,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="14"/>
-                <Button x:Name="BtnAlumnosCarga" Content="Alumnos" HorizontalAlignment="Left" Margin="707,71,0,0" VerticalAlignment="Top" Height="21" Width="64" Background="#FF822D4A" Foreground="White" BorderBrush="Black" Click="BtnAlumnosCarga_Click"/>
+                <Button x:Name="BtnAlumnosCarga" HorizontalAlignment="Left" Margin="641,71,0,0" VerticalAlignment="Top" Height="21" Width="64" Background="#FF822D4A" Foreground="White" BorderBrush="Black" Click="BtnAlumnosCarga_Click" Content="Alumnos"/>
                 <ComboBox x:Name="cmbMateria" DisplayMemberPath="NombreMateria" SelectedValuePath="CodigoMateria" HorizontalAlignment="Left" Margin="96,158,0,0" VerticalAlignment="Top" Width="120" Height="26" SelectionChanged="cmbMateria_SelectionChanged"/>
                 <TextBlock HorizontalAlignment="Left" Margin="39,158,0,0" TextWrapping="Wrap" Text="Materia:" VerticalAlignment="Top" Height="26"/>
-                <Button x:Name="BtnGuardar_Copy" Click="btnGrd_Click"  Content="Guardar" HorizontalAlignment="Left" Margin="631,71,0,0" VerticalAlignment="Top" Height="21" Width="62" Background="#FF822D4A" Foreground="White" BorderBrush="Black"/>
+                <Button x:Name="BtnGuardar_Copy" Click="btnGrd_Click"  Content="Guardar" HorizontalAlignment="Left" Margin="574,71,0,0" VerticalAlignment="Top" Height="21" Width="62" Background="#FF822D4A" Foreground="White" BorderBrush="Black"/>
                 <TextBlock HorizontalAlignment="Left" Margin="39,74,0,0" TextWrapping="Wrap" Text="ID:" VerticalAlignment="Top" Height="14"/>
                 <TextBox x:Name="TxtID" HorizontalAlignment="Left" Margin="58,71,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="45" Height="21"/>
                 <Rectangle Height="55"  Stroke="Black" VerticalAlignment="Top" Fill="#FF641C34" Margin="-3603,0,-3603,0"/>
@@ -45,6 +45,7 @@
                 <Image Height="55" Margin="0,0,14,0" VerticalAlignment="Top" Source="/Imagen/isipp-blanco.png" HorizontalAlignment="Right" Width="56"/>
                 <TextBlock HorizontalAlignment="Left" Margin="631,226,0,0" TextWrapping="Wrap" Text="Cantidad de Alumnos:" VerticalAlignment="Top"/>
                 <Label x:Name="LblArchivos" Content="0" HorizontalAlignment="Left" Margin="746,221,0,0" VerticalAlignment="Top" Width="40"/>
+                <Button x:Name="BtnAlumnosImprimir" HorizontalAlignment="Left" Margin="710,71,0,0" VerticalAlignment="Top" Height="21" Width="64" Background="#FF822D4A" Foreground="White" BorderBrush="Black" Click="BtnAlumnosImprimir_Click" Content="Imprimir"/>
             </Grid>
         </TabItem>
         <TabItem Header="Buscador">

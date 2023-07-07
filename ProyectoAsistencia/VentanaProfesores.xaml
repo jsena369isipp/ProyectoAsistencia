@@ -20,7 +20,7 @@
                 <Label Content="Correo Electrónico:" Margin="430,127,0,0" VerticalAlignment="Top" FontWeight="Bold" HorizontalAlignment="Left" Width="118"/>
                 <TextBox x:Name="txtCorreo" Margin="565,128,0,0" TextWrapping="Wrap" PreviewKeyDown="txtCorrreo_PreviewKeyDown" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Width="184"/>
                 <Image Height="49" Margin="0,-6,17,0" VerticalAlignment="Top" Source="/Imagen/isipp-blanco.png" HorizontalAlignment="Right" Width="55"/>
-                <Label x:Name="labelCant1" HorizontalAlignment="Left" Margin="105,259,0,0" VerticalAlignment="Top" Width="170"/>
+                <Label x:Name="labelCant1" HorizontalAlignment="Left" Margin="464,269,0,0" VerticalAlignment="Top" Width="168" Height="26"/>
                 <Label Content="Codigo Profesor:" HorizontalAlignment="Left" Margin="18,88,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                 <Label Content="DNI:" HorizontalAlignment="Left" Margin="18,167,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                 <Label Content="Domicilio:" HorizontalAlignment="Left" Margin="18,206,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
@@ -31,17 +31,13 @@
                 <Button x:Name="BtnQuitar" Content="Quitar" HorizontalAlignment="Left" Margin="239,277,0,0" VerticalAlignment="Top" Width="60" Height="20" Foreground="#FFFDFDFD" Background="#FF822D4A" FontWeight="Bold" Click="btnQuitar_Click"/>
                 <TextBox x:Name="txt_ID" HorizontalAlignment="Left" Margin="149,92,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="73" Height="22" PreviewKeyDown="txtID_PreviewKeyDown"/>
                 <TextBox x:Name="txt_Nombre" HorizontalAlignment="Left" Margin="149,128,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="166" Height="25" PreviewKeyDown="txtNombre_PreviewKeyDown"/>
-                <TextBox x:Name="txtDNI" HorizontalAlignment="Left" Margin="149,167,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="185" PreviewKeyDown="txtDNI_PreviewKeyDown"/>
+                <TextBox x:Name="txtDNI" HorizontalAlignment="Left" Margin="149,167,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="185" PreviewKeyDown="txtDNI_PreviewKeyDown" Height="26"/>
                 <TextBox x:Name="txtDomicilio" HorizontalAlignment="Left" Margin="149,206,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="185" Height="26" PreviewKeyDown="txtDomicilio_PreviewKeyDown"/>
                 <Label x:Name="labelCant2" Content="" Margin="430,269,162,111"/>
             </Grid>
         </TabItem>
         <TabItem Header="Buscador">
             <Grid Height="407" Margin="0,0,-2,0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition Width="0*"/>
-                </Grid.ColumnDefinitions>
                 <Rectangle Stroke="Black" Fill="#FF641C34" Margin="-4,0,0,0" Height="49" VerticalAlignment="Top"/>
                 <Label x:Name="LblAlumno2" Content="Buscador" HorizontalAlignment="Left" Margin="2,0,0,0" Background="{x:Null}" Foreground="White" Width="206" FontSize="24" FontWeight="Bold" Height="43" VerticalAlignment="Top"/>
                 <Image Height="49" Margin="0,0,19,0" VerticalAlignment="Top" Source="/Imagen/isipp-blanco.png" HorizontalAlignment="Right" Width="51"/>
@@ -55,7 +51,7 @@
                 <CheckBox x:Name="checkCorreo" Content="Correo Electrónico:" Margin="373,112,0,0" VerticalAlignment="Top" FontWeight="Bold" HorizontalAlignment="Left" Width="127" Height="15"/>
                 <TextBox IsEnabled="{Binding ElementName=checkCodProfe, Path=IsChecked}"  x:Name="txtDesde" HorizontalAlignment="Left" Margin="143,70,0,0" TextWrapping="Wrap" Text="Desde:" VerticalAlignment="Top" Width="75" Height="18" GotFocus="txtDesde_GotFocus" PreviewKeyDown="txtDesde_PreviewKeyDown"/>
                 <TextBox IsEnabled="{Binding ElementName=checkCodProfe, Path=IsChecked}" x:Name="txtHasta" HorizontalAlignment="Left" Margin="252,70,0,0" TextWrapping="Wrap" Text="Hasta:" VerticalAlignment="Top" Width="74" Height="18" GotFocus="txtHasta_GotFocus" PreviewKeyDown="txtHasta_PreviewKeyDown"/>
-                <TextBox IsEnabled="{Binding ElementName=checkNombre, Path=IsChecked}" x:Name="txtNombre2" HorizontalAlignment="Left" Margin="143,109,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="185" Height="19" PreviewKeyDown="txtNombre2_PreviewKeyDown"/>
+                <TextBox IsEnabled="{Binding ElementName=checkNombre, Path=IsChecked}" x:Name="txtNombre2" HorizontalAlignment="Left" Margin="143,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="185" Height="22" PreviewKeyDown="txtNombre2_PreviewKeyDown"/>
                 <TextBox IsEnabled="{Binding ElementName=checkDNI, Path=IsChecked}" x:Name="txtDNI2" HorizontalAlignment="Left" Margin="143,147,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="185" Height="21" PreviewKeyDown="txtDNI2_PreviewKeyDown"/>
                 <TextBox IsEnabled="{Binding ElementName=checkTel, Path=IsChecked}" x:Name="txtTel2" Margin="521,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="26" PreviewKeyDown="txtTel2_PreviewKeyDown" HorizontalAlignment="Left" Width="172"/>
                 <DatePicker IsEnabled="{Binding ElementName=checkFecha, Path= IsChecked}" x:Name="dateGrid_FechaDesde" HorizontalAlignment="Left" Margin="521,142,0,0" VerticalAlignment="Top" Height="35" PreviewKeyDown="FechaDesde_PreviewKeyDown" RenderTransformOrigin="0.5,0.5" Width="118"/>
@@ -66,7 +62,6 @@
                 <DataGrid x:Name="dataGrid_Resultado2" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,284,0,0"/>
                 <Label x:Name="labelCant" Content="" HorizontalAlignment="Right" Margin="0,255,84,0" VerticalAlignment="Top" Width="214" FontWeight="Bold" Height="26"/>
                 <Button x:Name="btnImprimir" Content="Imprimir" Height="24" Margin="383,255,0,0" VerticalAlignment="Top" BorderBrush="#FF822D4A" Background="#FF822D4A" FontWeight="Bold" Foreground="White" Click="btnImprimir_Click" HorizontalAlignment="Left" Width="81"/>
-                
             </Grid>
         </TabItem>
     </TabControl>

@@ -201,6 +201,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\ListaAlumnoAsistencia.rdlc" />
     <EmbeddedResource Include="Reportes\ListaAlumnos.rdlc" />
     <EmbeddedResource Include="Reportes\ListaAlumnos3.rdlc" />
     <EmbeddedResource Include="Reportes\ListaAsistencias.rdlc" />
@@ -212,6 +213,7 @@
     <EmbeddedResource Include="Reportes\ReportPromedioAsistencias.rdlc" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\ProyectoAsistencia.Clases2023.Alumno.datasource" />
+    <None Include="Properties\DataSources\ProyectoAsistencia.Clases2023.Asistencia2.datasource" />
     <None Include="Properties\DataSources\ProyectoAsistencia.Clases2023.Profesores.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -232,6 +234,7 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="isipp-blanco.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
