@@ -31,6 +31,7 @@ namespace ProyectoAsistencia
             ClasesPublicas.LeerPreceptor();
             cmbPreceptor.ItemsSource = ClasesPublicas.ListaPreceptor;
             ClasesPublicas.LeerArchivoCursos();
+            DatosDataGrid();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -58,12 +59,48 @@ namespace ProyectoAsistencia
                 dtgCursos.ItemsSource = ClasesPublicas.ListaCursos;
                 dtgCursos.Items.Refresh();
                 Guardar();
+                Limpiar();
 
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message, "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+
+        void Limpiar()
+        {
+            txtCurso.Text = "";
+            txtDescripcion.Text = "";
+        }
+
+        void Guardar()
+        {
+            try
+            {
+                if (File.Exists("Cursos.txt"))
+                {
+                    File.Delete("Cursos.txt");
+                }
+                string CursosConectando = "";
+                foreach (Cursos objetoCursos in ClasesPublicas.ListaCursos)
+                {
+                    CursosConectando = CursosConectando + "\r\n" + objetoCursos.Descripcion + ";" + objetoCursos.Estado + ";" + objetoCursos.CodigoPreceptor + ";" + objetoCursos.CodigoCursos;
+                }
+                File.WriteAllText("Cursos.txt", CursosConectando);
+                MessageBox.Show("Almacenado de forma correcta!!", "Aplicación", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al guardar: " + ex.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void DatosDataGrid()
+        {
+            dtgCursos.ItemsSource = ClasesPublicas.ListaCursos;
+            dtgCursos.CanUserAddRows = false;
+            lblCanReg.Content = "Cantidad registros: " + ClasesPublicas.ListaCursos.Count;
         }
 
         private void ButtonQuitar_Click(object sender, RoutedEventArgs e)
@@ -293,28 +330,6 @@ namespace ProyectoAsistencia
             catch (Exception err)
             {
                 MessageBox.Show("Error: " + err.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-        }
-
-        void Guardar()
-        {
-            try
-            {
-                if (File.Exists("Cursos.txt"))
-                {
-                    File.Delete("Cursos.txt");
-                }
-                string CursosConectando = "";
-                foreach (Cursos objetoCursos in ClasesPublicas.ListaCursos)
-                {
-                    CursosConectando = CursosConectando + "\r\n" + objetoCursos.Descripcion + ";" + objetoCursos.Estado + ";" + objetoCursos.CodigoPreceptor + ";" + objetoCursos.CodigoCursos;
-                }
-                File.WriteAllText("Cursos.txt", CursosConectando);
-                MessageBox.Show("Almacenado de forma correcta!!", "Aplicación", MessageBoxButton.OK, MessageBoxImage.Information);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al guardar: " + ex.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
