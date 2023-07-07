@@ -72,6 +72,7 @@ namespace ProyectoAsistencia
         {
             txtCurso.Text = "";
             txtDescripcion.Text = "";
+            cmbPreceptor.SelectedIndex = -1;
         }
 
         void Guardar()

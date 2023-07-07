@@ -16,7 +16,7 @@
                 <CheckBox x:Name="chbEstado" Content="Habilitado" HorizontalAlignment="Center" Margin="0,61,0,0" VerticalAlignment="Top" FontSize="14"/>
                 <TextBox x:Name="txtDescripcion" HorizontalAlignment="Left" Margin="112,86,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="172" FontSize="14" PreviewKeyDown="txtDescripcion_PreviewKeyDown"/>
                 <TextBox x:Name="txtCurso" HorizontalAlignment="Left" Margin="112,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="36" FontSize="14" PreviewKeyDown="txtCurso_PreviewKeyDown"/>
-                <DataGrid SelectionChanged="dtgCursos_SelectionChanged" x:Name="dtgCursos" d:ItemsSource="{d:SampleData ItemCount=5}" Height="NaN" Margin="0,139,0,44"/>
+                <DataGrid SelectionChanged="dtgCursos_SelectionChanged" IsReadOnly="True" x:Name="dtgCursos" d:ItemsSource="{d:SampleData ItemCount=5}" Height="NaN" Margin="0,139,0,44"/>
                 <Button x:Name="bttCargar" Content="Cargar" Margin="0,61,14,0" VerticalAlignment="Top" FontSize="14" Click="Button_Click" Background="#FF822D4A" Foreground="White" BorderBrush="Black" Height="25" HorizontalAlignment="Right" Width="60"/>
                 <Button x:Name="bttnQuitar" Content="Quitar" HorizontalAlignment="Right" Margin="0,0,14,10" VerticalAlignment="Bottom" FontSize="14" Click="ButtonQuitar_Click" Height="25" Width="60" Background="#FF822D4A" Foreground="White" BorderBrush="Black"/>
                 <ComboBox x:Name="cmbPreceptor" DisplayMemberPath="ApellidoNombre" SelectedValuePath="CodigoPreceptor" HorizontalAlignment="Left" Margin="112,112,0,0" VerticalAlignment="Top" Width="120" KeyDown="cmbPreceptor_KeyDown" PreviewKeyDown="cmbPreceptor_PreviewKeyDown"/>
@@ -31,7 +31,7 @@
             <Grid>
                 <Rectangle Height="55" Stroke="Black" VerticalAlignment="Top" Fill="#FF641C34" Margin="-3,0,-3,0"/>
                 <Label Content="Buscador" HorizontalAlignment="Left" Margin="18,5,0,0" VerticalAlignment="Top" Height="45" Width="206" FontSize="25" FontWeight="Bold" Foreground="White" Grid.ColumnSpan="2"/>
-                <DataGrid x:Name="dtgBuscador" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="-3,109,0,44" CanUserAddRows="False" />
+                <DataGrid x:Name="dtgBuscador" IsReadOnly="True" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="-3,109,0,44" CanUserAddRows="False" />
                 <CheckBox x:Name="chkCodCursos" FontSize="14" Content="Codigo Cursos" HorizontalAlignment="Left" Margin="258,60,0,0" VerticalAlignment="Top" PreviewKeyDown="chkCodCursos_PreviewKeyDown"/>
                 <TextBox x:Name="txtDesde" FontSize="14" IsEnabled="{Binding ElementName=chkCodCursos, Path=IsChecked}" HorizontalAlignment="Left" Margin="373,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="72" Text="Desde" GotFocus="txtDesde_GotFocus" PreviewKeyDown="txtDesde_PreviewKeyDown"/>
                 <TextBox x:Name="txtHasta" FontSize="14" IsEnabled="{Binding IsChecked, ElementName=chkCodCursos}" HorizontalAlignment="Left" Margin="450,60,0,0" TextWrapping="Wrap" Text="Hasta" VerticalAlignment="Top" Width="72" GotFocus="txtHasta_GotFocus" PreviewKeyDown="txtHasta_PreviewKeyDown"/>
