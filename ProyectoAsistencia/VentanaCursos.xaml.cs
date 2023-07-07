@@ -117,7 +117,7 @@ namespace ProyectoAsistencia
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message, "Aplicacion", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Error: " + ex.Message, "SELECCIONE UN ITEM", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -195,22 +195,6 @@ namespace ProyectoAsistencia
                 MessageBox.Show("Error: " + err.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-
-        private void bttnLeer_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                ClasesPublicas.LeerArchivoCursos();
-                dtgCursos.ItemsSource = ClasesPublicas.ListaCursos;
-                dtgCursos.Items.Refresh();
-            }
-            catch (Exception err)
-            {
-                MessageBox.Show("Error: " + err.Message, "Aplicación", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-        }
-
-
 
         private void txtCurso_PreviewKeyDown(object sender, KeyEventArgs e)
         {
